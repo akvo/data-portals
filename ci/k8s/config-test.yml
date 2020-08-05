@@ -1,9 +1,8 @@
 kind: ConfigMap
 apiVersion: v1
 metadata:
-  name: akvo-rsr
+  name: akvo-data-portals
   namespace: default
 data:
-  google-storege-bucket-name: akvo-rsr-test-media-files
-  default-file-storage: storages.backends.gcloud.GoogleCloudStorage
-  google-sql-db-instance: shared-test-database
+  mapbox-token: pk.eyJ1IjoibWFydGluY2hyaXN0b3YiLCJhIjoiTXFhSVJTMCJ9.dsByYqa5jm2OU7KwrfV3vA
+  domain: https://dataportals.akvotest.org

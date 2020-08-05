@@ -48,4 +48,4 @@ kubectl apply -f deployment.yml.tmp
 
 #
 # log Waiting for k8s to finish
-# ./ci/k8s/helpers/wait-for-k8s-deployment-to-be-ready.sh
+./ci/k8s/helpers/wait-for-k8s-deployment-to-be-ready.sh

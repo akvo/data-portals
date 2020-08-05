@@ -112,6 +112,8 @@ spec:
               configMapKeyRef:
                 name: akvo-data-portals
                 key: domain
+        - name: INTERNAL_API_DOMAIN
+          value: "http://localhost:9000"
         - name: API_PATH
           value: "/api/v1"
       - name: cloudsql-proxy

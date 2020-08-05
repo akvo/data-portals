@@ -40,13 +40,11 @@ else
     docker push eu.gcr.io/${PROJECT_NAME}/data-portals-nginx
 fi
 
-# sed -e "s/\${TRAVIS_COMMIT}/$CI_COMMIT/" ci/k8s/deployment.yml > deployment.yml.tmp
+sed -e "s/\${TRAVIS_COMMIT}/$CI_COMMIT/" ci/k8s/deployment.yml > deployment.yml.tmp
 # 
 kubectl apply -f ${K8S_CONFIG_FILE}
-# kubectl apply -f ci/k8s/memcached.yml
-# kubectl apply -f ci/k8s/media-disk.yml
 # kubectl apply -f ci/k8s/service.yml
-# kubectl apply -f deployment.yml.tmp
+kubectl apply -f deployment.yml.tmp
 # kubectl apply -f ci/k8s/grafana/main.yml
 # 
 # log Waiting for k8s to finish

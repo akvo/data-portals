@@ -27,9 +27,11 @@ gcloud config set container/use_client_certificate False
 if [[ "${CI_TAG:-}" =~ promote-.* ]]; then
     log Environment is production
     gcloud container clusters get-credentials production
+    K8S_CONFIG_FILE=ci/k8s/config-prod.yml
 else
     log Environement is test
     gcloud container clusters get-credentials test
+    K8S_CONFIG_FILE=ci/k8s/config-test.yml
 
     log Pushing images
     gcloud auth configure-docker
@@ -40,7 +42,7 @@ fi
 
 # sed -e "s/\${TRAVIS_COMMIT}/$CI_COMMIT/" ci/k8s/deployment.yml > deployment.yml.tmp
 # 
-# kubectl apply -f ${K8S_CONFIG_FILE}
+kubectl apply -f ${K8S_CONFIG_FILE}
 # kubectl apply -f ci/k8s/memcached.yml
 # kubectl apply -f ci/k8s/media-disk.yml
 # kubectl apply -f ci/k8s/service.yml

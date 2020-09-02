@@ -15,6 +15,27 @@ const WaterQuality: StatelessComponent<Props> = ({
   return (
     <>
       <h1>Water quality</h1>
+      <div
+        style={{
+          height: '50vh',
+          minHeight: '500px',
+          width: '100%',
+          maxWidth: '1000px',
+        }}
+      >
+        <ClusteredMap
+          source={sourceUrl}
+          latitude={17.65}
+          longitude={-4.5}
+          zoom={4.5}
+          width="100%"
+          height="100%"
+          mapboxToken={mapboxToken}
+        />
+      </div>
+
+      <p />
+
       <p>
         Ullamcorper dignissim cras tincidunt lobortis. Est lorem ipsum dolor sit
         amet consectetur adipiscing. Tempor commodo ullamcorper a lacus. Morbi
@@ -43,25 +64,6 @@ const WaterQuality: StatelessComponent<Props> = ({
         ipsum a arcu. Eu augue ut lectus arcu bibendum at varius vel pharetra.
         Sed adipiscing diam donec adipiscing tristique risus nec.
       </p>
-
-      <div
-        style={{
-          height: '50vh',
-          minHeight: '500px',
-          width: '100%',
-          maxWidth: '1000px',
-        }}
-      >
-        <ClusteredMap
-          source={sourceUrl}
-          latitude={17.65}
-          longitude={-4.5}
-          zoom={4.5}
-          width="100%"
-          height="100%"
-          mapboxToken={mapboxToken}
-        />
-      </div>
     </>
   )
 }

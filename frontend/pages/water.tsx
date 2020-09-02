@@ -12,6 +12,27 @@ const Water: StatelessComponent<Props> = ({ sourceUrl, mapboxToken }) => {
   return (
     <>
       <h1>Water</h1>
+      <div
+        style={{
+          height: '50vh',
+          minHeight: '500px',
+          width: '100%',
+          maxWidth: '1000px',
+        }}
+      >
+        <UnclusteredMap
+          source={sourceUrl}
+          latitude={17.65}
+          longitude={-4.5}
+          zoom={4.5}
+          width="100%"
+          height="100%"
+          mapboxToken={mapboxToken}
+        />
+      </div>
+
+      <p />
+
       <p>
         Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod
         tempor incididunt ut labore et dolore magna aliqua. Mi sit amet mauris
@@ -41,25 +62,6 @@ const Water: StatelessComponent<Props> = ({ sourceUrl, mapboxToken }) => {
         Eget sit amet tellus cras adipiscing enim eu. In aliquam sem fringilla
         ut. At elementum eu facilisis sed odio.
       </p>
-
-      <div
-        style={{
-          height: '50vh',
-          minHeight: '500px',
-          width: '100%',
-          maxWidth: '1000px',
-        }}
-      >
-        <UnclusteredMap
-          source={sourceUrl}
-          latitude={17.65}
-          longitude={-4.5}
-          zoom={4.5}
-          width="100%"
-          height="100%"
-          mapboxToken={mapboxToken}
-        />
-      </div>
     </>
   )
 }

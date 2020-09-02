@@ -13,24 +13,7 @@ type Props = {
 const Home: StatelessComponent<Props> = ({ sourceUrl }) => {
   return (
     <>
-      <h1>Data portal WASH Mali</h1>
-      <p>
-        In this portal X, Y, Z. Please see the menu above for insights and data
-        visualisations <strong>per WASH theme</strong>, or go immediately to the{' '}
-        <strong>raw data</strong>:
-      </p>
-      <p>
-        <Link href="/data">
-          <Button type="primary">View raw data</Button>
-        </Link>
-      </p>
-
-      <h2>Overview of data by region</h2>
-      <p>
-        The graph below gives an overview of the main indicators by region used
-        by the DNH. Namely: functionality rate, access rate and equipment rate.
-        For more information, see the data and graphics section.
-      </p>
+      <h1>Overview of data by region</h1>
       <div
         style={{
           height: '50vh',
@@ -69,6 +52,23 @@ const Home: StatelessComponent<Props> = ({ sourceUrl }) => {
           ]}
         />
       </div>
+      <p>
+        This graph gives an overview of the main indicators by region used by
+        the DNH. Namely: functionality rate, access rate and equipment rate. For
+        more information, see the data and graphics section.
+      </p>
+
+      <h1>Data portal WASH Mali</h1>
+      <p>
+        <Link href="/data">
+          <Button type="primary">View raw data</Button>
+        </Link>
+      </p>
+      <p>
+        In this portal X, Y, Z. Please see the menu above for insights and data
+        visualisations <strong>per WASH theme</strong>, or go immediately to the{' '}
+        <strong>raw data</strong>:
+      </p>
     </>
   )
 }

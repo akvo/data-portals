@@ -44,7 +44,14 @@ const WaterQuality: StatelessComponent<Props> = ({
         Sed adipiscing diam donec adipiscing tristique risus nec.
       </p>
 
-      <div style={{ height: '50vh', width: '100%', maxWidth: '1000px' }}>
+      <div
+        style={{
+          height: '50vh',
+          minHeight: '500px',
+          width: '100%',
+          maxWidth: '1000px',
+        }}
+      >
         <ClusteredMap
           source={sourceUrl}
           latitude={17.65}

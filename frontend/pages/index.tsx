@@ -31,7 +31,14 @@ const Home: StatelessComponent<Props> = ({ sourceUrl }) => {
         by the DNH. Namely: functionality rate, access rate and equipment rate.
         For more information, see the data and graphics section.
       </p>
-      <div style={{ height: '50vh', width: '100%', maxWidth: '1000px' }}>
+      <div
+        style={{
+          height: '50vh',
+          minHeight: '500px',
+          width: '100%',
+          maxWidth: '1000px',
+        }}
+      >
         <GroupBarChart
           source={sourceUrl}
           keys={['PMH', 'Puits', 'SAEP']}

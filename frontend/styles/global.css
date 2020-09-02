@@ -1,8 +1,5 @@
-.layout-header {
-  position: fixed;
-  z-index: 1;
-  width: 100%;
-  overflow: hidden;
+body {
+  background-color: #e9edf1;
 }
 
 .layout-header .logo {
@@ -22,6 +19,15 @@
 }
 
 .layout-content {
-  padding: 100px 50px 50px;
-  min-height: 500px;
+  padding: 100px 0 50px;
+}
+
+.layout-center {
+  margin: 0 auto;
+  min-width: 800px;
+  max-width: 1200px;
+}
+
+.ant-layout-footer {
+  background-color: #e9edf1;
 }

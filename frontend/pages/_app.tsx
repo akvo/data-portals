@@ -14,54 +14,60 @@ const CustomApp: StatelessComponent<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <Layout>
-      <Header className="layout-header">
-        <div className="logo">
-          <Link href="/">
-            <a>
-              <img src="/logo.svg" />
-            </a>
-          </Link>
+      <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+        <div className="layout-header layout-center">
+          <div className="logo">
+            <Link href="/">
+              <a>
+                <img src="/logo.svg" />
+              </a>
+            </Link>
+          </div>
+          <Menu theme="dark" mode="horizontal" selectedKeys={[activeMenu]}>
+            <Menu.Item key="water">
+              <Link href="/water">
+                <a>Water</a>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="water-quality">
+              <Link href="/water-quality">
+                <a>Water quality</a>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="sanitation">
+              <Link href="/sanitation">
+                <a>Sanitation</a>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="hygiene">
+              <Link href="/hygiene">
+                <a>Hygiene</a>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="data">
+              <Link href="/data">
+                <a>Data</a>
+              </Link>
+            </Menu.Item>
+            <Menu.Item key="guide">
+              <Link href="/guide">
+                <a>Guide</a>
+              </Link>
+            </Menu.Item>
+          </Menu>
         </div>
-        <Menu theme="dark" mode="horizontal" selectedKeys={[activeMenu]}>
-          <Menu.Item key="water">
-            <Link href="/water">
-              <a>Water</a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="water-quality">
-            <Link href="/water-quality">
-              <a>Water quality</a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="sanitation">
-            <Link href="/sanitation">
-              <a>Sanitation</a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="hygiene">
-            <Link href="/hygiene">
-              <a>Hygiene</a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="data">
-            <Link href="/data">
-              <a>Data</a>
-            </Link>
-          </Menu.Item>
-          <Menu.Item key="guide">
-            <Link href="/guide">
-              <a>Guide</a>
-            </Link>
-          </Menu.Item>
-        </Menu>
       </Header>
 
-      <Content className="layout-content">
-        <Component {...pageProps} />
+      <Content>
+        <div className="layout-content layout-center">
+          <Component {...pageProps} />
+        </div>
       </Content>
 
       <Footer>
-        <p>@2020</p>
+        <div className="layout-footer layout-center">
+          <p>@2020</p>
+        </div>
       </Footer>
     </Layout>
   )

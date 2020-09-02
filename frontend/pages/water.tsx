@@ -42,7 +42,14 @@ const Water: StatelessComponent<Props> = ({ sourceUrl, mapboxToken }) => {
         ut. At elementum eu facilisis sed odio.
       </p>
 
-      <div style={{ height: '50vh', width: '100%', maxWidth: '1000px' }}>
+      <div
+        style={{
+          height: '50vh',
+          minHeight: '500px',
+          width: '100%',
+          maxWidth: '1000px',
+        }}
+      >
         <UnclusteredMap
           source={sourceUrl}
           latitude={17.65}

@@ -1,0 +1,25 @@
+[
+  {
+    "water_point_type": "Puits moderne",
+    "fonctionnel": 38.9,
+    "sec": 0.075,
+    "en panne": 0.25,
+    "non utilisé": 2.44
+  },
+  {
+    "water_point_type": "Forage équipé de pmh",
+    "fonctionnel": 35.5,
+    "en panne": 11.5,
+    "non utilisé": 3.6
+  },
+  {
+    "water_point_type": "Forage non équipé",
+    "fonctionnel": 2.7,
+    "en panne": 0.3,
+    "non utilisé": 1.03
+  },
+  {
+    "water_point_type": "Puits citerne",
+    "fonctionnel": 3.3
+  }
+]

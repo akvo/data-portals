@@ -1,0 +1,34 @@
+[
+  {
+    "answer": "Conflict",
+    "frequency": 50
+  },
+  {
+    "answer": "Flood site",
+    "frequency": 60
+  },
+  {
+    "answer": "Distance from the water point",
+    "frequency": 104
+  },
+  {
+    "answer": "Neighbouring water point",
+    "frequency": 288
+  },
+  {
+    "answer": "Water smell",
+    "frequency": 339
+  },
+  {
+    "answer": "Water point dried up",
+    "frequency": 375
+  },
+  {
+    "answer": "Water color",
+    "frequency": 397
+  },
+  {
+    "answer": "Water taste",
+    "frequency": 556
+  }
+]

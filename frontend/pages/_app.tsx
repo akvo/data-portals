@@ -1,5 +1,6 @@
 import 'antd/dist/antd.css'
 import '../styles/global.css'
+import 'leaflet/dist/leaflet.css'
 import { AppProps } from 'next/app'
 import { Layout, Menu } from 'antd'
 import Link from 'next/link'
@@ -14,7 +15,7 @@ const CustomApp: StatelessComponent<AppProps> = ({ Component, pageProps }) => {
 
   return (
     <Layout>
-      <Header style={{ position: 'fixed', zIndex: 1, width: '100%' }}>
+      <Header style={{ position: 'fixed', zIndex: 1000000, width: '100%' }}>
         <div className="layout-header layout-center">
           <div className="logo">
             <Link href="/">

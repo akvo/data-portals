@@ -11,7 +11,9 @@
   },
   "dependencies": {
     "@nivo/bar": "^0.62.0",
+    "@nivo/pie": "^0.62.0",
     "antd": "^4.4.2",
+    "leaflet": "^1.7.1",
     "next": "^9.4.4",
     "node-fetch": "^2.6.1",
     "pm2": "^4.4.0",
@@ -23,7 +25,9 @@
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.2",
     "@testing-library/react": "^10.4.5",
+    "@types/geojson": "^7946.0.7",
     "@types/jest": "^26.0.4",
+    "@types/leaflet": "^1.5.17",
     "@types/node": "^14.0.23",
     "@types/node-fetch": "^2.5.7",
     "@types/react": "^16.9.43",

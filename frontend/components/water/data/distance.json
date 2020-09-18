@@ -1,0 +1,22 @@
+[
+  {
+    "max_distance": "< 200 m",
+    "fonctionnel": 27.6,
+    "sec": 0.04,
+    "en panne": 3.8,
+    "non utilisé": 2.33
+  },
+  {
+    "max_distance": "< 1 km",
+    "fonctionnel": 24.9,
+    "en panne": 4.22,
+    "non utilisé": 1.8
+  },
+  {
+    "max_distance": "> 1km",
+    "fonctionnel": 13.05,
+    "sec": 0.023,
+    "en panne": 1.79,
+    "non utilisé": 0.9
+  }
+]

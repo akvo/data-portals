@@ -1,0 +1,10 @@
+[
+  { "answer": "Proximité décharge", "Percentage": 2.5 },
+  { "answer": "Zone inondable", "Percentage": 3.8 },
+  { "answer": "Other", "Percentage": 4.7 },
+  { "answer": "Présence bétail", "Percentage": 8.9 },
+  { "answer": "Ruissellement", "Percentage": 9.1 },
+  { "answer": "Mauvais état superstructure", "Percentage": 12.3 },
+  { "answer": "Manque de fermeture", "Percentage": 12.9 },
+  { "answer": "Manque d'entretien", "Percentage": 23.5 }
+]

@@ -27,7 +27,7 @@ const LeafletMap: StatelessComponent<MapProps> = ({
         tileSize: 512,
         maxZoom: 18,
         zoomOffset: -1,
-        id: mapStyle || 'mapbox/streets-v11',
+        id: mapStyle || 'mapbox/light-v10',
         accessToken,
       }
     ).addTo(mapRef.current)

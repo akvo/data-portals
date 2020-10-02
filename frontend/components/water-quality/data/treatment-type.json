@@ -1,0 +1,14 @@
+[
+  {
+    "id": "Eau de javel",
+    "label": "Eau de javel",
+    "value": 2844,
+    "color": "hsl(336, 70%, 50%)"
+  },
+  {
+    "id": "Pastille de chlore",
+    "label": "Pastille de chlore",
+    "value": 32,
+    "color": "hsl(178, 70%, 50%)"
+  }
+]

@@ -31,3 +31,11 @@ body {
 .ant-layout-footer {
   background-color: #e9edf1;
 }
+
+.ant-card-bordered {
+  border: 1px solid #d9e0d6;
+}
+
+.ant-card {
+  background: transparent;
+}

@@ -6,7 +6,7 @@ const MechanicVsManualPumpChart: StatelessComponent = () => {
   return (
     <ResponsivePie
       data={data}
-      margin={{ top: 0, right: 20, bottom: 40, left: 50 }}
+      margin={{ top: 10, right: 20, bottom: 10, left: 50 }}
       startAngle={-180}
       innerRadius={0.45}
       colors={['#bcbddc', '#756bb1']}

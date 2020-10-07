@@ -1,44 +1,47 @@
 import { StatelessComponent } from 'react'
-import { FeatureCollection, Feature } from 'geojson'
+import { FeatureCollection } from 'geojson'
 import L from 'leaflet'
 import LeafletMap from '../LeafletMap'
-import functionality from './data/functionality.json'
+import maliGeo from './data/mli_hdx.json'
 
 type Props = {
   accessToken: string
 }
 
 const FunctionalityMap: StatelessComponent<Props> = ({ accessToken }) => {
+  const getColor = (d: number) => {
+    return d > 87
+      ? '#000000'
+      : d > 83
+      ? '#006837ff'
+      : d > 79
+      ? '#31a354ff'
+      : d > 75
+      ? '#78c679ff'
+      : d > 70
+      ? '#addd8eff'
+      : d > 66
+      ? '#d9f0a3ff'
+      : d > 61
+      ? '#ffffccff'
+      : '#ffffff'
+  }
+  const style: L.StyleFunction = (feature) => {
+    return {
+      fillColor: getColor(feature?.properties?.Percentage),
+      weight: 1,
+      opacity: 0.5,
+      color: 'black',
+      dashArray: '3',
+      fillOpacity: 0.7,
+    }
+  }
   return (
     <LeafletMap
       accessToken={accessToken}
       onMount={(map) => {
-        const geojsonMarkerOptions = {
-          radius: 5,
-          fillColor: '#ff7800',
-          color: '#000',
-          weight: 1,
-          opacity: 0.5,
-          fillOpacity: 0.8,
-        }
-
-        const onEachFeature = (feature: Feature, layer: L.Layer) => {
-          const popupContent = `
-              <table>
-              <tr>
-                <th>id:</th>
-                <td>${feature?.properties?.functionality_main}</td>
-              </tr>
-              </table>`
-
-          layer.bindPopup(popupContent)
-        }
-
-        const feature = L.geoJSON(functionality as FeatureCollection, {
-          onEachFeature: onEachFeature,
-          pointToLayer: function (_, latlng) {
-            return L.circleMarker(latlng, geojsonMarkerOptions)
-          },
+        const feature = L.geoJSON(maliGeo as FeatureCollection, {
+          style: style,
         }).addTo(map)
 
         map.fitBounds(feature.getBounds())

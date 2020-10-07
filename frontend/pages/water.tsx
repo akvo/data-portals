@@ -1,6 +1,6 @@
 import { StatelessComponent } from 'react'
 import { GetServerSideProps } from 'next'
-import { Row, Col, Card, Statistic } from 'antd'
+import { Row, Col } from 'antd'
 import { MAPBOX_TOKEN } from '../config'
 import dynamic from 'next/dynamic'
 import DistanceToWaterpointChart from '../components/water/DistanceToWaterpointChart'
@@ -20,83 +20,89 @@ type Props = {
 const Water: StatelessComponent<Props> = ({ mapboxToken }) => {
   return (
     <>
-      <h1>Water</h1>
+      <h1>Functionality</h1>
       <div style={{ marginBottom: '40px' }}>
-        <h2>Functionality Map</h2>
         <Row>
-          <Col span={16}>
-            <div style={{ height: '50vh', width: '100%' }}>
+          <Col span={18}>
+            <div
+              style={{ height: '500px', width: '100%', marginBottom: '1em' }}
+            >
               <FunctionalityMap accessToken={mapboxToken} />
             </div>
-          </Col>
-          <Col span={8} style={{ paddingLeft: '20px' }}>
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Mi sit
-              amet mauris commodo quis imperdiet massa. Nulla posuere
-              sollicitudin aliquam ultrices sagittis orci a scelerisque purus.
-              Adipiscing elit pellentesque habitant morbi. Ultricies mi eget
-              mauris pharetra et. Elit pellentesque habitant morbi tristique
-              senectus. Non quam lacus suspendisse faucibus. Orci dapibus
-              ultrices in iaculis nunc sed. Ac tortor dignissim convallis
-              aenean. Ut sem viverra aliquet eget sit amet tellus cras. Lorem
-              donec massa sapien faucibus et molestie. Sapien faucibus et
-              molestie ac feugiat sed lectus vestibulum mattis. Cursus vitae
-              congue mauris rhoncus aenean. Sit amet mattis vulputate enim
-              nulla. Egestas quis ipsum suspendisse ultrices. Nisi quis eleifend
-              quam adipiscing vitae proin. Morbi blandit cursus risus at. Fames
-              ac turpis egestas maecenas pharetra convallis posuere morbi. Eu
-              turpis egestas pretium aenean pharetra magna.
+              This map shows the percentage of functional waterpoints per
+              district.
             </p>
           </Col>
         </Row>
       </div>
       <div style={{ marginBottom: '40px' }}>
         <Row>
-          <Col span={8} style={{ paddingRight: '20px' }}>
-            <Card>
-              <Statistic
-                title="Percentage of functional pumps"
-                value="81"
-                suffix="%"
-              />
-            </Card>
-          </Col>
-          <Col span={8} style={{ paddingRight: '10px' }}>
-            <h2>Distance to the Water Point</h2>
-            <div style={{ height: '50vh' }}>
-              <DistanceToWaterpointChart />
+          <Col span={9} style={{ paddingRight: '1em' }}>
+            <div className="card">
+              <strong>Frequency of Water Pump Types</strong>
+              <div style={{ height: '300px' }}>
+                <FrequencyOfPumpTypesChart />
+              </div>
             </div>
+            <p>
+              The <em>forage équipé de PMH</em> is the most frequently seen
+              water point of which 35% is functional. Second most frequent is
+              the <em>puits modern</em>, of which 38% is functional.
+            </p>
           </Col>
-          <Col span={8} style={{ paddingLeft: '10px' }}>
-            <h2>Frequency of Water Pump Types</h2>
-            <div style={{ height: '50vh' }}>
-              <FrequencyOfPumpTypesChart />
+          <Col span={9} style={{ paddingLeft: '1em' }}>
+            <div className="card">
+              <strong>Distance to the Water Point</strong>
+              <div style={{ height: '300px' }}>
+                <DistanceToWaterpointChart />
+              </div>
+            </div>
+            <p>
+              The biggest amount of functional water points is less that 200
+              meters from the household: 28%. 25% of the water points is less
+              than a kilometer away.
+            </p>
+          </Col>
+          <Col span={6}>
+            <div className="statistic">
+              <div className="statistic-number">81%</div>
+              <div className="statistic-desc">
+                of the water points is functional
+              </div>
             </div>
           </Col>
         </Row>
       </div>
       <div style={{ marginBottom: '40px' }}>
         <Row>
-          <Col span={8} style={{ paddingRight: '20px' }}>
-            <Card>
-              <Statistic
-                title="Percentage of abandoned wells"
-                value="6"
-                suffix="%"
-              />
-            </Card>
-          </Col>
-          <Col span={8} style={{ paddingRight: '10px' }}>
-            <h2>Reason for abandonment of the water point</h2>
-            <div style={{ height: '50vh' }}>
-              <ReasonForAbandonmentChart />
+          <Col span={9} style={{ paddingRight: '1em' }}>
+            <div className="card">
+              <strong>Reason for abandonment of the water point</strong>
+              <div style={{ height: '300px' }}>
+                <ReasonForAbandonmentChart />
+              </div>
             </div>
+            <p>
+              The main reason for water point to be abandoned is the taste,
+              second is the color.
+            </p>
           </Col>
-          <Col span={8} style={{ paddingLeft: '10px' }}>
-            <h2>Mechanic versus manual pump</h2>
-            <div style={{ height: '45vh' }}>
-              <MechanicVsManualPumpChart />
+          <Col span={9} style={{ paddingLeft: '1em' }}>
+            <div className="card">
+              <strong>Mechanic versus manual pump</strong>
+              <div style={{ height: '300px' }}>
+                <MechanicVsManualPumpChart />
+              </div>
+            </div>
+            <p>60% of the water points is a Pompe à Motricité Humaine.</p>
+          </Col>
+          <Col span={6}>
+            <div className="statistic">
+              <div className="statistic-number">6%</div>
+              <div className="statistic-desc">
+                of the water points is abandonned
+              </div>
             </div>
           </Col>
         </Row>

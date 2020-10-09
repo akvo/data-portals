@@ -20,7 +20,7 @@ const CustomApp: StatelessComponent<AppProps> = ({ Component, pageProps }) => {
           <div className="logo">
             <Link href="/">
               <a>
-                <img src="/logo.svg" />
+                <h1>Akvo Portals</h1>
               </a>
             </Link>
           </div>

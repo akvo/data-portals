@@ -6,7 +6,7 @@ import {
 } from '@testing-library/react'
 import Home, { formatPercentage, getServerSideProps } from '../../pages/index'
 import { server, rest } from '../mocks/server'
-import { API_URL } from '../../config'
+import { API_PATH } from '../../config'
 
 describe('Home page', () => {
   const fakeData = {
@@ -17,7 +17,7 @@ describe('Home page', () => {
   }
 
   it('matches snapshot', async () => {
-    const sourceUrl = API_URL + '/functionality-rate-by-region'
+    const sourceUrl = API_PATH + '/functionality-rate-by-region'
     server.use(
       rest.get(sourceUrl, (_, res, ctx) => {
         return res(ctx.json([fakeData]))

@@ -1,6 +1,6 @@
 import { StatelessComponent } from 'react'
 import { GetServerSideProps } from 'next'
-import { API_URL, MAPBOX_TOKEN } from '../config'
+import { API_PATH, MAPBOX_TOKEN } from '../config'
 import UnclusteredMap from '../components/UnclusteredMap'
 
 type Props = {
@@ -38,7 +38,7 @@ const Sanitation: StatelessComponent<Props> = ({ sourceUrl, mapboxToken }) => {
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   return {
     props: {
-      sourceUrl: API_URL + '/site-points.geojson',
+      sourceUrl: API_PATH + '/site-points.geojson',
       mapboxToken: MAPBOX_TOKEN,
     },
   }

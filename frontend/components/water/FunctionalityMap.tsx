@@ -4,11 +4,7 @@ import L from 'leaflet'
 import LeafletMap from '../LeafletMap'
 import maliGeo from './data/mli_hdx.json'
 
-type Props = {
-  accessToken: string
-}
-
-const FunctionalityMap: StatelessComponent<Props> = ({ accessToken }) => {
+const FunctionalityMap: StatelessComponent = () => {
   const getColor = (d: number) => {
     return d > 87
       ? '#000000'
@@ -38,7 +34,6 @@ const FunctionalityMap: StatelessComponent<Props> = ({ accessToken }) => {
   }
   return (
     <LeafletMap
-      accessToken={accessToken}
       onMount={(map) => {
         const feature = L.geoJSON(maliGeo as FeatureCollection, {
           style: style,

@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import Water, { getServerSideProps } from '../../pages/water'
 import { server, rest } from '../mocks/server'
-import { API_URL } from '../../config'
+import { API_PATH } from '../../config'
 
 describe('Water page', () => {
   const fakeGeojson = {
@@ -11,7 +11,7 @@ describe('Water page', () => {
   }
 
   it('matches snapshot', () => {
-    const sourceUrl = API_URL + '/site-points.geojson'
+    const sourceUrl = API_PATH + '/site-points.geojson'
 
     server.use(
       rest.get(sourceUrl, (_, res, ctx) => {

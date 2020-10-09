@@ -2,7 +2,7 @@ import React from 'react'
 import { render } from '@testing-library/react'
 import Ping, { getServerSideProps } from '../../pages/ping'
 import { server, rest } from '../mocks/server'
-import { INTERNAL_API_DOMAIN } from '../../config'
+import { INTERNAL_API_HOST } from '../../config'
 
 describe('Ping page', () => {
   it('matches snapshot', () => {
@@ -12,7 +12,7 @@ describe('Ping page', () => {
 
   it('should call backend endpoint', async () => {
     server.use(
-      rest.get(INTERNAL_API_DOMAIN + '/ping', (_, res, ctx) => {
+      rest.get(INTERNAL_API_HOST + '/ping', (_, res, ctx) => {
         return res(ctx.json({ ping: 'pong!' }))
       })
     )

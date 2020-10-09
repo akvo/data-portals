@@ -1,7 +1,7 @@
 import { StatelessComponent } from 'react'
 import { GetServerSideProps } from 'next'
 import { TickFormatter } from '@nivo/axes'
-import { API_URL, MAPBOX_TOKEN } from '../config'
+import { API_PATH, MAPBOX_TOKEN } from '../config'
 import ClusteredMap from '../components/ClusteredMap'
 import GroupBarChart from '../components/GroupBarChart'
 
@@ -93,8 +93,8 @@ export const formatPercentage: TickFormatter = (value) => value + '%'
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   return {
     props: {
-      chartSource: API_URL + '/functionality-rate-by-region',
-      mapSource: API_URL + '/site-points.geojson',
+      chartSource: API_PATH + '/functionality-rate-by-region',
+      mapSource: API_PATH + '/site-points.geojson',
       mapboxToken: MAPBOX_TOKEN,
     },
   }

@@ -4,10 +4,6 @@ import L from 'leaflet'
 import LeafletMap from './LeafletMap'
 import data from './mali-adm3.json'
 
-type Props = {
-  accessToken: string
-}
-
 const style = () => {
   return {
     weight: 1,
@@ -34,10 +30,9 @@ const onEachFeature = (feature: Feature, layer: L.Layer) => {
   layer.bindPopup(popupContent)
 }
 
-const MaliAdm3Map: StatelessComponent<Props> = ({ accessToken }) => {
+const MaliAdm3Map: StatelessComponent = () => {
   return (
     <LeafletMap
-      accessToken={accessToken}
       onMount={(map) => {
         const feature = L.geoJSON(data as FeatureCollection, {
           onEachFeature: onEachFeature,

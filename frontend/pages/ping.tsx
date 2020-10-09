@@ -15,13 +15,12 @@ const Ping: StatelessComponent<Props> = ({ ping }) => {
       <Link href="/">
         <a>Home</a>
       </Link>
-      <p>{process.env.POSTGRES_USER}</p>
     </>
   )
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const res = await fetch(config.INTERNAL_API_DOMAIN + '/ping')
+  const res = await fetch(config.INTERNAL_API_HOST + '/ping')
   const json = await res.json()
 
   return {

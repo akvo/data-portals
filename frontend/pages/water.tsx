@@ -1,7 +1,5 @@
 import { StatelessComponent } from 'react'
-import { GetServerSideProps } from 'next'
 import { Row, Col } from 'antd'
-import { MAPBOX_TOKEN } from '../config'
 import dynamic from 'next/dynamic'
 import DistanceToWaterpointChart from '../components/water/DistanceToWaterpointChart'
 import FrequencyOfPumpTypesChart from '../components/water/FrequencyOfPumpTypesChart'
@@ -13,11 +11,7 @@ const FunctionalityMap = dynamic(
   { ssr: false }
 )
 
-type Props = {
-  mapboxToken: string
-}
-
-const Water: StatelessComponent<Props> = ({ mapboxToken }) => {
+const Water: StatelessComponent = () => {
   return (
     <>
       <h1>Functionality</h1>
@@ -27,7 +21,7 @@ const Water: StatelessComponent<Props> = ({ mapboxToken }) => {
             <div
               style={{ height: '500px', width: '100%', marginBottom: '1em' }}
             >
-              <FunctionalityMap accessToken={mapboxToken} />
+              <FunctionalityMap />
             </div>
             <p>
               This map shows the percentage of functional waterpoints per
@@ -109,14 +103,6 @@ const Water: StatelessComponent<Props> = ({ mapboxToken }) => {
       </div>
     </>
   )
-}
-
-export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  return {
-    props: {
-      mapboxToken: MAPBOX_TOKEN,
-    },
-  }
 }
 
 export default Water

@@ -2,15 +2,15 @@ import { StatelessComponent, useEffect, useRef } from 'react'
 import L from 'leaflet'
 
 type MapProps = {
-  accessToken: string
   onMount?: (map: L.Map) => void
-  mapStyle?: string
+  mapboxToken?: string
+  mapboxStyle?: string
 }
 
 const LeafletMap: StatelessComponent<MapProps> = ({
-  accessToken,
   onMount,
-  mapStyle,
+  mapboxToken,
+  mapboxStyle,
 }) => {
   const mapRef = useRef<L.Map>()
   const containerRef = useRef<HTMLDivElement>(null)
@@ -19,18 +19,36 @@ const LeafletMap: StatelessComponent<MapProps> = ({
     mapRef.current = L.map(containerRef.current as HTMLElement)
     mapRef.current.setView([0, 0], 2)
 
-    L.tileLayer(
-      'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
-      {
-        attribution:
-          '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
-        tileSize: 512,
-        maxZoom: 18,
-        zoomOffset: -1,
-        id: mapStyle || 'mapbox/light-v10',
-        accessToken,
-      }
-    ).addTo(mapRef.current)
+    if (mapboxToken) {
+      L.tileLayer(
+        'https://api.mapbox.com/styles/v1/{id}/tiles/{z}/{x}/{y}?access_token={accessToken}',
+        {
+          attribution:
+            '© <a href="https://www.mapbox.com/about/maps/">Mapbox</a> © <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> <strong><a href="https://www.mapbox.com/map-feedback/" target="_blank">Improve this map</a></strong>',
+          tileSize: 512,
+          maxZoom: 18,
+          zoomOffset: -1,
+          id: mapboxStyle || 'mapbox/light-v10',
+          accessToken: mapboxToken,
+        }
+      ).addTo(mapRef.current)
+    } else {
+      L.tileLayer(
+        'https://cartodb-basemaps-{s}.global.ssl.fastly.net/light_all/{z}/{x}/{y}.png',
+        {
+          attribution:
+            '\u0026copy; \u003ca href="http://www.openstreetmap.org/copyright"\u003eOpenStreetMap\u003c/a\u003e contributors \u0026copy; \u003ca href="http://cartodb.com/attributions"\u003eCartoDB\u003c/a\u003e, CartoDB \u003ca href ="http://cartodb.com/attributions"\u003eattributions\u003c/a\u003e',
+          detectRetina: false,
+          maxNativeZoom: 18,
+          maxZoom: 18,
+          minZoom: 0,
+          noWrap: false,
+          opacity: 1,
+          subdomains: 'abc',
+          tms: false,
+        }
+      ).addTo(mapRef.current)
+    }
 
     if (onMount) {
       onMount(mapRef.current)
@@ -48,9 +66,7 @@ const LeafletMap: StatelessComponent<MapProps> = ({
       className="map-container"
       style={{ width: '100%', height: '100%' }}
       ref={containerRef}
-    >
-      map
-    </div>
+    />
   )
 }
 

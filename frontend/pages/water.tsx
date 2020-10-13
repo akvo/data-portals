@@ -1,5 +1,6 @@
 import { StatelessComponent } from 'react'
 import { Row, Col } from 'antd'
+import { API_PATH } from '../config'
 import dynamic from 'next/dynamic'
 import DistanceToWaterpointChart from '../components/water/DistanceToWaterpointChart'
 import FrequencyOfPumpTypesChart from '../components/water/FrequencyOfPumpTypesChart'
@@ -21,7 +22,9 @@ const Water: StatelessComponent = () => {
             <div
               style={{ height: '500px', width: '100%', marginBottom: '1em' }}
             >
-              <FunctionalityMap />
+              <FunctionalityMap
+                source={`${API_PATH}/mali/functionality-percentage-per-region.geojson`}
+              />
             </div>
             <p>
               This map shows the percentage of functional waterpoints per

@@ -5,8 +5,14 @@ from typing import Any
 
 from fastapi import APIRouter
 from fastapi.responses import FileResponse
+from app.data import mali
 
 router = APIRouter()
+
+
+@router.get("/mali/functionality-percentage-per-region.geojson")
+def get_functionality_percentage_per_region_geojson() -> Any:
+    return mali.get_functionality_percentage_per_region_geojson()
 
 
 @router.get("/functionality-rate-by-region")

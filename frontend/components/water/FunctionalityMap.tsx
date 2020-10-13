@@ -1,22 +1,30 @@
 import { StatelessComponent } from 'react'
-import { FeatureCollection } from 'geojson'
-import L from 'leaflet'
-import LeafletMap from '../LeafletMap'
-import maliGeo from './data/mli_hdx.json'
+import { FeatureCollection, Feature } from 'geojson'
 import * as d3 from 'd3'
+import L from 'leaflet'
+import useSWR from 'swr'
+import LeafletMap from '../LeafletMap'
+import fetcher from '../../libs/fetcher'
 import colorLegend from '../../libs/color-legend'
 
-const values = maliGeo.features.map((f) => f.properties.Percentage)
-const domain: [d3.NumberValue, d3.NumberValue] = [
-  Math.min(...values),
-  Math.max(...values),
-]
+type Props = {
+  source: string
+}
 
-const FunctionalityMap: StatelessComponent = () => {
+const FunctionalityMap: StatelessComponent<Props> = ({ source }) => {
+  const { data, error } = useSWR(source, fetcher)
+  if (error) return <div>failed to load</div>
+  if (!data) return <div>loading...</div>
+
+  const values = data.features.map((f: Feature) => f.properties?.value)
+  const domain: [d3.NumberValue, d3.NumberValue] = [
+    Math.min(...values),
+    Math.max(...values),
+  ]
   const colors = d3.scaleQuantize<string>(domain, d3.schemeYlGn[6])
   const style: L.StyleFunction = (feature) => {
     return {
-      fillColor: colors(feature?.properties?.Percentage),
+      fillColor: colors(feature?.properties?.value),
       weight: 1,
       opacity: 0.5,
       color: 'black',
@@ -27,7 +35,7 @@ const FunctionalityMap: StatelessComponent = () => {
   return (
     <LeafletMap
       onMount={(map) => {
-        const feature = L.geoJSON(maliGeo as FeatureCollection, {
+        const feature = L.geoJSON(data as FeatureCollection, {
           style: style,
         }).addTo(map)
 

@@ -11,6 +11,10 @@ const FunctionalityMap = dynamic(
   () => import('../components/water/FunctionalityMap'),
   { ssr: false }
 )
+const SeasonalityMap = dynamic(
+  () => import('../components/water/SeasonalityMap'),
+  { ssr: false }
+)
 
 const Water: StatelessComponent = () => {
   return (
@@ -30,6 +34,18 @@ const Water: StatelessComponent = () => {
               This map shows the percentage of functional waterpoints per
               district.
             </p>
+          </Col>
+        </Row>
+      </div>
+      <div style={{ marginBottom: '40px' }}>
+        <Row>
+          <Col span={18}>
+            <div
+              style={{ height: '500px', width: '100%', marginBottom: '1em' }}
+            >
+              <SeasonalityMap />
+            </div>
+            <p>This map shows the functional and seasonal waterpoints.</p>
           </Col>
         </Row>
       </div>

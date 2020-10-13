@@ -15,6 +15,11 @@ def get_functionality_percentage_per_region_geojson() -> Any:
     return mali.get_functionality_percentage_per_region_geojson()
 
 
+@router.get("/mali/population-per-region.geojson")
+def get_population_per_region_geojson() -> Any:
+    return mali.get_population_per_region_geojson()
+
+
 @router.get("/functionality-rate-by-region")
 async def get_functionality_rate_by_region() -> Any:
     filename = os.path.realpath(

@@ -1,11 +1,32 @@
 import { StatelessComponent } from 'react'
 import { Row, Col } from 'antd'
+import { API_PATH } from '../config'
+import dynamic from 'next/dynamic'
 import WaterTreatmentChart from '../components/water-quality/WaterTreatmentChart'
 import Pollution from '../components/water-quality/PollutionChart'
+
+const WaterQualityMap = dynamic(
+  () => import('../components/water-quality/WaterQualityMap'),
+  { ssr: false }
+)
 
 const WaterQuality: StatelessComponent = () => {
   return (
     <>
+      <h1>Water quality</h1>
+      <div style={{ marginBottom: '40px' }}>
+        <Row>
+          <Col span={18}>
+            <div
+              style={{ height: '500px', width: '100%', marginBottom: '1em' }}
+            >
+              <WaterQualityMap
+                source={`${API_PATH}/mali/population-per-region.geojson`}
+              />
+            </div>
+          </Col>
+        </Row>
+      </div>
       <div style={{ marginBottom: '40px' }}>
         <Row>
           <Col span={3}>

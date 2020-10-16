@@ -21,7 +21,8 @@ const WaterQuality: StatelessComponent = () => {
               style={{ height: '500px', width: '100%', marginBottom: '1em' }}
             >
               <WaterQualityMap
-                source={`${API_PATH}/mali/population-per-region.geojson`}
+                populationSource={`${API_PATH}/mali/population-per-region.geojson`}
+                waterpointSource={`${API_PATH}/mali/waterpoints.geojson`}
               />
             </div>
           </Col>

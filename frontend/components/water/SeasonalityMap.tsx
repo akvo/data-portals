@@ -1,8 +1,9 @@
 import { StatelessComponent } from 'react'
 import { FeatureCollection, Feature } from 'geojson'
 import L from 'leaflet'
+import useSWR from 'swr'
+import fetcher from '../../libs/fetcher'
 import LeafletMap from '../LeafletMap'
-import waterpoint from '../mali_waterpoint.geo.json'
 
 const colors: { [key: string]: string } = {
   fonctionnel: '#018571',
@@ -14,11 +15,19 @@ const onEachFeature = (feature: Feature, layer: L.Layer) => {
   layer.bindPopup(popupContent)
 }
 
-const SeasonalityMap: StatelessComponent = () => {
+type Props = {
+  source: string
+}
+
+const SeasonalityMap: StatelessComponent<Props> = ({ source }) => {
+  const { data, error } = useSWR(source, fetcher)
+  if (error) return <div>failed to load</div>
+  if (!data) return <div>loading...</div>
+
   return (
     <LeafletMap
       onMount={(map) => {
-        const feature = L.geoJSON(waterpoint as FeatureCollection, {
+        const feature = L.geoJSON(data as FeatureCollection, {
           filter: (feature) => {
             return ['fonctionnel', 'seasonal'].includes(
               feature.properties?.functionality_main

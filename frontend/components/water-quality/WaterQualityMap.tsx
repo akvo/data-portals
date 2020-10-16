@@ -6,7 +6,6 @@ import useSWR from 'swr'
 import LeafletMap from '../LeafletMap'
 import fetcher from '../../libs/fetcher'
 import colorLegend from '../../libs/color-legend'
-import waterpoint from '../mali_waterpoint.geo.json'
 
 const safetyColors: { [key: string]: string } = {
   "Le puits n'est pas sûr": '#fdae61',
@@ -19,15 +18,27 @@ const onEachFeature = (feature: Feature, layer: L.Layer) => {
 }
 
 type Props = {
-  source: string
+  populationSource: string
+  waterpointSource: string
 }
 
-const WaterQualityMap: StatelessComponent<Props> = ({ source }) => {
-  const { data, error } = useSWR(source, fetcher)
-  if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
+const WaterQualityMap: StatelessComponent<Props> = ({
+  populationSource,
+  waterpointSource,
+}) => {
+  const { data: populationData, error: populationError } = useSWR(
+    populationSource,
+    fetcher
+  )
+  const { data: waterpointData, error: waterpointError } = useSWR(
+    waterpointSource,
+    fetcher
+  )
 
-  const values = data.features
+  if (populationError || waterpointError) return <div>failed to load</div>
+  if (!populationData || !waterpointData) return <div>loading...</div>
+
+  const values = populationData.features
     .map((f: Feature) => f.properties?.value)
     .filter((v: number) => v > 0)
   const domain: [d3.NumberValue, d3.NumberValue] = [
@@ -50,9 +61,11 @@ const WaterQualityMap: StatelessComponent<Props> = ({ source }) => {
   return (
     <LeafletMap
       onMount={(map) => {
-        L.geoJSON(data as FeatureCollection, { style: style }).addTo(map)
+        L.geoJSON(populationData as FeatureCollection, { style: style }).addTo(
+          map
+        )
 
-        const feature = L.geoJSON(waterpoint as FeatureCollection, {
+        const feature = L.geoJSON(waterpointData as FeatureCollection, {
           filter: (feature) => {
             return ["Le puits n'est pas sûr", 'Le puits est sûr'].includes(
               feature.properties?.puits_safety

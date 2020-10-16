@@ -10,6 +10,11 @@ from app.data import mali
 router = APIRouter()
 
 
+@router.get("/mali/waterpoints.geojson")
+def get_waterpoints_geojson() -> Any:
+    return mali.get_waterpoints_geojson()
+
+
 @router.get("/mali/functionality-percentage-per-region.geojson")
 def get_functionality_percentage_per_region_geojson() -> Any:
     return mali.get_functionality_percentage_per_region_geojson()

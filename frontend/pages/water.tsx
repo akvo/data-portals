@@ -43,7 +43,7 @@ const Water: StatelessComponent = () => {
             <div
               style={{ height: '500px', width: '100%', marginBottom: '1em' }}
             >
-              <SeasonalityMap />
+              <SeasonalityMap source={`${API_PATH}/mali/waterpoints.geojson`} />
             </div>
             <p>This map shows the functional and seasonal waterpoints.</p>
           </Col>

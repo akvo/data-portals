@@ -1,8 +1,18 @@
 import { StatelessComponent } from 'react'
 import { ResponsiveBar } from '@nivo/bar'
-import data from './data/distance.json'
+import useSWR from 'swr'
+import fetcher from '../../libs/fetcher'
 
-const DistanceToWaterpointChart: StatelessComponent = () => {
+type Props = {
+  source: string
+}
+
+const DistanceToWaterpointChart: StatelessComponent<Props> = ({ source }) => {
+  const { data, error } = useSWR(source, fetcher)
+
+  if (error) return <div>failed to load</div>
+  if (!data) return <div>loading...</div>
+
   return (
     <ResponsiveBar
       data={data}

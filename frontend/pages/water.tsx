@@ -55,7 +55,9 @@ const Water: StatelessComponent = () => {
             <div className="card">
               <strong>Frequency of Water Pump Types</strong>
               <div style={{ height: '300px' }}>
-                <FrequencyOfPumpTypesChart />
+                <FrequencyOfPumpTypesChart
+                  source={`${API_PATH}/mali/pump-type.json`}
+                />
               </div>
             </div>
             <p>
@@ -68,7 +70,9 @@ const Water: StatelessComponent = () => {
             <div className="card">
               <strong>Distance to the Water Point</strong>
               <div style={{ height: '300px' }}>
-                <DistanceToWaterpointChart />
+                <DistanceToWaterpointChart
+                  source={`${API_PATH}/mali/distance.json`}
+                />
               </div>
             </div>
             <p>
@@ -93,7 +97,9 @@ const Water: StatelessComponent = () => {
             <div className="card">
               <strong>Reason for abandonment of the water point</strong>
               <div style={{ height: '300px' }}>
-                <ReasonForAbandonmentChart />
+                <ReasonForAbandonmentChart
+                  source={`${API_PATH}/mali/abandonment.json`}
+                />
               </div>
             </div>
             <p>
@@ -105,7 +111,9 @@ const Water: StatelessComponent = () => {
             <div className="card">
               <strong>Mechanic versus manual pump</strong>
               <div style={{ height: '300px' }}>
-                <MechanicVsManualPumpChart />
+                <MechanicVsManualPumpChart
+                  source={`${API_PATH}/mali/mechanic-vs-manual-pump.json`}
+                />
               </div>
             </div>
             <p>60% of the water points is a Pompe à Motricité Humaine.</p>

@@ -1,8 +1,18 @@
 import { StatelessComponent } from 'react'
 import { ResponsivePie } from '@nivo/pie'
-import data from './data/treatment-type.json'
+import useSWR from 'swr'
+import fetcher from '../../libs/fetcher'
 
-const WaterTreatmentChart: StatelessComponent = () => {
+type Props = {
+  source: string
+}
+
+const WaterTreatmentChart: StatelessComponent<Props> = ({ source }) => {
+  const { data, error } = useSWR(source, fetcher)
+
+  if (error) return <div>failed to load</div>
+  if (!data) return <div>loading...</div>
+
   return (
     <ResponsivePie
       data={data}

@@ -1,8 +1,18 @@
 import { StatelessComponent } from 'react'
 import { ResponsiveBar } from '@nivo/bar'
-import data from './data/pump-type.json'
+import useSWR from 'swr'
+import fetcher from '../../libs/fetcher'
 
-const FrequencyOfPumpTypesChart: StatelessComponent = () => {
+type Props = {
+  source: string
+}
+
+const FrequencyOfPumpTypesChart: StatelessComponent<Props> = ({ source }) => {
+  const { data, error } = useSWR(source, fetcher)
+
+  if (error) return <div>failed to load</div>
+  if (!data) return <div>loading...</div>
+
   return (
     <ResponsiveBar
       data={data}

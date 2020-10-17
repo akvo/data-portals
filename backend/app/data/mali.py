@@ -1,18 +1,14 @@
-import os
 import json
+from typing import Any, Dict
+
 import pandas
-from geojson import FeatureCollection, Feature, Point
+from geojson import Feature, FeatureCollection, Point
+
+from app.utils import path_to_dataset
 
 
-def get_waterpoints_geojson() -> dict:
-    data_file = os.path.realpath(
-        os.path.join(
-            os.getcwd(),
-            os.path.dirname(__file__),
-            "../../datasets/07102020_Mali_map.csv",
-        )
-    )
-    dataframe = pandas.read_csv(data_file)
+def get_waterpoints_geojson() -> Dict[str, Any]:
+    dataframe = pandas.read_csv(path_to_dataset("07102020_Mali_map.csv"))
     dataframe = dataframe.where(pandas.notnull(dataframe), None)
     features = []
     for i in range(0, len(dataframe.index)):
@@ -35,25 +31,11 @@ def get_waterpoints_geojson() -> dict:
     return FeatureCollection(features)
 
 
-def get_functionality_percentage_per_region_geojson() -> dict:
-    geo_file = os.path.realpath(
-        os.path.join(
-            os.getcwd(), os.path.dirname(__file__), "../../datasets/mli_hdx.json"
-        )
-    )
-
-    data_file = os.path.realpath(
-        os.path.join(
-            os.getcwd(),
-            os.path.dirname(__file__),
-            "../../datasets/functionality_wp_mali.csv",
-        )
-    )
-
-    region_df = pandas.read_csv(data_file, sep=";")
+def get_functionality_percentage_per_region_geojson() -> Dict[str, Any]:
+    region_df = pandas.read_csv(path_to_dataset("functionality_wp_mali.csv"), sep=";")
     region_data = region_df.set_index("ADM1_FR")["Percentage"].to_dict()
 
-    with open(geo_file, "r") as fp:
+    with open(path_to_dataset("mli_hdx.json"), "r") as fp:
         region_geo = json.load(fp)
 
     for f in region_geo["features"]:
@@ -63,25 +45,11 @@ def get_functionality_percentage_per_region_geojson() -> dict:
     return region_geo
 
 
-def get_population_per_region_geojson() -> dict:
-    geo_file = os.path.realpath(
-        os.path.join(
-            os.getcwd(), os.path.dirname(__file__), "../../datasets/mli_hdx.json"
-        )
-    )
-
-    data_file = os.path.realpath(
-        os.path.join(
-            os.getcwd(),
-            os.path.dirname(__file__),
-            "../../datasets/Mali_populationV8_model_short.csv",
-        )
-    )
-
-    region_df = pandas.read_csv(data_file)
+def get_population_per_region_geojson() -> Dict[str, Any]:
+    region_df = pandas.read_csv(path_to_dataset("Mali_populationV8_model_short.csv"))
     region_data = region_df.set_index("ADM1_FR")["Pop.2016"].to_dict()
 
-    with open(geo_file, "r") as fp:
+    with open(path_to_dataset("mli_hdx.json"), "r") as fp:
         region_geo = json.load(fp)
 
     for f in region_geo["features"]:

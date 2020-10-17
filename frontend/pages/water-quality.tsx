@@ -37,7 +37,9 @@ const WaterQuality: StatelessComponent = () => {
             <div className="card">
               <strong>Water treatment</strong>
               <div style={{ height: '300px' }}>
-                <WaterTreatmentChart />
+                <WaterTreatmentChart
+                  source={`${API_PATH}/mali/treatment-type.json`}
+                />
               </div>
             </div>
             <p>
@@ -62,7 +64,7 @@ const WaterQuality: StatelessComponent = () => {
             <div className="card">
               <strong>Pollution</strong>
               <div style={{ height: '300px' }}>
-                <Pollution />
+                <Pollution source={`${API_PATH}/mali/pollution-type.json`} />
               </div>
             </div>
             <p>

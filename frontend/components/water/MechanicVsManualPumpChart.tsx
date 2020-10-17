@@ -1,8 +1,18 @@
 import { StatelessComponent } from 'react'
 import { ResponsivePie } from '@nivo/pie'
-import data from './data/mechanic-vs-manual-pump.json'
+import useSWR from 'swr'
+import fetcher from '../../libs/fetcher'
 
-const MechanicVsManualPumpChart: StatelessComponent = () => {
+type Props = {
+  source: string
+}
+
+const MechanicVsManualPumpChart: StatelessComponent<Props> = ({ source }) => {
+  const { data, error } = useSWR(source, fetcher)
+
+  if (error) return <div>failed to load</div>
+  if (!data) return <div>loading...</div>
+
   return (
     <ResponsivePie
       data={data}

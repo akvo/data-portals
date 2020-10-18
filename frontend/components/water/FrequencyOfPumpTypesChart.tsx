@@ -1,5 +1,6 @@
 import { StatelessComponent } from 'react'
 import { ResponsiveBar } from '@nivo/bar'
+import { Spin } from 'antd'
 import useSWR from 'swr'
 import fetcher from '../../libs/fetcher'
 
@@ -11,7 +12,13 @@ const FrequencyOfPumpTypesChart: StatelessComponent<Props> = ({ source }) => {
   const { data, error } = useSWR(source, fetcher)
 
   if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
+  if (!data) {
+    return (
+      <div className="swr-loader">
+        <Spin tip="Loading..." />
+      </div>
+    )
+  }
 
   return (
     <ResponsiveBar

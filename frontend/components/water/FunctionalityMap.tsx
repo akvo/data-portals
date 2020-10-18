@@ -1,5 +1,6 @@
 import { StatelessComponent } from 'react'
 import { FeatureCollection, Feature } from 'geojson'
+import { Spin } from 'antd'
 import * as d3 from 'd3'
 import L from 'leaflet'
 import useSWR from 'swr'
@@ -14,7 +15,13 @@ type Props = {
 const FunctionalityMap: StatelessComponent<Props> = ({ source }) => {
   const { data, error } = useSWR(source, fetcher)
   if (error) return <div>failed to load</div>
-  if (!data) return <div>loading...</div>
+  if (!data) {
+    return (
+      <div className="swr-loader">
+        <Spin tip="Loading..." />
+      </div>
+    )
+  }
 
   const values = data.features.map((f: Feature) => f.properties?.value)
   const domain: [d3.NumberValue, d3.NumberValue] = [

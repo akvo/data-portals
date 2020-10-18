@@ -1,5 +1,6 @@
 import { StatelessComponent } from 'react'
 import { FeatureCollection, Feature } from 'geojson'
+import { Spin } from 'antd'
 import * as d3 from 'd3'
 import L from 'leaflet'
 import useSWR from 'swr'
@@ -36,7 +37,13 @@ const WaterQualityMap: StatelessComponent<Props> = ({
   )
 
   if (populationError || waterpointError) return <div>failed to load</div>
-  if (!populationData || !waterpointData) return <div>loading...</div>
+  if (!populationData || !waterpointData) {
+    return (
+      <div className="swr-loader">
+        <Spin tip="Loading..." />
+      </div>
+    )
+  }
 
   const values = populationData.features
     .map((f: Feature) => f.properties?.value)

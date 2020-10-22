@@ -1,3 +1,9 @@
+export type FeaturePoint = {
+  latitude: number
+  longitude: number
+  [name: string]: any
+}
+
 export type DatasourceProps = {
   source: string
   [name: string]: any

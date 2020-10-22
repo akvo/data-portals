@@ -38,7 +38,7 @@ const Sanitation: StatelessComponent<Props> = ({ sourceUrl, mapboxToken }) => {
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
   return {
     props: {
-      sourceUrl: API_PATH + '/site-points.geojson',
+      sourceUrl: `${API_PATH}/mali/waterpoints.geojson`,
       mapboxToken: MAPBOX_TOKEN,
     },
   }

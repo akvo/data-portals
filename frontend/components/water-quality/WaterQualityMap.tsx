@@ -48,10 +48,7 @@ const WaterQualityMap: StatelessComponent<Props> = ({
   const values = populationData.features
     .map((f: Feature) => f.properties?.value)
     .filter((v: number) => v > 0)
-  const domain: [d3.NumberValue, d3.NumberValue] = [
-    Math.min(...values),
-    Math.max(...values),
-  ]
+  const domain: [number, number] = [Math.min(...values), Math.max(...values)]
   const populationColors = d3.scaleQuantize<string>(domain, d3.schemeBlues[6])
   const style: L.StyleFunction = (feature) => {
     const value: number = feature?.properties?.value

@@ -58,7 +58,6 @@ body {
   margin-top: 5px;
 }
 
-.leaflet-control.info,
 .map-control.info {
   padding: 8px 10px;
   font-size: 1.2em;
@@ -67,18 +66,15 @@ body {
   box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
   border-radius: 5px;
 }
-.leaflet-control.info h4,
 .map-control.info h4 {
   margin: 0 0 5px;
   color: #777;
 }
-.leaflet-control.legend,
 .map-control.legend {
   text-align: left;
   line-height: 18px;
   color: #555;
 }
-.leaflet-control.legend i,
 .map-control.legend i {
   width: 18px;
   height: 18px;
@@ -86,7 +82,6 @@ body {
   margin-right: 8px;
   opacity: 0.7;
 }
-.leaflet-control.legend .circle,
 .map-control.legend .circle {
   border-radius: 50%;
   width: 10px;

@@ -1,6 +1,8 @@
 import * as d3 from 'd3'
 
-export default (scale: d3.ScaleQuantize<string>) => {
+type ColorMap = [number, string]
+
+export default (scale: d3.ScaleQuantize<string>): ColorMap[] => {
   const [minValue, maxValue] = scale.domain()
   const range = scale.range()
   const steps = range.length

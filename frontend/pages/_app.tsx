@@ -1,5 +1,4 @@
 import 'antd/dist/antd.css'
-import 'leaflet/dist/leaflet.css'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import 'nprogress/nprogress.css'
 import '../styles/global.css'

@@ -9,6 +9,7 @@ import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { StatelessComponent } from 'react'
 
+
 const { Header, Content, Footer } = Layout
 
 const TopProgressBar = dynamic(() => import('../components/TopProgressBar'), {
@@ -20,10 +21,10 @@ const CustomApp: StatelessComponent<AppProps> = ({ Component, pageProps }) => {
   const activeMenu = router.pathname.replace(/^\//, '')
 
   return (
-    <>
+    <div className="container">
       <TopProgressBar />
       <Layout>
-        <Header style={{ position: 'fixed', width: '100%' }}>
+        <Header>
           <div className="layout-header layout-center">
             <div className="logo">
               <Link href="/">
@@ -79,7 +80,7 @@ const CustomApp: StatelessComponent<AppProps> = ({ Component, pageProps }) => {
           </div>
         </Footer>
       </Layout>
-    </>
+    </div>
   )
 }
 

@@ -14,12 +14,12 @@ const Home: StatelessComponent = () => {
       <p>Welcome to the Mali WaSH portal ..</p>
       <h2>Access to water</h2>
       <Row>
-        <Col span={17} style={{ paddingRight: '1em' }}>
+        <Col span={24}>
           <div style={{ height: '500px', width: '100%' }}>
             <FrontMap source={`${API_PATH}/mali/waterpoints.geojson`} />
           </div>
         </Col>
-        <Col span={7} style={{ paddingLeft: '1em' }}>
+        <Col span={24}>
           <div
             className="card"
             style={{ backgroundColor: '#dae3f3', padding: '1em' }}

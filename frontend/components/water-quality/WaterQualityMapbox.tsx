@@ -5,7 +5,7 @@ import * as d3 from 'd3'
 import { Feature } from 'geojson'
 import useSWR from 'swr'
 import fetcher from '../../libs/fetcher'
-import ColorLegend from '../shared/ColorLegend'
+import ColorLegend from '../commons/ColorLegend'
 import scaleToColorMap from '../../libs/scale-to-colormap'
 import { FeaturePoint } from '../../libs/data-types'
 
@@ -70,7 +70,7 @@ const WaterQualityMapbox: StatelessComponent<Props> = ({
   if (!pData || !wData)
     return (
       <div className="swr-loader">
-        <Spin tip="Loading..." />
+        <Spin size="large" tip="Loading..." />
       </div>
     )
 

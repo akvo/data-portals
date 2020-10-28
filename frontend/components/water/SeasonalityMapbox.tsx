@@ -63,7 +63,7 @@ const SeasonalityMapbox: StatelessComponent<Props> = ({
   if (!data) {
     return (
       <div className="swr-loader">
-        <Spin tip="Loading..." />
+        <Spin size="large" tip="Loading..." />
       </div>
     )
   }

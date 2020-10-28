@@ -1,14 +1,9 @@
 import { StatelessComponent } from 'react'
 import { Row, Col } from 'antd'
 import { API_PATH } from '../config'
-import dynamic from 'next/dynamic'
 import WaterTreatmentChart from '../components/water-quality/WaterTreatmentChart'
 import Pollution from '../components/water-quality/PollutionChart'
-
-const WaterQualityMap = dynamic(
-  () => import('../components/water-quality/WaterQualityMap'),
-  { ssr: false }
-)
+import WaterQualityMapbox from '../components/water-quality/WaterQualityMapbox'
 
 const WaterQuality: StatelessComponent = () => {
   return (
@@ -20,9 +15,12 @@ const WaterQuality: StatelessComponent = () => {
             <div
               style={{ height: '500px', width: '100%', marginBottom: '1em' }}
             >
-              <WaterQualityMap
+              <WaterQualityMapbox
                 populationSource={`${API_PATH}/mali/population-per-region.geojson`}
                 waterpointSource={`${API_PATH}/mali/waterpoints.geojson`}
+                latitude={17.65}
+                longitude={-4.15}
+                zoom={4.4}
               />
             </div>
           </Col>

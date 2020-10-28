@@ -1,20 +1,12 @@
 import { StatelessComponent } from 'react'
 import { Row, Col } from 'antd'
 import { API_PATH } from '../config'
-import dynamic from 'next/dynamic'
 import DistanceToWaterpointChart from '../components/water/DistanceToWaterpointChart'
 import FrequencyOfPumpTypesChart from '../components/water/FrequencyOfPumpTypesChart'
 import ReasonForAbandonmentChart from '../components/water/ReasonForAbandonmentChart'
 import MechanicVsManualPumpChart from '../components/water/MechanicVsManualPumpChart'
-
-const FunctionalityMap = dynamic(
-  () => import('../components/water/FunctionalityMap'),
-  { ssr: false }
-)
-const SeasonalityMap = dynamic(
-  () => import('../components/water/SeasonalityMap'),
-  { ssr: false }
-)
+import FunctionalityMapbox from '../components/water/FunctionalityMapbox'
+import SeasonalityMapbox from '../components/water/SeasonalityMapbox'
 
 const Water: StatelessComponent = () => {
   return (
@@ -26,8 +18,11 @@ const Water: StatelessComponent = () => {
             <div
               style={{ height: '500px', width: '100%', marginBottom: '1em' }}
             >
-              <FunctionalityMap
+              <FunctionalityMapbox
                 source={`${API_PATH}/mali/functionality-percentage-per-region.geojson`}
+                latitude={17.65}
+                longitude={-4.15}
+                zoom={4.4}
               />
             </div>
             <p>
@@ -43,7 +38,12 @@ const Water: StatelessComponent = () => {
             <div
               style={{ height: '500px', width: '100%', marginBottom: '1em' }}
             >
-              <SeasonalityMap source={`${API_PATH}/mali/waterpoints.geojson`} />
+              <SeasonalityMapbox
+                source={`${API_PATH}/mali/waterpoints.geojson`}
+                latitude={17.65}
+                longitude={-4.15}
+                zoom={4.4}
+              />
             </div>
             <p>This map shows the functional and seasonal waterpoints.</p>
           </Col>

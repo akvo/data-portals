@@ -1,34 +1,41 @@
 @import url("https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900");
+
 *,
 *::after,
 *::before {
-  margin: 0;
-  padding: 0;
-  box-sizing: inherit; }
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
 
 html {
-  font-size: 62.5%; }
+    font-size: 62.5%;
+}
 
 body {
-  font-family: "Lato", Arial, Helvetica, sans-serif;
-  font-weight: 400;
-  /*font-size: 16px;*/
-  line-height: 1.7;
-  color: #777;
-  padding: 3rem;
-  box-sizing: border-box;
-  background-color: white; }
+    font-family: "Lato", Arial, Helvetica, sans-serif;
+    font-weight: 400;
+    /*font-size: 16px;*/
+    line-height: 1.7;
+    color: #777;
+    padding: 3rem;
+    box-sizing: border-box;
+    background-color: white;
+}
 
 .ant-layout {
-  border-radius: 5px;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.74), rgba(40, 180, 133, 0.9));
-  height: calc(100vh - 6rem); }
+    border-radius: 5px;
+    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.74), rgba(40, 180, 133, 0.9));
+    height: calc(100vh - 6rem);
+}
 
 .ant-layout-header {
-  z-index: 1010;
-  background: rgba(126, 213, 111, 0);
-  border-radius: 5px 5px 0 0; }
-  .ant-layout-header .layout-header .logo {
+    z-index: 1010;
+    background: rgba(126, 213, 111, 0);
+    border-radius: 5px 5px 0 0;
+}
+
+.ant-layout-header .layout-header .logo {
     display: block;
     width: 250px;
     height: 64px;
@@ -39,97 +46,123 @@ body {
     background-repeat: no-repeat;
     background-position: center left;
     background-size: 70%;
-    text-indent: -9999px; }
-    .ant-layout-header .layout-header .logo img {
-      filter: invert(100%);
-      position: relative;
-      top: -25px;
-      left: -25px; }
-    .ant-layout-header .layout-header .logo h1 {
-      color: #001529;
-      font-weight: bolder; }
+    text-indent: -9999px;
+}
+
+.ant-layout-header .layout-header .logo img {
+    filter: invert(100%);
+    position: relative;
+    top: -25px;
+    left: -25px;
+}
+
+.ant-layout-header .layout-header .logo h1 {
+    color: #001529;
+    font-weight: bolder;
+}
 
 .ant-menu.ant-menu-dark {
-  background: transparent; }
-  .ant-menu.ant-menu-dark .ant-menu-item {
-    padding: 0; }
-    .ant-menu.ant-menu-dark .ant-menu-item a {
-      color: white;
-      text-transform: uppercase;
-      font-size: 2rem;
-      font-weight: 300;
-      transition: all 0.3s ease-in;
-      padding: 1rem 2rem; }
-      .ant-menu.ant-menu-dark .ant-menu-item a::after {
-        content: "";
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        border-radius: 10rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        transition: all 0.4s ease; }
-      .ant-menu.ant-menu-dark .ant-menu-item a:hover {
-        font-weight: 500;
-        color: #001529;
-        border: 1px solid #001529; }
+    background: transparent;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item {
+    padding: 0;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item a {
+    color: white;
+    text-transform: uppercase;
+    font-size: 2rem;
+    font-weight: 300;
+    transition: all 0.3s ease-in;
+    padding: 1rem 2rem;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item a::after {
+    content: "";
+    display: inline-block;
+    height: 100%;
+    width: 100%;
+    border-radius: 10rem;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    transition: all 0.4s ease;
+}
+
+.ant-menu.ant-menu-dark .ant-menu-item a:hover {
+    font-weight: 500;
+    color: #001529;
+    border: 1px solid #001529;
+}
 
 .layout-content {
-  padding: 100px 0 50px; }
+    padding: 100px 0 50px;
+}
 
 .layout-center {
-  margin: 0 auto;
-  /*   min-width: 800px;
-  max-width: 1200px; */ }
+    margin: 0 auto;
+    /*   min-width: 800px;
+    max-width: 1200px; */
+}
 
 .ant-layout-footer {
-  background: rgba(126, 213, 111, 0.2);
-  border-radius: 0 0 5px 5px; }
+    background: rgba(126, 213, 111, 0.2);
+    border-radius: 0 0 5px 5px;
+}
 
 .card {
-  background-color: white;
-  padding: 0.5em;
-  margin-bottom: 1em; }
+    background-color: white;
+    padding: 0.5em;
+    margin-bottom: 1em;
+}
 
 .statistic {
-  text-align: center; }
+    text-align: center;
+}
 
 .statistic-number {
-  font-size: 2.5em; }
+    font-size: 2.5em;
+}
 
 .leaflet-control.info {
-  padding: 8px 10px;
-  font-size: 1.2em;
-  background: white;
-  background: rgba(255, 255, 255, 0.8);
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-  border-radius: 5px; }
+    padding: 8px 10px;
+    font-size: 1.2em;
+    background: white;
+    background: rgba(255, 255, 255, 0.8);
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+    border-radius: 5px;
+}
 
 .leaflet-control.info h4 {
-  margin: 0 0 5px;
-  color: #777; }
+    margin: 0 0 5px;
+    color: #777;
+}
 
 .leaflet-control.legend {
-  text-align: left;
-  line-height: 18px;
-  color: #555; }
+    text-align: left;
+    line-height: 18px;
+    color: #555;
+}
 
 .leaflet-control.legend i {
-  width: 18px;
-  height: 18px;
-  float: left;
-  margin-right: 8px;
-  opacity: 0.7; }
+    width: 18px;
+    height: 18px;
+    float: left;
+    margin-right: 8px;
+    opacity: 0.7;
+}
 
 .leaflet-control.legend .circle {
-  border-radius: 50%;
-  width: 10px;
-  height: 10px;
-  margin-top: 0.35em; }
+    border-radius: 50%;
+    width: 10px;
+    height: 10px;
+    margin-top: 0.35em;
+}
 
 .swr-loader {
-  text-align: center;
-  margin: 20px 0;
-  padding: 30px 50px; }
+    text-align: center;
+    margin: 20px 0;
+    padding: 30px 50px;
+}

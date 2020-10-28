@@ -1,20 +1,16 @@
 import 'antd/dist/antd.css'
-import 'leaflet/dist/leaflet.css'
+import 'mapbox-gl/dist/mapbox-gl.css'
 import 'nprogress/nprogress.css'
 import '../styles/global.css'
 import { AppProps } from 'next/app'
-import dynamic from 'next/dynamic'
 import { Layout, Menu } from 'antd'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { StatelessComponent } from 'react'
+import TopProgressBar from '../components/commons/TopProgressBar'
 
 
 const { Header, Content, Footer } = Layout
-
-const TopProgressBar = dynamic(() => import('../components/TopProgressBar'), {
-  ssr: false,
-})
 
 const CustomApp: StatelessComponent<AppProps> = ({ Component, pageProps }) => {
   const router = useRouter()

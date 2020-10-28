@@ -1,11 +1,7 @@
 import { StatelessComponent } from 'react'
-import dynamic from 'next/dynamic'
 import { Row, Col } from 'antd'
 import { API_PATH } from '../config'
-
-const FrontMap = dynamic(() => import('../components/root/FrontMap'), {
-  ssr: false,
-})
+import AccessToWaterMap from '../components/root/AccessToWaterMap'
 
 const Home: StatelessComponent = () => {
   return (
@@ -16,7 +12,12 @@ const Home: StatelessComponent = () => {
       <Row>
         <Col span={24}>
           <div style={{ height: '500px', width: '100%' }}>
-            <FrontMap source={`${API_PATH}/mali/waterpoints.geojson`} />
+            <AccessToWaterMap
+              source={`${API_PATH}/mali/waterpoints.geojson`}
+              latitude={17.65}
+              longitude={-4.15}
+              zoom={4.4}
+            />
           </div>
         </Col>
         <Col span={24}>

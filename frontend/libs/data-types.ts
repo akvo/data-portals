@@ -1,18 +1,5 @@
-export type DatasourceProps = {
-  source: string
-  [name: string]: any
-}
-
-export type Waterpoint = {
-  longitude: number
+export type FeaturePoint = {
   latitude: number
-  region: string
-  cercle: string
-  commune: string
-  village: string
-  waterpointType: string
-  isPublic: boolean
-  functionality: string
-  date: string
-  photo: string
+  longitude: number
+  [name: string]: any
 }

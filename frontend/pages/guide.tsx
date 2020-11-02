@@ -1,11 +1,14 @@
 import { StatelessComponent } from 'react'
 import { Collapse } from 'antd'
+import { Row, Col } from 'antd'
 
 const { Panel } = Collapse
 
 const Guide: StatelessComponent = () => {
   return (
     <>
+    <Row>
+    <Col span={16} offset={4}>
       <h1>Guide</h1>
       <strong>How does the portal work?</strong>
       <p>
@@ -21,7 +24,10 @@ const Guide: StatelessComponent = () => {
         <strong>Frequently Asked Questions</strong> to ease the use of this
         portal.{' '}
       </p>
-
+      </Col>
+      </Row>
+      <Row>
+    <Col span={16} offset={4}>
       <h2>Frequently Asked Questions</h2>
       <Collapse>
         <Panel header="How can I contribute to the portal?" key="1">
@@ -102,6 +108,8 @@ const Guide: StatelessComponent = () => {
           </p>
         </Panel>
       </Collapse>
+      </Col>
+      </Row>
     </>
   )
 }

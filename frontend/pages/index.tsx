@@ -6,12 +6,21 @@ import AccessToWaterMap from '../components/root/AccessToWaterMap'
 const Home: StatelessComponent = () => {
   return (
     <>
-      <h1>WaSH services in Mali</h1>
-      <p>Welcome to the Mali WaSH portal ..</p>
-      <h2>Access to water</h2>
+    <Row>
+      <Col span={18} offset={3}>
+      <div className="header__text-box">
+        <h1 className="heading-primary">
+          <span className="heading-primary--main">WaSH services in Mali</span>
+          <span className="heading-primary--sub">Welcome to the Mali WaSH portal</span>
+        </h1>
+      </div>
+
+      </Col>
+    </Row>
       <Row>
-        <Col span={24}>
-          <div style={{ height: '500px', width: '100%' }}>
+        <Col span={16} offset={4}>
+          <p className="mapTitle">Access to water in Mali</p>
+          <div className="frontMap">
             <AccessToWaterMap
               source={`${API_PATH}/mali/waterpoints.geojson`}
               latitude={17.65}
@@ -20,22 +29,17 @@ const Home: StatelessComponent = () => {
             />
           </div>
         </Col>
-        <Col span={24}>
-          <div
-            className="card"
-            style={{ backgroundColor: '#dae3f3', padding: '1em' }}
-          >
-            <h3>Sample Characteristics</h3>
+      </Row>
+      <Row>
+        <Col span={16} offset={4}>
+          <div className="card">
             <p>
               This portal contains data collected for UNICEF, who build 110
               wells in 2017. The data was collected to indicate water quality of
               the build wells and of the water in the households.
             </p>
             <p>
-              Counties: 10
-              <br />
-              Districts: 1100
-              <br /> Households:
+              Counties: 10, Districts: 1100, Households:
             </p>
           </div>
         </Col>

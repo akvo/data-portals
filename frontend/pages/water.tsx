@@ -11,7 +11,8 @@ import SeasonalityMapbox from '../components/water/SeasonalityMapbox'
 const Water: StatelessComponent = () => {
   return (
     <>
-      <h1>Functionality</h1>
+    <Row>
+     <Col span={16} offset={4}>
       <div style={{ marginBottom: '40px' }}>
         <Row>
           <Col span={18}>
@@ -128,6 +129,7 @@ const Water: StatelessComponent = () => {
           </Col>
         </Row>
       </div>
+      </Col></Row>
     </>
   )
 }

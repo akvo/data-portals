@@ -69,13 +69,33 @@ const CustomApp: StatelessComponent<AppProps> = ({ Component, pageProps }) => {
             <Component {...pageProps} />
           </div>
         </Content>
-
-        <Footer>
-          <div className="layout-footer layout-center">
-            <p>@2020</p>
-          </div>
-        </Footer>
       </Layout>
+      <Footer>
+          <div className="layout-footer layout-center">
+            <h2 class="partnerTl">Partners</h2>
+            <div className="partnersLg">
+                <div className="partnerImg">
+                  <a href="#"><img src="tumbDNH-150x150.png" alt="" className="grayscale"/></a>
+                </div>
+                <div className="partnerImg">
+                  <a href="#"><img src="tumb-sweden.png" alt="" className="grayscale"/></a>
+                </div>
+                <div className="partnerImg">
+                  <a href="#"><img src="tumb-unicef.png" alt="" className="grayscale"/></a>
+                </div>
+                <div className="partnerImg">
+                  <a href="#"><img src="tumbGIZ.png" alt="" className="grayscale"/></a>
+                </div>
+                <div className="partnerImg">
+                  <a href="#"><img src="tumbsnv.png" alt="" className="grayscale"/></a>
+                </div>                
+                <div className="partnerImg">
+                  <a href="#"><img src="AkvoLogo2.svg" alt="" className="grayscale"/></a>
+                </div>
+            </div>
+            <p className="copyRights">@2020 Some rights reserved</p>
+          </div>
+      </Footer>
     </div>
   )
 }

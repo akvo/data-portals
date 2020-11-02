@@ -1,4 +1,5 @@
 import { StatelessComponent } from 'react'
+import { Row, Col } from 'antd'
 
 const Data: StatelessComponent = () => {
   return (

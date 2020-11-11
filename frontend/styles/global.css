@@ -149,12 +149,12 @@ h1, h2, h3, h4, h5, h6 {
 .container {
   padding-bottom: 2rem; }
   .container .ant-layout {
-    border-radius: .5rem .5rem 0 0;
+    border-radius: 1rem 1rem 0 0;
     background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.74), rgba(40, 180, 133, 0.9)); }
     .container .ant-layout .ant-layout-header {
       z-index: 1010;
       background: rgba(126, 213, 111, 0);
-      border-radius: .5rem .5rem 0 0;
+      border-radius: 1rem 1rem 0 0;
       border-top: 0.2rem solid #7ed56f;
       height: inherit;
       margin: 0 0 2rem 0; }
@@ -163,12 +163,12 @@ h1, h2, h3, h4, h5, h6 {
         .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark {
           background: transparent; }
           .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item-selected {
-            background: rgba(255, 255, 255, 0.3); }
+            background: rgba(255, 255, 255, 0); }
             .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item-selected a {
-              color: #28b485 !important;
+              color: white !important;
               border: 1px solid transparent !important; }
               .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item-selected a:hover {
-                color: #28b485 !important;
+                color: white !important;
                 border: 1px solid transparent !important; }
           .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item {
             padding: 0; }
@@ -229,7 +229,7 @@ h1, h2, h3, h4, h5, h6 {
         border-left: 1px solid rgba(126, 213, 111, 0.74); }
         .container .ant-layout .ant-layout-content .layout-content .ant-row.dataLight h1, .container .ant-layout .ant-layout-content .layout-content .ant-row.dataLight h2, .container .ant-layout .ant-layout-content .layout-content .ant-row.dataLight h3, .container .ant-layout .ant-layout-content .layout-content .ant-row.dataLight h4, .container .ant-layout .ant-layout-content .layout-content .ant-row.dataLight h5, .container .ant-layout .ant-layout-content .layout-content .ant-row.dataLight h6 {
           color: #28b485; }
-      .container .ant-layout .ant-layout-content .layout-content .ant-row:not(:first-child) {
+      .container .ant-layout .ant-layout-content .layout-content .ant-row:not(.welcome) {
         padding: 4rem 0; }
 
 .dataSample table.sampleTable {
@@ -263,7 +263,7 @@ h1, h2, h3, h4, h5, h6 {
 
 .ant-layout-footer {
   background: #333333;
-  border-radius: 0 0 .5rem .5rem;
+  border-radius: 0 0 1rem 1rem;
   text-align: center;
   color: white; }
   .ant-layout-footer .copyRights {
@@ -404,3 +404,13 @@ h1, h2, h3, h4, h5, h6 {
     padding: 2rem 2rem 0 2rem; }
     .dataDark .card p {
       border-top: 0.1rem solid white; }
+
+.ant-collapse {
+  background: rgba(255, 255, 255, 0.4);
+  border: 0.2rem solid #28b485; }
+  .ant-collapse .ant-collapse-item {
+    border-bottom: 0.2rem solid #28b485; }
+    .ant-collapse .ant-collapse-item span svg {
+      color: #28b485; }
+    .ant-collapse .ant-collapse-item .ant-collapse-content {
+      background: rgba(255, 255, 255, 0.7); }

@@ -116,8 +116,22 @@
         }
 
         .ant-row {
+          text-align: center;
+          .centered {
+            text-align: center;
+            width: 100%;
+          }
+          &.dataLight {
+            background: rgba(white, 1);
+            padding-bottom: 0;
+            border-right: 1px solid rgba($color-primary-light, 0.74);
+            border-left: 1px solid rgba($color-primary-light, 0.74);
+            & h1, h2, h3, h4, h5, h6 {
+              color: rgba($color-primary-dark, 1);
+              }
+            }
           &:not(:first-child) {
-            padding: 3rem 0;
+            padding: 4rem 0;
           }
         }
       }
@@ -125,29 +139,8 @@
   }
 }
 .ant-row {
-  text-align: center;
-  .centered {
-    text-align: center;
-    width: 100%;
-    .dataDark & {
-    }
-    .dataLight & {
-    }
-  }
-  &.dataDark {
 
-  }
-  &.dataLight {
-    background: rgba(white, 1);
-    padding-bottom: 0;
-    border-right: 1px solid rgba($color-primary-light, 0.74);
-    border-left: 1px solid rgba($color-primary-light, 0.74);
-    & h1, h2, h3, h4, h5, h6 {
-      color: rgba($color-primary-dark, 1);
-      }
-    }
 }
-.welcome {}
 
 .dataSample {
   table.sampleTable {
@@ -277,7 +270,6 @@
 /*********** data presentation **************/
 
 .map {
-  padding: 3rem 0;
   &--front {
     box-shadow: 5px 5px 1px rgba(white, .2);
     border-radius: .5rem 0 0 .5rem;

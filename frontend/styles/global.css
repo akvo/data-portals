@@ -217,21 +217,20 @@ h1, h2, h3, h4, h5, h6 {
             font-weight: bolder; }
     .container .ant-layout .ant-layout-content .layout-content.layout-center {
       margin: 0 auto; }
-    .container .ant-layout .ant-layout-content .layout-content .ant-row:not(:first-child) {
-      padding: 3rem 0; }
-
-.ant-row {
-  text-align: center; }
-  .ant-row .centered {
-    text-align: center;
-    width: 100%; }
-  .ant-row.dataLight {
-    background: white;
-    padding-bottom: 0;
-    border-right: 1px solid rgba(126, 213, 111, 0.74);
-    border-left: 1px solid rgba(126, 213, 111, 0.74); }
-    .ant-row.dataLight h1, .ant-row.dataLight h2, .ant-row.dataLight h3, .ant-row.dataLight h4, .ant-row.dataLight h5, .ant-row.dataLight h6 {
-      color: #28b485; }
+    .container .ant-layout .ant-layout-content .layout-content .ant-row {
+      text-align: center; }
+      .container .ant-layout .ant-layout-content .layout-content .ant-row .centered {
+        text-align: center;
+        width: 100%; }
+      .container .ant-layout .ant-layout-content .layout-content .ant-row.dataLight {
+        background: white;
+        padding-bottom: 0;
+        border-right: 1px solid rgba(126, 213, 111, 0.74);
+        border-left: 1px solid rgba(126, 213, 111, 0.74); }
+        .container .ant-layout .ant-layout-content .layout-content .ant-row.dataLight h1, .container .ant-layout .ant-layout-content .layout-content .ant-row.dataLight h2, .container .ant-layout .ant-layout-content .layout-content .ant-row.dataLight h3, .container .ant-layout .ant-layout-content .layout-content .ant-row.dataLight h4, .container .ant-layout .ant-layout-content .layout-content .ant-row.dataLight h5, .container .ant-layout .ant-layout-content .layout-content .ant-row.dataLight h6 {
+          color: #28b485; }
+      .container .ant-layout .ant-layout-content .layout-content .ant-row:not(:first-child) {
+        padding: 4rem 0; }
 
 .dataSample table.sampleTable {
   width: 100%;
@@ -331,32 +330,31 @@ h1, h2, h3, h4, h5, h6 {
   padding: 3rem 5rem; }
 
 /*********** data presentation **************/
-.map {
-  padding: 3rem 0; }
-  .map--front {
-    box-shadow: 5px 5px 1px rgba(255, 255, 255, 0.2);
-    border-radius: .5rem 0 0 .5rem;
-    height: 40vh;
-    border-top: 0.2rem solid rgba(40, 180, 133, 0.3);
-    border-left: 0.2rem solid rgba(40, 180, 133, 0.3);
-    border-bottom: 0.2rem solid rgba(40, 180, 133, 0.3); }
-  .map--info {
-    box-shadow: 5px 5px 1px rgba(255, 255, 255, 0.2);
-    border-top: 0.2rem solid rgba(40, 180, 133, 0.3);
-    border-right: 0.2rem solid rgba(40, 180, 133, 0.3);
-    border-bottom: 0.2rem solid rgba(40, 180, 133, 0.3);
-    color: rgba(0, 21, 41, 0.7);
-    text-align: left;
-    background-color: rgba(255, 255, 255, 0.6);
-    padding: 2rem 2.5rem;
-    border-radius: 0 .5rem .5rem 0;
-    height: 40vh;
-    overflow-y: scroll; }
-    .map--info span {
-      font-weight: 700; }
-    .map--info ul {
-      margin-top: 2rem;
-      padding: 0 1.5rem; }
+.map--front {
+  box-shadow: 5px 5px 1px rgba(255, 255, 255, 0.2);
+  border-radius: .5rem 0 0 .5rem;
+  height: 40vh;
+  border-top: 0.2rem solid rgba(40, 180, 133, 0.3);
+  border-left: 0.2rem solid rgba(40, 180, 133, 0.3);
+  border-bottom: 0.2rem solid rgba(40, 180, 133, 0.3); }
+
+.map--info {
+  box-shadow: 5px 5px 1px rgba(255, 255, 255, 0.2);
+  border-top: 0.2rem solid rgba(40, 180, 133, 0.3);
+  border-right: 0.2rem solid rgba(40, 180, 133, 0.3);
+  border-bottom: 0.2rem solid rgba(40, 180, 133, 0.3);
+  color: rgba(0, 21, 41, 0.7);
+  text-align: left;
+  background-color: rgba(255, 255, 255, 0.6);
+  padding: 2rem 2.5rem;
+  border-radius: 0 .5rem .5rem 0;
+  height: 40vh;
+  overflow-y: scroll; }
+  .map--info span {
+    font-weight: 700; }
+  .map--info ul {
+    margin-top: 2rem;
+    padding: 0 1.5rem; }
 
 .statistic {
   position: absolute;

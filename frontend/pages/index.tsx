@@ -48,7 +48,7 @@ const Home: StatelessComponent = () => {
         </Col>
       </Row>
       <Row className="infoContainer dataLight">
-        <Col span={16} offset={4}>
+        <Col span={12} offset={6}>
           <h2>What is it?</h2>
           <p className="paragraph">
             Welcome to the Mali rural Water, Sanitation and Hygiene (WaSH)
@@ -69,7 +69,7 @@ const Home: StatelessComponent = () => {
         </Col>
       </Row>
       <Row className="dataSample">
-        <Col span={16} offset={4}>
+      <Col span={12} offset={6}>
           <h2>Sample characteristics</h2>
           <p className="paragraph">
             The 2016 - 2018 Mali WaSH inventory was a census measurement

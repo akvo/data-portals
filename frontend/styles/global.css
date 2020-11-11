@@ -408,7 +408,8 @@ h1, h2, h3, h4, h5, h6 {
 
 .ant-collapse {
   background: rgba(255, 255, 255, 0.4);
-  border: 0.2rem solid #28b485; }
+  border: 0.2rem solid #28b485;
+  text-align: left; }
   .ant-collapse .ant-collapse-item {
     border-bottom: 0.2rem solid #28b485; }
     .ant-collapse .ant-collapse-item span svg {

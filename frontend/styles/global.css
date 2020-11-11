@@ -221,7 +221,8 @@ h1, h2, h3, h4, h5, h6 {
       text-align: center; }
       .container .ant-layout .ant-layout-content .layout-content .ant-row .centered {
         text-align: center;
-        width: 100%; }
+        width: 100%;
+        margin: 0 auto; }
       .container .ant-layout .ant-layout-content .layout-content .ant-row.dataLight {
         background: white;
         padding-bottom: 0;
@@ -391,8 +392,7 @@ h1, h2, h3, h4, h5, h6 {
       text-shadow: 2px 2px 0 white; }
   .dataDark .card {
     background-color: rgba(255, 255, 255, 0.1);
-    border: 0.1rem solid #28b485;
-    color: white; }
+    border: 0.1rem solid #28b485; }
     .dataDark .card h3 {
       text-shadow: 2px 2px 0 #28b485; }
   .card .vis {
@@ -403,7 +403,8 @@ h1, h2, h3, h4, h5, h6 {
     margin-top: 1rem;
     padding: 2rem 2rem 0 2rem; }
     .dataDark .card p {
-      border-top: 0.1rem solid white; }
+      border-top: 0.1rem solid white;
+      color: white; }
 
 .ant-collapse {
   background: rgba(255, 255, 255, 0.4);

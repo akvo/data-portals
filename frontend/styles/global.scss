@@ -119,6 +119,7 @@
           .centered {
             text-align: center;
             width: 100%;
+            margin: 0 auto;
           }
           &.dataLight {
             background: rgba(white, 1);
@@ -136,9 +137,6 @@
       }
     }
   }
-}
-.ant-row {
-
 }
 
 .dataSample {
@@ -343,7 +341,6 @@
   .dataDark & {
     background-color: rgba(white, 0.1);
     border: 0.1rem solid $color-primary-dark;
-    color: white;
     h3 {
       text-shadow: 2px 2px 0 $color-primary-dark;
     }
@@ -358,6 +355,7 @@
     padding: 2rem 2rem 0 2rem;
     .dataDark & {
       border-top: 0.1rem solid white;
+      color: white;
     }
   }
 }

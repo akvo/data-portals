@@ -36,7 +36,7 @@ const WaterQuality: StatelessComponent = () => {
       </Row>
       <Row className="dataLight">
           <div className="centered"><h2>Pumps</h2></div>
-          <Col span={4} offset={6}>
+          <Col span={4} offset={7}>
             <div className="statistic">
               <div className="statistic-number">15%</div>
               <div className="statistic-desc">
@@ -61,7 +61,7 @@ const WaterQuality: StatelessComponent = () => {
         </Row>
         <Row className="dataDark">
         <div className="centered"><h2>PMH</h2></div>
-          <Col span={4} offset={6}>
+          <Col span={4} offset={7}>
             <div className="statistic">
               <div className="statistic-number">77.7%</div>
               <div className="statistic-desc">

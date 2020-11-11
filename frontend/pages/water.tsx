@@ -25,7 +25,8 @@ const Water: StatelessComponent = () => {
           <Col span={4}>
             <div className="map--info">
               <p>
-              The map on the left  shows the percentage of functional water points per Mali district. The darker green the color the higher the percentage of existing water points that is functional. 
+              This map shows the percentage of functional water points per Mali district. <br/>
+              The darker green the color the higher the percentage of existing water points that is functional. 
               </p>
             </div>
           </Col>
@@ -43,7 +44,9 @@ const Water: StatelessComponent = () => {
           </Col>
           <Col span={4}>
             <div className="map--info">
-              <p>The map on the left shows functional water points that are seasonal and therefore are dry some time during the year. The green points show the water points that are functional throughout the year. The yellow points  show the water points that have dry periods during the year. </p>
+              <p>This map shows functional water points that are seasonal and therefore are dry some time during the year. <br/>
+              The green points show the water points that are functional throughout the year. <br/>
+              The yellow points  show the water points that have dry periods during the year. </p>
             </div>
           </Col>
         </Row>

@@ -158,61 +158,63 @@ h1, h2, h3, h4, h5, h6 {
       border-top: 0.2rem solid #7ed56f;
       height: inherit;
       margin: 0 0 2rem 0; }
-      .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark {
-        background: transparent; }
-        .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item-selected {
-          background: white; }
-          .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item-selected a {
-            color: #28b485 !important;
-            border: 1px solid transparent !important; }
-            .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item-selected a:hover {
+      .container .ant-layout .ant-layout-header .layout-header {
+        border-bottom: 0.1rem solid rgba(255, 255, 255, 0.3); }
+        .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark {
+          background: transparent; }
+          .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item-selected {
+            background: rgba(255, 255, 255, 0.3); }
+            .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item-selected a {
               color: #28b485 !important;
               border: 1px solid transparent !important; }
-        .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item {
-          padding: 0; }
-          .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item a {
+              .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item-selected a:hover {
+                color: #28b485 !important;
+                border: 1px solid transparent !important; }
+          .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item {
+            padding: 0; }
+            .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item a {
+              color: #001529;
+              text-transform: uppercase;
+              font-size: 1.5rem;
+              font-weight: 300;
+              transition: all 0.3s ease-in;
+              padding: 1rem 2rem;
+              border: 1px solid transparent; }
+              .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item a::after {
+                content: "";
+                display: inline-block;
+                height: 100%;
+                width: 100%;
+                border-radius: 10rem;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: -1;
+                transition: all 0.4s ease; }
+              .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item a:hover {
+                color: white;
+                border: 1px solid transparent;
+                font-weight: 300; }
+        .container .ant-layout .ant-layout-header .layout-header .logo {
+          display: block;
+          width: 25rem;
+          height: 5.4rem;
+          float: left;
+          text-align: left;
+          overflow: hidden;
+          background-image: url(../public/AkvoLogo.svg);
+          background-repeat: no-repeat;
+          background-position: center left;
+          background-size: 70%;
+          text-indent: -9999px; }
+          .container .ant-layout .ant-layout-header .layout-header .logo img {
+            filter: invert(100%);
+            position: relative;
+            top: -2.5rem;
+            left: -2.5rem; }
+          .container .ant-layout .ant-layout-header .layout-header .logo h1 {
             color: #001529;
-            text-transform: uppercase;
-            font-size: 1.5rem;
-            font-weight: 300;
-            transition: all 0.3s ease-in;
-            padding: 1rem 2rem;
-            border: 1px solid transparent; }
-            .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item a::after {
-              content: "";
-              display: inline-block;
-              height: 100%;
-              width: 100%;
-              border-radius: 10rem;
-              position: absolute;
-              top: 0;
-              left: 0;
-              z-index: -1;
-              transition: all 0.4s ease; }
-            .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item a:hover {
-              color: white;
-              border: 1px solid transparent;
-              font-weight: 300; }
-      .container .ant-layout .ant-layout-header .layout-header .logo {
-        display: block;
-        width: 25rem;
-        height: 5.4rem;
-        float: left;
-        text-align: left;
-        overflow: hidden;
-        background-image: url(../public/AkvoLogo.svg);
-        background-repeat: no-repeat;
-        background-position: center left;
-        background-size: 70%;
-        text-indent: -9999px; }
-        .container .ant-layout .ant-layout-header .layout-header .logo img {
-          filter: invert(100%);
-          position: relative;
-          top: -2.5rem;
-          left: -2.5rem; }
-        .container .ant-layout .ant-layout-header .layout-header .logo h1 {
-          color: #001529;
-          font-weight: bolder; }
+            font-weight: bolder; }
     .container .ant-layout .ant-layout-content .layout-content.layout-center {
       margin: 0 auto; }
     .container .ant-layout .ant-layout-content .layout-content .ant-row:not(:first-child) {
@@ -341,10 +343,10 @@ h1, h2, h3, h4, h5, h6 {
     border-top: 0.2rem solid rgba(40, 180, 133, 0.3);
     border-right: 0.2rem solid rgba(40, 180, 133, 0.3);
     border-bottom: 0.2rem solid rgba(40, 180, 133, 0.3);
+    color: rgba(0, 21, 41, 0.7);
     text-align: left;
     background-color: rgba(255, 255, 255, 0.6);
-    color: #001529;
-    padding: 1.5rem 2.5rem;
+    padding: 2rem 2.5rem;
     border-radius: 0 .5rem .5rem 0;
     height: 40vh;
     overflow-y: scroll; }

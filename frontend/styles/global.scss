@@ -26,12 +26,13 @@
       margin: 0 0 2rem 0;
 
       .layout-header {
+        border-bottom: 0.1rem solid rgba(white,0.3);
         .ant-menu {
           &.ant-menu-dark {
             background: transparent;
 
             .ant-menu-item-selected {
-              background: white;
+              background: rgba(white,0.3);
 
               a {
                 color: $color-primary-dark !important;
@@ -289,14 +290,13 @@
     border-top: 0.2rem solid rgba($color-primary-dark, .3);
     border-right: 0.2rem solid rgba($color-primary-dark, .3);
     border-bottom: 0.2rem solid rgba($color-primary-dark, .3);
-
+    color: rgba($color-font, 0.7);
     span {
       font-weight: 700;
     }
     text-align: left;
     background-color: rgba(255, 255, 255, 0.6);
-    color: $color-font;
-    padding: 1.5rem 2.5rem;
+    padding: 2rem 2.5rem;
     border-radius: 0 .5rem .5rem 0;
     height: 40vh;
     overflow-y: scroll;

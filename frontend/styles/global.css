@@ -237,12 +237,14 @@ h1, h2, h3, h4, h5, h6 {
   width: 100%;
   text-align: left;
   border-collapse: collapse;
-  background: rgba(0, 21, 41, 0.1); }
+  background: rgba(0, 21, 41, 0.1);
+  box-shadow: 5px 5px 1px rgba(255, 255, 255, 0.2);
+  border: 0.2rem solid rgba(255, 255, 255, 0.3);
+  border-radius: .5rem; }
 
 .dataSample table.sampleTable td,
 .dataSample table.sampleTable th {
-  border: 1px solid transparent;
-  padding: 0.5rem; }
+  padding: 1rem; }
 
 .dataSample table.sampleTable tr:nth-child(even) {
   background: rgba(255, 255, 255, 0.2); }

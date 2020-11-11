@@ -62,7 +62,7 @@ ORDER: Base + typography > general layout + grid > page layout > components
   box-sizing: inherit; }
 
 html {
-  font-size: 62.5%; }
+  font-size: 75%; }
   @media only screen and (max-width: 75em) {
     html {
       font-size: 56.25%; } }
@@ -85,75 +85,40 @@ body {
   background-color: #55c57a;
   color: #fff; }
 
-body {
-  font-family: "Lato", sans-serif;
-  font-weight: 400;
-  /*font-size: 16px;*/
-  line-height: 1.7;
-  color: #001529; }
-
 h1, h2, h3, h4, h5, h6 {
   text-transform: uppercase;
-  color: #55c57a; }
+  color: white;
+  text-align: center; }
 
 .heading-primary {
   color: #fff;
   text-transform: uppercase;
   backface-visibility: hidden;
-  margin-bottom: 6rem; }
+  margin-bottom: 2rem;
+  text-align: center; }
   .heading-primary--main {
     display: block;
-    font-size: 6rem;
+    font-size: 4rem;
     font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation-name: moveInLeft;
-    animation-duration: 1s;
-    animation-timing-function: ease-out;
-    /*
-        animation-delay: 3s;
-        animation-iteration-count: 3;
-        */ }
+    letter-spacing: 2.5rem;
+    animation: moveInLeft 0.7s ease-out; }
     @media only screen and (max-width: 37.5em) {
       .heading-primary--main {
         letter-spacing: 1rem;
         font-family: 5rem; } }
   .heading-primary--sub {
     display: block;
-    font-size: 2rem;
+    font-size: 1.3rem;
     font-weight: 700;
-    letter-spacing: 1.75rem;
-    animation: moveInRight 1s ease-out; }
+    letter-spacing: 1.54rem;
+    animation: moveInRight 1s ease-out;
+    color: #28b485; }
     @media only screen and (max-width: 37.5em) {
       .heading-primary--sub {
         letter-spacing: .5rem; } }
 
-.heading-secondary {
-  font-size: 3.5rem;
-  text-transform: uppercase;
-  font-weight: 700;
-  display: inline-block;
-  background-image: linear-gradient(to right, #7ed56f, #28b485);
-  -webkit-background-clip: text;
-  color: transparent;
-  letter-spacing: .2rem;
-  transition: all .2s; }
-  @media only screen and (max-width: 56.25em) {
-    .heading-secondary {
-      font-size: 3rem; } }
-  @media only screen and (max-width: 37.5em) {
-    .heading-secondary {
-      font-size: 2.5rem; } }
-  .heading-secondary:hover {
-    transform: skewY(2deg) skewX(15deg) scale(1.1);
-    text-shadow: 0.5rem 1rem 2rem rgba(0, 0, 0, 0.2); }
-
-.heading-tertiary {
-  font-size: 1.6rem;
-  font-weight: 700;
-  text-transform: uppercase; }
-
 .paragraph {
-  font-size: 1.6rem; }
+  font-size: 1.4rem; }
   .paragraph:not(:last-child) {
     margin-bottom: 3rem; }
 
@@ -183,119 +148,121 @@ h1, h2, h3, h4, h5, h6 {
 
 .container {
   padding-bottom: 2rem; }
+  .container .ant-layout {
+    border-radius: .5rem .5rem 0 0;
+    background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.74), rgba(40, 180, 133, 0.9)); }
+    .container .ant-layout .ant-layout-header {
+      z-index: 1010;
+      background: rgba(126, 213, 111, 0);
+      border-radius: .5rem .5rem 0 0;
+      border-top: 0.2rem solid #7ed56f;
+      height: inherit;
+      margin: 0 0 2rem 0; }
+      .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark {
+        background: transparent; }
+        .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item-selected {
+          background: white; }
+          .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item-selected a {
+            color: #28b485 !important;
+            border: 1px solid transparent !important; }
+            .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item-selected a:hover {
+              color: #28b485 !important;
+              border: 1px solid transparent !important; }
+        .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item {
+          padding: 0; }
+          .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item a {
+            color: #001529;
+            text-transform: uppercase;
+            font-size: 1.5rem;
+            font-weight: 300;
+            transition: all 0.3s ease-in;
+            padding: 1rem 2rem;
+            border: 1px solid transparent; }
+            .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item a::after {
+              content: "";
+              display: inline-block;
+              height: 100%;
+              width: 100%;
+              border-radius: 10rem;
+              position: absolute;
+              top: 0;
+              left: 0;
+              z-index: -1;
+              transition: all 0.4s ease; }
+            .container .ant-layout .ant-layout-header .layout-header .ant-menu.ant-menu-dark .ant-menu-item a:hover {
+              color: white;
+              border: 1px solid transparent;
+              font-weight: 300; }
+      .container .ant-layout .ant-layout-header .layout-header .logo {
+        display: block;
+        width: 25rem;
+        height: 5.4rem;
+        float: left;
+        text-align: left;
+        overflow: hidden;
+        background-image: url(../public/AkvoLogo.svg);
+        background-repeat: no-repeat;
+        background-position: center left;
+        background-size: 70%;
+        text-indent: -9999px; }
+        .container .ant-layout .ant-layout-header .layout-header .logo img {
+          filter: invert(100%);
+          position: relative;
+          top: -2.5rem;
+          left: -2.5rem; }
+        .container .ant-layout .ant-layout-header .layout-header .logo h1 {
+          color: #001529;
+          font-weight: bolder; }
+    .container .ant-layout .ant-layout-content .layout-content.layout-center {
+      margin: 0 auto; }
+    .container .ant-layout .ant-layout-content .layout-content .ant-row:not(:first-child) {
+      padding: 3rem 0; }
 
-.header__text-box .heading-primary {
-  color: #fff;
-  backface-visibility: hidden;
-  margin-bottom: 4rem;
+.ant-row {
   text-align: center; }
-  .header__text-box .heading-primary--main {
-    display: block;
-    font-size: 5rem;
-    font-weight: 400;
-    letter-spacing: 3.5rem;
-    animation: moneInLeft 0.7s ease-in-out; }
-  .header__text-box .heading-primary--sub {
-    display: block;
-    font-size: 2rem;
-    font-weight: 700;
-    letter-spacing: 1.74rem;
-    animation: moneInRight 0.7s ease-in-out;
-    color: #28b485; }
+  .ant-row .centered {
+    text-align: center;
+    width: 100%; }
+  .ant-row.dataLight {
+    background: white;
+    padding-bottom: 0;
+    border-right: 1px solid rgba(126, 213, 111, 0.74);
+    border-left: 1px solid rgba(126, 213, 111, 0.74); }
+    .ant-row.dataLight h1, .ant-row.dataLight h2, .ant-row.dataLight h3, .ant-row.dataLight h4, .ant-row.dataLight h5, .ant-row.dataLight h6 {
+      color: #28b485; }
 
-.ant-layout {
-  border-radius: .5rem .5rem 0 0;
-  background-image: linear-gradient(to right bottom, rgba(126, 213, 111, 0.74), rgba(40, 180, 133, 0.9)); }
-  .index .ant-layout {
-    height: calc(100vh - 4rem); }
-
-.ant-layout-header {
-  z-index: 1010;
-  background: rgba(126, 213, 111, 0);
-  border-radius: .5rem .5rem 0 0;
-  border-top: 0.2rem solid #7ed56f; }
-  .ant-layout-header .layout-header .logo {
-    display: block;
-    width: 25rem;
-    height: 6.4rem;
-    float: left;
-    text-align: left;
-    overflow: hidden;
-    background-image: url(../public/AkvoLogo.svg);
-    background-repeat: no-repeat;
-    background-position: center left;
-    background-size: 70%;
-    text-indent: -9999px; }
-    .ant-layout-header .layout-header .logo img {
-      filter: invert(100%);
-      position: relative;
-      top: -2.5rem;
-      left: -2.5rem; }
-    .ant-layout-header .layout-header .logo h1 {
-      color: #001529;
-      font-weight: bolder; }
-
-.ant-menu.ant-menu-dark {
-  background: transparent; }
-  .ant-menu.ant-menu-dark .ant-menu-item-selected {
-    background: white; }
-    .ant-menu.ant-menu-dark .ant-menu-item-selected a {
-      color: #28b485 !important;
-      border: 1px solid transparent !important; }
-      .ant-menu.ant-menu-dark .ant-menu-item-selected a:hover {
-        color: #28b485 !important;
-        border: 1px solid transparent !important; }
-  .ant-menu.ant-menu-dark .ant-menu-item {
-    padding: 0; }
-    .ant-menu.ant-menu-dark .ant-menu-item a {
-      color: white;
-      text-transform: uppercase;
-      font-size: 2rem;
-      font-weight: 300;
-      transition: all 0.3s ease-in;
-      padding: 1rem 2rem;
-      border: 1px solid transparent; }
-      .ant-menu.ant-menu-dark .ant-menu-item a::after {
-        content: "";
-        display: inline-block;
-        height: 100%;
-        width: 100%;
-        border-radius: 10rem;
-        position: absolute;
-        top: 0;
-        left: 0;
-        z-index: -1;
-        transition: all 0.4s ease; }
-      .ant-menu.ant-menu-dark .ant-menu-item a:hover {
-        color: #001529;
-        border: 1px solid transparent;
-        font-weight: 300; }
-
-.mapTitle {
+.dataSample table.sampleTable {
+  width: 100%;
   text-align: left;
-  margin-bottom: 0; }
+  border-collapse: collapse;
+  background: rgba(0, 21, 41, 0.1); }
 
-.frontMap {
-  height: 50vh; }
+.dataSample table.sampleTable td,
+.dataSample table.sampleTable th {
+  border: 1px solid transparent;
+  padding: 0.5rem; }
 
-.card {
-  padding: .5rem;
-  margin: 1rem auto;
-  text-align: center; }
+.dataSample table.sampleTable tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.2); }
 
-.layout-content {
-  padding: 5rem 0; }
+.dataSample table.sampleTable thead {
+  background: rgba(255, 255, 255, 0);
+  border: none; }
 
-.layout-center {
-  margin: 0 auto;
-  /*   min-width: 800px;
-  max-width: 1200px; */ }
+.dataSample table.sampleTable thead th {
+  font-weight: bold;
+  color: #FFFFFF;
+  border: none; }
+
+.dataSample table.sampleTable thead th:first-child {
+  border-left: none;
+  border: none; }
 
 .ant-layout-footer {
-  background: rgba(40, 180, 133, 0.2);
+  background: #333333;
   border-radius: 0 0 .5rem .5rem;
   text-align: center;
-  border: 3px solid rgba(40, 180, 133, 0); }
+  color: white; }
   .ant-layout-footer .copyRights {
     margin: 2rem auto 0; }
   .ant-layout-footer .partnersLg {
@@ -323,12 +290,6 @@ h1, h2, h3, h4, h5, h6 {
         max-width: 75%; }
       .ant-layout-footer .partnersLg .partnerImg:last-child {
         margin-right: 0; }
-
-.statistic {
-  text-align: center; }
-
-.statistic-number {
-  font-size: 2.5rem; }
 
 .leaflet-control.info {
   padding: .8rem 1rem;
@@ -364,3 +325,57 @@ h1, h2, h3, h4, h5, h6 {
   text-align: center;
   margin: 2rem 0;
   padding: 3rem 5rem; }
+
+/*********** data presentation **************/
+.map {
+  padding: 3rem 0; }
+  .map--front {
+    height: 40vh; }
+  .map--info {
+    text-align: left;
+    margin: 0 0 0 0.1rem;
+    background-color: rgba(255, 255, 255, 0.8);
+    color: #001529;
+    padding: 1.5rem;
+    border-radius: 0 0.3rem 0.3rem 0;
+    height: 40vh;
+    overflow-y: scroll; }
+    .map--info span {
+      font-weight: 700; }
+    .map--info ul {
+      margin-top: 2rem;
+      padding: 0 1.5rem; }
+
+.statistic {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  padding: 3rem;
+  text-align: center;
+  color: #28b485; }
+  .dataDark .statistic {
+    color: white; }
+  .statistic .statistic-number {
+    font-weight: 700;
+    font-size: 5rem; }
+  .statistic .statistic-desc {
+    font-size: 2rem; }
+
+.card {
+  border-radius: .3rem;
+  padding: 1.5rem 1rem;
+  margin: 2rem auto;
+  text-align: center;
+  min-height: 91%; }
+  .dataLight .card {
+    background-color: rgba(40, 180, 133, 0.1);
+    border: 0.1rem solid white; }
+  .dataDark .card {
+    background-color: rgba(255, 255, 255, 0.1);
+    border: 0.1rem solid #28b485; }
+  .card .vis {
+    height: 25rem;
+    padding: 0 .5rem; }
+  .card p {
+    margin-top: 1rem; }

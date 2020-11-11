@@ -6,21 +6,23 @@ import AccessToWaterMap from '../components/root/AccessToWaterMap'
 const Home: StatelessComponent = () => {
   return (
     <>
-    <Row>
-      <Col span={18} offset={3}>
-      <div className="header__text-box">
-        <h1 className="heading-primary">
-          <span className="heading-primary--main">WaSH services in Mali</span>
-          <span className="heading-primary--sub">Welcome to the Mali WaSH portal</span>
-        </h1>
-      </div>
-
-      </Col>
-    </Row>
-      <Row>
-        <Col span={16} offset={4}>
-          <p className="mapTitle">Access to water in Mali</p>
-          <div className="frontMap">
+      <Row className="welcome">
+        <Col span={18} offset={3}>
+          <div className="welcome__text-box">
+            <h1 className="heading-primary">
+              <span className="heading-primary--main">
+                WaSH services in Mali
+              </span>
+              <span className="heading-primary--sub">
+                Welcome to the Mali WaSH portal
+              </span>
+            </h1>
+          </div>
+        </Col>
+      </Row>
+      <Row className="map">
+        <Col span={12} offset={4}>
+          <div className="map--front">
             <AccessToWaterMap
               source={`${API_PATH}/mali/waterpoints.geojson`}
               latitude={17.65}
@@ -29,19 +31,108 @@ const Home: StatelessComponent = () => {
             />
           </div>
         </Col>
-      </Row>
-      <Row>
-        <Col span={16} offset={4}>
-          <div className="card">
-            <p>
-              This portal contains data collected for UNICEF, who build 110
-              wells in 2017. The data was collected to indicate water quality of
-              the build wells and of the water in the households.
-            </p>
-            <p>
-              Counties: 10, Districts: 1100, Households:
-            </p>
+        <Col span={4}>
+          <div className="map--info">
+            <span>This map shows all the rural water points as surveyed by the
+            inventory combined with their functionality.</span>
+            <ul>
+              <li><span>Functional</span> means the well was functional at the moment of the survey.(Please see the
+              Water tab for information about seasonality)</li>
+              <li><span>Broken</span> means the well was not usable at time of the survey, because a part of the well was
+              broken.</li>
+              <li><span>Not used</span> means the well is not used for other reasons, most
+              of the being that the well is dry or there is a functional water
+              point located nearer to the local residents.</li>
+            </ul>
           </div>
+        </Col>
+      </Row>
+      <Row className="infoContainer dataLight">
+        <Col span={16} offset={4}>
+          <h2>What is it?</h2>
+          <p className="paragraph">
+            Welcome to the Mali rural Water, Sanitation and Hygiene (WaSH)
+            data portal. This portal provides information on rural water
+            points in Mali. The data was collected during their national
+            inventory from 2016 to 2018.
+          </p>
+          <p className="paragraph">
+            This portal is set up to provide information on the most recent
+            state of WaSH services in the different regions of Mali. The
+            national inventory was focussed on Water and Water Quality, so
+            there is no data available on Sanitation and Hygiene. The Water
+            and Water quality information can be found in the respective tabs.
+            If you are interested in the raw data file, please take a look at
+            the Data tab and for some more information about this portal, and
+            other WaSH country portals, please take a look at the Guide tab.
+          </p>
+        </Col>
+      </Row>
+      <Row className="dataSample">
+        <Col span={16} offset={4}>
+          <h2>Sample characteristics</h2>
+          <p className="paragraph">
+            The 2016 - 2018 Mali WaSH inventory was a census measurement
+            covering all of Mali’s rural water points. Piped water systems
+            were left out of the data collection. This should be kept in mind
+            when looking at larger cities. Below is an overview of the number
+            of operators are interviewed and the number of wells from which
+            information was collected.
+          </p>
+          <table class="sampleTable">
+            <thead>
+              <tr>
+                <th>District</th>
+                <th>Number of operators (/exploitants)</th>
+                <th>Number of wells (/puits)</th>
+              </tr>
+            </thead>
+            <tr>
+              <td>Bamako</td>
+              <td>620</td>
+              <td>461</td>
+            </tr>
+            <tr>
+              <td>Gao</td>
+              <td>1128</td>
+              <td>2437</td>
+            </tr>
+            <tr>
+              <td>Kayes</td>
+              <td>894</td>
+              <td>7252</td>
+            </tr>
+            <tr>
+              <td>Kidal</td>
+              <td>55</td>
+              <td>491</td>
+            </tr>
+            <tr>
+              <td>Koulikoro</td>
+              <td>3172</td>
+              <td>8275</td>
+            </tr>
+            <tr>
+              <td>Mopti</td>
+              <td>975</td>
+              <td>6583</td>
+            </tr>
+            <tr>
+              <td>Segou</td>
+              <td>2793</td>
+              <td>7563</td>
+            </tr>
+            <tr>
+              <td>Sikasso</td>
+              <td>2532</td>
+              <td>6274</td>
+            </tr>
+            <tr>
+              <td>Tombouctou</td>
+              <td>500</td>
+              <td>3503</td>
+            </tr>
+          </table>
         </Col>
       </Row>
     </>

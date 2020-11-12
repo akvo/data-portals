@@ -1,15 +1,12 @@
-import { StatelessComponent, useState } from 'react'
-import ReactMapGL, { Source, Layer } from 'react-map-gl'
-import { Spin } from 'antd'
+import { StatelessComponent } from 'react'
+import { Source, Layer } from 'react-map-gl'
 import * as d3 from 'd3'
 import { Feature } from 'geojson'
 import useSWR from 'swr'
 import fetcher from '../../libs/fetcher'
 import ColorLegend from '../commons/ColorLegend'
 import scaleToColorMap from '../../libs/scale-to-colormap'
-
-const positronStyle =
-  'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json'
+import Map from '../commons/Map'
 
 type Props = {
   source: string
@@ -18,26 +15,14 @@ type Props = {
   zoom: number
 }
 
-const FunctionalityMapbox: StatelessComponent<Props> = ({
-  source,
-  latitude,
-  longitude,
-  zoom,
-}) => {
-  const [viewport, setViewport] = useState({
-    longitude,
-    latitude,
-    zoom,
-  })
+const FunctionalityMap: StatelessComponent<Props> = ({ source, ...props }) => {
   const { data, error } = useSWR(source, fetcher)
 
-  if (error) return <div>failed to load</div>
+  if (error) {
+    return <Map error={true} {...props} />
+  }
   if (!data) {
-    return (
-      <div className="swr-loader">
-        <Spin size="large" tip="Loading..." />
-      </div>
-    )
+    return <Map loading={true} {...props} />
   }
 
   const values = data.features
@@ -50,19 +35,7 @@ const FunctionalityMapbox: StatelessComponent<Props> = ({
   const fillColor = scaleToColorMap(scale)
 
   return (
-    <ReactMapGL
-      width="100%"
-      height="100%"
-      {...viewport}
-      onViewportChange={(v) =>
-        setViewport({
-          latitude: v.latitude,
-          longitude: v.longitude,
-          zoom: v.zoom,
-        })
-      }
-      mapStyle={positronStyle}
-    >
+    <Map {...props}>
       <Source type="geojson" data={data}>
         <Layer
           id="population"
@@ -91,8 +64,8 @@ const FunctionalityMapbox: StatelessComponent<Props> = ({
           width={350}
         />
       </div>
-    </ReactMapGL>
+    </Map>
   )
 }
 
-export default FunctionalityMapbox
+export default FunctionalityMap

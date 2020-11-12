@@ -1,6 +1,5 @@
 import { StatelessComponent, useState } from 'react'
-import ReactMapGL, { Source, Layer, LayerProps, Popup } from 'react-map-gl'
-import { Spin } from 'antd'
+import { Source, Layer, LayerProps, Popup } from 'react-map-gl'
 import * as d3 from 'd3'
 import { Feature } from 'geojson'
 import useSWR from 'swr'
@@ -8,9 +7,7 @@ import fetcher from '../../libs/fetcher'
 import ColorLegend from '../commons/ColorLegend'
 import scaleToColorMap from '../../libs/scale-to-colormap'
 import { FeaturePoint } from '../../libs/data-types'
-
-const positronStyle =
-  'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json'
+import Map from '../commons/Map'
 
 const safetyColors = [
   { color: '#fdae61', label: "Le puits n'est pas sûr" },
@@ -50,29 +47,21 @@ type Props = {
   zoom: number
 }
 
-const WaterQualityMapbox: StatelessComponent<Props> = ({
+const WaterQualityMap: StatelessComponent<Props> = ({
   populationSource,
   waterpointSource,
-  latitude,
-  longitude,
-  zoom,
+  ...props
 }) => {
-  const [viewport, setViewport] = useState({
-    longitude,
-    latitude,
-    zoom,
-  })
   const [featurePoint, setFeaturePoint] = useState<FeaturePoint | null>()
   const { data: pData, error: pError } = useSWR(populationSource, fetcher)
   const { data: wData, error: wError } = useSWR(waterpointSource, fetcher)
 
-  if (pError || wError) return <div>failed to load</div>
-  if (!pData || !wData)
-    return (
-      <div className="swr-loader">
-        <Spin size="large" tip="Loading..." />
-      </div>
-    )
+  if (pError || wError) {
+    return <Map error={true} {...props} />
+  }
+  if (!pData || !wData) {
+    return <Map loading={true} {...props} />
+  }
 
   const values = pData.features
     .map((f: Feature) => f.properties?.value)
@@ -84,18 +73,8 @@ const WaterQualityMapbox: StatelessComponent<Props> = ({
   const fillColor = scaleToColorMap(pScale)
 
   return (
-    <ReactMapGL
-      width="100%"
-      height="100%"
-      {...viewport}
-      onViewportChange={(v) =>
-        setViewport({
-          latitude: v.latitude,
-          longitude: v.longitude,
-          zoom: v.zoom,
-        })
-      }
-      mapStyle={positronStyle}
+    <Map
+      {...props}
       interactiveLayerIds={[waterpointLayer.id as string]}
       onClick={(e) => {
         if (!e.features.length) {
@@ -158,8 +137,8 @@ const WaterQualityMapbox: StatelessComponent<Props> = ({
           <div style={{ padding: '5px 10px 0' }}>{featurePoint.text}</div>
         </Popup>
       )}
-    </ReactMapGL>
+    </Map>
   )
 }
 
-export default WaterQualityMapbox
+export default WaterQualityMap

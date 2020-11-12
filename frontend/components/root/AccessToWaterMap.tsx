@@ -1,12 +1,9 @@
 import { StatelessComponent, useState } from 'react'
-import ReactMapGL, { Source, Layer, LayerProps, Popup } from 'react-map-gl'
-import { Spin } from 'antd'
+import { Source, Layer, LayerProps, Popup } from 'react-map-gl'
 import useSWR from 'swr'
 import fetcher from '../../libs/fetcher'
 import { FeaturePoint } from '../../libs/data-types'
-
-const positronStyle =
-  'https://basemaps.cartocdn.com/gl/positron-gl-style/style.json'
+import Map from '../commons/Map'
 
 const functionalityColors = [
   { color: '#003f5c', label: 'fonctionnel' },
@@ -48,42 +45,20 @@ type Props = {
   zoom: number
 }
 
-const AccessToWaterMap: StatelessComponent<Props> = ({
-  source,
-  latitude,
-  longitude,
-  zoom,
-}) => {
-  const [viewport, setViewport] = useState({
-    longitude,
-    latitude,
-    zoom,
-  })
+const AccessToWaterMap: StatelessComponent<Props> = ({ source, ...props }) => {
   const [featurePoint, setFeaturePoint] = useState<FeaturePoint | null>()
   const { data, error } = useSWR(source, fetcher)
 
-  if (error) return <div>failed to load</div>
+  if (error) {
+    return <Map error={true} {...props} />
+  }
   if (!data) {
-    return (
-      <div className="swr-loader">
-        <Spin size="large" tip="Loading..." />
-      </div>
-    )
+    return <Map loading={true} {...props} />
   }
 
   return (
-    <ReactMapGL
-      width="100%"
-      height="100%"
-      {...viewport}
-      onViewportChange={(v) =>
-        setViewport({
-          latitude: v.latitude,
-          longitude: v.longitude,
-          zoom: v.zoom,
-        })
-      }
-      mapStyle={positronStyle}
+    <Map
+      {...props}
       interactiveLayerIds={[waterpointLayer.id as string]}
       onClick={(e) => {
         if (!e.features.length) {
@@ -129,7 +104,7 @@ const AccessToWaterMap: StatelessComponent<Props> = ({
           <img src={featurePoint.photo} width={300} />
         </Popup>
       )}
-    </ReactMapGL>
+    </Map>
   )
 }
 

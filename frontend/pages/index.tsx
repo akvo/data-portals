@@ -33,16 +33,25 @@ const Home: StatelessComponent = () => {
         </Col>
         <Col span={4}>
           <div className="map--info">
-            <span>This map shows all the rural water points as surveyed by the
-            inventory combined with their functionality.</span>
+            <span>
+              This map shows all the rural water points as surveyed by the
+              inventory combined with their functionality.
+            </span>
             <ul>
-              <li><span>Functional</span> means the well was functional at the moment of the survey.(Please see the
-              Water tab for information about seasonality)</li>
-              <li><span>Broken</span> means the well was not usable at time of the survey, because a part of the well was
-              broken.</li>
-              <li><span>Not used</span> means the well is not used for other reasons, most
-              of the being that the well is dry or there is a functional water
-              point located nearer to the local residents.</li>
+              <li>
+                <span>Functional</span> means the well was functional at the
+                moment of the survey.(Please see the Water tab for information
+                about seasonality)
+              </li>
+              <li>
+                <span>Broken</span> means the well was not usable at time of the
+                survey, because a part of the well was broken.
+              </li>
+              <li>
+                <span>Not used</span> means the well is not used for other
+                reasons, most of the being that the well is dry or there is a
+                functional water point located nearer to the local residents.
+              </li>
             </ul>
           </div>
         </Col>
@@ -51,35 +60,35 @@ const Home: StatelessComponent = () => {
         <Col span={12} offset={6}>
           <h2>What is it?</h2>
           <p className="paragraph">
-            Welcome to the Mali rural Water, Sanitation and Hygiene (WaSH)
-            data portal. This portal provides information on rural water
-            points in Mali. The data was collected during their national
-            inventory from 2016 to 2018.
+            Welcome to the Mali rural Water, Sanitation and Hygiene (WaSH) data
+            portal. This portal provides information on rural water points in
+            Mali. The data was collected during their national inventory from
+            2016 to 2018.
           </p>
           <p className="paragraph">
             This portal is set up to provide information on the most recent
             state of WaSH services in the different regions of Mali. The
-            national inventory was focussed on Water and Water Quality, so
-            there is no data available on Sanitation and Hygiene. The Water
-            and Water quality information can be found in the respective tabs.
-            If you are interested in the raw data file, please take a look at
-            the Data tab and for some more information about this portal, and
-            other WaSH country portals, please take a look at the Guide tab.
+            national inventory was focussed on Water and Water Quality, so there
+            is no data available on Sanitation and Hygiene. The Water and Water
+            quality information can be found in the respective tabs. If you are
+            interested in the raw data file, please take a look at the Data tab
+            and for some more information about this portal, and other WaSH
+            country portals, please take a look at the Guide tab.
           </p>
         </Col>
       </Row>
       <Row className="dataSample">
-      <Col span={12} offset={6}>
+        <Col span={12} offset={6}>
           <h2>Sample characteristics</h2>
           <p className="paragraph">
             The 2016 - 2018 Mali WaSH inventory was a census measurement
-            covering all of Mali’s rural water points. Piped water systems
-            were left out of the data collection. This should be kept in mind
-            when looking at larger cities. Below is an overview of the number
-            of operators are interviewed and the number of wells from which
+            covering all of Mali’s rural water points. Piped water systems were
+            left out of the data collection. This should be kept in mind when
+            looking at larger cities. Below is an overview of the number of
+            operators are interviewed and the number of wells from which
             information was collected.
           </p>
-          <table class="sampleTable">
+          <table className="sampleTable">
             <thead>
               <tr>
                 <th>District</th>

@@ -71,7 +71,7 @@ const CustomApp: StatelessComponent<AppProps> = ({ Component, pageProps }) => {
       </Layout>
       <Footer>
         <div className="layout-footer layout-center">
-          <h2 class="partnerTl">Partners</h2>
+          <h2 className="partnerTl">Partners</h2>
           <div className="partnersLg">
             <div className="partnerImg">
               <a href="#">

@@ -39,6 +39,7 @@ const CustomApp: StatelessComponent<AppProps> = ({ Component, pageProps }) => {
                   <a>Water quality</a>
                 </Link>
               </Menu.Item>
+              {/*
               <Menu.Item key="sanitation">
                 <Link href="/sanitation">
                   <a>Sanitation</a>
@@ -54,6 +55,7 @@ const CustomApp: StatelessComponent<AppProps> = ({ Component, pageProps }) => {
                   <a>Data</a>
                 </Link>
               </Menu.Item>
+              */}
               <Menu.Item key="guide">
                 <Link href="/guide">
                   <a>Guide</a>

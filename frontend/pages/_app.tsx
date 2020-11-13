@@ -1,14 +1,13 @@
 import 'antd/dist/antd.css'
 import 'mapbox-gl/dist/mapbox-gl.css'
 import 'nprogress/nprogress.css'
-import '../styles/global.css'
+import '../styles/global.scss'
 import { AppProps } from 'next/app'
 import { Layout, Menu } from 'antd'
 import Link from 'next/link'
 import { useRouter } from 'next/router'
 import { StatelessComponent } from 'react'
 import TopProgressBar from '../components/commons/TopProgressBar'
-
 
 const { Header, Content, Footer } = Layout
 
@@ -71,30 +70,42 @@ const CustomApp: StatelessComponent<AppProps> = ({ Component, pageProps }) => {
         </Content>
       </Layout>
       <Footer>
-          <div className="layout-footer layout-center">
-            <h2 class="partnerTl">Partners</h2>
-            <div className="partnersLg">
-                <div className="partnerImg">
-                  <a href="#"><img src="tumbDNH-150x150.png" alt="" className="grayscale"/></a>
-                </div>
-                <div className="partnerImg">
-                  <a href="#"><img src="tumb-sweden.png" alt="" className="grayscale"/></a>
-                </div>
-                <div className="partnerImg">
-                  <a href="#"><img src="tumb-unicef.png" alt="" className="grayscale"/></a>
-                </div>
-                <div className="partnerImg">
-                  <a href="#"><img src="tumbGIZ.png" alt="" className="grayscale"/></a>
-                </div>
-                <div className="partnerImg">
-                  <a href="#"><img src="tumbsnv.png" alt="" className="grayscale"/></a>
-                </div>                
-                <div className="partnerImg">
-                  <a href="#"><img src="AkvoLogo2.svg" alt="" className="grayscale"/></a>
-                </div>
+        <div className="layout-footer layout-center">
+          <h2 class="partnerTl">Partners</h2>
+          <div className="partnersLg">
+            <div className="partnerImg">
+              <a href="#">
+                <img src="tumbDNH-150x150.png" alt="" className="grayscale" />
+              </a>
             </div>
-            <p className="copyRights">@2020 Some rights reserved</p>
+            <div className="partnerImg">
+              <a href="#">
+                <img src="tumb-sweden.png" alt="" className="grayscale" />
+              </a>
+            </div>
+            <div className="partnerImg">
+              <a href="#">
+                <img src="tumb-unicef.png" alt="" className="grayscale" />
+              </a>
+            </div>
+            <div className="partnerImg">
+              <a href="#">
+                <img src="tumbGIZ.png" alt="" className="grayscale" />
+              </a>
+            </div>
+            <div className="partnerImg">
+              <a href="#">
+                <img src="tumbsnv.png" alt="" className="grayscale" />
+              </a>
+            </div>
+            <div className="partnerImg">
+              <a href="#">
+                <img src="AkvoLogo2.svg" alt="" className="grayscale" />
+              </a>
+            </div>
           </div>
+          <p className="copyRights">@2020 Some rights reserved</p>
+        </div>
       </Footer>
     </div>
   )

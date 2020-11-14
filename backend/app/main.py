@@ -2,6 +2,7 @@ from functools import lru_cache
 from typing import Any, Iterator, Optional
 
 from fastapi import Depends, FastAPI
+from fastapi.middleware.gzip import GZipMiddleware
 from sqlalchemy import create_engine
 from sqlalchemy.engine import Engine
 from sqlalchemy.orm import Session, sessionmaker
@@ -10,6 +11,8 @@ from app.api.v1.router import router
 from app.config import Settings
 
 app = FastAPI()
+app.add_middleware(GZipMiddleware, minimum_size=1000)
+
 _db_engine: Optional[Engine]
 
 

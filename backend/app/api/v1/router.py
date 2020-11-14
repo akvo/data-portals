@@ -1,5 +1,7 @@
+import json
 from csv import DictReader
 from decimal import Decimal
+from os.path import isfile
 from typing import Any
 
 from fastapi import APIRouter
@@ -13,17 +15,35 @@ router = APIRouter()
 
 @router.get("/mali/waterpoints.geojson")
 def get_waterpoints_geojson() -> Any:
-    return mali.get_waterpoints_geojson()
+    filename = "/tmp/mali-waterpoints.geojson"
+    if not isfile(filename):
+        data = mali.get_waterpoints_geojson()
+        with open(filename, "w") as f:
+            json.dump(data, f)
+
+    return FileResponse(filename)
 
 
 @router.get("/mali/functionality-percentage-per-region.geojson")
 def get_functionality_percentage_per_region_geojson() -> Any:
-    return mali.get_functionality_percentage_per_region_geojson()
+    filename = "/tmp/mali-functionality-percentage-per-region.geojson"
+    if not isfile(filename):
+        data = mali.get_functionality_percentage_per_region_geojson()
+        with open(filename, "w") as f:
+            json.dump(data, f)
+
+    return FileResponse(filename)
 
 
 @router.get("/mali/population-per-region.geojson")
 def get_population_per_region_geojson() -> Any:
-    return mali.get_population_per_region_geojson()
+    filename = "/tmp/mali-population-per-region.geojson"
+    if not isfile(filename):
+        data = mali.get_population_per_region_geojson()
+        with open(filename, "w") as f:
+            json.dump(data, f)
+
+    return FileResponse(filename)
 
 
 @router.get("/mali/abandonment.json")

@@ -10,8 +10,8 @@ import { FeaturePoint } from '../../libs/data-types'
 import Map from '../commons/Map'
 
 const safetyColors = [
-  { color: '#fdae61', label: "Le puits n'est pas sûr" },
-  { color: '#003f5c', label: 'Le puits est sûr' },
+  { color: '#de425b', label: "Le puits n'est pas sûr" },
+  { color: '#346888', label: 'Le puits est sûr' },
 ]
 
 const waterpointLayer: LayerProps = {

@@ -30,7 +30,7 @@ const FunctionalityMap: StatelessComponent<Props> = ({ source, ...props }) => {
     .filter((v: number) => v > 0)
   const scale = d3.scaleQuantize<string>(
     [Math.min(...values), Math.max(...values)],
-    d3.schemeYlGn[6]
+    d3.schemePuBu[6]
   )
   const fillColor = scaleToColorMap(scale)
 

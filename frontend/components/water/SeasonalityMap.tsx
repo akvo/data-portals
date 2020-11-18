@@ -6,8 +6,8 @@ import { FeaturePoint } from '../../libs/data-types'
 import Map from '../commons/Map'
 
 const functionalityColors = [
-  { color: '#018571', label: 'fonctionnel' },
-  { color: '#ffa600', label: 'seasonal' },
+  { color: '#346888', label: 'fonctionnel' },
+  { color: '#de425b', label: 'seasonal' },
 ]
 
 const waterpointLayer: LayerProps = {

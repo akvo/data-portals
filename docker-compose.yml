@@ -26,7 +26,6 @@ services:
       context: ./frontend
       target: devel
     command: npm run dev
-    env_file: .env
     volumes:
       - ./frontend:/usr/src/app
       - /usr/src/app/.next
@@ -41,9 +40,11 @@ services:
       args:
         INSTALL_DEV: ${INSTALL_DEV-true}
     command: ./start-reload.sh
-    env_file: .env
     environment:
-      POSTGRES_HOST: db
+      POSTGRES_HOST: localhost
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: app
     volumes:
       - ./backend:/usr/src/app
     network_mode: service:mainnetwork
@@ -52,9 +53,13 @@ services:
 
   db:
     image: postgres:9.6
-    env_file: .env
     volumes:
       - pg-data:/val/lib/postgresql/data/
+    network_mode: service:mainnetwork
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: app
 
 volumes:
   pg-data: {}

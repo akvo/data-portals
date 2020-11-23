@@ -14,30 +14,13 @@ const safetyColors = [
   { color: '#346888', label: 'Le puits est sûr' },
 ]
 
-const waterpointLayer: LayerProps = {
-  id: 'waterpoint',
-  type: 'circle',
-  paint: {
-    'circle-color': [
-      'match',
-      ['get', 'puits_safety'],
-      safetyColors[0].label,
-      safetyColors[0].color,
-      safetyColors[1].label,
-      safetyColors[1].color,
-      'transparent',
-    ],
-    'circle-radius': 3,
-    'circle-opacity': 0.7,
-    'circle-stroke-color': '#fff',
-    'circle-stroke-width': 0.2,
-    'circle-stroke-opacity': 0.2,
+const safetyFilters: { [key: string]: any } = safetyColors.reduce(
+  (filters, { label }) => {
+    filters[label] = ['==', 'puits_safety', label]
+    return filters
   },
-  filter: [
-    'any',
-    ...safetyColors.map((it) => ['==', 'puits_safety', it.label]),
-  ],
-}
+  {} as { [key: string]: any }
+)
 
 type Props = {
   populationSource: string
@@ -53,6 +36,10 @@ const WaterQualityMap: StatelessComponent<Props> = ({
   ...props
 }) => {
   const [featurePoint, setFeaturePoint] = useState<FeaturePoint | null>()
+  const [mapFilter, setMapFilter] = useState<any[]>([
+    'any',
+    ...Object.entries(safetyFilters).map(([_, v]) => v),
+  ])
   const { data: pData, error: pError } = useSWR(populationSource, fetcher)
   const { data: wData, error: wError } = useSWR(waterpointSource, fetcher)
 
@@ -72,40 +59,84 @@ const WaterQualityMap: StatelessComponent<Props> = ({
   )
   const fillColor = scaleToColorMap(pScale)
 
+  const waterpointLayer: LayerProps = {
+    id: 'waterpoint',
+    type: 'circle',
+    paint: {
+      'circle-color': [
+        'match',
+        ['get', 'puits_safety'],
+        safetyColors[0].label,
+        safetyColors[0].color,
+        safetyColors[1].label,
+        safetyColors[1].color,
+        'transparent',
+      ],
+      'circle-radius': 3,
+      'circle-opacity': 0.7,
+      'circle-stroke-color': '#fff',
+      'circle-stroke-width': 0.2,
+      'circle-stroke-opacity': 0.2,
+    },
+    filter: mapFilter,
+  }
+
+  const handleSelectFilter = (e: React.FormEvent<HTMLSelectElement>) => {
+    e.preventDefault()
+    e.stopPropagation()
+    const key = e.currentTarget.value
+    const filter =
+      key === 'all'
+        ? ['any', ...Object.entries(safetyFilters).map(([_, v]) => v)]
+        : safetyFilters[key]
+    setMapFilter(filter)
+  }
+
   return (
-    <Map
-      {...props}
-      interactiveLayerIds={[waterpointLayer.id as string]}
-      onClick={(e) => {
-        if (!e.features.length) {
-          setFeaturePoint(null)
-          return
-        }
-        const props = e.features[0].properties
-        setFeaturePoint({
-          longitude: e.lngLat[0],
-          latitude: e.lngLat[1],
-          text: props.puits_safety,
-        })
-      }}
-    >
-      <Source type="geojson" data={pData}>
-        <Layer
-          id="population"
-          type="fill"
-          paint={{
-            'fill-color': {
-              property: 'value',
-              stops: [[0, '#d1d1d1'], ...fillColor],
-            },
-            'fill-opacity': 0.7,
-            'fill-outline-color': '#aaa',
-          }}
-        />
-      </Source>
-      <Source type="geojson" data={wData}>
-        <Layer {...waterpointLayer} />
-      </Source>
+    <div style={{ height: '100%', position: 'relative' }}>
+      <Map
+        {...props}
+        interactiveLayerIds={[waterpointLayer.id as string]}
+        onClick={(e) => {
+          if (!e.features.length) {
+            setFeaturePoint(null)
+            return
+          }
+          const props = e.features[0].properties
+          setFeaturePoint({
+            longitude: e.lngLat[0],
+            latitude: e.lngLat[1],
+            text: props.puits_safety,
+          })
+        }}
+      >
+        <Source type="geojson" data={pData}>
+          <Layer
+            id="population"
+            type="fill"
+            paint={{
+              'fill-color': {
+                property: 'value',
+                stops: [[0, '#d1d1d1'], ...fillColor],
+              },
+              'fill-opacity': 0.7,
+              'fill-outline-color': '#aaa',
+            }}
+          />
+        </Source>
+        <Source type="geojson" data={wData}>
+          <Layer {...waterpointLayer} />
+        </Source>
+        {featurePoint && (
+          <Popup
+            longitude={featurePoint.longitude}
+            latitude={featurePoint.latitude}
+            onClose={() => setFeaturePoint(null)}
+          >
+            <div style={{ padding: '5px 10px 0' }}>{featurePoint.text}</div>
+          </Popup>
+        )}
+      </Map>
       <div
         style={{
           position: 'absolute',
@@ -127,17 +158,21 @@ const WaterQualityMap: StatelessComponent<Props> = ({
             </div>
           ))}
         </div>
+        <div className="info map-control">
+          <div>
+            <strong>Filter</strong>
+          </div>
+          <select onChange={handleSelectFilter}>
+            <option value="all"></option>
+            {safetyColors.map((it) => (
+              <option value={it.label} key={it.label}>
+                {it.label}
+              </option>
+            ))}
+          </select>
+        </div>
       </div>
-      {featurePoint && (
-        <Popup
-          longitude={featurePoint.longitude}
-          latitude={featurePoint.latitude}
-          onClose={() => setFeaturePoint(null)}
-        >
-          <div style={{ padding: '5px 10px 0' }}>{featurePoint.text}</div>
-        </Popup>
-      )}
-    </Map>
+    </div>
   )
 }
 

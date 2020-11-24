@@ -11,8 +11,16 @@ import SeasonalityMap from '../components/water/SeasonalityMap'
 const Water: StatelessComponent = () => {
   return (
     <>
-      <Row className="map">
-        <Col span={12} offset={4}>
+      <nav class="sideNav"> 
+        <ul>
+          <li><a href="#map02">map 02</a></li>
+          <li><a href="#pumpType">Pump type</a></li>
+          <li><a href="#pumpStatus">Pump type</a></li>
+          <li><a href="#map01">map 01</a></li>
+        </ul>
+      </nav>
+      <Row className="map" id="map01">
+        <Col span={20}>
           <div className="map--front">
             <FunctionalityMap
               source={`${API_PATH}/mali/functionality-percentage-per-region.geojson`}
@@ -33,8 +41,8 @@ const Water: StatelessComponent = () => {
           </div>
         </Col>
       </Row>
-      <Row className="map">
-        <Col span={12} offset={4}>
+      <Row className="map"  id="map02">
+      <Col span={20}>
           <div className="map--front">
             <SeasonalityMap
               source={`${API_PATH}/mali/waterpoints.geojson`}
@@ -45,10 +53,10 @@ const Water: StatelessComponent = () => {
           </div>
         </Col>
         <Col span={4}>
-          <div className="map--info">
+          <div className="map--info"> 
+            <p> This map shows functional water points that are seasonal and
+              therefore are dry some time during the year.</p>
             <p>
-              This map shows functional water points that are seasonal and
-              therefore are dry some time during the year. <br />
               The green points show the water points that are functional
               throughout the year. <br />
               The yellow points show the water points that have dry periods
@@ -57,8 +65,8 @@ const Water: StatelessComponent = () => {
           </div>
         </Col>
       </Row>
-      <Row className="dataLight">
-        <Col span={4} offset={4}>
+      <Row className="dataLight"  id="pumpType">
+        <Col span={4}>
           <div className="statistic">
             <div className="statistic-number">81%</div>
             <div className="statistic-desc">
@@ -66,7 +74,7 @@ const Water: StatelessComponent = () => {
             </div>
           </div>
         </Col>
-        <Col span={6}>
+        <Col span={10}>
           <div className="card">
             <h3>Frequency of Water Pump Types</h3>
             <div className="vis">
@@ -81,7 +89,7 @@ const Water: StatelessComponent = () => {
             </p>
           </div>
         </Col>
-        <Col span={6}>
+        <Col span={10}>
           <div className="card">
             <h3>Distance to the Water Point</h3>
             <div className="vis">
@@ -97,8 +105,8 @@ const Water: StatelessComponent = () => {
           </div>
         </Col>
       </Row>
-      <Row className="dataDark">
-        <Col span={4} offset={4}>
+      <Row className="dataDark"  id="pumpStatus">
+        <Col span={4}>
           <div className="statistic">
             <div className="statistic-number">6%</div>
             <div className="statistic-desc">
@@ -106,7 +114,7 @@ const Water: StatelessComponent = () => {
             </div>
           </div>
         </Col>
-        <Col span={6}>
+        <Col span={10}>
           <div className="card">
             <h3>Reason for abandonment of the water point</h3>
             <div className="vis">
@@ -120,7 +128,7 @@ const Water: StatelessComponent = () => {
             </p>
           </div>
         </Col>
-        <Col span={6}>
+        <Col span={10}>
           <div className="card">
             <h3>Mechanic versus manual pump</h3>
             <div className="vis">

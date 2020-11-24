@@ -13,32 +13,35 @@
   padding-bottom: 2rem;
 
   .ant-layout {
-    border-radius: 1rem 1rem 0 0;
-    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.74), rgba($color-primary-dark, 0.9));
+    background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.74), rgba($color-primary-dark, 0.9)) ;
+    position: relative;
 
     .ant-layout-header {
+      height: 64px;
       z-index: 1010;
-      background: rgba($color-primary-light, 0);
-      border-radius: 1rem 1rem 0 0;
-      border-top: .2rem solid $color-primary-light;
-      height: inherit;
+      background: rgba($color-blue-dark, 1);
+      border-radius: 0;
+      border-bottom: 0.1rem solid rgba(white,0.3);
       margin: 0 0 2rem 0;
-
+      position: fixed;
+      top:0;
+      left:0;
+      width: 100%;
+      box-shadow: 0 1px 3px rgba(black, .1);
       .layout-header {
-        border-bottom: 0.1rem solid rgba(white,0.3);
         .ant-menu {
           &.ant-menu-dark {
             background: transparent;
 
             .ant-menu-item-selected {
-              background: rgba(white,0);
+              background: rgba($color-blue-medium, .1);
 
               a {
-                color: white !important;
+                color:$color-blue-medium !important;
                 border: 1px solid transparent !important;
 
                 &:hover {
-                  color: white !important;
+                  color: $color-blue-medium !important;
                   border: 1px solid transparent !important;
                 }
               }
@@ -48,7 +51,7 @@
               padding: 0;
 
               a {
-                color: $color-font;
+                color: white;
                 text-transform: uppercase;
                 font-size: 1.5rem;
                 font-weight: 300;
@@ -70,7 +73,7 @@
                 }
 
                 &:hover {
-                  color: white;
+                  color:$color-blue-medium;
                   border: 1px solid transparent;
                   font-weight: 300;
                 }
@@ -109,29 +112,100 @@
     }
 
     .ant-layout-content {
+      padding-top: 2rem;
       .layout-content {
+        .sideNav {
+          position: fixed;
+          z-index: 99999;
+          top: 7rem;
+          left: .1rem;
+          background: rgba(white, .4);
+          padding:.5rem;
+          border-radius: 0 .8rem .8rem 0;
+          box-shadow:  .2rem .2rem .5rem rgba($color-dark-grey, .2);
+          border: .1rem solid rgba($color-grey, .2);
+          ul {
+            margin: 0;
+            li {
+              &:not(:last-child) {
+                margin-bottom:1rem;
+              }
+              a {
+                display: block;
+                width: 50px;
+                height: 50px;
+                text-indent: -999px;
+                background-repeat: no-repeat;
+                opacity: .9;
+                transition: opacity .2s ease-in;
+                &:hover {
+                  opacity: 0.4;
+                }
+
+                &[href="#map02"] {
+                  background-image: url(../public/map02.svg);
+                }
+                &[href="#pumpType"] {
+                  background-image: url(../public/barchart.svg);
+                }
+                &[href="#pumpStatus"] {
+                  background-image: url(../public/piechart.svg);
+                }
+                &[href="#map01"] {
+                  background-image: url(../public/up.svg);
+                }
+                &[href="#pmh"] {
+                  background-image: url(../public/barchart.svg);
+                }
+                &[href="#pumps"] {
+                  background-image: url(../public/piechart.svg);
+                }
+                &[href="#WPstatus"] {
+                  background-image: url(../public/up.svg);
+                  &:target {
+                    background-color: red;
+                  }
+                }
+              }
+            }
+          }
+        }
         &.layout-center {
           margin: 0 auto;
         }
 
         .ant-row {
           text-align: center;
-          .centered {
-            text-align: center;
-            width: 100%;
-            margin: 0 auto;
+          position: relative;
+          &:not(.guideSection) {
+            height: 100vh;
+          }
+          &.dataDark {
+            background: rgba($color-primary-dark, 1);
+            h2 {
+              position: absolute;
+              top: 5%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
           }
           &.dataLight {
             background: rgba(white, 1);
             padding-bottom: 0;
             border-right: 1px solid rgba($color-primary-light, 0.74);
             border-left: 1px solid rgba($color-primary-light, 0.74);
+            h2 {
+              position: absolute;
+              top: 5%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+            }
             & h1, h2, h3, h4, h5, h6 {
               color: rgba($color-primary-dark, 1);
               }
             }
           &:not(.welcome) {
-            padding: 4rem 0;
+            padding: 5rem 0 0 0;
           }
         }
       }
@@ -295,7 +369,7 @@
   &--front {
     box-shadow: 5px 5px 1px rgba(white, .2);
     border-radius: .5rem 0 0 .5rem;
-    height: 40vh;
+    height:95%;
     border-top: 0.2rem solid rgba($color-primary-dark, .3);
     border-left: 0.2rem solid rgba($color-primary-dark, .3);
     border-bottom: 0.2rem solid rgba($color-primary-dark, .3);
@@ -313,7 +387,7 @@
     background-color: rgba(255, 255, 255, 0.6);
     padding: 2rem 2.5rem;
     border-radius: 0 .5rem .5rem 0;
-    height: 40vh;
+    height:95%;
     overflow-y: scroll;
     ul {
       margin-top: 2rem;
@@ -335,8 +409,8 @@
   }
   .statistic-number {
     font-weight: 700;
-    font-size: 5rem;
-    padding: 0.25rem 1rem;
+    font-size: 7rem;
+    padding: 0.25rem 0.75rem;
     border-radius: 0.5rem;
     .dataDark & {
       border: 0.3rem solid rgba(white, 1);
@@ -346,7 +420,8 @@
     }
   }
   .statistic-desc {
-    font-size: 2rem;
+    font-size: 2.5rem;
+    text-transform: uppercase;
   }
 }
 
@@ -355,7 +430,14 @@
   padding: 1.5rem 1rem;
   margin: 2rem auto;
   text-align: center;
-  min-height: 91%;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -60%);
+  width:100%;
+  h3 {
+    font-size: 2rem;
+  }
   .dataLight & {
     background-color: rgba($color-primary-dark, 0.1);
     border: 0.1rem solid white;
@@ -371,7 +453,7 @@
     }
   }
   .vis {
-    height: 25rem;
+    height: 50rem;
     padding: 0 .5rem;
   }
   p {

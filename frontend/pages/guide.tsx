@@ -7,7 +7,7 @@ const { Panel } = Collapse
 const Guide: StatelessComponent = () => {
   return (
     <>
-    <Row>
+    <Row  className="guideSection">
     <Col span={16} offset={4}>
       <h1>Guide</h1>
       <strong>How does the portal work?</strong>

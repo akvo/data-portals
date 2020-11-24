@@ -26,7 +26,7 @@ const Guide: StatelessComponent = () => {
       </p>
       </Col>
       </Row>
-      <Row>
+    <Row  className="faqSection">
     <Col span={16} offset={4}>
       <h2>Frequently Asked Questions</h2>
       <Collapse>

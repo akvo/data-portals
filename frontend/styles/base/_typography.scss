@@ -1,14 +1,11 @@
 h1, h2, h3, h4, h5, h6 {
     text-transform: uppercase;
     color: white;
-    text-align: center;
   }
 .heading-primary {
     color: $color-white;
     text-transform: uppercase;
     backface-visibility: hidden;
-    margin-bottom: 2rem;
-    text-align: center;
 
     &--main { 
         display: block;
@@ -16,7 +13,7 @@ h1, h2, h3, h4, h5, h6 {
         font-weight: 400;
         letter-spacing: 2.5rem;
         animation: moveInLeft 0.7s ease-out;
-
+        text-align: left;
         @include respond(phone) {
             letter-spacing: 1rem;
             font-family: 5rem;
@@ -24,7 +21,7 @@ h1, h2, h3, h4, h5, h6 {
     }
     
     &--sub {
-        display: block;
+        display: hidden !important;
         font-size: 1.3rem;
         font-weight: 700;
         letter-spacing: 1.54rem;

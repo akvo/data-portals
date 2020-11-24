@@ -19,7 +19,7 @@ const Water: StatelessComponent = () => {
           <li><a href="#map01">map 01</a></li>
         </ul>
       </nav>
-      <Row className="map" id="map01">
+      <Row className="map fullHeight" id="map01">
         <Col span={20}>
           <div className="map--front">
             <FunctionalityMap
@@ -41,8 +41,8 @@ const Water: StatelessComponent = () => {
           </div>
         </Col>
       </Row>
-      <Row className="map"  id="map02">
-      <Col span={20}>
+      <Row className="map fullHeight" id="map02">
+        <Col span={20}>
           <div className="map--front">
             <SeasonalityMap
               source={`${API_PATH}/mali/waterpoints.geojson`}
@@ -65,7 +65,7 @@ const Water: StatelessComponent = () => {
           </div>
         </Col>
       </Row>
-      <Row className="dataLight"  id="pumpType">
+      <Row className="dataLight fullHeight"  id="pumpType">
         <Col span={4}>
           <div className="statistic">
             <div className="statistic-number">81%</div>
@@ -105,7 +105,7 @@ const Water: StatelessComponent = () => {
           </div>
         </Col>
       </Row>
-      <Row className="dataDark"  id="pumpStatus">
+      <Row className="dataDark fullHeight"  id="pumpStatus">
         <Col span={4}>
           <div className="statistic">
             <div className="statistic-number">6%</div>

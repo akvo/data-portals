@@ -6,22 +6,8 @@ import AccessToWaterMap from '../components/root/AccessToWaterMap'
 const Home: StatelessComponent = () => {
   return (
     <>
-      <Row className="welcome">
-        <Col span={18} offset={3}>
-          <div className="welcome__text-box">
-            <h1 className="heading-primary">
-              <span className="heading-primary--main">
-                WaSH services in Mali
-              </span>
-              <span className="heading-primary--sub">
-                Welcome to the Mali WaSH portal
-              </span>
-            </h1>
-          </div>
-        </Col>
-      </Row>
-      <Row className="map">
-        <Col span={12} offset={4}>
+      <Row className="map fullHeight">
+        <Col span={20}>
           <div className="map--front">
             <AccessToWaterMap
               source={`${API_PATH}/mali/waterpoints.geojson`}
@@ -56,9 +42,20 @@ const Home: StatelessComponent = () => {
           </div>
         </Col>
       </Row>
-      <Row className="infoContainer dataLight">
-        <Col span={12} offset={6}>
-          <h2>What is this page about?</h2>
+      <Row className="welcome dataLight">
+        <Col span={10} offset={2}>
+          <div className="welcome__text-box">
+            <h1 className="heading-primary">
+              <span className="heading-primary--main">
+                WaSH services in Mali
+              </span>
+              <span className="heading-primary--sub">
+                Welcome to the Mali WaSH portal
+              </span>
+            </h1>
+          </div>
+        </Col>
+        <Col span={10} className="infoContainer">
           <p className="paragraph">
             Welcome to the Mali rural Water, Sanitation and Hygiene (WaSH) data
             portal. This portal provides information on rural water points in
@@ -78,7 +75,7 @@ const Home: StatelessComponent = () => {
         </Col>
       </Row>
       <Row className="dataSample">
-        <Col span={12} offset={6}>
+        <Col span={6} offset={2}>
           <h2>Sample characteristics</h2>
           <p className="paragraph">
             The 2016 - 2018 Mali WaSH inventory was a census measurement
@@ -88,6 +85,8 @@ const Home: StatelessComponent = () => {
             operators are interviewed and the number of wells from which
             information was collected.
           </p>
+        </Col>        
+        <Col span={12}  offset={2}>
           <table className="sampleTable">
             <thead>
               <tr>

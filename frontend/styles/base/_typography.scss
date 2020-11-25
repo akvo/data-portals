@@ -1,39 +1,33 @@
 h1, h2, h3, h4, h5, h6 {
-    text-transform: uppercase;
+    font-family: poppins;
+    font-weight: 600;
     color: white;
   }
 .heading-primary {
-    color: $color-white;
-    text-transform: uppercase;
+    text-transform: inherit;
     backface-visibility: hidden;
-
+    padding: 0 1rem 3rem 0rem;
     &--main { 
         display: block;
-        font-size: 4rem;
-        font-weight: 400;
-        letter-spacing: 2.5rem;
+        font-size: 4.3rem;
         animation: moveInLeft 0.7s ease-out;
         text-align: left;
+        color: rgba($color-blue-light, .7);
         @include respond(phone) {
             letter-spacing: 1rem;
-            font-family: 5rem;
+            font-size: 5rem;
         }
-    }
-    
-    &--sub {
-        display: hidden !important;
-        font-size: 1.3rem;
-        font-weight: 700;
-        letter-spacing: 1.54rem;
-        animation: moveInRight 1s ease-out;
-        color: $color-primary-dark;
-
-        @include respond(phone) {
-            letter-spacing: .5rem;
+        span {
+            padding: 1rem 2rem;
+            background: rgba($color-blue-light, .7);
+            color: white;
+            border-radius: .4rem;
         }
     }
 }
-
+.infoContainer {
+    padding-bottom: 4rem;
+}
 .paragraph {
     font-size: $default-font-size;
 

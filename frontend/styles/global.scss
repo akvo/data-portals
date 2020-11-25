@@ -1,5 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Lato:100,300,400,700,900');
-
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
 @import "abstracts/functions";
 @import "abstracts/mixins";
 @import "abstracts/variables";
@@ -152,6 +152,9 @@
                 &[href="#map02"] {
                   background-image: url(../public/map02.svg);
                 }
+                &[href="#map03"] {
+                  background-image: url(../public/map03.svg);
+                }
                 &[href="#pumpType"] {
                   background-image: url(../public/barchart.svg);
                 }
@@ -164,8 +167,14 @@
                 &[href="#pumps"] {
                   background-image: url(../public/piechart.svg);
                 }
+                &[href="#dataTable"] {
+                  background-image: url(../public/table.svg);
+                }
                 &[href="#WPstatus"] {
-                  background-image: url(../public/map02.svg);
+                  background-image: url(../public/map01.svg);
+                }
+                &[href="#welcome"] {
+                  background-image: url(../public/drop.svg);
                 }
                 &.backUp {
                   background-image: url(../public/up.svg);
@@ -390,6 +399,7 @@
     border-right: 0.2rem solid rgba($color-primary-dark, .3);
     border-bottom: 0.2rem solid rgba($color-primary-dark, .3);
     color: rgba($color-font, 0.7);
+    font-size: 1.6rem;
     span {
       font-weight: 700;
     }

@@ -24,6 +24,7 @@ html {
 
 body {
   box-sizing: border-box;
+  font-family: Lato;
   @include respond(tab-port) {
         padding: 0;
     }

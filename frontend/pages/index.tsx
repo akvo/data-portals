@@ -6,7 +6,23 @@ import AccessToWaterMap from '../components/root/AccessToWaterMap'
 const Home: StatelessComponent = () => {
   return (
     <>
-      <Row className="map fullHeight">
+      <nav className="sideNav">
+        <ul>
+          <li>
+            <a href="#map03">map 03</a>
+          </li>
+          <li>
+            <a href="#welcome">Welcome</a>
+          </li>
+          <li>
+            <a href="#dataTable">Data table</a>
+          </li>
+          <li>
+            <a href="#map03" className="backUp">Back up</a>
+          </li>
+        </ul>
+      </nav>
+      <Row className="map fullHeight" id="map03">
         <Col span={20}>
           <div className="map--front">
             <AccessToWaterMap
@@ -43,20 +59,17 @@ const Home: StatelessComponent = () => {
           </div>
         </Col>
       </Row>
-      <Row className="welcome dataLight">
-        <Col span={10} offset={2}>
+      <Row className="welcome dataLight"  id="welcome">
+        <Col span={5} offset={6}>
           <div className="welcome__text-box">
             <h1 className="heading-primary">
               <span className="heading-primary--main">
-                WaSH services in Mali
-              </span>
-              <span className="heading-primary--sub">
-                Welcome to the Mali WaSH portal
+                Welcome to the <span>Mali</span> WaSH services portal
               </span>
             </h1>
           </div>
         </Col>
-        <Col span={10} className="infoContainer">
+        <Col span={6} offset={1} className="infoContainer">
           <p className="paragraph">
             Welcome to the Mali rural Water, Sanitation and Hygiene (WaSH) data
             portal. This portal provides information on rural water points in
@@ -75,7 +88,7 @@ const Home: StatelessComponent = () => {
           </p>
         </Col>
       </Row>
-      <Row className="dataSample">
+      <Row className="dataSample" id="dataTable">
         <Col span={6} offset={2}>
           <h2>Sample characteristics</h2>
           <p className="paragraph">

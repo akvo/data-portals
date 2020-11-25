@@ -119,7 +119,7 @@
           z-index: 99999;
           top: 5.8rem;
           left: .1rem;
-          background: rgba(white, .4);
+          background: rgba(white, .8);
           border-radius: 0 .8rem .8rem 0;
           box-shadow:  .2rem .2rem .5rem rgba($color-dark-grey, .2);
           border: .1rem solid rgba($color-grey, .2);
@@ -138,6 +138,7 @@
               &:last-child {
                 margin-top: 1.5rem;
                 border-top: .1rem solid rgba($color-blue-light, .2);
+                background: rgba($color-blue-light, .1);
               }
               &:not(:last-child) {
                 margin-bottom:1rem;
@@ -496,6 +497,7 @@
     border-top: 0.1rem solid $color-primary-dark;
     margin-top: 1rem;
     padding: 2rem 2rem 0 2rem;
+    font-size: 1.6rem;
     .dataDark & {
       border-top: 0.1rem solid white;
       color: white;

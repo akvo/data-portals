@@ -78,7 +78,7 @@ const Home: StatelessComponent = () => {
         </Col>
       </Row>
       <Row className="welcome dataLight"  id="welcome">
-        <Col span={5} offset={6}>
+        <Col span={6} offset={5}>
           <div className="welcome__text-box">
             <h1 className="heading-primary">
               <span className="heading-primary--main">
@@ -87,7 +87,7 @@ const Home: StatelessComponent = () => {
             </h1>
           </div>
         </Col>
-        <Col span={6} offset={1} className="infoContainer">
+        <Col span={7} offset={1} className="infoContainer">
           <p className="paragraph">
             Welcome to the Mali rural Water, Sanitation and Hygiene (WaSH) data
             portal. This portal provides information on rural water points in

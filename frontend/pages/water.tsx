@@ -11,12 +11,20 @@ import SeasonalityMap from '../components/water/SeasonalityMap'
 const Water: StatelessComponent = () => {
   return (
     <>
-      <nav class="sideNav"> 
+      <nav className="sideNav">
         <ul>
-          <li><a href="#map02">map 02</a></li>
-          <li><a href="#pumpType">Pump type</a></li>
-          <li><a href="#pumpStatus">Pump type</a></li>
-          <li><a href="#map01">map 01</a></li>
+          <li>
+            <a href="#map02">map 02</a>
+          </li>
+          <li>
+            <a href="#pumpType">Pump type</a>
+          </li>
+          <li>
+            <a href="#pumpStatus">Pump type</a>
+          </li>
+          <li>
+            <a href="#map01">map 01</a>
+          </li>
         </ul>
       </nav>
       <Row className="map fullHeight" id="map01">
@@ -53,9 +61,12 @@ const Water: StatelessComponent = () => {
           </div>
         </Col>
         <Col span={4}>
-          <div className="map--info"> 
-            <p> This map shows functional water points that are seasonal and
-              therefore are dry some time during the year.</p>
+          <div className="map--info">
+            <p>
+              {' '}
+              This map shows functional water points that are seasonal and
+              therefore are dry some time during the year.
+            </p>
             <p>
               The green points show the water points that are functional
               throughout the year. <br />
@@ -65,7 +76,7 @@ const Water: StatelessComponent = () => {
           </div>
         </Col>
       </Row>
-      <Row className="dataLight fullHeight"  id="pumpType">
+      <Row className="dataLight fullHeight" id="pumpType">
         <Col span={4}>
           <div className="statistic">
             <div className="statistic-number">81%</div>
@@ -105,7 +116,7 @@ const Water: StatelessComponent = () => {
           </div>
         </Col>
       </Row>
-      <Row className="dataDark fullHeight"  id="pumpStatus">
+      <Row className="dataDark fullHeight" id="pumpStatus">
         <Col span={4}>
           <div className="statistic">
             <div className="statistic-number">6%</div>

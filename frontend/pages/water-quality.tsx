@@ -8,11 +8,17 @@ import WaterQualityMap from '../components/water-quality/WaterQualityMap'
 const WaterQuality: StatelessComponent = () => {
   return (
     <>
-      <nav class="sideNav"> 
+      <nav className="sideNav">
         <ul>
-          <li><a href="#pumps">Pumps</a></li>
-          <li><a href="#pmh">PMH</a></li>
-          <li><a href="#WPstatus">WP status</a></li>
+          <li>
+            <a href="#pumps">Pumps</a>
+          </li>
+          <li>
+            <a href="#pmh">PMH</a>
+          </li>
+          <li>
+            <a href="#WPstatus">WP status</a>
+          </li>
         </ul>
       </nav>
       <Row className="map fullHeight" id="WPstatus">
@@ -46,13 +52,11 @@ const WaterQuality: StatelessComponent = () => {
         </Col>
       </Row>
       <Row className="dataLight fullHeight" id="pumps">
-          <h2>Pumps</h2>
+        <h2>Pumps</h2>
         <Col span={4} offset={4}>
           <div className="statistic">
             <div className="statistic-number">15%</div>
-            <div className="statistic-desc">
-              of the sources is treated
-            </div>
+            <div className="statistic-desc">of the sources is treated</div>
           </div>
         </Col>
         <Col span={11} offset={1}>

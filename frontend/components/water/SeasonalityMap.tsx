@@ -5,14 +5,14 @@ import fetcher from '../../libs/fetcher'
 import { FeaturePoint } from '../../libs/data-types'
 import Map from '../commons/Map'
 
-const functionalityColors = [
-  { color: '#346888', label: 'fonctionnel' },
-  { color: '#de425b', label: 'seasonal' },
+const seasonalityColors = [
+  { color: '#346888', label: 'No' },
+  { color: '#de425b', label: 'Yes' },
 ]
 
-const functionalityFilters: { [key: string]: any } = functionalityColors.reduce(
+const seasonalityFilters: { [key: string]: any } = seasonalityColors.reduce(
   (filters, { label }) => {
-    filters[label] = ['==', 'functionality_main', label]
+    filters[label] = ['==', 'seasonality', label]
     return filters
   },
   {} as { [key: string]: any }
@@ -29,7 +29,7 @@ const SeasonalityMap: StatelessComponent<Props> = ({ source, ...props }) => {
   const [featurePoint, setFeaturePoint] = useState<FeaturePoint | null>()
   const [mapFilter, setMapFilter] = useState<any[]>([
     'any',
-    ...Object.entries(functionalityFilters).map(([_, v]) => v),
+    ...Object.entries(seasonalityFilters).map(([_, v]) => v),
   ])
   const { data, error } = useSWR(source, fetcher)
 
@@ -46,11 +46,11 @@ const SeasonalityMap: StatelessComponent<Props> = ({ source, ...props }) => {
     paint: {
       'circle-color': [
         'match',
-        ['get', 'functionality_main'],
-        functionalityColors[0].label,
-        functionalityColors[0].color,
-        functionalityColors[1].label,
-        functionalityColors[1].color,
+        ['get', 'seasonality'],
+        seasonalityColors[0].label,
+        seasonalityColors[0].color,
+        seasonalityColors[1].label,
+        seasonalityColors[1].color,
         'transparent',
       ],
       'circle-radius': 3,
@@ -68,8 +68,8 @@ const SeasonalityMap: StatelessComponent<Props> = ({ source, ...props }) => {
     const key = e.currentTarget.value
     const filter =
       key === 'all'
-        ? ['any', ...Object.entries(functionalityFilters).map(([_, v]) => v)]
-        : functionalityFilters[key]
+        ? ['any', ...Object.entries(seasonalityFilters).map(([_, v]) => v)]
+        : seasonalityFilters[key]
     setMapFilter(filter)
   }
 
@@ -87,7 +87,7 @@ const SeasonalityMap: StatelessComponent<Props> = ({ source, ...props }) => {
           setFeaturePoint({
             longitude: e.lngLat[0],
             latitude: e.lngLat[1],
-            text: props.functionality_main,
+            text: props.seasonality,
           })
         }}
       >
@@ -113,7 +113,7 @@ const SeasonalityMap: StatelessComponent<Props> = ({ source, ...props }) => {
         }}
       >
         <div className="info legend map-control">
-          {functionalityColors.map((it) => (
+          {seasonalityColors.map((it) => (
             <div className="legend-item" key={it.label}>
               <i className="circle" style={{ background: it.color }} />
               {it.label}
@@ -126,7 +126,7 @@ const SeasonalityMap: StatelessComponent<Props> = ({ source, ...props }) => {
           </div>
           <select onChange={handleSelectFilter}>
             <option value="all"></option>
-            {functionalityColors.map((it) => (
+            {seasonalityColors.map((it) => (
               <option value={it.label} key={it.label}>
                 {it.label}
               </option>

@@ -1,47 +1,45 @@
-import json
 from csv import DictReader
 from decimal import Decimal
-from os.path import isfile
 from typing import Any
 
 from fastapi import APIRouter
 from fastapi.responses import FileResponse
 
 from app.data import mali
-from app.utils import path_to_dataset
+from app.utils import path_to_dataset, tmp_file_cache
 
 router = APIRouter()
 
 
 @router.get("/mali/waterpoints.geojson")
 def get_waterpoints_geojson() -> Any:
-    filename = "/tmp/mali-waterpoints.geojson"
-    if not isfile(filename):
-        data = mali.get_waterpoints_geojson()
-        with open(filename, "w") as f:
-            json.dump(data, f)
+    filename = tmp_file_cache("mali-waterpoints.geojson", mali.get_waterpoints_geojson)
 
     return FileResponse(filename)
 
 
 @router.get("/mali/functionality-percentage-per-region.geojson")
 def get_functionality_percentage_per_region_geojson() -> Any:
-    filename = "/tmp/mali-functionality-percentage-per-region.geojson"
-    if not isfile(filename):
-        data = mali.get_functionality_percentage_per_region_geojson()
-        with open(filename, "w") as f:
-            json.dump(data, f)
+    filename = tmp_file_cache(
+        "mali-functionality-percentage-per-region.geojson",
+        mali.get_functionality_percentage_per_region_geojson,
+    )
 
     return FileResponse(filename)
 
 
 @router.get("/mali/population-per-region.geojson")
 def get_population_per_region_geojson() -> Any:
-    filename = "/tmp/mali-population-per-region.geojson"
-    if not isfile(filename):
-        data = mali.get_population_per_region_geojson()
-        with open(filename, "w") as f:
-            json.dump(data, f)
+    filename = tmp_file_cache(
+        "mali-population-per-region.geojson", mali.get_population_per_region_geojson
+    )
+
+    return FileResponse(filename)
+
+
+@router.get("/mali/region-names.json")
+def get_region_names() -> Any:
+    filename = tmp_file_cache("mali-region-names.json", mali.get_region_names)
 
     return FileResponse(filename)
 

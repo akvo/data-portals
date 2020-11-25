@@ -8,27 +8,36 @@ from app.utils import path_to_dataset
 
 
 def get_waterpoints_geojson() -> Dict[str, Any]:
-    dataframe = pandas.read_csv(path_to_dataset("07102020_Mali_map.csv"))
+    dataframe = pandas.read_csv(path_to_dataset("23112020_Mali_seasonality.csv"))
     dataframe = dataframe.where(pandas.notnull(dataframe), None)
     features = []
     for i in range(0, len(dataframe.index)):
         item = dataframe.loc[i]
         props = {
+            "region": item.region,
             "functionality_main": item.functionality_main,
             "puits_safety": item.puits_safety,
+            "seasonality": item.seasonality,
             "photo": item.photo,
         }
         try:
             feature = Feature(
                 geometry=Point((float(item.longitude), float(item.latitude))),
                 properties=props,
-                id=item.identifier,
+                id=f"{item.longitude},{item.latitude}",
             )
             features.append(feature)
         except ValueError:
             pass
 
     return FeatureCollection(features)
+
+
+def get_region_names() -> list:
+    dataframe = pandas.read_csv(path_to_dataset("23112020_Mali_seasonality.csv"))
+    dataframe = dataframe.where(pandas.notnull(dataframe), None)
+
+    return list(dataframe.region.unique())
 
 
 def get_functionality_percentage_per_region_geojson() -> Dict[str, Any]:

@@ -133,8 +133,8 @@
             li {
               width:100%;
               padding:.5rem;
-              border-left: .4rem solid transparent;
-              transition: all .2s ease-in;
+              border-left: .4rem solid rgba($color-complementary,0);
+              transition: border-left .2s ease-in;
               &:last-child {
                 margin-top: 1.5rem;
                 border-top: .1rem solid rgba($color-blue-light, .2);
@@ -144,7 +144,7 @@
                 margin-bottom:1rem;
               }
               &.current {
-                border-left: .4rem solid $color-complementary;
+                border-left: .4rem solid rgba($color-complementary,.7);
                 a {
                   opacity: 1;
                 }

@@ -107,7 +107,7 @@ const Home: StatelessComponent = () => {
         </Col>
       </Row>
       <Row className="dataSample" id="dataTable">
-        <Col span={6} offset={2}>
+        <Col span={4} offset={2}>
           <h2>Sample characteristics</h2>
           <p className="paragraph">
             The 2016 - 2018 Mali WaSH inventory was a census measurement
@@ -118,7 +118,7 @@ const Home: StatelessComponent = () => {
             information was collected.
           </p>
         </Col>
-        <Col span={12} offset={2}>
+        <Col span={14} offset={2}>
           <table className="sampleTable">
             <thead>
               <tr>

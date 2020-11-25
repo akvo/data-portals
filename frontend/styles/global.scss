@@ -135,6 +135,10 @@
               padding:.5rem;
               border-left: .4rem solid transparent;
               transition: all .2s ease-in;
+              &:last-child {
+                margin-top: 1.5rem;
+                border-top: .1rem solid rgba($color-blue-light, .2);
+              }
               &:not(:last-child) {
                 margin-bottom:1rem;
               }
@@ -198,6 +202,9 @@
 
         .ant-row {
           position: relative;
+          h2 {
+            font-size: 3rem;
+          }
           &.fullHeight {
             height: 100vh;
           }
@@ -205,7 +212,7 @@
             background: rgba($color-primary-dark, 1);
             h2 {
               position: absolute;
-              top: 5%;
+              top: 10%;
               left: 50%;
               transform: translate(-50%, -50%);
             }
@@ -217,7 +224,7 @@
             border-left: 1px solid rgba($color-primary-light, 0.74);
               h2 {
                 position: absolute;
-                top: 5%;
+                top: 10%;
                 left: 50%;
                 transform: translate(-50%, -50%);
               }
@@ -408,7 +415,7 @@
     border-right: 0.2rem solid rgba($color-primary-dark, .3);
     border-bottom: 0.2rem solid rgba($color-primary-dark, .3);
     color: rgba($color-font, 0.7);
-    font-size: 1.6rem;
+    font-size: 1.4rem;
     span {
       font-weight: 700;
     }

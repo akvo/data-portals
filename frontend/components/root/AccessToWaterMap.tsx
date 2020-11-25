@@ -60,7 +60,6 @@ const AccessToWaterMap: StatelessComponent<Props> = ({
     return <Map loading={true} {...props} />
   }
 
-  console.log(functionalFilter, regionFilter)
   const mapFilter = [
     'all',
     functionalFilter ? ['==', 'functionality_main', functionalFilter] : null,

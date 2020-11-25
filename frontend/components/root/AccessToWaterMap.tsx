@@ -11,28 +11,47 @@ const functionalityColors = [
   { color: '#ffa600', label: 'non utilisé' },
 ]
 
-const functionalityFilters: { [key: string]: any } = functionalityColors.reduce(
-  (filters, { label }) => {
-    filters[label] = ['==', 'functionality_main', label]
-    return filters
+const commonWaterpointLayer: LayerProps = {
+  id: 'waterpoint',
+  type: 'circle',
+  paint: {
+    'circle-color': [
+      'match',
+      ['get', 'functionality_main'],
+      functionalityColors[0].label,
+      functionalityColors[0].color,
+      functionalityColors[1].label,
+      functionalityColors[1].color,
+      functionalityColors[2].label,
+      functionalityColors[2].color,
+      'transparent',
+    ],
+    'circle-radius': 4,
+    'circle-opacity': 0.7,
+    'circle-stroke-color': '#fff',
+    'circle-stroke-width': 0.2,
+    'circle-stroke-opacity': 0.2,
   },
-  {} as { [key: string]: any }
-)
+}
 
 type Props = {
   source: string
+  regions: string
   latitude: number
   longitude: number
   zoom: number
 }
 
-const AccessToWaterMap: StatelessComponent<Props> = ({ source, ...props }) => {
+const AccessToWaterMap: StatelessComponent<Props> = ({
+  source,
+  regions,
+  ...props
+}) => {
   const [featurePoint, setFeaturePoint] = useState<FeaturePoint | null>()
-  const [mapFilter, setMapFilter] = useState<any[]>([
-    'any',
-    ...Object.entries(functionalityFilters).map(([_, v]) => v),
-  ])
+  const [functionalFilter, setFunctionalFilter] = useState('')
+  const [regionFilter, setRegionFilter] = useState('')
   const { data, error } = useSWR(source, fetcher)
+  const { data: regionNames } = useSWR(regions, fetcher)
 
   if (error) {
     return <Map error={true} {...props} />
@@ -41,46 +60,18 @@ const AccessToWaterMap: StatelessComponent<Props> = ({ source, ...props }) => {
     return <Map loading={true} {...props} />
   }
 
-  const waterpointLayer: LayerProps = {
-    id: 'waterpoint',
-    type: 'circle',
-    paint: {
-      'circle-color': [
-        'match',
-        ['get', 'functionality_main'],
-        functionalityColors[0].label,
-        functionalityColors[0].color,
-        functionalityColors[1].label,
-        functionalityColors[1].color,
-        functionalityColors[2].label,
-        functionalityColors[2].color,
-        'transparent',
-      ],
-      'circle-radius': 3,
-      'circle-opacity': 0.7,
-      'circle-stroke-color': '#fff',
-      'circle-stroke-width': 0.2,
-      'circle-stroke-opacity': 0.2,
-    },
-    filter: mapFilter,
-  }
-
-  const handleSelectFilter = (e: React.FormEvent<HTMLSelectElement>) => {
-    e.preventDefault()
-    e.stopPropagation()
-    const key = e.currentTarget.value
-    const filter =
-      key === 'all'
-        ? ['any', ...Object.entries(functionalityFilters).map(([_, v]) => v)]
-        : functionalityFilters[key]
-    setMapFilter(filter)
-  }
+  console.log(functionalFilter, regionFilter)
+  const mapFilter = [
+    'all',
+    functionalFilter ? ['==', 'functionality_main', functionalFilter] : null,
+    regionFilter ? ['==', 'region', regionFilter] : null,
+  ].filter((it) => it)
 
   return (
     <div style={{ height: '100%', position: 'relative' }}>
       <Map
         {...props}
-        interactiveLayerIds={[waterpointLayer.id as string]}
+        interactiveLayerIds={[commonWaterpointLayer.id as string]}
         onClick={(e) => {
           if (!e.features.length) {
             setFeaturePoint(null)
@@ -96,7 +87,7 @@ const AccessToWaterMap: StatelessComponent<Props> = ({ source, ...props }) => {
         }}
       >
         <Source type="geojson" data={data}>
-          <Layer {...waterpointLayer} />
+          <Layer {...commonWaterpointLayer} filter={mapFilter} />
         </Source>
         {featurePoint && (
           <Popup
@@ -129,14 +120,34 @@ const AccessToWaterMap: StatelessComponent<Props> = ({ source, ...props }) => {
           <div>
             <strong>Filter</strong>
           </div>
-          <select onChange={handleSelectFilter}>
-            <option value="all"></option>
-            {functionalityColors.map((it) => (
-              <option value={it.label} key={it.label}>
-                {it.label}
-              </option>
-            ))}
-          </select>
+          <div>
+            <label>by functionality</label>
+            <br />
+            <select
+              onChange={(e) => setFunctionalFilter(e.currentTarget.value)}
+            >
+              <option></option>
+              {functionalityColors.map((it) => (
+                <option value={it.label} key={it.label}>
+                  {it.label}
+                </option>
+              ))}
+            </select>
+          </div>
+          {regionNames && (
+            <div>
+              <label>by region</label>
+              <br />
+              <select onChange={(e) => setRegionFilter(e.currentTarget.value)}>
+                <option></option>
+                {regionNames.map((name: string) => (
+                  <option value={name} key={name}>
+                    {name}
+                  </option>
+                ))}
+              </select>
+            </div>
+          )}
         </div>
       </div>
     </div>

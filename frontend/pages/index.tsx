@@ -11,6 +11,7 @@ const Home: StatelessComponent = () => {
           <div className="map--front">
             <AccessToWaterMap
               source={`${API_PATH}/mali/waterpoints.geojson`}
+              regions={`${API_PATH}/mali/region-names.json`}
               latitude={17.65}
               longitude={-4.15}
               zoom={4.4}
@@ -85,8 +86,8 @@ const Home: StatelessComponent = () => {
             operators are interviewed and the number of wells from which
             information was collected.
           </p>
-        </Col>        
-        <Col span={12}  offset={2}>
+        </Col>
+        <Col span={12} offset={2}>
           <table className="sampleTable">
             <thead>
               <tr>

@@ -1,22 +1,40 @@
-import { StatelessComponent } from 'react'
+import { StatelessComponent, useEffect, useRef, useState } from 'react'
 import { Row, Col } from 'antd'
 import { API_PATH } from '../config'
 import WaterTreatmentChart from '../components/water-quality/WaterTreatmentChart'
 import Pollution from '../components/water-quality/PollutionChart'
 import WaterQualityMap from '../components/water-quality/WaterQualityMap'
+import { getBestAnchorGivenScrollLocation } from '../libs/scroll'
 
 const WaterQuality: StatelessComponent = () => {
+  const sections = useRef<Object>()
+  const [currentAnchor, setCurrentAnchor] = useState('')
+  const handleScroll = () => {
+    let anchor:any = getBestAnchorGivenScrollLocation(sections.current, 0)
+    if (anchor === undefined) anchor = 'WPstatus'
+    if (anchor !== currentAnchor) {
+      setCurrentAnchor(anchor)
+    }
+  }
+  useEffect(() => {
+    sections.current = {
+      WPstatus: document.getElementById('WPstatus'),
+      pumps: document.getElementById('pumps'),
+      pmh: document.getElementById('pmh'),
+    }
+    document.addEventListener('scroll', handleScroll)
+  }, [])
   return (
     <>
       <nav className="sideNav">
         <ul>
-          <li>
+          <li className={currentAnchor === 'WPstatus' ? 'current' : ''}>
             <a href="#WPstatus">WP status</a>
           </li>
-          <li>
+          <li className={currentAnchor === 'pumps' ? 'current' : ''}>
             <a href="#pumps">Pumps</a>
           </li>
-          <li>
+          <li className={currentAnchor === 'pmh' ? 'current' : ''}>
             <a href="#pmh">PMH</a>
           </li>
           <li>

@@ -1,4 +1,4 @@
-import { StatelessComponent } from 'react'
+import { StatelessComponent, useEffect, useRef, useState } from 'react'
 import { Row, Col } from 'antd'
 import { API_PATH } from '../config'
 import DistanceToWaterpointChart from '../components/water/DistanceToWaterpointChart'
@@ -7,22 +7,41 @@ import ReasonForAbandonmentChart from '../components/water/ReasonForAbandonmentC
 import MechanicVsManualPumpChart from '../components/water/MechanicVsManualPumpChart'
 import FunctionalityMap from '../components/water/FunctionalityMap'
 import SeasonalityMap from '../components/water/SeasonalityMap'
+import { getBestAnchorGivenScrollLocation } from '../libs/scroll'
 
 const Water: StatelessComponent = () => {
+  const sections = useRef<Object>()
+  const [currentAnchor, setCurrentAnchor] = useState('')
+  const handleScroll = () => {
+    let anchor:any = getBestAnchorGivenScrollLocation(sections.current, 0)
+    if (anchor === undefined) anchor = 'map01'
+    if (anchor !== currentAnchor) {
+      setCurrentAnchor(anchor)
+    }
+  }
+  useEffect(() => {
+    sections.current = {
+      map01: document.getElementById('map01'),
+      map02: document.getElementById('map02'),
+      pumpType: document.getElementById('pumpType'),
+      pumpStatus: document.getElementById('pumpStatus')
+    }
+    document.addEventListener('scroll', handleScroll)
+  }, [])
   return (
     <>
       <nav className="sideNav">
         <ul>
-          <li>
-            <a href="#map01" className="active">map 01</a>
+          <li className={currentAnchor === 'map01' ? 'current' : ''}>
+            <a href="#map01">map 01</a>
           </li>
-          <li>
+          <li className={currentAnchor === 'map02' ? 'current' : ''}>
             <a href="#map02">map 02</a>
           </li>
-          <li>
+          <li className={currentAnchor === 'pumpType' ? 'current' : ''}>
             <a href="#pumpType">Pump type</a>
           </li>
-          <li>
+          <li className={currentAnchor === 'pumpStatus' ? 'current' : ''}>
             <a href="#pumpStatus">Pump type</a>
           </li>
           <li>

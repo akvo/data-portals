@@ -1,20 +1,38 @@
-import { StatelessComponent } from 'react'
+import { StatelessComponent, useEffect, useRef, useState } from 'react'
 import { Row, Col } from 'antd'
 import { API_PATH } from '../config'
 import AccessToWaterMap from '../components/root/AccessToWaterMap'
+import { getBestAnchorGivenScrollLocation } from '../libs/scroll'
 
 const Home: StatelessComponent = () => {
+  const sections = useRef<Object>()
+  const [currentAnchor, setCurrentAnchor] = useState('')
+  const handleScroll = () => {
+    let anchor:any = getBestAnchorGivenScrollLocation(sections.current, 0)
+    if (anchor === undefined) anchor = 'map03'
+    if (anchor !== currentAnchor) {
+      setCurrentAnchor(anchor)
+    }
+  }
+  useEffect(() => {
+    sections.current = {
+      map03: document.getElementById('map03'),
+      welcome: document.getElementById('welcome'),
+      dataTable: document.getElementById('dataTable'),
+    }
+    document.addEventListener('scroll', handleScroll)
+  }, [])
   return (
     <>
       <nav className="sideNav">
         <ul>
-          <li>
+        <li className={currentAnchor === 'map03' ? 'current' : ''}>
             <a href="#map03">map 03</a>
           </li>
-          <li>
+          <li className={currentAnchor === 'welcome' ? 'current' : ''}>
             <a href="#welcome">Welcome</a>
           </li>
-          <li>
+          <li className={currentAnchor === 'dataTable' ? 'current' : ''}>
             <a href="#dataTable">Data table</a>
           </li>
           <li>

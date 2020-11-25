@@ -120,11 +120,10 @@
           top: 5.8rem;
           left: .1rem;
           background: rgba(white, .4);
-          padding:.5rem;
           border-radius: 0 .8rem .8rem 0;
           box-shadow:  .2rem .2rem .5rem rgba($color-dark-grey, .2);
           border: .1rem solid rgba($color-grey, .2);
-          opacity: .5;
+          opacity: .8;
           transition: opacity .2s ease-in;
           &:hover {
             opacity: 1;
@@ -132,8 +131,18 @@
           ul {
             margin: 0;
             li {
+              width:100%;
+              padding:.5rem;
+              border-left: .4rem solid transparent;
+              transition: all .2s ease-in;
               &:not(:last-child) {
                 margin-bottom:1rem;
+              }
+              &.current {
+                border-left: .4rem solid $color-complementary;
+                a {
+                  opacity: 1;
+                }
               }
               a {
                 display: block;
@@ -141,10 +150,10 @@
                 height: 50px;
                 text-indent: -999px;
                 background-repeat: no-repeat;
-                opacity: .9;
+                opacity: .5;
                 transition: opacity .2s ease-in;
                 &:hover {
-                  opacity: 0.4;
+                  opacity:1;
                 }
                 &[href="#map01"] {
                   background-image: url(../public/map01.svg);

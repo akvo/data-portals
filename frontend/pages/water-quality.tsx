@@ -11,13 +11,16 @@ const WaterQuality: StatelessComponent = () => {
       <nav className="sideNav">
         <ul>
           <li>
+            <a href="#WPstatus">WP status</a>
+          </li>
+          <li>
             <a href="#pumps">Pumps</a>
           </li>
           <li>
             <a href="#pmh">PMH</a>
           </li>
           <li>
-            <a href="#WPstatus">WP status</a>
+            <a href="#WPstatus" className="backUp">WP status</a>
           </li>
         </ul>
       </nav>

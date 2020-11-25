@@ -146,7 +146,9 @@
                 &:hover {
                   opacity: 0.4;
                 }
-
+                &[href="#map01"] {
+                  background-image: url(../public/map01.svg);
+                }                
                 &[href="#map02"] {
                   background-image: url(../public/map02.svg);
                 }
@@ -156,7 +158,7 @@
                 &[href="#pumpStatus"] {
                   background-image: url(../public/piechart.svg);
                 }
-                &[href="#map01"] {
+                &.backUp {
                   background-image: url(../public/up.svg);
                 }
                 &[href="#pmh"] {
@@ -166,7 +168,7 @@
                   background-image: url(../public/piechart.svg);
                 }
                 &[href="#WPstatus"] {
-                  background-image: url(../public/up.svg);
+                  background-image: url(../public/map02.svg);
                   &:target {
                     background-color: red;
                   }

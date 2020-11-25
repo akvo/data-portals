@@ -14,6 +14,9 @@ const Water: StatelessComponent = () => {
       <nav className="sideNav">
         <ul>
           <li>
+            <a href="#map01" className="active">map 01</a>
+          </li>
+          <li>
             <a href="#map02">map 02</a>
           </li>
           <li>
@@ -23,7 +26,7 @@ const Water: StatelessComponent = () => {
             <a href="#pumpStatus">Pump type</a>
           </li>
           <li>
-            <a href="#map01">map 01</a>
+            <a href="#map01" className="backUp">Back up</a>
           </li>
         </ul>
       </nav>

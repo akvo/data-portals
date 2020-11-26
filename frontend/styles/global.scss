@@ -235,7 +235,7 @@
               }
             }
             padding: 5rem 0 0 0;
-            &.dataSample, &.faqSection {
+            &.dataSample, &.faqSection, &.welcome {
               padding-bottom: 5rem;
             }
         }
@@ -247,6 +247,16 @@
 .dataSample {
   padding-bottom: 4rem;
   font-size:1.7rem;
+  .decoRect {
+    background: rgba($color: $color-blue-medium, $alpha: .5);
+    border-radius: .4rem;
+    padding: 1rem 2rem;
+    box-shadow: 1px 1px 0 rgba(white, .4), 3px 3px 0 rgba($color-blue-light, .2) ;
+
+    p {
+      color: $color-blue-dark;
+    }
+  }
   table.sampleTable {
     width: 100%;
     text-align: left;
@@ -255,13 +265,16 @@
     box-shadow:5px 5px 1px rgba(white, .2);
     border: 0.2rem solid rgba(white, .3);
     border-radius: .5rem;
+    color: $color-blue-dark;
   }
 
   table.sampleTable td,
   table.sampleTable th {
     padding: 1rem;
   }
-
+  table.sampleTable td {
+    padding-left: 2rem;
+  }
   table.sampleTable tbody tr:nth-child(odd) {
     background: rgba(255, 255, 255, 0.2);
   }
@@ -288,7 +301,7 @@
   border-radius: 0 0 1rem 1rem;
   text-align: center;
   color: $color-blue-dark;
-  h2.partnerTl {
+  h1.partnerTl {
     color: $color-blue-dark;
   }
   .copyRights {

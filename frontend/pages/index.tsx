@@ -107,7 +107,7 @@ const Home: StatelessComponent = () => {
         </Col>
       </Row>
       <Row className="dataSample" id="dataTable">
-        <Col span={4} offset={2}>
+        <Col span={4} offset={2}  className="decoRect">
           <h2>Sample characteristics</h2>
           <p className="paragraph">
             The 2016 - 2018 Mali WaSH inventory was a census measurement

@@ -26,7 +26,15 @@ h1, h2, h3, h4, h5, h6 {
     }
 }
 .infoContainer {
-    padding-bottom: 4rem;
+    margin-top: -1rem;
+    background: rgba($color-blue-medium, .2);
+    border-radius: .4rem;
+    padding: 1rem 2rem;
+    box-shadow: 1px 1px 0 rgba(white, .4), 3px 3px 0 rgba($color-blue-light, .2) ;
+  
+    p {
+      color: $color-blue-dark;
+    }
 }
 .paragraph {
     font-size: $default-font-size;

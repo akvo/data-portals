@@ -2,6 +2,7 @@ h1, h2, h3, h4, h5, h6 {
     font-family: poppins;
     font-weight: 600;
     color: white;
+    hyphens: manual;
   }
 .heading-primary {
     text-transform: inherit;
@@ -13,6 +14,7 @@ h1, h2, h3, h4, h5, h6 {
         animation: moveInLeft 0.7s ease-out;
         text-align: left;
         color: rgba($color-blue-light, .7);
+        text-shadow: .3rem .3rem 0 rgba($color-primary-dark, .2) ;
         @include respond(phone) {
             letter-spacing: 1rem;
             font-size: 5rem;
@@ -42,4 +44,8 @@ h1, h2, h3, h4, h5, h6 {
     &:not(:last-child) {
         margin-bottom: 3rem;
     }
+}
+small {
+    font-size: 1rem;
+    line-height: 1;
 }

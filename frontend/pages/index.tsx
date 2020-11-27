@@ -107,74 +107,87 @@ const Home: StatelessComponent = () => {
         </Col>
       </Row>
       <Row className="dataSample" id="dataTable">
-        <Col span={4} offset={2}  className="decoRect">
-          <h2>Sample characteristics</h2>
+        <Col span={5} offset={2}  className="decoRect">
+          <div>
+            <h2>Sample characteristics</h2>
+          </div>
           <p className="paragraph">
             The 2016 - 2018 Mali WaSH inventory was a census measurement
             covering all of Mali’s rural water points. Piped water systems were
             left out of the data collection. This should be kept in mind when
-            looking at larger cities. Below is an overview of the number of
-            operators are interviewed and the number of wells from which
+            looking at larger cities. The table on the right is an overview of the number of
+            operators interviewed and the number of wells from which
             information was collected.
           </p>
         </Col>
-        <Col span={14} offset={2}>
+        <Col span={14} offset={1}>
           <table className="sampleTable">
             <thead>
               <tr>
                 <th>District</th>
-                <th>Number of operators (/exploitants)</th>
-                <th>Number of wells (/puits)</th>
+                <th>Year of collection</th>
+                <th>Number of operators</th>
+                <th>Number of wells</th>
               </tr>
             </thead>
             <tbody>
               <tr>
                 <td>Bamako</td>
+                <td>2018</td>
                 <td>620</td>
                 <td>461</td>
               </tr>
               <tr>
                 <td>Gao</td>
+                <td>2018</td>
                 <td>1128</td>
                 <td>2437</td>
               </tr>
               <tr>
                 <td>Kayes</td>
+                <td>2016</td>
                 <td>894</td>
                 <td>7252</td>
               </tr>
               <tr>
                 <td>Kidal</td>
+                <td>2018</td>
                 <td>55</td>
                 <td>491</td>
               </tr>
               <tr>
                 <td>Koulikoro</td>
+                <td>2018</td>
                 <td>3172</td>
                 <td>8275</td>
               </tr>
               <tr>
                 <td>Mopti</td>
+                <td>2016</td>
                 <td>975</td>
                 <td>6583</td>
               </tr>
               <tr>
                 <td>Segou</td>
+                <td>2016</td>
                 <td>2793</td>
                 <td>7563</td>
               </tr>
               <tr>
                 <td>Sikasso</td>
+                <td>2016</td>
                 <td>2532</td>
                 <td>6274</td>
               </tr>
               <tr>
                 <td>Tombouctou</td>
+                <td>2018</td>
                 <td>500</td>
                 <td>3503</td>
               </tr>
             </tbody>
           </table>
+          <p class="infoTxt"><small>*The piped water supply of the urban areas of Mali are not included in this data. Especially in Bamako the number of wells does not give a reasonable estimation of the water supply. This also goes for a few of the other regions' counties. These counties have been marked in the maps. Caution needs to be taken when interpreting the numbers of these specific counties.</small></p>
         </Col>
       </Row>
     </>

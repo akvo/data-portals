@@ -281,7 +281,7 @@
     box-shadow: -.2rem -.2rem 0 rgba(white, .4), .3rem .3rem 0 rgba($color-blue-light, .2) ;
     border: 0.2rem solid rgba($color-blue-medium, .3);
     border-radius: .5rem;
-    color: $color-blue-dark;
+    color: white;
   }
 
   table.sampleTable td,
@@ -302,7 +302,7 @@
 
   table.sampleTable thead th {
     font-weight: bold;
-    color: #FFFFFF;
+    color:$color-blue-dark;
     border: none;
   }
 

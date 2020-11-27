@@ -54,10 +54,8 @@ const Home: StatelessComponent = () => {
         </Col>
         <Col span={4}>
           <div className="map--info">
-            <span>
-              This map shows all the rural water points as surveyed by the
-              inventory combined with their functionality.
-            </span>
+              <h4>This map shows all the rural water points as surveyed by the
+              inventory combined with their functionality.</h4>
             <ul>
               <li>
                 <span>Functional</span> means the well was functional at the

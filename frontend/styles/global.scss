@@ -169,6 +169,9 @@
                 &[href="#map03"] {
                   background-image: url(../public/map03.svg);
                 }
+                &[href="#map04"] {
+                  background-image: url(../public/map03.svg);
+                }
                 &[href="#pumpType"] {
                   background-image: url(../public/barchart.svg);
                 }
@@ -216,6 +219,8 @@
               top: 7rem;
               left: 50%;
               transform: translate(-50%, -50%);
+              text-shadow:.3rem .3rem 0 rgba($color-blue-light, .2) ;
+
             }
           }
           &.dataLight {
@@ -228,6 +233,8 @@
                 top: 7rem;
                 left: 50%;
                 transform: translate(-50%, -50%);
+                text-shadow:.3rem .3rem 0 rgba($color-primary-dark, .2) ;
+
               }
             
             & h1, h2, h3, h4, h5, h6 {
@@ -474,6 +481,8 @@
     font-size: 7rem;
     padding: 0.25rem 0.75rem;
     border-radius: 0.5rem;
+    text-shadow:.3rem .3rem 0 rgba($color-blue-light, .2) ;
+
     .dataDark & {
       border: 0.3rem solid rgba(white, 0.5);
     }
@@ -497,12 +506,16 @@
   left: 50%;
   transform: translate(-50%, -60%);
   width:100%;
+  box-shadow: -.2rem -.2rem 0 rgba(white, .4), .3rem .3rem 0 rgba($color-blue-light, .2) ;
+
   h3 {
     font-size: 2rem;
   }
   .dataLight & {
     background-color: rgba($color-primary-dark, 0.1);
     border: 0.1rem solid white;
+    box-shadow: -.2rem -.2rem 0 rgba($color-blue-medium, .4), .3rem .3rem 0 rgba($color-blue-light, .2) ;
+
     h3 {
       text-shadow: 2px 2px 0 white;
     }

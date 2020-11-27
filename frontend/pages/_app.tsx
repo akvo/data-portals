@@ -31,7 +31,7 @@ const CustomApp: StatelessComponent<AppProps> = ({ Component, pageProps }) => {
             <Menu theme="dark" mode="horizontal" selectedKeys={[activeMenu]}>
               <Menu.Item key="water">
                 <Link href="/water">
-                  <a>Water</a>
+                  <a>Water access</a>
                 </Link>
               </Menu.Item>
               <Menu.Item key="water-quality">

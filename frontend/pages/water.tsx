@@ -23,6 +23,7 @@ const Water: StatelessComponent = () => {
     sections.current = {
       map01: document.getElementById('map01'),
       map02: document.getElementById('map02'),
+      map04: document.getElementById('map04'),
       pumpType: document.getElementById('pumpType'),
       pumpStatus: document.getElementById('pumpStatus')
     }
@@ -37,6 +38,9 @@ const Water: StatelessComponent = () => {
           </li>
           <li className={currentAnchor === 'map02' ? 'current' : ''}>
             <a href="#map02">map 02</a>
+          </li>
+          <li className={currentAnchor === 'map04' ? 'current' : ''}>
+            <a href="#map04">map 04</a>
           </li>
           <li className={currentAnchor === 'pumpType' ? 'current' : ''}>
             <a href="#pumpType">Pump type</a>
@@ -62,11 +66,9 @@ const Water: StatelessComponent = () => {
         </Col>
         <Col span={4}>
           <div className="map--info">
+            <h4>Percentage Of Functional Water Points Per Cercle</h4>
             <p>
-              This map shows the percentage of functional water points per Mali
-              district. <br />
-              The darker green the color the higher the percentage of existing
-              water points that is functional.
+              This map shows the percentage of the water points in Mali that was marked functional compared to the total number of water points. The cercles Tessalit, Bourem, Abeibara and Menaka score under 50% functional. 
             </p>
           </div>
         </Col>
@@ -84,16 +86,31 @@ const Water: StatelessComponent = () => {
         </Col>
         <Col span={4}>
           <div className="map--info">
+            <h4>Percentage Of The Population That Can Access A Modern Waterpoint</h4>
             <p>
               {' '}
-              This map shows functional water points that are seasonal and
-              therefore are dry some time during the year.
+              This map shows the percentage of the population that has access to a water point. This is determined by the number of functional water points and the number of people a water point can serve (EPEM) compared to the total population of the cercle.
             </p>
+          </div>
+        </Col>
+      </Row>
+      <Row className="map fullHeight" id="map04">
+        <Col span={20}>
+          <div className="map--front">
+            <SeasonalityMap
+              source={`${API_PATH}/mali/waterpoints.geojson`}
+              latitude={17.65}
+              longitude={-4.15}
+              zoom={4.4}
+            />
+          </div>
+        </Col>
+        <Col span={4}>
+          <div className="map--info">
+            <h4>Population Able To Access Modern Water Points When Broken Water Points Are Repaired</h4>
             <p>
-              The green points show the water points that are functional
-              throughout the year. <br />
-              The yellow points show the water points that have dry periods
-              during the year.{' '}
+              {' '}
+              This map shows the percentage of the population that would be served if all water points were made operable. This is determined by the number of people that the currently inoperable water points could serve based on the type of water point. 
             </p>
           </div>
         </Col>

@@ -187,7 +187,7 @@ const Home: StatelessComponent = () => {
               </tr>
             </tbody>
           </table>
-          <p class="infoTxt"><small>*The piped water supply of the urban areas of Mali are not included in this data. Especially in Bamako the number of wells does not give a reasonable estimation of the water supply. This also goes for a few of the other regions' counties. These counties have been marked in the maps. Caution needs to be taken when interpreting the numbers of these specific counties.</small></p>
+          <p className="infoTxt"><small>*The piped water supply of the urban areas of Mali are not included in this data. Especially in Bamako the number of wells does not give a reasonable estimation of the water supply. This also goes for a few of the other regions' counties. These counties have been marked in the maps. Caution needs to be taken when interpreting the numbers of these specific counties.</small></p>
         </Col>
       </Row>
     </>

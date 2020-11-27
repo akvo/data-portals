@@ -236,7 +236,7 @@
             }
             padding: 5rem 0 0 0;
             &.dataSample, &.faqSection, &.welcome {
-              padding-bottom: 5rem;
+              padding: 8rem 0;
             }
         }
       }
@@ -257,6 +257,8 @@
     border-radius: .4rem;
     padding: 1rem 2rem;
     box-shadow: -.2rem -.2rem 0 rgba(white, .4), .3rem .3rem 0 rgba($color-blue-light, .2) ;
+    
+    height: fit-content;
     h2 {
       text-shadow: .3rem .3rem 0 rgba($color-blue-light, .2) ;
     }
@@ -269,8 +271,8 @@
     text-align: left;
     border-collapse: collapse;
     background: rgba($color-font, 0.1);
-    box-shadow:.5rem .5rem .1rem rgba(white, .2);
-    border: 0.2rem solid rgba(white, .3);
+    box-shadow: -.2rem -.2rem 0 rgba(white, .4), .3rem .3rem 0 rgba($color-blue-light, .2) ;
+    border: 0.2rem solid rgba($color-blue-medium, .3);
     border-radius: .5rem;
     color: $color-blue-dark;
   }
@@ -309,7 +311,9 @@
   text-align: center;
   color: $color-blue-dark;
   h1.partnerTl {
-    color: $color-blue-dark;
+    color: $color-blue-dark;        
+    text-shadow: .3rem .3rem 0 rgba($color-primary-dark, .2) ;
+
   }
   .copyRights {
     margin: 2rem auto 0;

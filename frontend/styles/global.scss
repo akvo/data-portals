@@ -454,7 +454,7 @@
     }
     text-align: left;
     background-color:#D4DADC;
-    padding: 2rem 2.5rem;
+    padding: 1rem 1.5rem;
     border-radius: 0 .5rem .5rem 0;
     height:95%;
     overflow-y: scroll;
@@ -514,7 +514,7 @@
   .dataLight & {
     background-color: rgba($color-primary-dark, 0.1);
     border: 0.1rem solid white;
-    box-shadow: -.2rem -.2rem 0 rgba($color-blue-medium, .4), .3rem .3rem 0 rgba($color-blue-light, .2) ;
+    box-shadow: .3rem .3rem 0 rgba($color-blue-light, .2) ;
 
     h3 {
       text-shadow: 2px 2px 0 white;

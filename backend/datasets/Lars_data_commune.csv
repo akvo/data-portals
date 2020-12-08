@@ -1,0 +1,598 @@
+"Commune","Milieu","pop_2016","taux_fonct","taux_acces","taux_equip"
+"Abeibara","RURAL",5227,65,12,12
+"Achamour","RURAL",6318,67,25,38
+"Achouratt","RURAL",6393,100,13,13
+"Adjelhoc","RURAL",10471,44,26,26
+"Agouni","RURAL",8159,94,39,39
+"Al-Ourche","RURAL",6850,97,21,21
+"Alafia","RURAL",18701,71,60,72
+"Alata","RURAL",7486,33,5,16
+"Alfacrouna","RURAL",9617,100,25,25
+"Algatara","RURAL",6362,100,42,42
+"Almatala","RURAL",8684,100,4,4
+"Alzounoub","RURAL",4969,78,78,82
+"Anchawadi","RURAL",33208,58,44,52
+"Anderamboukane","RURAL",38556,59,17,28
+"Anefif","RURAL",5681,27,21,22
+"Ansongo","RURAL",40133,60,41,60
+"Araouane","RURAL",8015,87,32,35
+"Arham","RURAL",3490,86,100,100
+"Badia","RURAL",8312,70,43,72
+"Bafoulabe","RURAL",24118,70,71,88
+"Baguindadougou","RURAL",12100,71,60,81
+"Bamafele","RURAL",17107,50,44,55
+"Bamba","RURAL",54252,67,43,49.5
+"Bambara Maoude","RURAL",23509,36,28,56
+"Bandiagara","URBAIN",19449,93,21,22
+"Bangassi","RURAL",21948,62,38,52
+"Baniere Kore","RURAL",8691,51,71,92
+"Banikane","RURAL",13384,45,38,60
+"Banikane Narhawa","RURAL",27249,52,52,80
+"Bankass","RURAL",35732,85,86,92
+"Bara","RURAL",20577,44,60,85
+"Bara Sara","RURAL",19516,78,68,79
+"Baramandougou","RURAL",11177,93,47,50
+"Barapireli","RURAL",15900,76,86,98
+"Baroueli","RURAL",52111,76,66,79
+"Bassirou","RURAL",2514,80,89,89
+"Baya","RURAL",41655,22,7,31
+"Baye","RURAL",68377,75.5,72,86.5
+"Beguene","RURAL",13026,90,48,48
+"Bellen","RURAL",9538,65,41,46
+"Bema","RURAL",30471,49,45,74
+"Bendougouba","RURAL",13153,86,65,66
+"Benena","RURAL",19826,78,67,82
+"Benkadi","RURAL",7964,81,90,95
+"Benkadi Founia","RURAL",13151,69,31,39
+"Ber","RURAL",33794,79,27,31
+"Bimbere Tama","RURAL",10341,80,85,91
+"Binga","RURAL",5115,87,99,100
+"Bintagoungou","RURAL",8313,57,34,53
+"Bla","RURAL",75443,88,35,40
+"Bladie-Tiemala","RURAL",8731,100,50,50
+"Blendio","RURAL",17591,85,54,66
+"Boghassa","RURAL",4015,0,0,10
+"Boidie","RURAL",25685,84,60,74
+"Boky Were","RURAL",20544,93,90,90
+"Bolo-Fouta","RURAL",5086,64,55,87
+"Bondo","RURAL",23288,33,46,93
+"Borko","RURAL",7031,71,27,38
+"Borondougou","RURAL",9333,95,84,84
+"Boudofo","RURAL",6217,85,43,56
+"Bougaribaya","RURAL",14285,84,48,51
+"Bougoula","RURAL",8780,92,48,53
+"Bougouni","URBAIN",78300,80,10,13
+"Bougouwera","RURAL",5366,NA,0,0
+"Boujbeha","RURAL",6446,NA,0,0
+"Boura","RURAL",29234,78,41,51
+"Bourem","URBAIN",36603,51,19,35
+"Bourem Sidi Amar","RURAL",12611,79,52,61
+"Bourem-Inaly","RURAL",14863,76,46,59
+"Bourra","RURAL",24150,71,39,53
+"Boussin","RURAL",14637,71,62,77
+"Cinzana","RURAL",41726,67,65,88
+"Colimbine","RURAL",14355,77,74,84
+"D'adarmalane","RURAL",955,50,19,59
+"Dabia","RURAL",16847,87,73,80
+"Dah","RURAL",13775,88,81,81
+"Dallah","RURAL",9764,62,80,88
+"Danderesso","RURAL",49623,70,35,51
+"Dandoli","RURAL",11701,69,86,98
+"Dandougou Fakala","RURAL",10371,85,67,74
+"Dangha","RURAL",18773,82,28,34
+"Dangol-Bore","RURAL",34459,55,49,75
+"Danou","RURAL",14737,54,56,88
+"Debelin","RURAL",11045,84,73,80
+"Debere","RURAL",7403,68,77,95
+"Deboye","RURAL",27899,77,38,47
+"Defina","RURAL",8019,86,80,88
+"Dembela","RURAL",14660,87,75,83
+"Derary","RURAL",7569,100,20,20
+"Diaba","RURAL",6459,96,23,23
+"Diabaly","RURAL",51138,89,55,59
+"Diabigue","RURAL",10440,56,69,89
+"Diafarabe","RURAL",16889,69,89,97
+"Diafounou Diongaga","RURAL",9750,64,99,99
+"Diafounou Gory","RURAL",25417,63,90,99
+"Diaka","RURAL",21922,75,80,86
+"Diakon","RURAL",42082,68,62,80
+"Diakourouna","RURAL",15919,62,45,65
+"Dialafara","RURAL",21062,80,94,97
+"Dialakoro","RURAL",7913,46,30,66
+"Diallan","RURAL",19191,68,66,88
+"Diallassagou","RURAL",27738,82,93,98
+"Dialloube","RURAL",40453,88,38,42
+"Diamnati","RURAL",15311,91,51,56
+"Diamou","RURAL",16274,72,61,84
+"Diangounte Camara","RURAL",35010,58,68,87
+"Dianguirde","RURAL",15354,64,75,87
+"Diankabou","RURAL",13901,87,67,72
+"Dianwely","RURAL",8649,64,60,78
+"Diaramana","RURAL",24164,65,48,65
+"Diarra","RURAL",8368,65,85,96
+"Diaye Coura","RURAL",17124,38,51,96
+"Didenko","RURAL",12741,62,50,82
+"Diedougou","RURAL",22357,59.5,49,59
+"Dieli","RURAL",14895,64,48,72
+"Diema","RURAL",41514,85,67,80
+"Diena","RURAL",9502,91,37,41
+"Dieoura","RURAL",15060,64,61,83
+"Diganibougou","RURAL",19606,73,47,63
+"Dimbal Habbe","RURAL",20733,86,95,95
+"Dinangourou","RURAL",44966,42,25,57
+"Diokeli","RURAL",17824,65,86,90
+"Diomatene","RURAL",5527,100,72,72
+"Diondiori","RURAL",23219,92,90,91
+"Diora","RURAL",20365,70,43,59
+"Dioro","RURAL",55040,82,54,61
+"Diou","RURAL",5664,83,61,72
+"Dioumara Koussata","RURAL",20994,59,64,85
+"Dioumatene","RURAL",8488,95,100,100
+"Diouna","RURAL",11550,48,37,66
+"Dioungani","RURAL",38428,67,47,65
+"Diouradougou Kafo","RURAL",9251,85,60,70
+"Dire","URBAIN",29720,50,5,6
+"Dirma","RURAL",9671,82,77,83
+"Djallon-Foula","RURAL",11513,76,84,95
+"Djaptodji","RURAL",45423,61,65,89
+"Djeguena","RURAL",4039,38,56,84
+"Djelebou","RURAL",30584,77,68,81
+"Djenne","URBAIN",36714,92,65,71
+"Djidian","RURAL",21954,80,81,83
+"Djiguiya De Koloni","RURAL",8912,64,62,87
+"Djougoun","RURAL",9685,86,92,96
+"Dogani Bere","RURAL",4419,77,81,87
+"Dogo","RURAL",40595,82,69,86
+"Dogofry","RURAL",46286,94,33,34
+"Dogoni","RURAL",17318,37,29,68
+"Domba","RURAL",18469,84,78,88
+"Dombia","RURAL",7582,68,54,70
+"Dongo","RURAL",11559,97,84,85
+"Doucombo","RURAL",20835,67,88,96
+"Douekire","RURAL",22252,77,80,85
+"Douentza","URBAIN",38799,94,49,52
+"Dougabougou","RURAL",36288,68,14,21
+"Dougoufie","RURAL",10668,94,55,58
+"Dougouolo","RURAL",8711,80,54,63
+"Dougoutene I","RURAL",26991,92,91,92
+"Dougoutene Ii","RURAL",24009,82,88,91
+"Doukouria","RURAL",3375,60,79,79
+"Doumanaba","RURAL",17400,96,79,81
+"Dourou","RURAL",21658,75,63,78
+"Erg-Lakhal","RURAL",7084,67,15,15
+"Essakane","RURAL",14514,40,41,61
+"Essouk","RURAL",4102,67,24,24
+"Fagui","RURAL",14506,60,29,51
+"Fakala","RURAL",40041,73,49,65
+"Fakola","RURAL",43046,45,27,58
+"Fakolo","RURAL",13196,67,36,55
+"Falea","RURAL",20881,79,39,51
+"Faleme","RURAL",13367,78,81,88
+"Falo","RURAL",54511,73,33,44
+"Fama","RURAL",11541,64,60,92
+"Fanga","RURAL",10025,89,76,81
+"Fangasso","RURAL",26486,71,71,88
+"Fani","RURAL",16204,80,26,31
+"Faraba","RURAL",8988,86,68,69
+"Faradiele","RURAL",3556,100,100,100
+"Faragouaran","RURAL",13850,57,73,93
+"Farakala","RURAL",9236,90,91,91
+"Farako","RURAL",35947,73,63,76.5
+"Farakou Massa","RURAL",18237,69,57,65
+"Farimake","RURAL",16875,38,52,97
+"Fassoudebe","RURAL",6682,76,64,82
+"Fatao","URBAIN",12706,90,42,47
+"Fatine","RURAL",29582,72,63,82
+"Fatoma","RURAL",24258,69,78,86
+"Fegui","URBAIN",6193,72,42,58
+"Femaye","RURAL",19180,84,56,65
+"Finkolo","RURAL",21714,86,82,88
+"Finkolo Ganadougou","RURAL",17959,88,96,99
+"Fion","RURAL",6814,96,94,94
+"Fittouga","RURAL",38821,73,59,72
+"Folomana","RURAL",11218,95,82,82
+"Foum-Elba","RURAL",4839,100,5,5
+"Fourou","RURAL",62861,87,64,69
+"Gabero","RURAL",30268,57,62,84
+"Gadougou 1","RURAL",33844,92,59,63
+"Gadougou 2","RURAL",14217,79,31,39
+"Gandamia","RURAL",10217,50,23,35
+"Gao","URBAIN",119097,66,18,26
+"Garalo","RURAL",49261,85,68,78
+"Garbakoira","RURAL",5651,88,75,75
+"Gargando","RURAL",9599,54,45,55
+"Gavinane","RURAL",21253,53,65,94
+"Gogui","RURAL",15183,63,77,96
+"Gomitradougou","RURAL",10773,70,49,68
+"Gongasso","RURAL",10326,58,54,74
+"Gory","RURAL",14475,53,47,90
+"Gory Gopela","RURAL",10008,65,57,74
+"Gossi","RURAL",43991,60,16,29
+"Gouadji Kao","RURAL",13817,57,49,72
+"Gouadjie Sougouna","RURAL",13808,88,60,68
+"Gouanan","RURAL",30080,63,67,90
+"Gouandiaka","RURAL",32767,87,84,88
+"Gouendo","RURAL",11994,89,86,86
+"Goumera","URBAIN",3984,100,75,75
+"Goundam","URBAIN",18309,67,4,7
+"Gounfan","RURAL",8549,89,96,100
+"Gounzoureye","RURAL",35857,72,92,95
+"Groumera","RURAL",15675,43,38,74
+"Guedebine","RURAL",6217,79,80,87
+"Guemoukouraba","RURAL",13692,76,81,98
+"Guenegore","RURAL",6587,59,74,83
+"Guetema","RURAL",10013,65,67,85
+"Guidimakan Keri Kaffo","RURAL",20032,77,74,87
+"Guidime","RURAL",54489,79,85,98
+"Haibongo","RURAL",17297,26,21,63
+"Haire","RURAL",41387,59,54,82
+"Hanzakoma","RURAL",15371,66,40,48
+"Haribomo","RURAL",7957,54,59,74
+"Hawa De Mbaya","RURAL",9560,87,82,82
+"Hombori","RURAL",33092,74,68,80
+"Inadiatafane","RURAL",3557,70,29,29
+"Inekar","RURAL",16290,41,34,58
+"Intadjedite","RURAL",6396,75,23,36
+"Issa Bery","RURAL",4126,61,67,79
+"Kabarasso","RURAL",8788,70,61,88
+"Kaboila","RURAL",31357,90,67,75
+"Kadiaba Kadiel","RURAL",12714,74,82,99
+"Kadiana","RURAL",24389,74,50,64
+"Kadiolo","RURAL",72706,94,58,61
+"Kafo Faboli","RURAL",14206,92,56,60
+"Kafouziela","RURAL",6412,89,80,86
+"Kai","RURAL",8599,53,60,95
+"Kala Siguida","RURAL",26427,93,65,68
+"Kalake","RURAL",19225,78,61,74
+"Kamiandougou","RURAL",17077,94,84,84
+"Kaneye","RURAL",2518,75,87,93
+"Kani-Bonzoni","RURAL",13619,89,96,97
+"Kaniegue","RURAL",7864,65,51,62
+"Kapala","RURAL",20679,65.5,33.5,49
+"Kapolondougou","RURAL",15510,90,85,90
+"Karaba","RURAL",11056,76,58,71
+"Karakoro","RURAL",17708,63,90,100
+"Karangana","RURAL",20507,81,91,93
+"Kareri","RURAL",36896,83,76,78
+"Kassa","RURAL",23561,92,37,41
+"Kassama","RURAL",20867,61,52,73
+"Kassaro","RURAL",28431,83,47,54
+"Kassorola","RURAL",18519,73,59,72
+"Katiena","RURAL",45495,87,33,37
+"Kava","RURAL",23670,77,50,62
+"Kayes","URBAIN",189937,100,1,1
+"Kazangasso","RURAL",6347,55,33,57
+"Kebila","RURAL",42833,68,42,60
+"Keleya","RURAL",23907,55,65,92
+"Kemene Tambo","RURAL",22765,76,40,46
+"Kemeni","RURAL",15103,96,65,68
+"Kende","RURAL",5243,54,64,93
+"Kendie","RURAL",30288,71,62,77
+"Kenieba","RURAL",46601,81,86,90
+"Kerena","RURAL",5640,15,14,71
+"Kewa","RURAL",31408,64,57,78
+"Khouloum","RURAL",24829,78,45,49
+"Kidal","URBAIN",43939,65,18,28
+"Kiffosso 1","RURAL",22480,57,61,84
+"Kignan","RURAL",37518,88,59,66
+"Kirane Kaniaga","RURAL",44700,61,91,100
+"Kirchamba","RURAL",4120,93,40,40
+"Kita","URBAIN",64537,100,3,3
+"Kita Nord","RURAL",11817,80,55,61
+"Kita Ouest","RURAL",22324,73,32,39
+"Klela","RURAL",33844,75,50,62
+"Kobri","RURAL",15204,84,51,60
+"Kofan","RURAL",11829,66,83,87
+"Kokele","RURAL",7173,73,71,84
+"Kokofata","RURAL",28287,76,46,53
+"Kokry Centre","RURAL",19137,82,66,75
+"Kola","RURAL",5740,82,75,83
+"Kolokoba","RURAL",7703,96,90,93
+"Kolondieba","RURAL",70718,73,59,75
+"Kolongo","RURAL",46947,90,81,82
+"Kolonigue","RURAL",38092,79,40,51
+"Kolosso","RURAL",8607,71,68,84
+"Kondi","RURAL",3365,92,100,100
+"Konina","RURAL",18233,74,31,42
+"Koningue","RURAL",21066,56,19,34
+"Konna","RURAL",44940,88,67,75
+"Konobougou","RURAL",47340,78,70,85
+"Konodimini","RURAL",18658,71,54,68
+"Konseguela","RURAL",38535,63,41,62
+"Konsiga","RURAL",9361,74,73,83
+"Kontela","RURAL",27000,60,51,70
+"Koporo Pen","RURAL",21264,73,89,97
+"Koporokendie Na","RURAL",21846,92,91,95
+"Korarou","RURAL",5222,24,39,99
+"Korera Kore","RURAL",23251,56,63,89
+"Koro","RURAL",82235,62,63,87
+"Korodougou","RURAL",12843,36,38,69
+"Korombana","RURAL",39138,88,68,75
+"Koromo","RURAL",16581,59,24,39
+"Kotouba","RURAL",10433,92,37,37
+"Koubaye","RURAL",7758,92,89,94
+"Koubewel Koundia","RURAL",15775,60,52,81
+"Koula","RURAL",19938,85,83,90
+"Koulandougou","RURAL",5372,93,83,87
+"Koulogon Habe","RURAL",15131,96,82,82
+"Koulou","RURAL",15941,73,40,55
+"Koumaira","RURAL",17057,70,76,88
+"Koumankou","RURAL",8955,50,22,45
+"Koumantou","RURAL",66485,82,76,83
+"Koumbia","RURAL",34614,64,26,41
+"Kounari","RURAL",15487,95,78,79
+"Koundian","RURAL",16250,80,56,72
+"Kouniakary","URBAIN",8911,85,99,100
+"Kouniana","RURAL",6030,40,27,63
+"Kouoro","RURAL",15527,71,34,48
+"Kouroulamini","RURAL",7515,88,76,78
+"Kourouma","RURAL",15696,39,40,92
+"Kourouninkoto","URBAIN",7542,79,50,64
+"Koury","RURAL",73881,64,27,42
+"Koussan","RURAL",12364,84,69,83
+"Koussane","RURAL",29435,67,73,90
+"Koutiala","URBAIN",203034,56,1,2
+"Kremis","RURAL",14631,55,78,91
+"Kroukoto","RURAL",13671,87,38,41
+"Lafia","RURAL",7919,82,72,78
+"Lakamane","RURAL",21725,62,44,71
+"Lambidou","RURAL",19994,70,62,85
+"Lanfiala","RURAL",13419,96,60,63
+"Lere","RURAL",21880,51,29,47
+"Lessagou Habe","RURAL",17864,94,83,83
+"Liberte De Mbaya","RURAL",20896,72,77,81
+"Limgassim","RURAL",8260,100,10,10
+"Lobougoula","RURAL",38289,90,75,82
+"Logo","RURAL",14847,54,67,92
+"Logouana","RURAL",11510,94,69,69
+"Loulouni","RURAL",47193,89,61,67
+"Lowol Gueou","RURAL",14603,85,59,68
+"M'back Semna","RURAL",6753,67,12,18
+"M'bouna","RURAL",5384,32,31,77
+"M'pessoba","RURAL",40584,80,58,73
+"Macina","RURAL",47732,90,68,73
+"Madiama","RURAL",14751,74,78,90
+"Madiga Sacko","RURAL",18311,69,78,96
+"Madina","RURAL",14025,82,92,99
+"Madougou","RURAL",34346,74,63,78
+"Mafoune","RURAL",28247,53,29,59
+"Mahina","RURAL",32075,90,72,77
+"Mahou","RURAL",19711,40,16,41
+"Makano","RURAL",12409,100,46,46
+"Mandiakuy","RURAL",24897,77,62,79
+"Marekafo","RURAL",6416,40,79,100
+"Marena Diombougou","RURAL",21162,65,72,82
+"Mariko","RURAL",23313,88,60,66
+"Marintoumania","RURAL",9132,67,74,94
+"Markala","RURAL",53485,79,33,38
+"Massala","RURAL",8164,38,29,63
+"Matomo","RURAL",15238,88,99,100
+"Mena","RURAL",6157,81,80,96
+"Menaka","RURAL",37794,40,27,60
+"Menamba 1","RURAL",13751,67,66,90
+"Meridiela","RURAL",19345,82,72,79
+"Metoumou","RURAL",16210,48,28,58
+"Miena","RURAL",15600,68,62,77
+"Miniko","RURAL",4812,100,86,86
+"Miria","RURAL",10344,71,39,53
+"Misseni","RURAL",111680,94,28,29
+"Missirikoro","RURAL",4405,93,75,75
+"Mondoro","RURAL",66434,51,22,42
+"Mopti","URBAIN",150581,94,2,2
+"Moribila","RURAL",13631,69,66,85
+"N'dodjiga","RURAL",25798,82,68,82
+"N'gara","RURAL",11706,82,79,86
+"N'gassola","RURAL",6636,56,52,77
+"N'goa","RURAL",10475,74,47,60
+"N'golodiana","RURAL",6872,47,41,86
+"N'golonianasso","RURAL",24688,71,24,34
+"N'gorkou","RURAL",32311,70,63,84
+"N'goutjina","RURAL",33985,85,25,30
+"N'koumandougou","RURAL",17609,31,24,60
+"N'tillit","RURAL",41160,60,15,18
+"N'tjikouna","RURAL",5971,85,56,70
+"N'torosso","RURAL",12125,73,78,90
+"N'tossoni","RURAL",9174,65,48,74
+"Nafanga","RURAL",11417,87,76,89
+"Namala Guimba","RURAL",17447,100,59,59
+"Nampe","RURAL",5506,84,97,97
+"Nangalasso","RURAL",13700,92,87,88
+"Natien","RURAL",8860,77,50,68
+"Nebkit El-Elk","RURAL",4517,50,9,18
+"Nema-Badenyakafo","RURAL",56878,87,59,64
+"Niala","RURAL",10262,78,60,64
+"Niamana","RURAL",14602,76,66,79
+"Niambia","RURAL",10388,90,56,60
+"Niansanarie","RURAL",5523,96,100,100
+"Niantaga","RURAL",11191,67,43,61
+"Niantanso","RURAL",5893,55,65,94
+"Niasso","RURAL",15132,84,56,61
+"Niena","RURAL",40072,82,92,95
+"Nimbougou","RURAL",13793,97,72,72
+"Niono","RURAL",114537,89,19,22
+"Nioro","URBAIN",44235,93,24,26
+"Nioro Tougoune Rangabe","RURAL",14251,66,82,88
+"Nongo-Souala","RURAL",10044,53,65,83
+"Ondougou","RURAL",8132,33,17,56
+"Oualia","RURAL",25964,61,60,83
+"Ouan","RURAL",11127,74,75,90
+"Ouattagouna","RURAL",43297,76,26,34
+"Ouolon","RURAL",16709,78,56,68
+"Ouonkoro","RURAL",26436,73,65,86
+"Ourikela","RURAL",29107,55,15,27
+"Ouro Ali","RURAL",12521,71,61,76
+"Ouro Ardo","RURAL",10969,90,83,85
+"Ouro Guire","RURAL",10082,100,60,60
+"Ouro Modi","RURAL",3399,100,92,92
+"Ouroube Doudde","RURAL",13380,93,52,53
+"Ouroun","RURAL",6113,87,70,83
+"Pel Maoude","RURAL",14443,94,97,99
+"Pelengana","RURAL",108141,73,23,25
+"Pelou","RURAL",4993,56,31,63
+"Petaka","RURAL",6555,68,83,93
+"Pignari","RURAL",22006,88,57,64
+"Pignari Bana","RURAL",39582,80,53,62
+"Pimperna","RURAL",13184,86,56,59
+"Pogo","RURAL",26845,76,55,67
+"Pondori","RURAL",9991,75,60,67
+"Raz-El-Ma","RURAL",4879,68,5,13
+"Rharous","RURAL",37235,56,25,35
+"Saboula","RURAL",6984,71,71,89
+"Sadiola","RURAL",62176,65,78,89
+"Sagalo","RURAL",19066,91,65,65
+"Sahel","RURAL",16309,58,60,88
+"Sakoiba","RURAL",23294,81,57,68
+"Saloba","RURAL",40632,93,91,92
+"Sama Foulala","RURAL",7032,40,11,28
+"Samabogo","RURAL",16028,38,12,29
+"Same Diomgoma","RURAL",15396,77,67,71
+"Samine","RURAL",16104,63,12,20
+"San","URBAIN",85201,47,4,7
+"Sana","RURAL",29898,83,78,92
+"Sanando","RURAL",40346,79,50,63
+"Sandare","RURAL",34115,58,64,87
+"Sanekuy","RURAL",18960,70,43,57
+"Sangha","RURAL",37396,63,67,78
+"Sankarani","RURAL",8639,68,68,82
+"Sansanding","RURAL",30582,89,55,58
+"Sansankide","RURAL",7186,45,24,51
+"Sanso","RURAL",31692,95,87,89
+"Sanzana","RURAL",15107,92,79,86
+"Sareyamou","RURAL",23411,43,26,54
+"Sasalbe","RURAL",6840,95,90,90
+"Sebekoro","RURAL",53040,66,41,54
+"Sebougou","RURAL",22412,50,23,48
+"Sefeto Nord","RURAL",13006,55,90,100
+"Sefeto Ouest","RURAL",20893,55,72,90
+"Segala","RURAL",35115,68,77,94
+"Segou","URBAIN",153349,88,1,1
+"Segue","RURAL",26643,78,81,90
+"Segue Ire","RURAL",17189,74,53,72
+"Senko","RURAL",9512,57,34,53
+"Sere Moussa Ani Samo","RURAL",20140,79,68,78
+"Serere","RURAL",11594,63,45,47
+"Sero Diamanou","RURAL",29493,40,41,81
+"Siadougou","RURAL",21824,48,26,46
+"Sibila","RURAL",23656,98,65,67
+"Sibirila","RURAL",44563,65,56,82
+"Sidibela","RURAL",8330,79,71,84
+"Sido","RURAL",31372,75,51,68
+"Sikasso","URBAIN",314645,89,6,7
+"Simbi","RURAL",27179,63,45,70
+"Sincina","RURAL",27108,82,45,53
+"Sinkolo","RURAL",16446,47,22,46
+"Sio","RURAL",28488,85,62,72
+"Sirakoro","RURAL",11681,85,78,81
+"Siribala","RURAL",55261,79,19,24
+"Sirifila Boundy","RURAL",40207,54,20,37
+"Sitakilly","RURAL",47642,94,93,96
+"Soboundou","RURAL",54280,61,43,65
+"Socoura","RURAL",52737,97,55,55
+"Soignebougou","RURAL",3786,83,78,78
+"Sokolo","RURAL",34547,84,52,61
+"Sokoura","RURAL",47754,73,60,72
+"Sokouranimissirik","RURAL",4841,90,56,64
+"Somankidy","URBAIN",8505,54,61,92
+"Somasso","RURAL",10948,100,46,46
+"Somo","RURAL",10912,88,66,77.5
+"Songo-Doubacore","RURAL",20309,75,56,73
+"Songoua","RURAL",7521,92,99,100
+"Sony","RURAL",12498,81,66,79
+"Sony Aliber","RURAL",60995,57,54,80
+"Sorobasso","RURAL",8683,83,63,72
+"Soroly","RURAL",8912,71,86,100
+"Souba","RURAL",23348,78,56,70
+"Soubala","RURAL",14834,91,70,77
+"Sougoulbe","RURAL",12263,93,85,88
+"Souleye","RURAL",12053,94,80,82
+"Soumpou","RURAL",6259,96,100,100
+"Souransan Tomoto","RURAL",8520,95,66,71
+"Sourountouna","RURAL",14114,82,86,97
+"Soye","RURAL",23391,96,54,58
+"Sy","RURAL",15442,53,40,71
+"Syen Toula","RURAL",11160,71,76,91
+"Taboye","RURAL",29174,65,33,48
+"Tafacirga","RURAL",10774,67,39,47
+"Tagandougou","RURAL",15111,59,48,73
+"Talataye","RURAL",44843,71,3,4
+"Tamagounit","RURAL",7254,79,26,30
+"Tamani","RURAL",13059,89,72,84
+"Tambaga","RURAL",14338,83,51,56
+"Tao","RURAL",7721,75,31,41
+"Taoudenit","RURAL",4247,87,26,26
+"Tarkint","RURAL",50202,11,1,5
+"Tedie","RURAL",11110,32,25,70
+"Tele","RURAL",5926,33,34,86
+"Tella","RURAL",7576,75,58,79
+"Temera","RURAL",26291,6,3,41
+"Tene","RURAL",27003,79,86,90
+"Teneni","RURAL",7000,65,40,40
+"Tenenkou","URBAIN",14441,87,62,72
+"Tessalit","RURAL",6027,31,40,40
+"Tesserla","RURAL",7731,95,72,77
+"Tessit","RURAL",29716,57,16,27
+"Tiankadi","RURAL",5751,25,7,28
+"Tichift","RURAL",6964,100,6,6
+"Tidermene","RURAL",14295,83,14,15
+"Tiemala Banimonotie","RURAL",23488,67,67,86
+"Tiemena","RURAL",11484,93,46,49
+"Tienkour","RURAL",8418,81,68,68
+"Tilemsi","RURAL",58680,65.5,40.5,51
+"Timissa","RURAL",36676,84,64,75
+"Timniri","RURAL",28354,85,70,83
+"Timtaghene","RURAL",4188,0,0,16
+"Tin Aicha","RURAL",6338,67,44,55
+"Tin Essako","RURAL",3128,82,26,26
+"Tin-Guelhadje","RURAL",8965,100,25,25
+"Tin-Hama","RURAL",27530,62,16,21
+"Tindirma","RURAL",6522,45,51,90
+"Tinguereguif","RURAL",4658,90,70,70
+"Tiongui","RURAL",10468,85,83,94
+"Togoro Kotia","RURAL",16567,90,42,46
+"Togou","RURAL",11374,81,73,76
+"Togue Mourari","RURAL",9919,58,54,78
+"Toguere-Coumbe","RURAL",31892,88,60,64
+"Tombouctou","URBAIN",80529,80,2,2
+"Tominian","RURAL",30186,76,53,69
+"Tomora","RURAL",40428,70,48,63
+"Tongue","RURAL",7353,86,87,90
+"Tonka","RURAL",66421,62,21,33
+"Tori","RURAL",24225,84,80,93
+"Toridaga Ko","RURAL",41951,72,26,31
+"Toukoto","RURAL",9162,74,95,97
+"Touna","RURAL",44516,88,52,59
+"Tourakolomba","RURAL",10505,67,65,72
+"Tousseguela","RURAL",5547,61,64,92
+"Touwal","RURAL",8100,33,5,14
+"Toya","URBAIN",16227,63,55,88
+"Tringa","RURAL",14507,58,85,98
+"Troungoumbe","URBAIN",13576,73,52,68
+"Wade Lahjare","RURAL",5559,100,23,23
+"Wadouba","RURAL",33570,85,81,86
+"Waki","RURAL",11226,55,53,69
+"Wassoulou-Balle","RURAL",63306,75,57,72
+"Wateni","RURAL",7329,86,80,80
+"Wola","RURAL",11382,82,75,89
+"Yallankoro-Soloba","RURAL",12687,84,75,76
+"Yangasso","RURAL",26583,68,46,63
+"Yasso","RURAL",15669,85,78,81
+"Yeredon Saniona","RURAL",22075,88,36,41
+"Yerere","RURAL",15281,82,91,96
+"Yinindougou","RURAL",14211,96,58,61
+"Yiridougou","RURAL",10471,95,61,65
+"Yognogo","RURAL",6067,100,76,76
+"Yoro","RURAL",22869,61,44,72
+"Yorosso","RURAL",30562,79,83,87
+"Youdiou","RURAL",18669,70,91,100
+"Youri","URBAIN",9814,76,69,92
+"Youwarou","RURAL",28092,74,57,69
+"Zanferebougou","RURAL",7148,68,71,82
+"Zanfigue","RURAL",18869,43,46,73
+"Zangaradougou","RURAL",10285,36,16,43
+"Zangasso","RURAL",24972,78,38,49
+"Zaniena","RURAL",9951,92,80,83
+"Zanina","RURAL",8706,NA,0,0
+"Zantiebougou","RURAL",47671,59,40,69
+"Zebala","RURAL",19056,93,78,78
+"Zegoua","RURAL",54586,88,71,75
+"Ziriba","RURAL",7272,100,21,21

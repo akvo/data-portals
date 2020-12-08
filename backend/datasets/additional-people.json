@@ -1,0 +1,27 @@
+[
+  {
+    "Cercle": "Bougouni",
+    "possible_progress": 12,
+    "additional_people": 77328
+  },
+  {
+    "Cercle": "Sikasso",
+    "possible_progress": 13,
+    "additional_people": 74565
+  },
+  {
+    "Cercle": "Koutiala",
+    "possible_progress": 13,
+    "additional_people": 73535
+  },
+  {
+    "Cercle": "Koro",
+    "possible_progress": 13,
+    "additional_people": 72623
+  },
+  {
+    "Cercle": "Segou",
+    "possible_progress": 12,
+    "additional_people": 71135
+  }
+]

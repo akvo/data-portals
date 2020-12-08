@@ -5,15 +5,18 @@ import DistanceToWaterpointChart from '../components/water/DistanceToWaterpointC
 import FrequencyOfPumpTypesChart from '../components/water/FrequencyOfPumpTypesChart'
 import ReasonForAbandonmentChart from '../components/water/ReasonForAbandonmentChart'
 import MechanicVsManualPumpChart from '../components/water/MechanicVsManualPumpChart'
-import FunctionalityMap from '../components/water/FunctionalityMap'
-import SeasonalityMap from '../components/water/SeasonalityMap'
 import { getBestAnchorGivenScrollLocation } from '../libs/scroll'
+import FunctionalWaterPointsPerCercleSection from '../components/water/FunctionalWaterPointsPerCercleSection'
+import AccessToModernWaterPointSection from '../components/water/AccessToModernWaterPointSection'
+import AccessIfBrokerWaterPointsAreRepairedSection from '../components/water/AccessIfBrokenWaterPointsAreRepairedSection'
+import HighestPercentageOfPopulationServedChart from '../components/water/HighestPercentageOfPopulationServedChart'
+import HighestAdditionalPeopleServedChart from '../components/water/HighestAdditionalPeopleServedChart'
 
 const Water: StatelessComponent = () => {
-  const sections = useRef<Object>()
+  const sections = useRef<{ [key: string]: any }>()
   const [currentAnchor, setCurrentAnchor] = useState('')
   const handleScroll = () => {
-    let anchor:any = getBestAnchorGivenScrollLocation(sections.current, 0)
+    let anchor: any = getBestAnchorGivenScrollLocation(sections.current, 0)
     if (anchor === undefined) anchor = 'map01'
     if (anchor !== currentAnchor) {
       setCurrentAnchor(anchor)
@@ -25,7 +28,7 @@ const Water: StatelessComponent = () => {
       map02: document.getElementById('map02'),
       map04: document.getElementById('map04'),
       pumpType: document.getElementById('pumpType'),
-      pumpStatus: document.getElementById('pumpStatus')
+      pumpStatus: document.getElementById('pumpStatus'),
     }
     document.addEventListener('scroll', handleScroll)
   }, [])
@@ -49,70 +52,27 @@ const Water: StatelessComponent = () => {
             <a href="#pumpStatus">Pump type</a>
           </li>
           <li>
-            <a href="#map01" className="backUp">Back up</a>
+            <a href="#map01" className="backUp">
+              Back up
+            </a>
           </li>
         </ul>
       </nav>
       <Row className="map fullHeight" id="map01">
-        <Col span={20}>
-          <div className="map--front">
-            <FunctionalityMap
-              source={`${API_PATH}/mali/functionality-percentage-per-region.geojson`}
-              latitude={17.65}
-              longitude={-4.15}
-              zoom={4.4}
-            />
-          </div>
-        </Col>
-        <Col span={4}>
-          <div className="map--info">
-            <h4>Percentage Of Functional Water Points Per Cercle</h4>
-            <p>
-              This map shows the percentage of the water points in Mali that was marked functional compared to the total number of water points. The cercles Tessalit, Bourem, Abeibara and Menaka score under 50% functional. 
-            </p>
-          </div>
-        </Col>
+        <FunctionalWaterPointsPerCercleSection />
       </Row>
       <Row className="map fullHeight" id="map02">
-        <Col span={20}>
-          <div className="map--front">
-            <SeasonalityMap
-              source={`${API_PATH}/mali/waterpoints.geojson`}
-              latitude={17.65}
-              longitude={-4.15}
-              zoom={4.4}
-            />
-          </div>
-        </Col>
-        <Col span={4}>
-          <div className="map--info">
-            <h4>Percentage Of The Population That Can Access A Modern Waterpoint</h4>
-            <p>
-              {' '}
-              This map shows the percentage of the population that has access to a water point. This is determined by the number of functional water points and the number of people a water point can serve (EPEM) compared to the total population of the cercle.
-            </p>
-          </div>
-        </Col>
+        <AccessToModernWaterPointSection />
       </Row>
       <Row className="map fullHeight" id="map04">
-        <Col span={20}>
-          <div className="map--front">
-            <SeasonalityMap
-              source={`${API_PATH}/mali/waterpoints.geojson`}
-              latitude={17.65}
-              longitude={-4.15}
-              zoom={4.4}
-            />
-          </div>
+        <AccessIfBrokerWaterPointsAreRepairedSection />
+      </Row>
+      <Row className="dataLight fullHeight">
+        <Col span={12}>
+          <HighestPercentageOfPopulationServedChart />
         </Col>
-        <Col span={4}>
-          <div className="map--info">
-            <h4>Population Able To Access Modern Water Points When Broken Water Points Are Repaired</h4>
-            <p>
-              {' '}
-              This map shows the percentage of the population that would be served if all water points were made operable. This is determined by the number of people that the currently inoperable water points could serve based on the type of water point. 
-            </p>
-          </div>
+        <Col span={12}>
+          <HighestAdditionalPeopleServedChart />
         </Col>
       </Row>
       <Row className="dataLight fullHeight" id="pumpType">

@@ -11,10 +11,37 @@ from app.utils import path_to_dataset, tmp_file_cache
 router = APIRouter()
 
 
+@router.get("/mali/communes.geojson")
+def get_communes_geojson() -> Any:
+    filename = tmp_file_cache("mali-commune.geojson", mali.get_commune_geojson)
+    return FileResponse(filename)
+
+
+@router.get("/mali/cercles-data.json")
+def get_cercles_data() -> Any:
+    filename = tmp_file_cache("mali-cercles-data.json", mali.get_cercles_data)
+    return FileResponse(filename)
+
+
+@router.get("/mali/communes-data.json")
+def get_communes_data() -> Any:
+    filename = tmp_file_cache("mali-communes-data.json", mali.get_communes_data)
+    return FileResponse(filename)
+
+
+@router.get("/mali/possible-progress.json")
+def get_possible_progres_json() -> Any:
+    return FileResponse(path_to_dataset("possible-progress.json"))
+
+
+@router.get("/mali/additional-people.json")
+def get_additional_people_json() -> Any:
+    return FileResponse(path_to_dataset("additional-people.json"))
+
+
 @router.get("/mali/waterpoints.geojson")
 def get_waterpoints_geojson() -> Any:
     filename = tmp_file_cache("mali-waterpoints.geojson", mali.get_waterpoints_geojson)
-
     return FileResponse(filename)
 
 
@@ -24,7 +51,6 @@ def get_functionality_percentage_per_region_geojson() -> Any:
         "mali-functionality-percentage-per-region.geojson",
         mali.get_functionality_percentage_per_region_geojson,
     )
-
     return FileResponse(filename)
 
 
@@ -33,14 +59,12 @@ def get_population_per_region_geojson() -> Any:
     filename = tmp_file_cache(
         "mali-population-per-region.geojson", mali.get_population_per_region_geojson
     )
-
     return FileResponse(filename)
 
 
 @router.get("/mali/region-names.json")
 def get_region_names() -> Any:
     filename = tmp_file_cache("mali-region-names.json", mali.get_region_names)
-
     return FileResponse(filename)
 
 

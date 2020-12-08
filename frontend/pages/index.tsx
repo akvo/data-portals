@@ -5,10 +5,10 @@ import AccessToWaterMap from '../components/root/AccessToWaterMap'
 import { getBestAnchorGivenScrollLocation } from '../libs/scroll'
 
 const Home: StatelessComponent = () => {
-  const sections = useRef<Object>()
+  const sections = useRef<{ [key: string]: any }>()
   const [currentAnchor, setCurrentAnchor] = useState('')
   const handleScroll = () => {
-    let anchor:any = getBestAnchorGivenScrollLocation(sections.current, 0)
+    let anchor: any = getBestAnchorGivenScrollLocation(sections.current, 0)
     if (anchor === undefined) anchor = 'map03'
     if (anchor !== currentAnchor) {
       setCurrentAnchor(anchor)
@@ -26,7 +26,7 @@ const Home: StatelessComponent = () => {
     <>
       <nav className="sideNav">
         <ul>
-        <li className={currentAnchor === 'map03' ? 'current' : ''}>
+          <li className={currentAnchor === 'map03' ? 'current' : ''}>
             <a href="#map03">map 03</a>
           </li>
           <li className={currentAnchor === 'welcome' ? 'current' : ''}>
@@ -36,7 +36,9 @@ const Home: StatelessComponent = () => {
             <a href="#dataTable">Data table</a>
           </li>
           <li>
-            <a href="#map03" className="backUp">Back up</a>
+            <a href="#map03" className="backUp">
+              Back up
+            </a>
           </li>
         </ul>
       </nav>
@@ -54,8 +56,10 @@ const Home: StatelessComponent = () => {
         </Col>
         <Col span={4}>
           <div className="map--info">
-              <h4>This map shows all the rural water points as surveyed by the
-              inventory combined with their functionality.</h4>
+            <h4>
+              This map shows all the rural water points as surveyed by the
+              inventory combined with their functionality.
+            </h4>
             <ul>
               <li>
                 <span>Functional</span> means the well was functional at the
@@ -75,7 +79,7 @@ const Home: StatelessComponent = () => {
           </div>
         </Col>
       </Row>
-      <Row className="welcome dataLight"  id="welcome">
+      <Row className="welcome dataLight" id="welcome">
         <Col span={6} offset={5}>
           <div className="welcome__text-box">
             <h1 className="heading-primary">
@@ -105,7 +109,7 @@ const Home: StatelessComponent = () => {
         </Col>
       </Row>
       <Row className="dataSample" id="dataTable">
-        <Col span={5} offset={2}  className="decoRect">
+        <Col span={5} offset={2} className="decoRect">
           <div>
             <h2>Sample characteristics</h2>
           </div>
@@ -113,9 +117,9 @@ const Home: StatelessComponent = () => {
             The 2016 - 2018 Mali WaSH inventory was a census measurement
             covering all of Mali’s rural water points. Piped water systems were
             left out of the data collection. This should be kept in mind when
-            looking at larger cities. The table on the right is an overview of the number of
-            operators interviewed and the number of wells from which
-            information was collected.
+            looking at larger cities. The table on the right is an overview of
+            the number of operators interviewed and the number of wells from
+            which information was collected.
           </p>
         </Col>
         <Col span={14} offset={1}>
@@ -185,7 +189,16 @@ const Home: StatelessComponent = () => {
               </tr>
             </tbody>
           </table>
-          <p className="infoTxt"><small>*The piped water supply of the urban areas of Mali are not included in this data. Especially in Bamako the number of wells does not give a reasonable estimation of the water supply. This also goes for a few of the other regions' counties. These counties have been marked in the maps. Caution needs to be taken when interpreting the numbers of these specific counties.</small></p>
+          <p className="infoTxt">
+            <small>
+              *The piped water supply of the urban areas of Mali are not
+              included in this data. Especially in Bamako the number of wells
+              does not give a reasonable estimation of the water supply. This
+              also goes for a few of the other regions&apos; counties. These
+              counties have been marked in the maps. Caution needs to be taken
+              when interpreting the numbers of these specific counties.
+            </small>
+          </p>
         </Col>
       </Row>
     </>

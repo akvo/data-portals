@@ -7,10 +7,10 @@ import WaterQualityMap from '../components/water-quality/WaterQualityMap'
 import { getBestAnchorGivenScrollLocation } from '../libs/scroll'
 
 const WaterQuality: StatelessComponent = () => {
-  const sections = useRef<Object>()
+  const sections = useRef<{ [key: string]: any }>()
   const [currentAnchor, setCurrentAnchor] = useState('')
   const handleScroll = () => {
-    let anchor:any = getBestAnchorGivenScrollLocation(sections.current, 0)
+    let anchor: any = getBestAnchorGivenScrollLocation(sections.current, 0)
     if (anchor === undefined) anchor = 'WPstatus'
     if (anchor !== currentAnchor) {
       setCurrentAnchor(anchor)
@@ -38,7 +38,9 @@ const WaterQuality: StatelessComponent = () => {
             <a href="#pmh">PMH</a>
           </li>
           <li>
-            <a href="#WPstatus" className="backUp">WP status</a>
+            <a href="#WPstatus" className="backUp">
+              WP status
+            </a>
           </li>
         </ul>
       </nav>

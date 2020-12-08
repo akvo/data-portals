@@ -1,4 +1,3 @@
-/* global document */
 // forked from https://github.com/gabergg/react-scrollable-anchor/blob/master/src/utils/scroll.js
 export const getScrollTop = () => {
   return document.body.scrollTop || document.documentElement.scrollTop
@@ -7,10 +6,10 @@ export const getScrollTop = () => {
 // get vertical offsets of element, taking scrollTop into consideration
 export const getElementOffset = (element) => {
   const scrollTop = getScrollTop()
-  const {top, bottom} = element.getBoundingClientRect()
+  const { top, bottom } = element.getBoundingClientRect()
   return {
     top: Math.floor(top + scrollTop),
-    bottom: Math.floor(bottom + scrollTop)
+    bottom: Math.floor(bottom + scrollTop),
   }
 }
 
@@ -18,7 +17,7 @@ export const getElementOffset = (element) => {
 export const doesElementContainScrollTop = (element, extraOffset = 0) => {
   const scrollTop = getScrollTop()
   const offsetTop = getElementOffset(element).top + extraOffset
-  return scrollTop >= offsetTop// && scrollTop < offsetTop + element.offsetHeight
+  return scrollTop >= offsetTop // && scrollTop < offsetTop + element.offsetHeight
 }
 
 // given a set of anchors, find which one is, given the following logic:
@@ -32,10 +31,8 @@ export const doesElementContainScrollTop = (element, extraOffset = 0) => {
 //    to be more relevant.
 export const getBestAnchorGivenScrollLocation = (anchors, offset) => {
   let bestId
-  // console.log(anchors, offset)
   Object.keys(anchors).forEach((id) => {
     const element = anchors[id]
-    console.log(id, doesElementContainScrollTop(element, offset))
     if (element && doesElementContainScrollTop(element, offset)) {
       bestId = id
     }

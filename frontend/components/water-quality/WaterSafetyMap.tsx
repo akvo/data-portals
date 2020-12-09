@@ -1,12 +1,12 @@
 import { StatelessComponent, useState } from 'react'
-import { Source, Layer, LayerProps, PointerEvent } from 'react-map-gl'
+import { Source, Layer, LayerProps, PointerEvent, Popup } from 'react-map-gl'
 import * as d3 from 'd3'
 import { Feature } from 'geojson'
 import useSWR from 'swr'
 import fetcher from '../../libs/fetcher'
 import { API_PATH, DEFAULT_MAP_VIEWPORT } from '../../config'
 import scaleToColorMap from '../../libs/scale-to-colormap'
-import { HoverFeature } from '../../libs/data-types'
+import { FeaturePoint, HoverFeature } from '../../libs/data-types'
 import ColorLegend from '../commons/ColorLegend'
 import Map from '../commons/Map'
 import MapTooltip from '../commons/MapTooltip'
@@ -26,6 +26,7 @@ const WaterSafetyMap: StatelessComponent<Props> = ({
   safetyFilter,
   regionFilter,
 }) => {
+  const [clickedFeature, setClickedFeature] = useState<FeaturePoint | null>()
   const [hoveredFeature, setHoveredFeature] = useState<HoverFeature | null>()
   const { data: cercleData } = useSWR(CERCLES_DATA, fetcher)
   const { data: popData, error: popError } = useSWR(COMMUNES_GEO, fetcher)
@@ -68,6 +69,11 @@ const WaterSafetyMap: StatelessComponent<Props> = ({
       'circle-stroke-opacity': 0.2,
     },
   }
+  const mapFilter = [
+    'all',
+    safetyFilter ? ['==', 'puits_safety', safetyFilter] : null,
+    regionFilter ? ['==', 'region', regionFilter] : null,
+  ].filter((it) => it)
   const handleHover = ({
     features,
     srcEvent: { offsetX: x, offsetY: y },
@@ -76,15 +82,25 @@ const WaterSafetyMap: StatelessComponent<Props> = ({
       features && features.find((f) => f.layer.id === 'population')
     setHoveredFeature(feature ? { feature: feature?.properties, x, y } : null)
   }
-  const mapFilter = [
-    'all',
-    safetyFilter ? ['==', 'puits_safety', safetyFilter] : null,
-    regionFilter ? ['==', 'region', regionFilter] : null,
-  ].filter((it) => it)
+  const handleClick = ({
+    features,
+    lngLat: [longitude, latitude],
+  }: PointerEvent) => {
+    const feature =
+      features && features.find((f) => f.layer.id === waterpointsStyle.id)
+    setClickedFeature(
+      feature ? { latitude, longitude, ...feature.properties } : null
+    )
+  }
 
   return (
     <div style={{ height: '100%', position: 'relative' }}>
-      <Map {...DEFAULT_MAP_VIEWPORT} onHover={handleHover}>
+      <Map
+        {...DEFAULT_MAP_VIEWPORT}
+        interactiveLayerIds={[waterpointsStyle.id as string, 'population']}
+        onClick={handleClick}
+        onHover={handleHover}
+      >
         <Source type="geojson" data={popData}>
           <Layer
             id="population"
@@ -103,7 +119,21 @@ const WaterSafetyMap: StatelessComponent<Props> = ({
         <Source type="geojson" data={wpData}>
           <Layer {...waterpointsStyle} filter={mapFilter} />
         </Source>
-        {hoveredFeature && (
+        {clickedFeature && (
+          <Popup
+            longitude={clickedFeature.longitude}
+            latitude={clickedFeature.latitude}
+            onClose={() => setClickedFeature(null)}
+          >
+            <div style={{ padding: '5px 10px 0' }}>
+              <div>
+                <strong>Expected to be safe: </strong>
+                {clickedFeature.puits_safety}
+              </div>
+            </div>
+          </Popup>
+        )}
+        {hoveredFeature && !clickedFeature && (
           <MapTooltip
             x={hoveredFeature.x}
             y={hoveredFeature.y}

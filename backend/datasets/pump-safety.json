@@ -1,0 +1,8 @@
+[
+  { "Part": "laundry", "answer": "non", "Percentage": 91 },
+  { "Part": "trough", "answer": "non", "Percentage": 80 },
+  { "Part": "evacuation_channel", "answer": "non", "Percentage": 65 },
+  { "Part": "fence", "answer": "non", "Percentage": 64 },
+  { "Part": "slab", "answer": "non", "Percentage": 35 },
+  { "Part": "sumps", "answer": "non", "Percentage": 26 }
+]

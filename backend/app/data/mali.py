@@ -97,6 +97,7 @@ def get_commune_geojson() -> FeatureCollection:
             "admin3_nam": commune_props["admin3_nam"],
             "pop2017_to": commune_props["pop2017_to"],
             "milieu": commune_data.get("Milieu", None),
+            "pop_2016": cercle_data.get("pop_2016", 0),
             "taux_fonct": round(cercle_data.get("taux_fonct", 0)),
             "taux_acces": round(cercle_data.get("taux_acces", 0)),
             "taux_equip": round(cercle_data.get("taux_equip", 0)),

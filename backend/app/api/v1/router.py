@@ -39,6 +39,11 @@ def get_additional_people_json() -> Any:
     return FileResponse(path_to_dataset("additional-people.json"))
 
 
+@router.get("/mali/pump-safety.json")
+def get_pump_safety_json() -> Any:
+    return FileResponse(path_to_dataset("pump-safety.json"))
+
+
 @router.get("/mali/waterpoints.geojson")
 def get_waterpoints_geojson() -> Any:
     filename = tmp_file_cache("mali-waterpoints.geojson", mali.get_waterpoints_geojson)

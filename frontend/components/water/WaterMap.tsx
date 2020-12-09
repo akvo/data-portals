@@ -88,7 +88,7 @@ const WaterMap: StatelessComponent<Props> = ({ title, attribute }) => {
             y={hoveredFeature.y}
             data={{
               admin2_nam: hoveredFeature.feature?.admin2_nam,
-              pop2017_to: hoveredFeature.feature?.pop2017_to,
+              //pop2017_to: hoveredFeature.feature?.pop2017_to,
               [attribute]: hoveredFeature.feature?.[attribute],
             }}
           />

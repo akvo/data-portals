@@ -3,8 +3,9 @@ import { Row, Col } from 'antd'
 import { API_PATH } from '../config'
 import WaterTreatmentChart from '../components/water-quality/WaterTreatmentChart'
 import Pollution from '../components/water-quality/PollutionChart'
-import WaterQualityMap from '../components/water-quality/WaterQualityMap'
 import { getBestAnchorGivenScrollLocation } from '../libs/scroll'
+import WaterSafetySection from '../components/water-quality/WaterSafetySection'
+import PercentageOfBrokenWaterPointsChart from '../components/water-quality/PercentageOfBrokenWaterPointsChart'
 
 const WaterQuality: StatelessComponent = () => {
   const sections = useRef<{ [key: string]: any }>()
@@ -45,33 +46,11 @@ const WaterQuality: StatelessComponent = () => {
         </ul>
       </nav>
       <Row className="map fullHeight" id="WPstatus">
-        <Col span={20}>
-          <div className="map--front">
-            <WaterQualityMap
-              populationSource={`${API_PATH}/mali/population-per-region.geojson`}
-              waterpointSource={`${API_PATH}/mali/waterpoints.geojson`}
-              latitude={17.65}
-              longitude={-4.15}
-              zoom={4.4}
-            />
-          </div>
-        </Col>
-        <Col span={4}>
-          <div className="map--info">
-            <span>
-              The safety of the water points has been assessed by asking the
-              following questions. If one of the elements is absent or not
-              functional the water point is classified as unsafe.
-            </span>
-            <ul>
-              <li>Does the water point have a slab?</li>
-              <li>Does the water point have a fence?</li>
-              <li>Does the water point have an evacuation channel?</li>
-              <li>Does the water point have a sump?</li>
-              <li>Does the water point have a laundry?</li>
-              <li>Does the water point have a trough?</li>
-            </ul>
-          </div>
+        <WaterSafetySection />
+      </Row>
+      <Row className="dataLight fullHeight">
+        <Col span={12} offset={6}>
+          <PercentageOfBrokenWaterPointsChart />
         </Col>
       </Row>
       <Row className="dataLight fullHeight" id="pumps">

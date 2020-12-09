@@ -18,6 +18,7 @@ def get_waterpoints_geojson() -> Dict[str, Any]:
             "functionality_main": item.functionality_main,
             "puits_safety": item.puits_safety,
             "seasonality": item.seasonality,
+            "water_months": item.water_months,
             "photo": item.photo,
         }
         try:

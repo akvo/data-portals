@@ -1,8 +1,7 @@
 import { StatelessComponent, useEffect, useRef, useState } from 'react'
 import { Row, Col } from 'antd'
-import { API_PATH } from '../config'
-import AccessToWaterMap from '../components/root/AccessToWaterMap'
 import { getBestAnchorGivenScrollLocation } from '../libs/scroll'
+import WaterPointsMapSection from '../components/root/WaterPointsMapSection'
 
 const Home: StatelessComponent = () => {
   const sections = useRef<{ [key: string]: any }>()
@@ -43,41 +42,7 @@ const Home: StatelessComponent = () => {
         </ul>
       </nav>
       <Row className="map fullHeight" id="map03">
-        <Col span={20}>
-          <div className="map--front">
-            <AccessToWaterMap
-              source={`${API_PATH}/mali/waterpoints.geojson`}
-              regions={`${API_PATH}/mali/region-names.json`}
-              latitude={17.65}
-              longitude={-4.15}
-              zoom={4.4}
-            />
-          </div>
-        </Col>
-        <Col span={4}>
-          <div className="map--info">
-            <h4>
-              This map shows all the rural water points as surveyed by the
-              inventory combined with their functionality.
-            </h4>
-            <ul>
-              <li>
-                <span>Functional</span> means the well was functional at the
-                moment of the survey.(Please see the Water tab for information
-                about seasonality)
-              </li>
-              <li>
-                <span>Broken</span> means the well was not usable at time of the
-                survey, because a part of the well was broken.
-              </li>
-              <li>
-                <span>Not used</span> means the well is not used for other
-                reasons, most of the being that the well is dry or there is a
-                functional water point located nearer to the local residents.
-              </li>
-            </ul>
-          </div>
-        </Col>
+        <WaterPointsMapSection />
       </Row>
       <Row className="welcome dataLight" id="welcome">
         <Col span={6} offset={5}>

@@ -262,9 +262,7 @@
               background-position: top;
               margin-bottom:4rem;
            }
-            &.dataSample, &.faqSection, &.welcome {
-              padding: 8rem 0;
-            }
+
         }
       }
     }
@@ -275,14 +273,15 @@
   padding-bottom: 4rem;
   font-size:1.7rem;
   .infoTxt {
+    padding-top: 0 !important;
     color: white;
+    text-align: center;
   }
   .decoRect {
     background: rgba($color: $color-blue-medium, $alpha: .1);
     border-radius: .4rem;
     padding: 1rem 2rem;
     box-shadow: -.2rem -.2rem 0 rgba(white, .4), .3rem .3rem 0 rgba($color-blue-light, .2) ;
-    margin-top:10rem;
     height: fit-content;
     h2 {
       text-shadow: .3rem .3rem 0 rgba($color-blue-light, .2) ;

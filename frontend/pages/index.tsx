@@ -67,6 +67,13 @@ const Home: StatelessComponent = () => {
         <WaterPointsMapSection />
       </Row>
       <Row className="dataSample" id="dataTable">
+        <Row className="infoTxt">
+          <Col span={20} offset={2}>
+            <p>
+              L'approvisionnement en eau courante des zones urbaines du Mali n'est pas inclus dans ces données. Surtout à Bamako, le nombre de puits ne donne pas une estimation raisonnable de l'approvisionnement en eau. Cela vaut également pour quelques-unes des autres régions et comtés. Ces comtés ont été indiqués sur les cartes. Des précautions doivent être prises lors de l'interprétation des nombres de ces comtés spécifiques. 
+            </p>
+          </Col>
+          </Row>
         <Col span={5} offset={2} className="decoRect">
           <div>
             <h2>Caractéristiques de l'échantillon</h2>
@@ -76,8 +83,6 @@ const Home: StatelessComponent = () => {
           </p>
         </Col>
         <Col span={14} offset={1}>
-          <p className="infoTxt">
-          L'approvisionnement en eau courante des zones urbaines du Mali n'est pas inclus dans ces données. Surtout à Bamako, le nombre de puits ne donne pas une estimation raisonnable de l'approvisionnement en eau. Cela vaut également pour quelques-unes des autres régions et comtés. Ces comtés ont été indiqués sur les cartes. Des précautions doivent être prises lors de l'interprétation des nombres de ces comtés spécifiques. </p>
           <table className="sampleTable">
             <thead>
               <tr>

@@ -218,6 +218,7 @@
           }
           &.fullHeight {
             height: calc(100vh - 64px);
+            overflow: scroll;
           }
           &.dataDark {
             background: rgba($color-primary-dark, 1);
@@ -456,6 +457,7 @@
     box-shadow: 5px 5px 1px rgba(white, .2);
     border-radius: .5rem 0 0 .5rem;
     height:95%;
+    max-height:764px;
     border-top: 0.2rem solid rgba($color-primary-dark, .3);
     border-left: 0.2rem solid rgba($color-primary-dark, .3);
     border-bottom: 0.2rem solid rgba($color-primary-dark, .3);
@@ -467,6 +469,8 @@
     border-bottom: 0.2rem solid rgba($color-primary-dark, .3);
     border-left: 0.2rem solid rgba(white, .3);
     color: rgba($color-font, 0.7);
+    max-height:764px;
+
     .filters {
       width: 100%;
       background: rgba($color-blue-medium, .2);

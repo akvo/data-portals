@@ -9,27 +9,27 @@ const Guide: StatelessComponent = () => {
     <>
     <Row  className="guideSection">
     <Col span={16} offset={4}>
-      <strong>How does the portal work?</strong>
+      <strong>Comment fonctionne le portail?</strong>
       <p>
-        There are four WASH themes with corresponding subpages: Water, Water
-        quality, Sanitation and Hygiene. On each subpage, there is a summary of
-        widely used indicators and accompanying data visualisations. Next to
-        each data visualisation, there is a question mark. Upon clicking the
-        symbol, a text box will show with meta data and additional information
-        on the methodology.
+      Il existe quatre thèmes EAH avec des sous-pages correspondantes: Eau, 
+         qualité de l'eau, assainissement et hygiène. Sur chaque sous-page, il y a un résumé des
+         indicateurs largement utilisés et visualisations de données associées. À côté de
+         chaque visualisation de données, il y a un point d'interrogation. En cliquant sur le
+         symbole, une zone de texte s'affiche avec des métadonnées et des informations supplémentaires
+         sur la méthodologie.
       </p>
       <p>
-        Below we answered a number of{' '}
-        <strong>Frequently Asked Questions</strong> to ease the use of this
-        portal.{' '}
+      Ci-dessous, nous avons répondu à un certain nombre de {''}
+         <strong> Questions fréquemment posées </strong> pour faciliter l'utilisation de ce
+         portail. {''}
       </p>
       </Col>
       </Row>
     <Row  className="faqSection">
     <Col span={16} offset={4}>
-      <h2>Frequently Asked Questions</h2>
+      <h2>Questions fréquemment posées</h2>
       <Collapse>
-        <Panel header="How can I contribute to the portal?" key="1">
+        <Panel header="Comment puis-je contribuer au portail?" key="1">
           <p>
             Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
             eiusmod tempor incididunt ut labore et dolore magna aliqua. Aliquam
@@ -44,7 +44,7 @@ const Guide: StatelessComponent = () => {
           </p>
         </Panel>
 
-        <Panel header="Is the data portal GDPDR compliant?" key="2">
+        <Panel header = "Le portail de données GDPDR est-il conforme?" key="2">
           <p>
             Orci porta non pulvinar neque laoreet suspendisse. Hendrerit dolor
             magna eget est lorem ipsum dolor sit. Enim neque volutpat ac
@@ -59,7 +59,7 @@ const Guide: StatelessComponent = () => {
           </p>
         </Panel>
 
-        <Panel header="How can I find data with geo locations?" key="3">
+        <Panel header="Comment puis-je trouver des données avec des emplacements géographiques?" key="3">
           <p>
             Faucibus a pellentesque sit amet porttitor. Viverra nibh cras
             pulvinar mattis. Volutpat commodo sed egestas egestas fringilla
@@ -73,7 +73,7 @@ const Guide: StatelessComponent = () => {
         </Panel>
 
         <Panel
-          header="Can I download and use the data visualisations for own reports?"
+          header="Puis-je télécharger et utiliser les visualisations de données pour mes propres rapports?"
           key="4"
         >
           <p>
@@ -90,7 +90,7 @@ const Guide: StatelessComponent = () => {
           </p>
         </Panel>
 
-        <Panel header="How often are data updated?" key="5">
+        <Panel header="À quelle fréquence les données sont-elles mises à jour?" key="5">
           <p>
             Adipiscing bibendum est ultricies integer. Integer quis auctor elit
             sed vulputate. Lobortis feugiat vivamus at augue eget arcu dictum

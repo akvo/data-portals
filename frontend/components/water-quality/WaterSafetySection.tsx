@@ -31,24 +31,23 @@ const WaterSafetySection: StatelessComponent = () => {
       <Col span={4}>
         <div className="map--info">
           <span>
-            The safety of the water points has been assessed by asking the
-            following questions. If one of the elements is absent or not
-            functional the water point is classified as unsafe.
-          </span>
+          La sécurité des points d'eau a été évaluée en posant les
+             questions suivantes. Si l'un des éléments est absent ou non
+             fonctionnel, le point d'eau est classé comme dangereux.          </span>
           <ul>
-            <li>Does the water point have a slab?</li>
-            <li>Does the water point have a fence?</li>
-            <li>Does the water point have an evacuation channel?</li>
-            <li>Does the water point have a sump?</li>
-            <li>Does the water point have a laundry?</li>
-            <li>Does the water point have a trough?</li>
+            <li> Le point d'eau a-t-il une dalle? </li>
+             <li> Le point d'eau a-t-il une clôture? </li>
+             <li> Le point d'eau dispose-t-il d'un canal d'évacuation? </li>
+             <li> Le point d'eau a-t-il un puisard? </li>
+             <li> Y a-t-il une buanderie au point d'eau? </li>
+             <li> Le point d'eau a-t-il un auge? </li>
           </ul>
-          <div>
+          <div className="filters">
             <div>
-              <strong>Filter by</strong>
+              <strong>Filtrer par</strong>
             </div>
             <div>
-              <label>safety</label>
+              <label>fonctionnalité</label>
               <br />
               <select onChange={(e) => setSafetyFilter(e.currentTarget.value)}>
                 <option></option>
@@ -61,7 +60,7 @@ const WaterSafetySection: StatelessComponent = () => {
             </div>
             {regionNames && (
               <div>
-                <label>region</label>
+                <label>Région</label>
                 <br />
                 <select
                   onChange={(e) => setRegionFilter(e.currentTarget.value)}

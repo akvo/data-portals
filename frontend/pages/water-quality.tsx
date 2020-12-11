@@ -20,6 +20,7 @@ const WaterQuality: StatelessComponent = () => {
   useEffect(() => {
     sections.current = {
       WPstatus: document.getElementById('WPstatus'),
+      fonctionalite: document.getElementById('fonctionalite'),
       pumps: document.getElementById('pumps'),
       pmh: document.getElementById('pmh'),
     }
@@ -31,6 +32,9 @@ const WaterQuality: StatelessComponent = () => {
         <ul>
           <li className={currentAnchor === 'WPstatus' ? 'current' : ''}>
             <a href="#WPstatus">WP status</a>
+          </li>
+          <li className={currentAnchor === 'fonctionalite' ? 'current' : ''}>
+            <a href="#fonctionalite">Fonctionalite</a>
           </li>
           <li className={currentAnchor === 'pumps' ? 'current' : ''}>
             <a href="#pumps">Pumps</a>
@@ -48,17 +52,17 @@ const WaterQuality: StatelessComponent = () => {
       <Row className="map fullHeight" id="WPstatus">
         <WaterSafetySection />
       </Row>
-      <Row className="dataLight fullHeight">
+      <Row className="dataLight fullHeight" id="fonctionalite">
         <Col span={12} offset={6}>
           <PercentageOfBrokenWaterPointsChart />
         </Col>
       </Row>
-      <Row className="dataLight fullHeight" id="pumps">
+      <Row className="dataDark fullHeight" id="pumps">
         <h2>Pumps</h2>
         <Col span={4} offset={4}>
           <div className="statistic">
             <div className="statistic-number">15%</div>
-            <div className="statistic-desc">of the sources is treated</div>
+            <div className="statistic-desc">des sources sont traitées</div>
           </div>
         </Col>
         <Col span={11} offset={1}>
@@ -70,19 +74,19 @@ const WaterQuality: StatelessComponent = () => {
               />
             </div>
             <p>
-              Almost all the pumps that are treated regularly, which is 15%, are
-              treated with <em>eau de javel</em>.
+            Presque toutes les pompes traitées régulièrement, soit 15%, sont
+               traité avec de <em>l'eau de javel</em>.
             </p>
           </div>
         </Col>
       </Row>
-      <Row className="dataDark fullHeight" id="pmh">
+      <Row className="dataLight fullHeight" id="pmh">
         <h2>PMH</h2>
         <Col span={4} offset={4}>
           <div className="statistic">
             <div className="statistic-number">77.7%</div>
             <div className="statistic-desc">
-              of the water points contain pollution
+            des points d'eau contiennent de la pollution
             </div>
           </div>
         </Col>
@@ -93,7 +97,7 @@ const WaterQuality: StatelessComponent = () => {
               <Pollution source={`${API_PATH}/mali/pollution-type.json`} />
             </div>
             <p>
-              Of the PMH 24% has manqué d’entretien and 13% has manqué de
+              Du PMH 24% a manqué d’entretien and 13% a manqué de
               fermeture.
             </p>
           </div>

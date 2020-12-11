@@ -22,7 +22,7 @@ const PercentageOfBrokenWaterPointsChart: StatelessComponent = () => {
   return (
     <div className="card">
       <h3>
-        Percentage of the different elements that are either missing or broken
+        Pourcentage des différents éléments manquants ou cassés
       </h3>
       <div className="vis">
         <ResponsiveBar

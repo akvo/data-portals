@@ -24,19 +24,19 @@ const CustomApp: StatelessComponent<AppProps> = ({ Component, pageProps }) => {
             <div className="logo">
               <Link href="/">
                 <a>
-                  <h1>Akvo Portals</h1>
+                  <h1>Mali portail EAH</h1>
                 </a>
               </Link>
             </div>
             <Menu theme="dark" mode="horizontal" selectedKeys={[activeMenu]}>
               <Menu.Item key="water">
                 <Link href="/water">
-                  <a>Water access</a>
+                  <a>Accés à l'eau</a>
                 </Link>
               </Menu.Item>
               <Menu.Item key="water-quality">
                 <Link href="/water-quality">
-                  <a>Water quality</a>
+                  <a>Qualité de l'eau</a>
                 </Link>
               </Menu.Item>
               {/*
@@ -73,7 +73,7 @@ const CustomApp: StatelessComponent<AppProps> = ({ Component, pageProps }) => {
       </Layout>
       <Footer>
         <div className="layout-footer layout-center">
-          <h1 className="partnerTl">Partners</h1>
+          <h1 className="partnerTl">Partenaires</h1>
           <div className="partnersLg">
             <div className="partnerImg">
               <a href="#">

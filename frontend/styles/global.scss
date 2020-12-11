@@ -155,7 +155,7 @@
                 height: 50px;
                 text-indent: -999px;
                 background-repeat: no-repeat;
-                opacity: .5;
+                opacity: .3;
                 transition: opacity .2s ease-in;
                 &:hover {
                   opacity:1;
@@ -175,8 +175,14 @@
                 &[href="#pumpType"] {
                   background-image: url(../public/barchart.svg);
                 }
+                &[href="#popService"] {
+                  background-image: url(../public/barchart2.svg);
+                }
                 &[href="#pumpStatus"] {
                   background-image: url(../public/piechart.svg);
+                }                
+                &[href="#fonctionalite"] {
+                  background-image: url(../public/barchart2.svg);
                 }
                 &[href="#pmh"] {
                   background-image: url(../public/barchart.svg);
@@ -206,17 +212,21 @@
 
         .ant-row {
           position: relative;
+
           h2 {
             font-size: 3rem;
           }
           &.fullHeight {
-            height: 100vh;
+            height: calc(100vh - 64px);
           }
           &.dataDark {
             background: rgba($color-primary-dark, 1);
-            h2 {
+            align-items: center;
+            justify-content: center;
+            
+          h2 {
               position: absolute;
-              top: 7rem;
+              top: 2rem;
               left: 50%;
               transform: translate(-50%, -50%);
               text-shadow:.3rem .3rem 0 rgba($color-blue-light, .2) ;
@@ -224,13 +234,15 @@
             }
           }
           &.dataLight {
+            align-items: center;
+            justify-content: center;
             background: rgba(white, 1);
             padding-bottom: 0;
             border-right: 1px solid rgba($color-primary-light, 0.74);
             border-left: 1px solid rgba($color-primary-light, 0.74);
               h2 {
                 position: absolute;
-                top: 7rem;
+                top: 2rem;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 text-shadow:.3rem .3rem 0 rgba($color-primary-dark, .2) ;
@@ -241,7 +253,15 @@
               color: rgba($color-blue-light, 1);
               }
             }
-            padding: 5rem 0 0 0;
+            &:first-of-type {
+              padding: 5rem 0 0 0;
+            }
+            &.welcome {
+              background-image: linear-gradient(to right bottom, rgba(255,255,255, 0.24), rgba(235,255,235, 0.72)), url(../public/welcome.png);
+              background-size: cover;
+              background-position: top;
+              margin-bottom:4rem;
+           }
             &.dataSample, &.faqSection, &.welcome {
               padding: 8rem 0;
             }
@@ -255,8 +275,6 @@
   padding-bottom: 4rem;
   font-size:1.7rem;
   .infoTxt {
-    line-height: 1.2rem;
-    margin-top: 1rem;
     color: white;
   }
   .decoRect {
@@ -264,7 +282,7 @@
     border-radius: .4rem;
     padding: 1rem 2rem;
     box-shadow: -.2rem -.2rem 0 rgba(white, .4), .3rem .3rem 0 rgba($color-blue-light, .2) ;
-    
+    margin-top:10rem;
     height: fit-content;
     h2 {
       text-shadow: .3rem .3rem 0 rgba($color-blue-light, .2) ;
@@ -317,6 +335,8 @@
   border-radius: 0 0 1rem 1rem;
   text-align: center;
   color: $color-blue-dark;
+  border-top: 0.2rem solid rgba($color-blue-medium, .3);
+  box-shadow: 0 -.2rem .2rem rgba(0,0,0,1);
   h1.partnerTl {
     color: $color-blue-dark;        
     text-shadow: .3rem .3rem 0 rgba($color-primary-dark, .2) ;
@@ -448,6 +468,17 @@
     border-bottom: 0.2rem solid rgba($color-primary-dark, .3);
     border-left: 0.2rem solid rgba(white, .3);
     color: rgba($color-font, 0.7);
+    .filters {
+      width: 100%;
+      background: rgba($color-blue-medium, .2);
+      padding: 1rem;
+      border-radius: 0 .5rem .5rem 0;
+
+      select {
+        width: 100%;
+      }
+
+    }
     span {
       font-weight: 700;
     }
@@ -510,14 +541,7 @@
 
 .card {
   border-radius: .3rem .3rem 1rem .3rem;
-  padding: 1.5rem 1rem;
-  margin: 4rem auto 0;
   text-align: center;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -60%);
-  width:100%;
   box-shadow: -.2rem -.2rem 0 rgba(white, .4), .3rem .3rem 0 rgba($color-blue-light, .2) ;
 
   h3 {
@@ -542,11 +566,14 @@
   .vis {
     height: 50rem;
     padding: 0 .5rem;
+    position: relative;
+    svg {
+      height: 100% !important;
+    }
   }
   p {
     border-top: 0.1rem solid $color-primary-dark;
     margin-top: 1rem;
-    padding: 2rem 2rem 0 2rem;
     font-size: 1.6rem;
     .dataDark & {
       border-top: 0.1rem solid white;

@@ -16,14 +16,13 @@ const AccessIfBrokerWaterPointsAreRepairedSection: StatelessComponent = () => {
       <Col span={4}>
         <div className="map--info">
           <h4>
-            Population Able To Access Modern Water Points When Broken Water
-            Points Are Repaired
-          </h4>
+          Population capable d'accéder aux points d'eau modernes en cas de rupture d'eau
+             Les points sont réparés          </h4>
           <p>
-            This map shows the percentage of the population that would be served
-            if all water points were made operable. This is determined by the
-            number of people that the currently inoperable water points could
-            serve based on the type of water point.
+          Cette carte montre le pourcentage de la population qui serait desservie
+             si tous les points d'eau étaient rendus opérationnels. Ceci est déterminé par le
+             nombre de personnes que les points d'eau actuellement inutilisables pourraient
+             servir en fonction du type de point d'eau.
           </p>
         </div>
       </Col>

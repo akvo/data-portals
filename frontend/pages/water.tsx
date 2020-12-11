@@ -27,6 +27,7 @@ const Water: StatelessComponent = () => {
       map01: document.getElementById('map01'),
       map02: document.getElementById('map02'),
       map04: document.getElementById('map04'),
+      popService: document.getElementById('popService'),
       pumpType: document.getElementById('pumpType'),
       pumpStatus: document.getElementById('pumpStatus'),
     }
@@ -45,6 +46,9 @@ const Water: StatelessComponent = () => {
           <li className={currentAnchor === 'map04' ? 'current' : ''}>
             <a href="#map04">map 04</a>
           </li>
+          <li className={currentAnchor === 'popService' ? 'current' : ''}>
+            <a href="#popService">Population</a>
+          </li>          
           <li className={currentAnchor === 'pumpType' ? 'current' : ''}>
             <a href="#pumpType">Pump type</a>
           </li>
@@ -67,7 +71,7 @@ const Water: StatelessComponent = () => {
       <Row className="map fullHeight" id="map04">
         <AccessIfBrokerWaterPointsAreRepairedSection />
       </Row>
-      <Row className="dataLight fullHeight">
+      <Row className="dataLight fullHeight" id="popService">
         <Col span={12}>
           <HighestPercentageOfPopulationServedChart />
         </Col>
@@ -75,78 +79,78 @@ const Water: StatelessComponent = () => {
           <HighestAdditionalPeopleServedChart />
         </Col>
       </Row>
-      <Row className="dataLight fullHeight" id="pumpType">
+      <Row className="dataDark fullHeight" id="pumpType">
         <Col span={4}>
           <div className="statistic">
             <div className="statistic-number">81%</div>
             <div className="statistic-desc">
-              of the water points is functional
+            des points d'eau est fonctionnel
             </div>
           </div>
         </Col>
         <Col span={10}>
           <div className="card">
-            <h3>Frequency of Water Pump Types</h3>
+            <h3>Fréquence des types de pompe à eau</h3>
             <div className="vis">
               <FrequencyOfPumpTypesChart
                 source={`${API_PATH}/mali/pump-type.json`}
               />
             </div>
             <p>
-              The <em>forage équipé de PMH</em> is the most frequently seen
-              water point of which 35% is functional. Second most frequent is
-              the <em>puits modern</em>, of which 38% is functional.
+            Le <em> forage équipé de PMH </em> est le point d'eau le plus fréquent
+               dont 35% est fonctionnel. Le deuxième plus fréquent sont
+               les <em> puits modernes </em>, dont 38% sont fonctionnels.
             </p>
           </div>
         </Col>
         <Col span={10}>
           <div className="card">
-            <h3>Distance to the Water Point</h3>
+            <h3>Distance au point d'eau</h3>
             <div className="vis">
               <DistanceToWaterpointChart
                 source={`${API_PATH}/mali/distance.json`}
               />
             </div>
             <p>
-              The biggest amount of functional water points is less that 200
-              meters from the household: 28%. 25% of the water points is less
-              than a kilometer away.
+            Le plus grand nombre de points d'eau fonctionnels est inférieur à 200
+               mètres du ménage: 28%. 25% des points d'eau sont à moins
+               d'un kilomètre.
             </p>
           </div>
         </Col>
       </Row>
-      <Row className="dataDark fullHeight" id="pumpStatus">
+      <Row className="dataLight fullHeight" id="pumpStatus">
         <Col span={4}>
           <div className="statistic">
             <div className="statistic-number">6%</div>
             <div className="statistic-desc">
-              of the water points is abandonned
+              des points d'eau sont abandonnés            
             </div>
           </div>
         </Col>
         <Col span={10}>
           <div className="card">
-            <h3>Reason for abandonment of the water point</h3>
+            <h3>Raison de l'abandon du point d'eau</h3>
             <div className="vis">
               <ReasonForAbandonmentChart
                 source={`${API_PATH}/mali/abandonment.json`}
               />
             </div>
             <p>
-              The main reason for water point to be abandoned is the taste,
-              second is the color.
+            La principale raison de l'abandon du point d'eau est le goût,
+               la deuxième est la couleur.
             </p>
           </div>
         </Col>
         <Col span={10}>
           <div className="card">
-            <h3>Mechanic versus manual pump</h3>
+            <h3>Pompe mécanique versus pompe manuelle</h3>
             <div className="vis">
               <MechanicVsManualPumpChart
                 source={`${API_PATH}/mali/mechanic-vs-manual-pump.json`}
               />
             </div>
-            <p>60% of the water points is a Pompe à Motricité Humaine.</p>
+            <p>60% des points d'eau sont à pompe à Motricité Humaine.</p>
           </div>
         </Col>
       </Row>

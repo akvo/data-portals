@@ -16,13 +16,13 @@ const AccessToModernWaterPointSection: StatelessComponent = () => {
       <Col span={4}>
         <div className="map--info">
           <h4>
-            Percentage Of The Population That Can Access A Modern Waterpoint
+          Pourcentage de la population pouvant accéder à un point d'eau moderne          
           </h4>
           <p>
-            This map shows the percentage of the population that has access to a
-            water point. This is determined by the number of functional water
-            points and the number of people a water point can serve (EPEM)
-            compared to the total population of the cercle.
+          Cette carte montre le pourcentage de la population ayant accès à un
+             point d'eau. Ceci est déterminé par le nombre d'eau fonctionnelle
+             points et le nombre de personnes qu'un point d'eau peut desservir (EPEM)
+             par rapport à la population totale du cercle.          
           </p>
         </div>
       </Col>

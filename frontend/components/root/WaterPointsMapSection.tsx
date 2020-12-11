@@ -31,31 +31,30 @@ const WaterPointsMapSection: StatelessComponent = () => {
       <Col span={4}>
         <div className="map--info">
           <h4>
-            This map shows all the rural water points as surveyed by the
-            inventory combined with their functionality.
-          </h4>
+Cette carte montre tous les points d'eau ruraux relevés par le
+             inventaire combiné à leur fonctionnalité.          </h4>
           <ul>
             <li>
-              <span>Functional</span> means the well was functional at the
-              moment of the survey.(Please see the Water tab for information
-              about seasonality)
+<span> Fonctionnel </span> signifie que le puits était fonctionnel au
+               moment de l'enquête. (Veuillez consulter l'onglet Eau pour plus d'informations
+               sur la saisonnalité)
             </li>
             <li>
-              <span>Broken</span> means the well was not usable at time of the
-              survey, because a part of the well was broken.
+              <span> En panne </span> signifie que le puits n’était pas utilisable au moment de la
+               enquête, car une partie du puits était cassée.
             </li>
             <li>
-              <span>Not used</span> means the well is not used for other
-              reasons, most of the being that the well is dry or there is a
-              functional water point located nearer to the local residents.
+              <span> Non utilisé </span> signifie que le puits n'est pas utilisé pour d'autres
+               raisons, la plupart étant que le puits est sec ou qu'il y a un
+               point d'eau fonctionnel situé plus près des riverains.            
             </li>
           </ul>
-          <div>
+          <div className="filters">
             <div>
-              <strong>Filter by</strong>
+              <strong>Filtrer par</strong>
             </div>
             <div>
-              <label>safety</label>
+              <label>fonctionnalité</label>
               <br />
               <select
                 onChange={(e) => setFunctionalFilter(e.currentTarget.value)}
@@ -70,7 +69,7 @@ const WaterPointsMapSection: StatelessComponent = () => {
             </div>
             {regionNames && (
               <div>
-                <label>region</label>
+                <label>Région</label>
                 <br />
                 <select
                   onChange={(e) => setRegionFilter(e.currentTarget.value)}

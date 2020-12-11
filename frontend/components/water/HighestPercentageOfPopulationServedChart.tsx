@@ -22,9 +22,8 @@ const HighestPercentageOfPopulationServedChart: StatelessComponent = () => {
   return (
     <div className="card">
       <h3>
-        Top 5 districts with highest percentage of the population additionally
-        served all waterpoints are made operable
-      </h3>
+      Top des 5 districts avec le pourcentage le plus élevé de la population en plus
+         desservi tous les points d'eau sont rendus opérationnels      </h3>
       <div className="vis">
         <ResponsiveBar
           data={data}

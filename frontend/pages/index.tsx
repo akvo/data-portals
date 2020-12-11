@@ -8,15 +8,15 @@ const Home: StatelessComponent = () => {
   const [currentAnchor, setCurrentAnchor] = useState('')
   const handleScroll = () => {
     let anchor: any = getBestAnchorGivenScrollLocation(sections.current, 0)
-    if (anchor === undefined) anchor = 'map03'
+    if (anchor === undefined) anchor = 'welcome'
     if (anchor !== currentAnchor) {
       setCurrentAnchor(anchor)
     }
   }
   useEffect(() => {
     sections.current = {
-      map03: document.getElementById('map03'),
-      welcome: document.getElementById('welcome'),
+      map03: document.getElementById('welcome'),
+      welcome: document.getElementById('map03'),
       dataTable: document.getElementById('dataTable'),
     }
     document.addEventListener('scroll', handleScroll)
@@ -25,11 +25,11 @@ const Home: StatelessComponent = () => {
     <>
       <nav className="sideNav">
         <ul>
-          <li className={currentAnchor === 'map03' ? 'current' : ''}>
-            <a href="#map03">map 03</a>
-          </li>
           <li className={currentAnchor === 'welcome' ? 'current' : ''}>
             <a href="#welcome">Welcome</a>
+          </li>
+          <li className={currentAnchor === 'map03' ? 'current' : ''}>
+            <a href="#map03">map 03</a>
           </li>
           <li className={currentAnchor === 'dataTable' ? 'current' : ''}>
             <a href="#dataTable">Data table</a>
@@ -41,53 +41,43 @@ const Home: StatelessComponent = () => {
           </li>
         </ul>
       </nav>
-      <Row className="map fullHeight" id="map03">
-        <WaterPointsMapSection />
-      </Row>
-      <Row className="welcome dataLight" id="welcome">
-        <Col span={6} offset={5}>
+      <Row className="welcome dataLight fullHeight" id="welcome">
+        <Col span={8} offset={3}>
           <div className="welcome__text-box">
             <h1 className="heading-primary">
               <span className="heading-primary--main">
-                Welcome to the <span>Mali</span> WaSH services portal
+                Bienvenue sur le site des services EAH du <span>Mali</span>.
               </span>
             </h1>
           </div>
         </Col>
         <Col span={7} offset={1} className="infoContainer">
           <p className="paragraph">
-            Welcome to the Mali rural Water, Sanitation and Hygiene (WaSH) data
-            portal. This portal provides information on rural water points in
-            Mali. The data was collected during their national inventory from
-            2016 to 2018.
+              Bienvenue dans les données sur l'eau, l'assainissement et l'hygiène en milieu rural au Mali (EAH)
+             portail. Ce portail fournit des informations sur les points d'eau ruraux au Mali. Les données ont été collectées lors de leur inventaire national de 2016 à 2018.
           </p>
           <p className="paragraph">
-            This portal is set up to provide information on the most recent
-            state of WaSH services in the different regions of Mali. The
-            national inventory was focussed on Water and Water Quality, so there
-            is no data available on Sanitation and Hygiene. The Water and Water
-            quality information can be found in the respective tabs. If you are
-            interested in the raw data file, please take a look at the Data tab
-            and for some more information about this portal, and other WaSH
-            country portals, please take a look at the Guide tab.
+            Ce portail est mis en place pour fournir des informations sur les status les plus récents des services WaSH dans les différentes régions du Mali. le
+            L'inventaire national était axé sur la qualité de l'eau et de l'eau, donc il n'y a pas de données disponibles sur l'assainissement et l'hygiène. Les informations sur l'eau et la qualité de l'eau se trouvent dans les onglets respectifs. Si vous êtes
+             intéressé par le fichier de données brutes, veuillez consulter l'onglet Données et pour plus d'informations sur ce portail, et d'autres portails EAH de pays, veuillez consulter l'onglet Guide.
           </p>
         </Col>
+      </Row>
+      <Row className="map fullHeight" id="map03">
+        <WaterPointsMapSection />
       </Row>
       <Row className="dataSample" id="dataTable">
         <Col span={5} offset={2} className="decoRect">
           <div>
-            <h2>Sample characteristics</h2>
+            <h2>Caractéristiques de l'échantillon</h2>
           </div>
           <p className="paragraph">
-            The 2016 - 2018 Mali WaSH inventory was a census measurement
-            covering all of Mali’s rural water points. Piped water systems were
-            left out of the data collection. This should be kept in mind when
-            looking at larger cities. The table on the right is an overview of
-            the number of operators interviewed and the number of wells from
-            which information was collected.
+          L'inventaire EAH du Mali de 2016-2018 était une mesure de recensement couvrant tous les points d'eau ruraux du Mali. Les réseaux d'eau courante ont été exclus de la collecte de données. Il faut garder cela à l'esprit lorsqu'on regarde les grandes villes. Le tableau de droite donne un aperçu du nombre d'opérateurs interrogés et du nombre de puits à partir desquels des informations ont été collectées.
           </p>
         </Col>
         <Col span={14} offset={1}>
+          <p className="infoTxt">
+          L'approvisionnement en eau courante des zones urbaines du Mali n'est pas inclus dans ces données. Surtout à Bamako, le nombre de puits ne donne pas une estimation raisonnable de l'approvisionnement en eau. Cela vaut également pour quelques-unes des autres régions et comtés. Ces comtés ont été indiqués sur les cartes. Des précautions doivent être prises lors de l'interprétation des nombres de ces comtés spécifiques. </p>
           <table className="sampleTable">
             <thead>
               <tr>
@@ -154,16 +144,6 @@ const Home: StatelessComponent = () => {
               </tr>
             </tbody>
           </table>
-          <p className="infoTxt">
-            <small>
-              *The piped water supply of the urban areas of Mali are not
-              included in this data. Especially in Bamako the number of wells
-              does not give a reasonable estimation of the water supply. This
-              also goes for a few of the other regions&apos; counties. These
-              counties have been marked in the maps. Caution needs to be taken
-              when interpreting the numbers of these specific counties.
-            </small>
-          </p>
         </Col>
       </Row>
     </>

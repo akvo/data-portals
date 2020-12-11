@@ -15,12 +15,12 @@ const FunctionalWaterPointsPerCercleSection: StatelessComponent = () => {
       </Col>
       <Col span={4}>
         <div className="map--info">
-          <h4>Percentage Of Functional Water Points Per Cercle</h4>
+          <h4>Pourcentage de points d'eau fonctionnels par cercle</h4>
           <p>
-            This map shows the percentage of the water points in Mali that was
-            marked functional compared to the total number of water points. The
-            cercles Tessalit, Bourem, Abeibara and Menaka score under 50%
-            functional.
+          Cette carte montre le pourcentage des points d'eau au Mali qui
+             marqué fonctionnel par rapport au nombre total de points d'eau. le
+             cercles Tessalit, Bourem, Abeibara et Menaka ont un score inférieur à 50%
+             fonctionnel.
           </p>
         </div>
       </Col>

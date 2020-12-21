@@ -1,14 +1,44 @@
+import json
 from csv import DictReader
 from decimal import Decimal
-from typing import Any
+from typing import Any, Dict, Union
 
-from fastapi import APIRouter
+import requests
+from fastapi import APIRouter, Request
 from fastapi.responses import FileResponse
 
 from app.data import mali
 from app.utils import path_to_dataset, tmp_file_cache
 
 router = APIRouter()
+
+
+@router.get("/mali/project-updates")
+def get_project_updates(request: Request, page: int = 1, limit: int = 10) -> Any:
+    params: Dict[str, Union[str, int]] = {
+        "filter": json.dumps({"project__in": [3750, 3792, 3793]}),
+        "sorting": "-event_date",
+        "limit": limit,
+        "page": page,
+    }
+    response = requests.get(
+        "https://rsr.akvo.org/rest/v1/project_update/",
+        params=params,
+        headers={"Accept": "application/json"},
+    )
+    data = response.json()
+    results = [
+        {
+            "id": it["id"],
+            "title": it["title"],
+            "text": it["text"],
+            "photo": it["photo"],
+            "url": "https://rsr.akvo.org{}".format(it["absolute_url"]),
+        }
+        for it in data["results"]
+    ]
+
+    return results if "count" in data else []
 
 
 @router.get("/mali/communes.geojson")

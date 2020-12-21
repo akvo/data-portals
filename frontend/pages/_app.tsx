@@ -39,6 +39,11 @@ const CustomApp: StatelessComponent<AppProps> = ({ Component, pageProps }) => {
                   <a>Qualité de l'eau</a>
                 </Link>
               </Menu.Item>
+              <Menu.Item key="project-updates">
+                <Link href="/project-updates">
+                  <a>Mis à jour projet</a>
+                </Link>
+              </Menu.Item>
               {/*
               <Menu.Item key="sanitation">
                 <Link href="/sanitation">

@@ -21,9 +21,10 @@
     "pm2": "^4.4.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
+    "react-infinite-scroll-component": "^5.1.0",
     "react-map-gl": "^5.2.7",
     "sass": "^1.29.0",
-    "swr": "^0.2.3"
+    "swr": "^0.3.9"
   },
   "devDependencies": {
     "@testing-library/jest-dom": "^5.11.2",

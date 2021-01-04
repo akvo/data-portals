@@ -44,23 +44,11 @@ const CustomApp: StatelessComponent<AppProps> = ({ Component, pageProps }) => {
                   <a>Mis à jour projet</a>
                 </Link>
               </Menu.Item>
-              {/*
-              <Menu.Item key="sanitation">
-                <Link href="/sanitation">
-                  <a>Sanitation</a>
+              <Menu.Item key="resources">
+                <Link href="/resources">
+                  <a>Ressources</a>
                 </Link>
               </Menu.Item>
-              <Menu.Item key="hygiene">
-                <Link href="/hygiene">
-                  <a>Hygiene</a>
-                </Link>
-              </Menu.Item>
-              <Menu.Item key="data">
-                <Link href="/data">
-                  <a>Data</a>
-                </Link>
-              </Menu.Item>
-              */}
               <Menu.Item key="guide">
                 <Link href="/guide">
                   <a>Guide</a>
@@ -82,32 +70,32 @@ const CustomApp: StatelessComponent<AppProps> = ({ Component, pageProps }) => {
           <div className="partnersLg">
             <div className="partnerImg">
               <a href="#">
-                <img src="tumbDNH-150x150.png" alt="" className="grayscale" />
+                <img src="/tumbDNH-150x150.png" alt="" className="grayscale" />
               </a>
             </div>
             <div className="partnerImg">
               <a href="#">
-                <img src="tumb-sweden.png" alt="" className="grayscale" />
+                <img src="/tumb-sweden.png" alt="" className="grayscale" />
               </a>
             </div>
             <div className="partnerImg">
               <a href="#">
-                <img src="tumb-unicef.png" alt="" className="grayscale" />
+                <img src="/tumb-unicef.png" alt="" className="grayscale" />
               </a>
             </div>
             <div className="partnerImg">
               <a href="#">
-                <img src="tumbGIZ.png" alt="" className="grayscale" />
+                <img src="/tumbGIZ.png" alt="" className="grayscale" />
               </a>
             </div>
             <div className="partnerImg">
               <a href="#">
-                <img src="tumbsnv.png" alt="" className="grayscale" />
+                <img src="/tumbsnv.png" alt="" className="grayscale" />
               </a>
             </div>
             <div className="partnerImg">
               <a href="#">
-                <img src="AkvoLogo2.svg" alt="" className="grayscale" />
+                <img src="/AkvoLogo2.svg" alt="" className="grayscale" />
               </a>
             </div>
           </div>

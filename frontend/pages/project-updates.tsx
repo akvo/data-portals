@@ -4,6 +4,7 @@ import InfiniteScroll from 'react-infinite-scroll-component'
 import fetcher from '../libs/fetcher'
 import { API_PATH } from '../config'
 import { useSWRInfinite } from 'swr'
+import { truncate } from '../libs/utils'
 
 type ProjectUpdate = {
   id: number
@@ -35,10 +36,6 @@ const useScrollProjectUpdates = () => {
     hasMore: !isReachingEnd,
     fetchNext,
   }
-}
-
-const truncate = (text: string, length: number): string => {
-  return text.length > length ? text.substr(0, length - 1) + '…' : text
 }
 
 const ProjectUpdates: StatelessComponent = () => {
@@ -94,7 +91,7 @@ const ProjectUpdates: StatelessComponent = () => {
                     >
                       <Card.Meta
                         title={item.title}
-                        description={truncate(item.text, 100)}
+                        description={truncate(item.text, 110)}
                       />
                     </Card>
                   </List.Item>

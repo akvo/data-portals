@@ -41,6 +41,12 @@ def get_project_updates(request: Request, page: int = 1, limit: int = 10) -> Any
     return results if "count" in data else []
 
 
+@router.get("/mali/resources")
+def get_resources() -> Any:
+    filename = tmp_file_cache("mali-resources", mali.get_resources_media, fresh=True)
+    return FileResponse(filename)
+
+
 @router.get("/mali/communes.geojson")
 def get_communes_geojson() -> Any:
     filename = tmp_file_cache("mali-commune.geojson", mali.get_commune_geojson)

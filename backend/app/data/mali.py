@@ -3,6 +3,7 @@ from typing import Any, Dict, List
 
 import pandas
 from geojson import Feature, FeatureCollection, Point, load
+from slugify import slugify
 
 from app.utils import path_to_dataset
 
@@ -117,3 +118,32 @@ def get_communes_data() -> List[Dict[str, Any]]:
     df = pandas.read_csv(path_to_dataset("Lars_data_commune.csv"))
     df = df.where(pandas.notnull(df), None)
     return df.to_dict("records")
+
+
+def get_resources_media() -> List[Dict[str, Any]]:
+    dataframe = pandas.read_csv(
+        path_to_dataset("Media-Library-Export-2020-December-21-1352.csv")
+    )
+    dataframe = dataframe.where(pandas.notnull(dataframe), None)
+    resources = []
+    for i in range(0, len(dataframe.index)):
+        item = dataframe.loc[i]
+        files = [item._media_lib_file]
+        if item._media_lib_file2:
+            files.append(item._media_lib_file2)
+        resources.append(
+            {
+                "id": int(item.ID),
+                "title": item.Title,
+                "slug": slugify(item.Title),
+                "content": item.Content,
+                "date": item.Date,
+                "locations": item.Locations.split("|") if item.Locations else [],
+                "types": item.Types.split("|") if item.Types else [],
+                "categories": item.Categories.split("|") if item.Categories else [],
+                "author": item._media_lib_author,
+                "files": files,
+            }
+        )
+
+    return resources

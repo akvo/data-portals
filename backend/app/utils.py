@@ -10,10 +10,10 @@ def path_to_dataset(name: str) -> str:
 def tmp_file_cache(
     name: str,
     callback: Callable[[], Union[Dict[str, Any], List[Any]]],
-    force_reload: bool = False,
+    fresh: bool = False,
 ) -> str:
     filename = f"/tmp/{name}"
-    if not isfile(filename) or force_reload:
+    if not isfile(filename) or fresh:
         data = callback()
         with open(filename, "w") as f:
             json.dump(data, f)

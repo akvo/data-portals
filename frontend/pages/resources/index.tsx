@@ -1,4 +1,4 @@
-import { StatelessComponent } from 'react'
+import { StatelessComponent, useState } from 'react'
 import { Row, Col, Card, Spin, Alert, Tag } from 'antd'
 import Link from 'next/link'
 import { DateTime } from 'luxon'
@@ -14,7 +14,17 @@ import {
   formatContent,
 } from '../../libs/resources'
 
-const ResourceList: StatelessComponent = () => {
+type ListProps = {
+  region: string
+  documentType: string
+  category: string
+}
+
+const ResourceList: StatelessComponent<ListProps> = ({
+  region,
+  documentType,
+  category,
+}) => {
   const { data, error } = useSWR(RESOURCES_API_URL, fetcher)
 
   if (error) {
@@ -30,9 +40,21 @@ const ResourceList: StatelessComponent = () => {
   if (!data) {
     return <Spin tip="Loading..." />
   }
+
+  const view = data
+    .filter((r: Resource) =>
+      region && !r.locations.includes(region) ? false : true
+    )
+    .filter((r: Resource) =>
+      documentType && !r.types.includes(documentType) ? false : true
+    )
+    .filter((r: Resource) =>
+      category && !r.categories.includes(category) ? false : true
+    )
+
   return (
     <>
-      {data.map((item: Resource) => (
+      {view.map((item: Resource) => (
         <Card key={item.id}>
           <h4>
             <Link href={`/resources/${encodeURIComponent(item.slug)}`}>
@@ -55,6 +77,9 @@ const ResourceList: StatelessComponent = () => {
 }
 
 const Resources: StatelessComponent = () => {
+  const [regionFilter, setRegionFilter] = useState('')
+  const [documentTypeFilter, setDocumentTypeFilter] = useState('')
+  const [categoryFilter, setCategoryFilter] = useState('')
   return (
     <Row>
       <Col span={4} offset={4}>
@@ -63,8 +88,8 @@ const Resources: StatelessComponent = () => {
             <strong>Région</strong>
           </div>
           <div>
-            <select>
-              <option>Not Selected</option>
+            <select onChange={(e) => setRegionFilter(e.currentTarget.value)}>
+              <option value="">Not Selected</option>
               {regions.map((region, i) => (
                 <option value={region} key={i}>
                   {region}
@@ -78,8 +103,10 @@ const Resources: StatelessComponent = () => {
             <strong>Type de document</strong>
           </div>
           <div>
-            <select>
-              <option>Not Selected</option>
+            <select
+              onChange={(e) => setDocumentTypeFilter(e.currentTarget.value)}
+            >
+              <option value="">Not Selected</option>
               {documentTypes.map((type, i) => (
                 <option value={type.label} key={i}>
                   {type.label}
@@ -93,8 +120,8 @@ const Resources: StatelessComponent = () => {
             <strong>Category</strong>
           </div>
           <div>
-            <select>
-              <option>Not Selected</option>
+            <select onChange={(e) => setCategoryFilter(e.currentTarget.value)}>
+              <option value="">Not Selected</option>
               {categories.map((category, i) => (
                 <option value={category} key={i}>
                   {category}
@@ -104,8 +131,12 @@ const Resources: StatelessComponent = () => {
           </div>
         </div>
       </Col>
-      <Col span={12}>
-        <ResourceList />
+      <Col span={12} style={{ paddingBottom: '5rem' }}>
+        <ResourceList
+          region={regionFilter}
+          documentType={documentTypeFilter}
+          category={categoryFilter}
+        />
       </Col>
     </Row>
   )

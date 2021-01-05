@@ -1,9 +1,0 @@
-// Jest Snapshot v1, https://goo.gl/fbAQLP
-
-exports[`Data page matches snapshot 1`] = `
-<DocumentFragment>
-  <h1>
-    Data
-  </h1>
-</DocumentFragment>
-`;

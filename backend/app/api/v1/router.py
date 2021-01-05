@@ -1,6 +1,4 @@
 import json
-from csv import DictReader
-from decimal import Decimal
 from typing import Any, Dict, Union
 
 import requests
@@ -67,17 +65,17 @@ def get_communes_data() -> Any:
 
 @router.get("/mali/possible-progress.json")
 def get_possible_progres_json() -> Any:
-    return FileResponse(path_to_dataset("possible-progress.json"))
+    return FileResponse(path_to_dataset("mali/possible-progress.json"))
 
 
 @router.get("/mali/additional-people.json")
 def get_additional_people_json() -> Any:
-    return FileResponse(path_to_dataset("additional-people.json"))
+    return FileResponse(path_to_dataset("mali/additional-people.json"))
 
 
 @router.get("/mali/pump-safety.json")
 def get_pump_safety_json() -> Any:
-    return FileResponse(path_to_dataset("pump-safety.json"))
+    return FileResponse(path_to_dataset("mali/pump-safety.json"))
 
 
 @router.get("/mali/waterpoints.geojson")
@@ -111,51 +109,29 @@ def get_region_names() -> Any:
 
 @router.get("/mali/abandonment.json")
 def get_abandonment_json() -> Any:
-    return FileResponse(path_to_dataset("abandonment.json"))
+    return FileResponse(path_to_dataset("mali/abandonment.json"))
 
 
 @router.get("/mali/distance.json")
 def get_distance_json() -> Any:
-    return FileResponse(path_to_dataset("distance.json"))
+    return FileResponse(path_to_dataset("mali/distance.json"))
 
 
 @router.get("/mali/mechanic-vs-manual-pump.json")
 def get_mechanic_vs_manual_pump_json() -> Any:
-    return FileResponse(path_to_dataset("mechanic-vs-manual-pump.json"))
+    return FileResponse(path_to_dataset("mali/mechanic-vs-manual-pump.json"))
 
 
 @router.get("/mali/pollution-type.json")
 def get_pollution_type_json() -> Any:
-    return FileResponse(path_to_dataset("pollution-type.json"))
+    return FileResponse(path_to_dataset("mali/pollution-type.json"))
 
 
 @router.get("/mali/pump-type.json")
 def get_pump_type_json() -> Any:
-    return FileResponse(path_to_dataset("pump-type.json"))
+    return FileResponse(path_to_dataset("mali/pump-type.json"))
 
 
 @router.get("/mali/treatment-type.json")
 def get_treatment_type_json() -> Any:
-    return FileResponse(path_to_dataset("treatment-type.json"))
-
-
-@router.get("/functionality-rate-by-region")
-async def get_functionality_rate_by_region() -> Any:
-    with open(
-        path_to_dataset("Taux de fonctionalité par region - Blad1.csv"), "r"
-    ) as csvfile:
-        reader = DictReader(csvfile)
-        return [
-            {
-                "Region": row["REGION"],
-                "PMH": Decimal(row["PMH"].rstrip("%").replace(",", ".")),
-                "Puits": Decimal(row["Puits "].rstrip("%").replace(",", ".")),
-                "SAEP": Decimal(row["SAEP"].rstrip("%").replace(",", ".")),
-            }
-            for row in reader
-        ]
-
-
-@router.get("/site-points.geojson")
-def get_site_points_raw() -> Any:
-    return FileResponse(path_to_dataset("site_points_deau_mali.geojson"))
+    return FileResponse(path_to_dataset("mali/treatment-type.json"))

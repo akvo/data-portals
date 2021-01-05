@@ -9,7 +9,7 @@ from app.utils import path_to_dataset
 
 
 def get_waterpoints_geojson() -> Dict[str, Any]:
-    dataframe = pandas.read_csv(path_to_dataset("23112020_Mali_seasonality.csv"))
+    dataframe = pandas.read_csv(path_to_dataset("mali/23112020_Mali_seasonality.csv"))
     dataframe = dataframe.where(pandas.notnull(dataframe), None)
     features = []
     for i in range(0, len(dataframe.index)):
@@ -36,17 +36,19 @@ def get_waterpoints_geojson() -> Dict[str, Any]:
 
 
 def get_region_names() -> List[str]:
-    dataframe = pandas.read_csv(path_to_dataset("23112020_Mali_seasonality.csv"))
+    dataframe = pandas.read_csv(path_to_dataset("mali/23112020_Mali_seasonality.csv"))
     dataframe = dataframe.where(pandas.notnull(dataframe), None)
 
     return list(dataframe.region.unique())
 
 
 def get_functionality_percentage_per_region_geojson() -> Dict[str, Any]:
-    region_df = pandas.read_csv(path_to_dataset("functionality_wp_mali.csv"), sep=";")
+    region_df = pandas.read_csv(
+        path_to_dataset("mali/functionality_wp_mali.csv"), sep=";"
+    )
     region_data = region_df.set_index("ADM1_FR")["Percentage"].to_dict()
 
-    with open(path_to_dataset("mli_hdx.json"), "r") as fp:
+    with open(path_to_dataset("mali/mli_hdx.json"), "r") as fp:
         region_geo = json.load(fp)
 
     for f in region_geo["features"]:
@@ -57,10 +59,12 @@ def get_functionality_percentage_per_region_geojson() -> Dict[str, Any]:
 
 
 def get_population_per_region_geojson() -> Dict[str, Any]:
-    region_df = pandas.read_csv(path_to_dataset("Mali_populationV8_model_short.csv"))
+    region_df = pandas.read_csv(
+        path_to_dataset("mali/Mali_populationV8_model_short.csv")
+    )
     region_data = region_df.set_index("ADM1_FR")["Pop.2016"].to_dict()
 
-    with open(path_to_dataset("mli_hdx.json"), "r") as fp:
+    with open(path_to_dataset("mali/mli_hdx.json"), "r") as fp:
         region_geo = json.load(fp)
 
     for f in region_geo["features"]:
@@ -71,12 +75,12 @@ def get_population_per_region_geojson() -> Dict[str, Any]:
 
 
 def get_commune_geojson() -> FeatureCollection:
-    cercles_df = pandas.read_csv(path_to_dataset("Lars_data_cercle.csv"))
+    cercles_df = pandas.read_csv(path_to_dataset("mali/Lars_data_cercle.csv"))
     cercles_df = cercles_df.set_index("Cercle")
-    communes_df = pandas.read_csv(path_to_dataset("Lars_data_commune.csv"))
+    communes_df = pandas.read_csv(path_to_dataset("mali/Lars_data_commune.csv"))
     communes_df = communes_df.set_index("Commune")
 
-    with open(path_to_dataset("mli_admbnda_adm3_pop_2017.geojson"), "r") as fp:
+    with open(path_to_dataset("mali/mli_admbnda_adm3_pop_2017.geojson"), "r") as fp:
         communes_geo = load(fp)
 
     for f in communes_geo["features"]:
@@ -109,20 +113,20 @@ def get_commune_geojson() -> FeatureCollection:
 
 
 def get_cercles_data() -> List[Dict[str, Any]]:
-    df = pandas.read_csv(path_to_dataset("Lars_data_cercle.csv"))
+    df = pandas.read_csv(path_to_dataset("mali/Lars_data_cercle.csv"))
     df = df.where(pandas.notnull(df), None)
     return df.to_dict("records")
 
 
 def get_communes_data() -> List[Dict[str, Any]]:
-    df = pandas.read_csv(path_to_dataset("Lars_data_commune.csv"))
+    df = pandas.read_csv(path_to_dataset("mali/Lars_data_commune.csv"))
     df = df.where(pandas.notnull(df), None)
     return df.to_dict("records")
 
 
 def get_resources_media() -> List[Dict[str, Any]]:
     dataframe = pandas.read_csv(
-        path_to_dataset("Media-Library-Export-2020-December-21-1352.csv")
+        path_to_dataset("mali/Media-Library-Export-2020-December-21-1352.csv")
     )
     dataframe = dataframe.where(pandas.notnull(dataframe), None)
     resources = []

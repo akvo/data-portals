@@ -1,33 +1,16 @@
 import { StatelessComponent } from 'react'
-import { Row, Col, Alert, Spin, Button } from 'antd'
-import { useRouter } from 'next/router'
+import { GetServerSideProps } from 'next'
+import { ParsedUrlQuery } from 'querystring'
+import { Row, Col, Button } from 'antd'
 import ReactMarkdown from 'react-markdown/with-html'
 import { DateTime } from 'luxon'
-import useSWR from 'swr'
-import fetcher from '../../libs/fetcher'
 import { RESOURCES_API_URL, Resource } from '../../libs/resources'
 
-const ResourcePage: StatelessComponent = () => {
-  const router = useRouter()
-  const { slug } = router.query
-  const { data, error } = useSWR(RESOURCES_API_URL, fetcher)
+type Props = {
+  resource: Resource
+}
 
-  if (error) {
-    return (
-      <Alert
-        message="Error"
-        description="Failed loading data."
-        type="error"
-        showIcon
-      />
-    )
-  }
-  if (!data) {
-    return <Spin tip="Loading..." />
-  }
-
-  const resource: Resource = data.find((it: Resource) => it.slug === slug)
-
+const ResourcePage: StatelessComponent<Props> = ({ resource }) => {
   return (
     <Row>
       <Col span={16} offset={4} style={{ paddingBottom: '5em' }}>
@@ -66,6 +49,27 @@ const ResourcePage: StatelessComponent = () => {
       </Col>
     </Row>
   )
+}
+
+interface Params extends ParsedUrlQuery {
+  slug: string
+}
+
+export const getServerSideProps: GetServerSideProps<Props, Params> = async (
+  context
+) => {
+  const { slug } = context.params as Params
+  const res = await fetch(RESOURCES_API_URL)
+  const resources = await res.json()
+  const resource = resources.find(
+    (it: Resource) => it.slug === decodeURIComponent(slug)
+  )
+
+  return {
+    props: {
+      resource,
+    },
+  }
 }
 
 export default ResourcePage

@@ -1,9 +1,8 @@
 import { StatelessComponent, useState } from 'react'
-import { Row, Col, Card, Spin, Alert, Tag } from 'antd'
+import { GetServerSideProps } from 'next'
+import { Row, Col, Card, Tag } from 'antd'
 import Link from 'next/link'
 import { DateTime } from 'luxon'
-import useSWR from 'swr'
-import fetcher from '../../libs/fetcher'
 import {
   RESOURCES_API_URL,
   Resource,
@@ -14,72 +13,26 @@ import {
   formatContent,
 } from '../../libs/resources'
 
-type ListProps = {
-  region: string
-  documentType: string
-  category: string
+type Props = {
+  data: Resource[]
 }
 
-const ResourceList: StatelessComponent<ListProps> = ({
-  region,
-  documentType,
-  category,
-}) => {
-  const { data, error } = useSWR(RESOURCES_API_URL, fetcher)
-
-  if (error) {
-    return (
-      <Alert
-        message="Error"
-        description="Failed loading data."
-        type="error"
-        showIcon
-      />
-    )
-  }
-  if (!data) {
-    return <Spin tip="Loading..." />
-  }
-
-  const view = data
-    .filter((r: Resource) =>
-      region && !r.locations.includes(region) ? false : true
-    )
-    .filter((r: Resource) =>
-      documentType && !r.types.includes(documentType) ? false : true
-    )
-    .filter((r: Resource) =>
-      category && !r.categories.includes(category) ? false : true
-    )
-
-  return (
-    <>
-      {view.map((item: Resource) => (
-        <Card key={item.id}>
-          <h4>
-            <Link href={`/resources/${encodeURIComponent(item.slug)}`}>
-              <a>{item.title}</a>
-            </Link>
-          </h4>
-          <p>{DateTime.fromISO(item.date).toFormat('yyyy')}</p>
-          <p>{formatContent(item.content)}</p>
-          <div>
-            {item.types.map((type, i) => (
-              <Tag key={i} color={getTypeColor(type)}>
-                {type}
-              </Tag>
-            ))}
-          </div>
-        </Card>
-      ))}
-    </>
-  )
-}
-
-const Resources: StatelessComponent = () => {
+const Resources: StatelessComponent<Props> = ({ data }) => {
   const [regionFilter, setRegionFilter] = useState('')
   const [documentTypeFilter, setDocumentTypeFilter] = useState('')
   const [categoryFilter, setCategoryFilter] = useState('')
+
+  const view = data
+    .filter((r: Resource) =>
+      regionFilter && !r.locations.includes(regionFilter) ? false : true
+    )
+    .filter((r: Resource) =>
+      documentTypeFilter && !r.types.includes(documentTypeFilter) ? false : true
+    )
+    .filter((r: Resource) =>
+      categoryFilter && !r.categories.includes(categoryFilter) ? false : true
+    )
+
   return (
     <Row>
       <Col span={4} offset={4}>
@@ -132,14 +85,38 @@ const Resources: StatelessComponent = () => {
         </div>
       </Col>
       <Col span={12} style={{ paddingBottom: '5rem' }}>
-        <ResourceList
-          region={regionFilter}
-          documentType={documentTypeFilter}
-          category={categoryFilter}
-        />
+        {view.map((item: Resource) => (
+          <Card key={item.id}>
+            <h4>
+              <Link href={`/resources/${encodeURIComponent(item.slug)}`}>
+                <a>{item.title}</a>
+              </Link>
+            </h4>
+            <p>{DateTime.fromISO(item.date).toFormat('yyyy')}</p>
+            <p>{formatContent(item.content)}</p>
+            <div>
+              {item.types.map((type, i) => (
+                <Tag key={i} color={getTypeColor(type)}>
+                  {type}
+                </Tag>
+              ))}
+            </div>
+          </Card>
+        ))}
       </Col>
     </Row>
   )
+}
+
+export const getServerSideProps: GetServerSideProps<Props> = async () => {
+  const res = await fetch(RESOURCES_API_URL)
+  const data = await res.json()
+
+  return {
+    props: {
+      data,
+    },
+  }
 }
 
 export default Resources

@@ -1,4 +1,4 @@
-import { INTERNAL_API_HOST, API_PATH } from '../config'
+import { INTERNAL_API_URL } from '../config'
 import { truncate } from './utils'
 
 export type Resource = {
@@ -14,7 +14,7 @@ export type Resource = {
   types: string[]
 }
 
-export const RESOURCES_API_URL = `${INTERNAL_API_HOST}${API_PATH}/mali/resources`
+export const RESOURCES_API_URL = `${INTERNAL_API_URL}/mali/resources`
 
 export const regions = [
   'Bamako',

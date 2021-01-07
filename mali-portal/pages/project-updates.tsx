@@ -2,7 +2,7 @@ import { StatelessComponent } from 'react'
 import { Row, Col, List, Card, Spin } from 'antd'
 import InfiniteScroll from 'react-infinite-scroll-component'
 import fetcher from '../libs/fetcher'
-import { API_PATH } from '../config'
+import { PUBLIC_API_URL } from '../config'
 import { useSWRInfinite } from 'swr'
 import { truncate } from '../libs/utils'
 
@@ -18,7 +18,7 @@ const useScrollProjectUpdates = () => {
   const LIMIT = 15
   const { data, error, size, setSize } = useSWRInfinite(
     (index) =>
-      `${API_PATH}/mali/project-updates?limit=${LIMIT}&page=${index + 1}`,
+      `${PUBLIC_API_URL}/mali/project-updates?limit=${LIMIT}&page=${index + 1}`,
     fetcher
   )
   const updates: ProjectUpdate[] = data ? [].concat(...data) : []

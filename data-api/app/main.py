@@ -3,6 +3,7 @@ from typing import Any, Iterator, Optional
 
 from fastapi import Depends, FastAPI
 from fastapi.middleware.gzip import GZipMiddleware
+from fastapi.middleware.cors import CORSMiddleware
 from sqlalchemy import create_engine
 from sqlalchemy.engine import Engine
 from sqlalchemy.orm import Session, sessionmaker
@@ -12,6 +13,9 @@ from app.config import Settings
 
 app = FastAPI()
 app.add_middleware(GZipMiddleware, minimum_size=1000)
+app.add_middleware(
+    CORSMiddleware, allow_origins=["*"], allow_methods=["GET"],
+)
 
 _db_engine: Optional[Engine]
 

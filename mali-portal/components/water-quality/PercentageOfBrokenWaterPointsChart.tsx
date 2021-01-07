@@ -1,11 +1,11 @@
 import { StatelessComponent } from 'react'
 import { ResponsiveBar } from '@nivo/bar'
 import { Spin } from 'antd'
-import { API_PATH } from '../../config'
+import { PUBLIC_API_URL } from '../../config'
 import useSWR from 'swr'
 import fetcher from '../../libs/fetcher'
 
-const DATA_SOURCE = `${API_PATH}/mali/pump-safety.json`
+const DATA_SOURCE = `${PUBLIC_API_URL}/mali/pump-safety.json`
 
 const PercentageOfBrokenWaterPointsChart: StatelessComponent = () => {
   const { data, error } = useSWR(DATA_SOURCE, fetcher)
@@ -21,9 +21,7 @@ const PercentageOfBrokenWaterPointsChart: StatelessComponent = () => {
 
   return (
     <div className="card">
-      <h3>
-        Pourcentage des différents éléments manquants ou cassés
-      </h3>
+      <h3>Pourcentage des différents éléments manquants ou cassés</h3>
       <div className="vis">
         <ResponsiveBar
           data={data}

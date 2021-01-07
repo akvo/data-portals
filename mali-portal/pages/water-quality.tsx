@@ -1,6 +1,6 @@
 import { StatelessComponent, useEffect, useRef, useState } from 'react'
 import { Row, Col } from 'antd'
-import { API_PATH } from '../config'
+import { PUBLIC_API_URL } from '../config'
 import WaterTreatmentChart from '../components/water-quality/WaterTreatmentChart'
 import Pollution from '../components/water-quality/PollutionChart'
 import { getBestAnchorGivenScrollLocation } from '../libs/scroll'
@@ -70,12 +70,12 @@ const WaterQuality: StatelessComponent = () => {
             <h3>Water treatment</h3>
             <div className="vis">
               <WaterTreatmentChart
-                source={`${API_PATH}/mali/treatment-type.json`}
+                source={`${PUBLIC_API_URL}/mali/treatment-type.json`}
               />
             </div>
             <p>
-            Presque toutes les pompes traitées régulièrement, soit 15%, sont
-               traité avec de <em>l'eau de javel</em>.
+              Presque toutes les pompes traitées régulièrement, soit 15%, sont
+              traité avec de <em>l'eau de javel</em>.
             </p>
           </div>
         </Col>
@@ -86,7 +86,7 @@ const WaterQuality: StatelessComponent = () => {
           <div className="statistic">
             <div className="statistic-number">77.7%</div>
             <div className="statistic-desc">
-            des points d'eau contiennent de la pollution
+              des points d'eau contiennent de la pollution
             </div>
           </div>
         </Col>
@@ -94,11 +94,12 @@ const WaterQuality: StatelessComponent = () => {
           <div className="card">
             <h3>Pollution</h3>
             <div className="vis">
-              <Pollution source={`${API_PATH}/mali/pollution-type.json`} />
+              <Pollution
+                source={`${PUBLIC_API_URL}/mali/pollution-type.json`}
+              />
             </div>
             <p>
-              Du PMH 24% a manqué d’entretien and 13% a manqué de
-              fermeture.
+              Du PMH 24% a manqué d’entretien and 13% a manqué de fermeture.
             </p>
           </div>
         </Col>

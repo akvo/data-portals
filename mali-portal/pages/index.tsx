@@ -53,13 +53,21 @@ const Home: StatelessComponent = () => {
         </Col>
         <Col span={7} offset={1} className="infoContainer">
           <p className="paragraph">
-              Bienvenue dans les données sur l'eau, l'assainissement et l'hygiène en milieu rural au Mali (EAH)
-             portail. Ce portail fournit des informations sur les points d'eau ruraux au Mali. Les données ont été collectées lors de leur inventaire national de 2016 à 2018.
+            Bienvenue dans les données sur l'eau, l'assainissement et l'hygiène
+            en milieu rural au Mali (EAH) portail. Ce portail fournit des
+            informations sur les points d'eau ruraux au Mali. Les données ont
+            été collectées lors de leur inventaire national de 2016 à 2018.
           </p>
           <p className="paragraph">
-            Ce portail est mis en place pour fournir des informations sur les status les plus récents des services WaSH dans les différentes régions du Mali. le
-            L'inventaire national était axé sur la qualité de l'eau et de l'eau, donc il n'y a pas de données disponibles sur l'assainissement et l'hygiène. Les informations sur l'eau et la qualité de l'eau se trouvent dans les onglets respectifs. Si vous êtes
-             intéressé par le fichier de données brutes, veuillez consulter l'onglet Données et pour plus d'informations sur ce portail, et d'autres portails EAH de pays, veuillez consulter l'onglet Guide.
+            Ce portail est mis en place pour fournir des informations sur les
+            status les plus récents des services WaSH dans les différentes
+            régions du Mali. le L'inventaire national était axé sur la qualité
+            de l'eau et de l'eau, donc il n'y a pas de données disponibles sur
+            l'assainissement et l'hygiène. Les informations sur l'eau et la
+            qualité de l'eau se trouvent dans les onglets respectifs. Si vous
+            êtes intéressé par le fichier de données brutes, veuillez consulter
+            l'onglet Données et pour plus d'informations sur ce portail, et
+            d'autres portails EAH de pays, veuillez consulter l'onglet Guide.
           </p>
         </Col>
       </Row>
@@ -70,16 +78,28 @@ const Home: StatelessComponent = () => {
         <Row className="infoTxt">
           <Col span={20} offset={2}>
             <p>
-              L'approvisionnement en eau courante des zones urbaines du Mali n'est pas inclus dans ces données. Surtout à Bamako, le nombre de puits ne donne pas une estimation raisonnable de l'approvisionnement en eau. Cela vaut également pour quelques-unes des autres régions et comtés. Ces comtés ont été indiqués sur les cartes. Des précautions doivent être prises lors de l'interprétation des nombres de ces comtés spécifiques. 
+              L'approvisionnement en eau courante des zones urbaines du Mali
+              n'est pas inclus dans ces données. Surtout à Bamako, le nombre de
+              puits ne donne pas une estimation raisonnable de
+              l'approvisionnement en eau. Cela vaut également pour quelques-unes
+              des autres régions et comtés. Ces comtés ont été indiqués sur les
+              cartes. Des précautions doivent être prises lors de
+              l'interprétation des nombres de ces comtés spécifiques.
             </p>
           </Col>
-          </Row>
+        </Row>
         <Col span={5} offset={2} className="decoRect">
           <div>
             <h2>Caractéristiques de l'échantillon</h2>
           </div>
           <p className="paragraph">
-          L'inventaire EAH du Mali de 2016-2018 était une mesure de recensement couvrant tous les points d'eau ruraux du Mali. Les réseaux d'eau courante ont été exclus de la collecte de données. Il faut garder cela à l'esprit lorsqu'on regarde les grandes villes. Le tableau de droite donne un aperçu du nombre d'opérateurs interrogés et du nombre de puits à partir desquels des informations ont été collectées.
+            L'inventaire EAH du Mali de 2016-2018 était une mesure de
+            recensement couvrant tous les points d'eau ruraux du Mali. Les
+            réseaux d'eau courante ont été exclus de la collecte de données. Il
+            faut garder cela à l'esprit lorsqu'on regarde les grandes villes. Le
+            tableau de droite donne un aperçu du nombre d'opérateurs interrogés
+            et du nombre de puits à partir desquels des informations ont été
+            collectées.
           </p>
         </Col>
         <Col span={14} offset={1}>

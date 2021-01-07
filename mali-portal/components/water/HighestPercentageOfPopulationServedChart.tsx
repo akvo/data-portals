@@ -1,11 +1,11 @@
 import { StatelessComponent } from 'react'
 import { ResponsiveBar } from '@nivo/bar'
 import { Spin } from 'antd'
-import { API_PATH } from '../../config'
+import { PUBLIC_API_URL } from '../../config'
 import useSWR from 'swr'
 import fetcher from '../../libs/fetcher'
 
-const DATA_SOURCE = `${API_PATH}/mali/possible-progress.json`
+const DATA_SOURCE = `${PUBLIC_API_URL}/mali/possible-progress.json`
 
 const HighestPercentageOfPopulationServedChart: StatelessComponent = () => {
   const { data, error } = useSWR(DATA_SOURCE, fetcher)
@@ -22,8 +22,9 @@ const HighestPercentageOfPopulationServedChart: StatelessComponent = () => {
   return (
     <div className="card">
       <h3>
-      Top des 5 districts avec le pourcentage le plus élevé de la population en plus
-         desservi tous les points d'eau sont rendus opérationnels      </h3>
+        Top des 5 districts avec le pourcentage le plus élevé de la population
+        en plus desservi tous les points d'eau sont rendus opérationnels
+      </h3>
       <div className="vis">
         <ResponsiveBar
           data={data}

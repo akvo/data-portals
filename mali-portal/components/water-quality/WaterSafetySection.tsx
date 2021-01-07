@@ -2,10 +2,10 @@ import { StatelessComponent, useState } from 'react'
 import { Col } from 'antd'
 import useSWR from 'swr'
 import fetcher from '../../libs/fetcher'
-import { API_PATH } from '../../config'
+import { PUBLIC_API_URL } from '../../config'
 import WaterSafetyMap from './WaterSafetyMap'
 
-const REGIONS_DATA = `${API_PATH}/mali/region-names.json`
+const REGIONS_DATA = `${PUBLIC_API_URL}/mali/region-names.json`
 
 const safetyConfig = [
   { color: '#de425b', label: 'Non' },
@@ -31,16 +31,17 @@ const WaterSafetySection: StatelessComponent = () => {
       <Col span={4}>
         <div className="map--info">
           <span>
-          La sécurité des points d'eau a été évaluée en posant les
-             questions suivantes. Si l'un des éléments est absent ou non
-             fonctionnel, le point d'eau est classé comme dangereux.          </span>
+            La sécurité des points d'eau a été évaluée en posant les questions
+            suivantes. Si l'un des éléments est absent ou non fonctionnel, le
+            point d'eau est classé comme dangereux.
+          </span>
           <ul>
             <li> Le point d'eau a-t-il une dalle? </li>
-             <li> Le point d'eau a-t-il une clôture? </li>
-             <li> Le point d'eau dispose-t-il d'un canal d'évacuation? </li>
-             <li> Le point d'eau a-t-il un puisard? </li>
-             <li> Y a-t-il une buanderie au point d'eau? </li>
-             <li> Le point d'eau a-t-il un auge? </li>
+            <li> Le point d'eau a-t-il une clôture? </li>
+            <li> Le point d'eau dispose-t-il d'un canal d'évacuation? </li>
+            <li> Le point d'eau a-t-il un puisard? </li>
+            <li> Y a-t-il une buanderie au point d'eau? </li>
+            <li> Le point d'eau a-t-il un auge? </li>
           </ul>
           <div className="filters">
             <div>

@@ -1,6 +1,6 @@
 import { StatelessComponent, useEffect, useRef, useState } from 'react'
 import { Row, Col } from 'antd'
-import { API_PATH } from '../config'
+import { PUBLIC_API_URL } from '../config'
 import DistanceToWaterpointChart from '../components/water/DistanceToWaterpointChart'
 import FrequencyOfPumpTypesChart from '../components/water/FrequencyOfPumpTypesChart'
 import ReasonForAbandonmentChart from '../components/water/ReasonForAbandonmentChart'
@@ -48,7 +48,7 @@ const Water: StatelessComponent = () => {
           </li>
           <li className={currentAnchor === 'popService' ? 'current' : ''}>
             <a href="#popService">Population</a>
-          </li>          
+          </li>
           <li className={currentAnchor === 'pumpType' ? 'current' : ''}>
             <a href="#pumpType">Pump type</a>
           </li>
@@ -84,7 +84,7 @@ const Water: StatelessComponent = () => {
           <div className="statistic">
             <div className="statistic-number">81%</div>
             <div className="statistic-desc">
-            des points d'eau est fonctionnel
+              des points d'eau est fonctionnel
             </div>
           </div>
         </Col>
@@ -93,13 +93,13 @@ const Water: StatelessComponent = () => {
             <h3>Fréquence des types de pompe à eau</h3>
             <div className="vis">
               <FrequencyOfPumpTypesChart
-                source={`${API_PATH}/mali/pump-type.json`}
+                source={`${PUBLIC_API_URL}/mali/pump-type.json`}
               />
             </div>
             <p>
-            Le <em> forage équipé de PMH </em> est le point d'eau le plus fréquent
-               dont 35% est fonctionnel. Le deuxième plus fréquent sont
-               les <em> puits modernes </em>, dont 38% sont fonctionnels.
+              Le <em> forage équipé de PMH </em> est le point d'eau le plus
+              fréquent dont 35% est fonctionnel. Le deuxième plus fréquent sont
+              les <em> puits modernes </em>, dont 38% sont fonctionnels.
             </p>
           </div>
         </Col>
@@ -108,13 +108,13 @@ const Water: StatelessComponent = () => {
             <h3>Distance au point d'eau</h3>
             <div className="vis">
               <DistanceToWaterpointChart
-                source={`${API_PATH}/mali/distance.json`}
+                source={`${PUBLIC_API_URL}/mali/distance.json`}
               />
             </div>
             <p>
-            Le plus grand nombre de points d'eau fonctionnels est inférieur à 200
-               mètres du ménage: 28%. 25% des points d'eau sont à moins
-               d'un kilomètre.
+              Le plus grand nombre de points d'eau fonctionnels est inférieur à
+              200 mètres du ménage: 28%. 25% des points d'eau sont à moins d'un
+              kilomètre.
             </p>
           </div>
         </Col>
@@ -124,7 +124,7 @@ const Water: StatelessComponent = () => {
           <div className="statistic">
             <div className="statistic-number">6%</div>
             <div className="statistic-desc">
-              des points d'eau sont abandonnés            
+              des points d'eau sont abandonnés
             </div>
           </div>
         </Col>
@@ -133,12 +133,12 @@ const Water: StatelessComponent = () => {
             <h3>Raison de l'abandon du point d'eau</h3>
             <div className="vis">
               <ReasonForAbandonmentChart
-                source={`${API_PATH}/mali/abandonment.json`}
+                source={`${PUBLIC_API_URL}/mali/abandonment.json`}
               />
             </div>
             <p>
-            La principale raison de l'abandon du point d'eau est le goût,
-               la deuxième est la couleur.
+              La principale raison de l'abandon du point d'eau est le goût, la
+              deuxième est la couleur.
             </p>
           </div>
         </Col>
@@ -147,7 +147,7 @@ const Water: StatelessComponent = () => {
             <h3>Pompe mécanique versus pompe manuelle</h3>
             <div className="vis">
               <MechanicVsManualPumpChart
-                source={`${API_PATH}/mali/mechanic-vs-manual-pump.json`}
+                source={`${PUBLIC_API_URL}/mali/mechanic-vs-manual-pump.json`}
               />
             </div>
             <p>60% des points d'eau sont à pompe à Motricité Humaine.</p>

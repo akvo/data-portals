@@ -2,11 +2,11 @@ import { StatelessComponent, useState } from 'react'
 import { Source, Layer, LayerProps, Popup, PointerEvent } from 'react-map-gl'
 import useSWR from 'swr'
 import fetcher from '../../libs/fetcher'
-import { API_PATH, DEFAULT_MAP_VIEWPORT } from '../../config'
+import { PUBLIC_API_URL, DEFAULT_MAP_VIEWPORT } from '../../config'
 import { FeaturePoint } from '../../libs/data-types'
 import Map from '../commons/Map'
 
-const DATA_SOURCE = `${API_PATH}/mali/waterpoints.geojson`
+const DATA_SOURCE = `${PUBLIC_API_URL}/mali/waterpoints.geojson`
 
 type Props = {
   functionalityConfig: { color: string; label: string }[]

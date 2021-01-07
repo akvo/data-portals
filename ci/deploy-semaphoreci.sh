@@ -35,9 +35,9 @@ else
 
     log Pushing images
     gcloud auth configure-docker
-    docker push eu.gcr.io/${PROJECT_NAME}/data-portals-backend
-    docker push eu.gcr.io/${PROJECT_NAME}/data-portals-frontend
-    docker push eu.gcr.io/${PROJECT_NAME}/data-portals-nginx
+    docker push eu.gcr.io/${PROJECT_NAME}/data-portals-backend:${CI_COMMIT}
+    docker push eu.gcr.io/${PROJECT_NAME}/data-portals-frontend:${CI_COMMIT}
+    docker push eu.gcr.io/${PROJECT_NAME}/data-portals-nginx:${CI_COMMIT}
 fi
 
 sed -e "s/\${TRAVIS_COMMIT}/$CI_COMMIT/" ci/k8s/deployment.yml > deployment.yml.tmp

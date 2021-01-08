@@ -10,6 +10,7 @@ services:
     ports:
       - 80:80
       - 3000:3000
+      - 3001:3001
       - 9000:9000
       - 5432:5432
 
@@ -28,6 +29,21 @@ services:
       NEXT_PUBLIC_API_HOST: http://localhost:9000
     volumes:
       - ./mali-portal:/usr/src/app
+      - /usr/src/app/.next
+      - /usr/src/app/node_modules
+    network_mode: service:mainnetwork
+    depends_on:
+      - data-api
+
+  sierra-leone-portal:
+    build:
+      context: ./sierra-leone-portal
+      target: devel
+    command: npm run dev
+    environment:
+      NEXT_PUBLIC_API_HOST: http://localhost:9000
+    volumes:
+      - ./sierra-leone-portal:/usr/src/app
       - /usr/src/app/.next
       - /usr/src/app/node_modules
     network_mode: service:mainnetwork

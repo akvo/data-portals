@@ -115,7 +115,7 @@ spec:
           limits:
             cpu: "4000m"
         ports:
-        - containerPort: 3000
+        - containerPort: 3001
           protocol: TCP
         env:
         - name: NEXT_PUBLIC_API_HOST

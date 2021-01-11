@@ -63,8 +63,8 @@ spec:
             secretKeyRef:
               name: "data-portals-secret"
               key: postgres-user
-      - name: data-portals-backend
-        image: eu.gcr.io/akvo-lumen/data-portals-backend:${TRAVIS_COMMIT}
+      - name: data-portals-api
+        image: eu.gcr.io/akvo-lumen/data-portals-api:${TRAVIS_COMMIT}
         resources:
           requests:
             cpu: "100m"
@@ -91,8 +91,8 @@ spec:
             secretKeyRef:
               name: "data-portals-secret"
               key: postgres-user
-      - name: data-portals-frontend
-        image: eu.gcr.io/akvo-lumen/data-portals-frontend:${TRAVIS_COMMIT}
+      - name: data-portals-mali
+        image: eu.gcr.io/akvo-lumen/data-portals-mali:${TRAVIS_COMMIT}
         resources:
           requests:
             cpu: "100m"
@@ -102,20 +102,27 @@ spec:
         - containerPort: 3000
           protocol: TCP
         env:
-        - name: MAPBOX_TOKEN
+        - name: NEXT_PUBLIC_API_HOST
           valueFrom:
               configMapKeyRef:
                 name: akvo-data-portals
-                key: mapbox-token
-        - name: DOMAIN
+                key: api-host
+      - name: data-portals-sierra-leone
+        image: eu.gcr.io/akvo-lumen/data-portals-sierra-leone:${TRAVIS_COMMIT}
+        resources:
+          requests:
+            cpu: "100m"
+          limits:
+            cpu: "4000m"
+        ports:
+        - containerPort: 3000
+          protocol: TCP
+        env:
+        - name: NEXT_PUBLIC_API_HOST
           valueFrom:
               configMapKeyRef:
                 name: akvo-data-portals
-                key: domain
-        - name: INTERNAL_API_DOMAIN
-          value: "http://localhost:9000"
-        - name: API_PATH
-          value: "/api/v1"
+                key: api-host
       - name: cloudsql-proxy
         image: eu.gcr.io/cloudsql-docker/gce-proxy:1.16
         command: ["/cloud_sql_proxy",

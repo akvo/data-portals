@@ -35,8 +35,9 @@ else
 
     log Pushing images
     gcloud auth configure-docker
-    docker push eu.gcr.io/${PROJECT_NAME}/data-portals-backend:${CI_COMMIT}
-    docker push eu.gcr.io/${PROJECT_NAME}/data-portals-frontend:${CI_COMMIT}
+    docker push eu.gcr.io/${PROJECT_NAME}/data-portals-api:${CI_COMMIT}
+    docker push eu.gcr.io/${PROJECT_NAME}/data-portals-mali:${CI_COMMIT}
+    docker push eu.gcr.io/${PROJECT_NAME}/data-portals-sierra-leone:${CI_COMMIT}
     docker push eu.gcr.io/${PROJECT_NAME}/data-portals-nginx:${CI_COMMIT}
 fi
 

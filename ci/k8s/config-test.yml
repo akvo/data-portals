@@ -4,6 +4,5 @@ metadata:
   name: akvo-data-portals
   namespace: default
 data:
-  mapbox-token: pk.eyJ1IjoibWFydGluY2hyaXN0b3YiLCJhIjoiTXFhSVJTMCJ9.dsByYqa5jm2OU7KwrfV3vA
-  domain: https://dataportals.akvotest.org
+  api-host: https://api.portals.akvotest.org
   google-sql-db-instance: shared-test-database

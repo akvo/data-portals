@@ -1,0 +1,58 @@
+version: '3.7'
+
+services:
+
+  mainnetwork:
+    image: alpine
+    command: tail -f /dev/null
+    expose:
+      - "80"
+    ports:
+      - 80:80
+      - 3000:3000
+      - 3001:3001
+      - 9000:9000
+
+  nginx:
+    image: nginx:1.18.0-alpine
+    volumes:
+      - ./nginx/dev-index.html:/usr/share/nginx/html/index.html
+    network_mode: service:mainnetwork
+
+  db:
+    image: postgres:9.6
+    network_mode: service:mainnetwork
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: app
+
+  data-api:
+    image: akvo-portals-data-api:dev
+    build: ./data-api
+    network_mode: service:mainnetwork
+    environment:
+      POSTGRES_HOST: localhost
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: secret
+      POSTGRES_DB: app
+    depends_on:
+      - db
+
+  mali-portal:
+    image: akvo-portals-mali-portal:dev
+    build: ./mali-portal
+    network_mode: service:mainnetwork
+    environment:
+      NEXT_PUBLIC_API_HOST: http://localhost:9000
+    depends_on:
+      - data-api
+
+  sierra-leone-portal:
+    image: akvo-portals-sierra-leone-portal:dev
+    build: ./sierra-leone-portal
+    network_mode: service:mainnetwork
+    environment:
+      NEXT_PUBLIC_API_HOST: http://localhost:9000
+    depends_on:
+      - data-api

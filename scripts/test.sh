@@ -14,12 +14,12 @@ docker-compose build
 docker-compose down -v --remove-orphans
 
 docker-compose up -d
-docker-compose exec -T backend python ./wait_for_database.py
-docker-compose exec -T backend ./scripts/lint.sh
-docker-compose exec -T backend ./scripts/test.sh
-docker-compose exec -T frontend npm run typecheck
-docker-compose exec -T frontend npm run lint
-docker-compose exec -T frontend npm run test
+docker-compose exec -T data-api python ./wait_for_database.py
+docker-compose exec -T data-api ./scripts/lint.sh
+docker-compose exec -T data-api ./scripts/test.sh
+docker-compose exec -T mali-portal npm run typecheck
+docker-compose exec -T mali-portal npm run lint
+docker-compose exec -T mali-portal npm run test
 
 # Teardown
 docker-compose down -v --remove-orphans

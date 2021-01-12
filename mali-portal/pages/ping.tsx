@@ -2,7 +2,7 @@ import Link from 'next/link'
 import fetch from 'node-fetch'
 import { StatelessComponent } from 'react'
 import { GetServerSideProps } from 'next'
-import * as config from '../config'
+import { API_HOST } from '../config'
 
 type Props = {
   ping: string
@@ -20,7 +20,7 @@ const Ping: StatelessComponent<Props> = ({ ping }) => {
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const res = await fetch(config.INTERNAL_API_HOST + '/ping')
+  const res = await fetch(API_HOST + '/ping')
   const json = await res.json()
 
   return {

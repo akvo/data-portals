@@ -1,6 +1,6 @@
 import { StatelessComponent, useEffect, useRef, useState } from 'react'
 import { Row, Col } from 'antd'
-import { PUBLIC_API_URL } from '../config'
+import { DATA_ENDPOINT } from '../config'
 import WaterTreatmentChart from '../components/water-quality/WaterTreatmentChart'
 import Pollution from '../components/water-quality/PollutionChart'
 import { getBestAnchorGivenScrollLocation } from '../libs/scroll'
@@ -70,7 +70,7 @@ const WaterQuality: StatelessComponent = () => {
             <h3>Water treatment</h3>
             <div className="vis">
               <WaterTreatmentChart
-                source={`${PUBLIC_API_URL}/mali/treatment-type.json`}
+                source={`${DATA_ENDPOINT}/mali/treatment-type.json`}
               />
             </div>
             <p>
@@ -94,9 +94,7 @@ const WaterQuality: StatelessComponent = () => {
           <div className="card">
             <h3>Pollution</h3>
             <div className="vis">
-              <Pollution
-                source={`${PUBLIC_API_URL}/mali/pollution-type.json`}
-              />
+              <Pollution source={`${DATA_ENDPOINT}/mali/pollution-type.json`} />
             </div>
             <p>
               Du PMH 24% a manqué d’entretien and 13% a manqué de fermeture.

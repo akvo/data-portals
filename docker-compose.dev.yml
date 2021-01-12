@@ -43,8 +43,6 @@ services:
     image: akvo-portals-mali-portal:dev
     build: ./mali-portal
     network_mode: service:mainnetwork
-    environment:
-      NEXT_PUBLIC_API_HOST: http://localhost:9000
     depends_on:
       - data-api
 
@@ -52,7 +50,5 @@ services:
     image: akvo-portals-sierra-leone-portal:dev
     build: ./sierra-leone-portal
     network_mode: service:mainnetwork
-    environment:
-      NEXT_PUBLIC_API_HOST: http://localhost:9000
     depends_on:
       - data-api

@@ -1,6 +1,6 @@
 import { StatelessComponent, useEffect, useRef, useState } from 'react'
 import { Row, Col } from 'antd'
-import { PUBLIC_API_URL } from '../config'
+import { DATA_ENDPOINT } from '../config'
 import DistanceToWaterpointChart from '../components/water/DistanceToWaterpointChart'
 import FrequencyOfPumpTypesChart from '../components/water/FrequencyOfPumpTypesChart'
 import ReasonForAbandonmentChart from '../components/water/ReasonForAbandonmentChart'
@@ -93,7 +93,7 @@ const Water: StatelessComponent = () => {
             <h3>Fréquence des types de pompe à eau</h3>
             <div className="vis">
               <FrequencyOfPumpTypesChart
-                source={`${PUBLIC_API_URL}/mali/pump-type.json`}
+                source={`${DATA_ENDPOINT}/mali/pump-type.json`}
               />
             </div>
             <p>
@@ -108,7 +108,7 @@ const Water: StatelessComponent = () => {
             <h3>Distance au point d'eau</h3>
             <div className="vis">
               <DistanceToWaterpointChart
-                source={`${PUBLIC_API_URL}/mali/distance.json`}
+                source={`${DATA_ENDPOINT}/mali/distance.json`}
               />
             </div>
             <p>
@@ -133,7 +133,7 @@ const Water: StatelessComponent = () => {
             <h3>Raison de l'abandon du point d'eau</h3>
             <div className="vis">
               <ReasonForAbandonmentChart
-                source={`${PUBLIC_API_URL}/mali/abandonment.json`}
+                source={`${DATA_ENDPOINT}/mali/abandonment.json`}
               />
             </div>
             <p>
@@ -147,7 +147,7 @@ const Water: StatelessComponent = () => {
             <h3>Pompe mécanique versus pompe manuelle</h3>
             <div className="vis">
               <MechanicVsManualPumpChart
-                source={`${PUBLIC_API_URL}/mali/mechanic-vs-manual-pump.json`}
+                source={`${DATA_ENDPOINT}/mali/mechanic-vs-manual-pump.json`}
               />
             </div>
             <p>60% des points d'eau sont à pompe à Motricité Humaine.</p>

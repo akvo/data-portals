@@ -4,16 +4,16 @@ import * as d3 from 'd3'
 import { Feature } from 'geojson'
 import useSWR from 'swr'
 import fetcher from '../../libs/fetcher'
-import { PUBLIC_API_URL, DEFAULT_MAP_VIEWPORT } from '../../config'
+import { DATA_ENDPOINT, DEFAULT_MAP_VIEWPORT } from '../../config'
 import scaleToColorMap from '../../libs/scale-to-colormap'
 import { FeaturePoint, HoverFeature } from '../../libs/data-types'
 import ColorLegend from '../commons/ColorLegend'
 import Map from '../commons/Map'
 import MapTooltip from '../commons/MapTooltip'
 
-const COMMUNES_GEO = `${PUBLIC_API_URL}/mali/communes.geojson`
-const WATERPOINTS_GEO = `${PUBLIC_API_URL}/mali/waterpoints.geojson`
-const CERCLES_DATA = `${PUBLIC_API_URL}/mali/cercles-data.json`
+const COMMUNES_GEO = `${DATA_ENDPOINT}/mali/communes.geojson`
+const WATERPOINTS_GEO = `${DATA_ENDPOINT}/mali/waterpoints.geojson`
+const CERCLES_DATA = `${DATA_ENDPOINT}/mali/cercles-data.json`
 
 type Props = {
   safetyConfig: { color: string; label: string }[]

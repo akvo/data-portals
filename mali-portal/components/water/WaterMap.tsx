@@ -3,7 +3,7 @@ import { Source, Layer, PointerEvent, MapLoadEvent } from 'react-map-gl'
 import { FillPaint } from 'mapbox-gl'
 import * as d3 from 'd3'
 import useSWR from 'swr'
-import { PUBLIC_API_URL, DEFAULT_MAP_VIEWPORT } from '../../config'
+import { DATA_ENDPOINT, DEFAULT_MAP_VIEWPORT } from '../../config'
 import fetcher from '../../libs/fetcher'
 import ColorLegend from '../commons/ColorLegend'
 import scaleToColorMap from '../../libs/scale-to-colormap'
@@ -11,8 +11,8 @@ import { HoverFeature } from '../../libs/data-types'
 import Map from '../commons/Map'
 import MapHoverTooltip from './MapHoverTooltip'
 
-const COMMUNES_GEO = `${PUBLIC_API_URL}/mali/communes.geojson`
-const CERCLES_DATA = `${PUBLIC_API_URL}/mali/cercles-data.json`
+const COMMUNES_GEO = `${DATA_ENDPOINT}/mali/communes.geojson`
+const CERCLES_DATA = `${DATA_ENDPOINT}/mali/cercles-data.json`
 
 type Props = {
   title: string

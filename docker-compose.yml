@@ -25,8 +25,6 @@ services:
       context: ./mali-portal
       target: devel
     command: npm run dev
-    environment:
-      NEXT_PUBLIC_API_HOST: http://localhost:9000
     volumes:
       - ./mali-portal:/usr/src/app
       - /usr/src/app/.next
@@ -40,8 +38,6 @@ services:
       context: ./sierra-leone-portal
       target: devel
     command: npm run dev
-    environment:
-      NEXT_PUBLIC_API_HOST: http://localhost:9000
     volumes:
       - ./sierra-leone-portal:/usr/src/app
       - /usr/src/app/.next

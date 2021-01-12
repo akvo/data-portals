@@ -4,7 +4,7 @@ import { Row, Col, Card, Tag } from 'antd'
 import Link from 'next/link'
 import { DateTime } from 'luxon'
 import {
-  RESOURCES_API_URL,
+  RESOURCES_ENDPOINT,
   Resource,
   regions,
   documentTypes,
@@ -109,7 +109,7 @@ const Resources: StatelessComponent<Props> = ({ data }) => {
 }
 
 export const getServerSideProps: GetServerSideProps<Props> = async () => {
-  const res = await fetch(RESOURCES_API_URL)
+  const res = await fetch(RESOURCES_ENDPOINT)
   const data = await res.json()
 
   return {

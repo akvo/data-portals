@@ -4,7 +4,7 @@ import { ParsedUrlQuery } from 'querystring'
 import { Row, Col, Button } from 'antd'
 import ReactMarkdown from 'react-markdown/with-html'
 import { DateTime } from 'luxon'
-import { RESOURCES_API_URL, Resource } from '../../libs/resources'
+import { RESOURCES_ENDPOINT, Resource } from '../../libs/resources'
 
 type Props = {
   resource: Resource
@@ -59,7 +59,7 @@ export const getServerSideProps: GetServerSideProps<Props, Params> = async (
   context
 ) => {
   const { slug } = context.params as Params
-  const res = await fetch(RESOURCES_API_URL)
+  const res = await fetch(RESOURCES_ENDPOINT)
   const resources = await res.json()
   const resource = resources.find(
     (it: Resource) => it.slug === decodeURIComponent(slug)

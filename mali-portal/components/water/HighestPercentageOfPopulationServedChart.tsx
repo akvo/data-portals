@@ -1,11 +1,11 @@
 import { StatelessComponent } from 'react'
 import { ResponsiveBar } from '@nivo/bar'
 import { Spin } from 'antd'
-import { PUBLIC_API_URL } from '../../config'
+import { DATA_ENDPOINT } from '../../config'
 import useSWR from 'swr'
 import fetcher from '../../libs/fetcher'
 
-const DATA_SOURCE = `${PUBLIC_API_URL}/mali/possible-progress.json`
+const DATA_SOURCE = `${DATA_ENDPOINT}/mali/possible-progress.json`
 
 const HighestPercentageOfPopulationServedChart: StatelessComponent = () => {
   const { data, error } = useSWR(DATA_SOURCE, fetcher)

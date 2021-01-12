@@ -2,10 +2,10 @@ import { StatelessComponent, useState } from 'react'
 import { Col } from 'antd'
 import useSWR from 'swr'
 import fetcher from '../../libs/fetcher'
-import { PUBLIC_API_URL } from '../../config'
+import { DATA_ENDPOINT } from '../../config'
 import WaterSafetyMap from './WaterSafetyMap'
 
-const REGIONS_DATA = `${PUBLIC_API_URL}/mali/region-names.json`
+const REGIONS_DATA = `${DATA_ENDPOINT}/mali/region-names.json`
 
 const safetyConfig = [
   { color: '#de425b', label: 'Non' },

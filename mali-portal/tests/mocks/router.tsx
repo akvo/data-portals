@@ -36,6 +36,7 @@ const mockRouter: NextRouter = {
     emit: jest.fn(),
   },
   isFallback: false,
+  isReady: true,
 }
 
 export function renderMockRouter(

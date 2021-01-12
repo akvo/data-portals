@@ -4,5 +4,4 @@ metadata:
   name: akvo-data-portals
   namespace: default
 data:
-  api-host: https://api.portals.akvo.org
   google-sql-db-instance: dataportals-prod-database

@@ -101,12 +101,6 @@ spec:
         ports:
         - containerPort: 3000
           protocol: TCP
-        env:
-        - name: NEXT_PUBLIC_API_HOST
-          valueFrom:
-              configMapKeyRef:
-                name: akvo-data-portals
-                key: api-host
       - name: data-portals-sierra-leone
         image: eu.gcr.io/akvo-lumen/data-portals-sierra-leone:${TRAVIS_COMMIT}
         resources:
@@ -117,12 +111,6 @@ spec:
         ports:
         - containerPort: 3001
           protocol: TCP
-        env:
-        - name: NEXT_PUBLIC_API_HOST
-          valueFrom:
-              configMapKeyRef:
-                name: akvo-data-portals
-                key: api-host
       - name: cloudsql-proxy
         image: eu.gcr.io/cloudsql-docker/gce-proxy:1.16
         command: ["/cloud_sql_proxy",

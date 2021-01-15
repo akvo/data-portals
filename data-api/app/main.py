@@ -2,8 +2,8 @@ from functools import lru_cache
 from typing import Any, Iterator, Optional
 
 from fastapi import Depends, FastAPI
-from fastapi.middleware.gzip import GZipMiddleware
 from fastapi.middleware.cors import CORSMiddleware
+from fastapi.middleware.gzip import GZipMiddleware
 from sqlalchemy import create_engine
 from sqlalchemy.engine import Engine
 from sqlalchemy.orm import Session, sessionmaker

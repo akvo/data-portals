@@ -1,5 +1,6 @@
 import { StatelessComponent } from 'react'
 import { Row, Col } from 'antd'
+import DataSamplesMap from '../components/data-samples-map'
 
 const Index: StatelessComponent = () => {
   return (
@@ -15,7 +16,9 @@ const Index: StatelessComponent = () => {
           </div>
         </Col>
       </Row>
-      <Row />
+      <Row className="map fullHeight" id="map01">
+        <DataSamplesMap />
+      </Row>
     </>
   )
 }

@@ -16,7 +16,18 @@ def get_households_geojson() -> Dict[str, Any]:
             "region": item.location_region,
             "district": item.location_district,
             "chiefdom": item.location_chiefdom,
-            "info": item.sdg_improved_source,
+            "sdg_improved_source": item.sdg_improved_source,
+            "sdg_round_trip": item.sdg_round_trip,
+            "sdg_sanitation": item.sdg_sanitation,
+            "sdg_hand_washing": item.sdg_hand_washing,
+            "toilet_facility_type": item.toilet_facility_type,
+            "flush_to": item.flush_to,
+            "share_facility": item.share_facility,
+            "hand_wash_observe": item.hand_wash_observe,
+            "risk_level_ecoli": item["risk.level.ecoli"],
+            "mpn_per_100ml": item["mpn.100ml"],
+            "conf_inter_ecoli": item.conf_inter_ecoli,
+            "photo_ecoli": item.photo_ecoli,
         }
         try:
             feature = Feature(
@@ -50,7 +61,7 @@ def get_waterpoints_geojson() -> Dict[str, Any]:
             "province": item.province,
             "district": item.district,
             "chiefdom": item.chiefdom,
-            "info": item.water_supply_type,
+            "water_supply_type": item.water_supply_type,
         }
         try:
             feature = Feature(

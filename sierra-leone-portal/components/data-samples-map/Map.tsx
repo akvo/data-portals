@@ -56,13 +56,17 @@ const Map: StatelessComponent = () => {
             setPopupFeature(null)
             return
           }
+          const layerId = e.features[0].layer.id
           const props = e.features[0].properties
           const [longitude, latitude] = e.lngLat
-          const info = props.info
+          const source =
+            layerId === 'households'
+              ? props.sdg_improved_source
+              : props.water_supply_type
           setPopupFeature({
             longitude,
             latitude,
-            info,
+            source,
           })
         }}
         error={wpError || hhError}
@@ -89,7 +93,7 @@ const Map: StatelessComponent = () => {
                 <dt>
                   <strong>Source:</strong>
                 </dt>
-                <dd>{popupFeature.info}</dd>
+                <dd>{popupFeature.source}</dd>
               </dl>
             </div>
           </Popup>

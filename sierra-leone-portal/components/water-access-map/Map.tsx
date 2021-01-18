@@ -40,8 +40,8 @@ const Map: StatelessComponent = () => {
         {...DEFAULT_MAP_VIEWPORT}
         interactiveLayerIds={[householdsLayer.id as string]}
         onClick={(e) => {
+          setPopupFeature(null)
           if (!e.features.length) {
-            setPopupFeature(null)
             return
           }
           const [feature] = e.features.filter((f) =>

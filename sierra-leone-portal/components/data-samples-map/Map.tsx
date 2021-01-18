@@ -47,8 +47,8 @@ const Map: StatelessComponent = () => {
           householdsLayer.id as string,
         ]}
         onClick={(e) => {
+          setPopupFeature(null)
           if (!e.features.length) {
-            setPopupFeature(null)
             return
           }
           const layerId = e.features[0].layer.id

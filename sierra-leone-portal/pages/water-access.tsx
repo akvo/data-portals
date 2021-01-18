@@ -1,11 +1,12 @@
 import { StatelessComponent } from 'react'
 import { Row } from 'antd'
+import WaterAccessMap from '../components/water-access-map'
 
 const WaterAccess: StatelessComponent = () => {
   return (
     <>
-      <Row>
-        <h2>Water Access</h2>
+      <Row className="map fullHeight" id="map01">
+        <WaterAccessMap />
       </Row>
     </>
   )

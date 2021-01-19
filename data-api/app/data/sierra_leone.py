@@ -74,3 +74,15 @@ def get_waterpoints_geojson() -> Dict[str, Any]:
             pass
 
     return FeatureCollection(features)
+
+
+def get_water_quality_summary() -> Dict[str, Any]:
+    dataframe = pandas.read_csv(path_to_dataset("sierra-leone/SL_subset2.csv"))
+    summary = (
+        dataframe.groupby(["risk.level.ecoli"])["conf_inter_ecoli", "mpn.100ml"]
+        .mean()
+        .sort_values(by=["mpn.100ml"])
+        .rename(columns={"mpn.100ml": "mpn_100ml"})
+    )
+
+    return summary.to_dict()

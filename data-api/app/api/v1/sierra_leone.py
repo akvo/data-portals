@@ -27,3 +27,13 @@ def get_waterpoints_geojson() -> Any:
         fresh=True,
     )
     return FileResponse(filename)
+
+
+@router.get("/water-quality-summary.json")
+def get_water_quality_summary_json() -> Any:
+    filename = tmp_file_cache(
+        "sierra-leone-water-quality-summary.json",
+        sierra_leone.get_water_quality_summary,
+        fresh=True,
+    )
+    return FileResponse(filename)

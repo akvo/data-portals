@@ -1,4 +1,5 @@
-from typing import Any, Dict
+from collections import OrderedDict
+from typing import Any, Dict, List
 
 import pandas
 from geojson import Feature, FeatureCollection, Point
@@ -86,3 +87,27 @@ def get_water_quality_summary() -> Dict[str, Any]:
     )
 
     return summary.to_dict()
+
+
+def get_shared_facilities_summary() -> List[Dict[str, Any]]:
+    facilities = ["Open Defecation", "Unimproved", "Improved"]
+    result = OrderedDict((facility, {"facility": facility}) for facility in facilities)
+    dataframe = pandas.read_csv(path_to_dataset("sierra-leone/SL_subset2.csv"))
+    summary = dataframe.groupby(["sdg_sanitation", "share_facility"]).size().to_dict()
+    for (facility, shared), size in summary.items():
+        result[facility][shared] = size
+
+    return [val for val in result.values()]
+
+
+def get_unimproved_reason_summary() -> List[Dict[str, Any]]:
+    dataframe = pandas.read_csv(path_to_dataset("sierra-leone/SL_subset2.csv"))
+    unimproved = dataframe[dataframe["sdg_sanitation"] == "Unimproved"]
+    facility_types = (
+        unimproved.groupby(["toilet_facility_type"]).size().sort_values(ascending=False)
+    )
+    result = {"facility": "Unimproved"}
+    for type, size in facility_types.items():
+        result[type] = size
+
+    return [result]

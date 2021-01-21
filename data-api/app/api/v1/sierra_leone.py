@@ -37,3 +37,23 @@ def get_water_quality_summary_json() -> Any:
         fresh=True,
     )
     return FileResponse(filename)
+
+
+@router.get("/shared-facility-summary.json")
+def get_shared_facilities_summary_json() -> Any:
+    filename = tmp_file_cache(
+        "sierra-leone-get-shared-facility-summary.json",
+        sierra_leone.get_shared_facilities_summary,
+        fresh=True,
+    )
+    return FileResponse(filename)
+
+
+@router.get("/unimproved-reason-summary.json")
+def get_unimproved_reason_summary_json() -> Any:
+    filename = tmp_file_cache(
+        "sierra-leone-get-unimproved-reason-summary.json",
+        sierra_leone.get_unimproved_reason_summary,
+        fresh=True,
+    )
+    return FileResponse(filename)

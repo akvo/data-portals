@@ -218,7 +218,7 @@
           }
           &.fullHeight {
             height: calc(100vh - 64px);
-            overflow: scroll;
+            overflow: auto;
           }
           &.dataDark {
             background: rgba($color-primary-dark, 1);
@@ -227,7 +227,7 @@
             
           h2 {
               position: absolute;
-              top: 2rem;
+              top: 3rem;
               left: 50%;
               transform: translate(-50%, -50%);
               text-shadow:.3rem .3rem 0 rgba($color-blue-light, .2) ;
@@ -243,7 +243,7 @@
             border-left: 1px solid rgba($color-primary-light, 0.74);
               h2 {
                 position: absolute;
-                top: 2rem;
+                top: 3rem;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 text-shadow:.3rem .3rem 0 rgba($color-primary-dark, .2) ;
@@ -488,7 +488,7 @@
     padding: 1rem 1.5rem;
     border-radius: 0 .5rem .5rem 0;
     height:95%;
-    overflow-y: scroll;
+    overflow: auto;
     ul {
       margin-top: 2rem;
       padding: 0 1.5rem;
@@ -602,3 +602,35 @@
       }
   }
 }
+/**************** RSR updates ********************/
+.ant-list-item {
+  .ant-card {
+      position: relative;
+      min-height: 40rem;
+      &.ant-card-bordered {
+          border: 1px solid $color-blue-medium;    
+        }
+        .ant-card-cover {
+          border-radius: 1rem;
+          img {
+            width: 99%;
+            margin: .5% 0 0 .5%;
+          }
+        }
+        .ant-card-body {
+          .ant-card-meta {
+            .ant-card-meta-detail {
+              .ant-card-meta-title { 
+                font-weight: 700;
+              }
+              .ant-card-meta-description {}
+            }
+          }
+        }
+        .ant-card-actions {
+          position: absolute;
+          width: 100%;
+          bottom: 0;
+        }
+      }
+  }

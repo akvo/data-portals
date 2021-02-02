@@ -57,7 +57,7 @@ const ProjectUpdates: StatelessComponent = () => {
           </p>
         </Col>
       </Row>
-      <Row>
+      <Row className="rsrUpdates">
         <Col span={16} offset={4}>
           {!data ? (
             <Spin tip="Loading..." />

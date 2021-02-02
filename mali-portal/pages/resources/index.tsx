@@ -34,8 +34,8 @@ const Resources: StatelessComponent<Props> = ({ data }) => {
     )
 
   return (
-    <Row>
-      <Col span={4} offset={4}>
+    <Row  className="resourceList">
+      <Col span={4} offset={4} className="filterBar">
         <div>
           <div>
             <strong>Région</strong>

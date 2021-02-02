@@ -603,19 +603,52 @@
   }
 }
 /**************** RSR updates ********************/
-.ant-list-item {
+.rsrUpdates {
+  .ant-list-item {
+    .ant-card {
+        position: relative;
+        min-height: 30rem;
+        padding-bottom: 47px;
+        &.ant-card-bordered {
+            border: 1px solid $color-blue-medium;    
+          }
+          .ant-card-cover {
+            border-radius: 1rem;
+            overflow: hidden;
+            img {
+              width: 99%;
+              margin: .5% 0 0 .5%;
+            }
+          }
+          .ant-card-body {
+            .ant-card-meta {
+              .ant-card-meta-detail {
+                .ant-card-meta-title { 
+                  font-weight: 700;
+                }
+                .ant-card-meta-description {}
+              }
+            }
+          }
+          .ant-card-actions {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+          }
+        }
+    }
+}
+.resourceList {
   .ant-card {
       position: relative;
-      min-height: 40rem;
+      margin-bottom: 1rem;
+      border-radius: .5rem;
       &.ant-card-bordered {
           border: 1px solid $color-blue-medium;    
         }
         .ant-card-cover {
           border-radius: 1rem;
-          img {
-            width: 99%;
-            margin: .5% 0 0 .5%;
-          }
+          overflow: hidden;
         }
         .ant-card-body {
           .ant-card-meta {
@@ -633,4 +666,4 @@
           bottom: 0;
         }
       }
-  }
+}

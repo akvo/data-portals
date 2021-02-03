@@ -615,6 +615,8 @@ select , input {
         position: relative;
         min-height: 30rem;
         padding-bottom: 47px;
+        background-color: rgba(255,255,255,0.7);
+
         &.ant-card-bordered {
             border: 1px solid $color-blue-medium;    
           }
@@ -641,6 +643,7 @@ select , input {
             position: absolute;
             width: 100%;
             bottom: 0;
+            background-color: rgba(255,255,255,0);
             a {
               color: $color-blue-light;
             }
@@ -650,11 +653,12 @@ select , input {
 }
 .resourceList {
   .filterBar {
-    background-color: #D4DADC;
+    background-color:rgba(#3caea3, .2);
     height: 25vh;
     padding: 1rem;
     border-radius: .5rem;
     border:1px solid rgba($color-blue-light,0.3);
+    box-shadow:3px 3px 0 #3caea3;
 
     select {
       width: 100%;

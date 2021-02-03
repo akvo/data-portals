@@ -35,7 +35,7 @@ const Resources: StatelessComponent<Props> = ({ data }) => {
 
   return (
     <Row  className="resourceList">
-      <Col span={4} offset={4} className="filterBar">
+      <Col span={3} offset={4} className="filterBar">
         <div>
           <div>
             <strong>Région</strong>
@@ -84,7 +84,7 @@ const Resources: StatelessComponent<Props> = ({ data }) => {
           </div>
         </div>
       </Col>
-      <Col span={12} style={{ paddingBottom: '5rem' }}>
+      <Col span={12} offset={1}  style={{ paddingBottom: '5rem' }}>
         {view.map((item: Resource) => (
           <Card key={item.id}>
             <h4>

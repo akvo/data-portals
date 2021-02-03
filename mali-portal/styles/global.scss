@@ -8,9 +8,15 @@
 @import "base/base";
 @import "base/typography";
 @import "base/utilities";
-
+select , input {
+  height: 3rem;
+  border-radius: .5rem;
+  border:1px solid rgba($color-blue-light,0.2);
+  background: rgba(white,1);
+  color: $color-blue-dark;  
+}
 .container {
-  padding-bottom: 2rem;
+  padding-bottom: 3rem;
 
   .ant-layout {
     background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.74), rgba($color-primary-dark, 0.9)) ;
@@ -613,7 +619,7 @@
             border: 1px solid $color-blue-medium;    
           }
           .ant-card-cover {
-            border-radius: 1rem;
+            border-radius: .21rem;
             overflow: hidden;
             img {
               width: 99%;
@@ -634,15 +640,31 @@
             position: absolute;
             width: 100%;
             bottom: 0;
+            a {
+              color: $color-blue-light;
+            }
           }
         }
     }
 }
 .resourceList {
+  .filterBar {
+    background-color: #D4DADC;
+    height: 25vh;
+    padding: 1rem;
+    border-radius: .5rem;
+    border:1px solid rgba($color-blue-light,0.3);
+
+    select {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
   .ant-card {
       position: relative;
       margin-bottom: 1rem;
       border-radius: .5rem;
+      background-color: rgba(255,255,255,0.5);
       &.ant-card-bordered {
           border: 1px solid $color-blue-medium;    
         }

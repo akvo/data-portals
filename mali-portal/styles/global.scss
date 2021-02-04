@@ -633,7 +633,10 @@ select , input {
             .ant-card-meta {
               .ant-card-meta-detail {
                 .ant-card-meta-title { 
+                  font-size: 1.4rem;
                   font-weight: 700;
+                  color: $color-blue-dark;
+                  text-shadow:.2rem .2rem 0 rgba($color-blue-medium, .4) ;
                 }
                 .ant-card-meta-description {}
               }
@@ -643,7 +646,7 @@ select , input {
             position: absolute;
             width: 100%;
             bottom: 0;
-            background-color: rgba(255,255,255,0);
+            background-color: rgba(255,255,255,0.3);
             a {
               color: $color-blue-light;
             }
@@ -678,6 +681,11 @@ select , input {
           overflow: hidden;
         }
         .ant-card-body {
+          h4{
+            a {
+              color: $color-blue-dark;
+            }
+          }
           .ant-card-meta {
             .ant-card-meta-detail {
               .ant-card-meta-title { 

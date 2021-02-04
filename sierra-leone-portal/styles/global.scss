@@ -8,9 +8,15 @@
 @import "base/base";
 @import "base/typography";
 @import "base/utilities";
-
+select , input {
+  height: 3rem;
+  border-radius: .5rem;
+  border:1px solid rgba($color-blue-light,0.2);
+  background: rgba(white,1);
+  color: $color-blue-dark;  
+}
 .container {
-  padding-bottom: 2rem;
+  padding-bottom: 3rem;
 
   .ant-layout {
     background-image: linear-gradient(to right bottom, rgba($color-primary-light, 0.74), rgba($color-primary-dark, 0.9)) ;
@@ -73,7 +79,7 @@
                 }
 
                 &:hover {
-                  color:$color-blue-medium;
+                  color:white;
                   border: 1px solid transparent;
                   font-weight: 300;
                 }
@@ -162,7 +168,7 @@
                 }
                 &[href="#map01"] {
                   background-image: url(../public/map01.svg);
-                }
+                }                
                 &[href="#map02"] {
                   background-image: url(../public/map02.svg);
                 }
@@ -180,7 +186,7 @@
                 }
                 &[href="#pumpStatus"] {
                   background-image: url(../public/piechart.svg);
-                }
+                }                
                 &[href="#fonctionalite"] {
                   background-image: url(../public/barchart2.svg);
                 }
@@ -218,16 +224,16 @@
           }
           &.fullHeight {
             height: calc(100vh - 64px);
-            overflow: scroll;
+            overflow: auto;
           }
           &.dataDark {
             background: rgba($color-primary-dark, 1);
             align-items: center;
             justify-content: center;
-
+            
           h2 {
               position: absolute;
-              top: 2rem;
+              top: 3rem;
               left: 50%;
               transform: translate(-50%, -50%);
               text-shadow:.3rem .3rem 0 rgba($color-blue-light, .2) ;
@@ -243,13 +249,13 @@
             border-left: 1px solid rgba($color-primary-light, 0.74);
               h2 {
                 position: absolute;
-                top: 2rem;
+                top: 3rem;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 text-shadow:.3rem .3rem 0 rgba($color-primary-dark, .2) ;
 
               }
-
+            
             & h1, h2, h3, h4, h5, h6 {
               color: rgba($color-blue-light, 1);
               }
@@ -279,7 +285,7 @@
     text-align: center;
   }
   .decoRect {
-    background: rgba($color: $color-blue-medium, $alpha: .1);
+    background: rgba( $color-blue-medium,.1);
     border-radius: .4rem;
     padding: 1rem 2rem;
     box-shadow: -.2rem -.2rem 0 rgba(white, .4), .3rem .3rem 0 rgba($color-blue-light, .2) ;
@@ -484,11 +490,11 @@
       font-weight: 700;
     }
     text-align: left;
-    background-color:#D4DADC;
+    background-color:rgba(255,255,255, 0.7);
     padding: 1rem 1.5rem;
     border-radius: 0 .5rem .5rem 0;
     height:95%;
-    overflow-y: scroll;
+    overflow: auto;
     ul {
       margin-top: 2rem;
       padding: 0 1.5rem;
@@ -601,4 +607,98 @@
         background: rgba(white, 0.5);
       }
   }
+}
+/**************** RSR updates ********************/
+.rsrUpdates {
+  .ant-list-item {
+    .ant-card {
+        position: relative;
+        min-height: 30rem;
+        padding-bottom: 47px;
+        background-color: rgba(255,255,255,0.7);
+
+        &.ant-card-bordered {
+            border: 1px solid $color-blue-medium;    
+          }
+          .ant-card-cover {
+            border-radius: .21rem;
+            overflow: hidden;
+            img {
+              width: 99%;
+              margin: .5% 0 0 .5%;
+              max-height: 34rem;
+            }
+          }
+          .ant-card-body {
+            .ant-card-meta {
+              .ant-card-meta-detail {
+                .ant-card-meta-title { 
+                  font-size: 1.4rem;
+                  font-weight: 700;
+                  color: $color-blue-dark;
+                  text-shadow:.2rem .2rem 0 rgba($color-blue-medium, .4) ;
+                }
+                .ant-card-meta-description {}
+              }
+            }
+          }
+          .ant-card-actions {
+            position: absolute;
+            width: 100%;
+            bottom: 0;
+            background-color: rgba(255,255,255,0.3);
+            a {
+              color: $color-blue-light;
+            }
+          }
+        }
+    }
+}
+.resourceList {
+  .filterBar {
+    background-color:rgba(#3caea3, .2);
+    height: 25vh;
+    padding: 1rem;
+    border-radius: .5rem;
+    border:1px solid rgba($color-blue-light,0.3);
+    box-shadow:3px 3px 0 #3caea3;
+
+    select {
+      width: 100%;
+      margin-bottom: 2rem;
+    }
+  }
+  .ant-card {
+      position: relative;
+      margin-bottom: 1rem;
+      border-radius: .5rem;
+      background-color: rgba(255,255,255,0.5);
+      &.ant-card-bordered {
+          border: 1px solid $color-blue-medium;    
+        }
+        .ant-card-cover {
+          border-radius: 1rem;
+          overflow: hidden;
+        }
+        .ant-card-body {
+          h4{
+            a {
+              color: $color-blue-dark;
+            }
+          }
+          .ant-card-meta {
+            .ant-card-meta-detail {
+              .ant-card-meta-title { 
+                font-weight: 700;
+              }
+              .ant-card-meta-description {}
+            }
+          }
+        }
+        .ant-card-actions {
+          position: absolute;
+          width: 100%;
+          bottom: 0;
+        }
+      }
 }

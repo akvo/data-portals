@@ -6,17 +6,25 @@ import fetcher from '../../libs/fetcher'
 import { MapPopupFeature } from '../../libs/types'
 import BaseMap from '../base-map'
 
-const householdsSource = `${DATA_ENDPOINT}/households.geojson`
+const householdsConfig = [
+  { color: '#cbc9e2', label: 'Surface water' },
+  { color: '#9e9ac8', label: 'Improved' },
+  { color: '#6a51a3', label: 'Unimproved' },
+]
+
+const waterpointdataSource = `${DATA_ENDPOINT}/waterpointdata.geojson`
 const waterpointsSource = `${DATA_ENDPOINT}/waterpoints.geojson`
-const householdsLayer: LayerProps = {
-  id: 'households',
+const householdsSource = `${DATA_ENDPOINT}/households.geojson`
+const waterpointdataLayer: LayerProps = {
+  id: 'waterpointdata',
   type: 'circle',
+  beforeId: 'households',
   paint: {
-    'circle-color': '#4c6a82',
-    'circle-radius': 3,
-    'circle-opacity': 0.3,
+    'circle-color': '#fdb863',
+    'circle-radius': 2.5,
+    'circle-opacity': 0.7,
     'circle-stroke-color': '#fff',
-    'circle-stroke-width': 0.2,
+    'circle-stroke-width': 1,
     'circle-stroke-opacity': 0.1,
   },
 }
@@ -24,12 +32,31 @@ const waterpointsLayer: LayerProps = {
   id: 'waterpoints',
   type: 'circle',
   paint: {
-    'circle-color': '#ffa600',
-    'circle-radius': 3.5,
-    'circle-opacity': 0.2,
-    'circle-stroke-color': '#ffa600',
-    'circle-stroke-width': 2,
-    'circle-stroke-opacity': 0.7,
+    'circle-color': '#2b8cb3',
+    'circle-radius': 2.5,
+    'circle-opacity': 0.7,
+    'circle-stroke-color': '#fff',
+    'circle-stroke-width': 1,
+    'circle-stroke-opacity': 0.1,
+  },
+}
+const householdsLayer: LayerProps = {
+  id: 'households',
+  type: 'circle',
+  beforeId: 'waterpoints',
+  paint: {
+    'circle-color': [
+      'match',
+      ['get', 'sdg_improved_source'],
+      ...householdsConfig
+        .reduce((c, i) => [...c, i.label, i.color], [] as string[])
+        .concat(['transparent']),
+    ],
+    'circle-radius': 2.7,
+    'circle-opacity': 0.7,
+    'circle-stroke-color': '#fff',
+    'circle-stroke-width': 1,
+    'circle-stroke-opacity': 0.1,
   },
 }
 
@@ -37,6 +64,7 @@ const Map: StatelessComponent = () => {
   const [popupFeature, setPopupFeature] = useState<MapPopupFeature | null>()
   const { data: hhData, error: hhError } = useSWR(householdsSource, fetcher)
   const { data: wpData, error: wpError } = useSWR(waterpointsSource, fetcher)
+  const { data: wdData, error: wdError } = useSWR(waterpointdataSource, fetcher)
 
   return (
     <div style={{ height: '100%', position: 'relative' }}>
@@ -54,19 +82,27 @@ const Map: StatelessComponent = () => {
           const layerId = e.features[0].layer.id
           const props = e.features[0].properties
           const [longitude, latitude] = e.lngLat
-          const source =
+          const data =
             layerId === 'households'
-              ? props.sdg_improved_source
-              : props.water_supply_type
+              ? {
+                  label: 'Household Primary Water Source',
+                  text: props.sdg_improved_source,
+                }
+              : { label: 'Water Point', text: props.water_supply_type }
           setPopupFeature({
             longitude,
             latitude,
-            source,
+            ...data,
           })
         }}
-        error={wpError || hhError}
-        loading={!wpData || !hhData}
+        error={wpError || hhError || wdError}
+        loading={!wpData || !hhData || !wdData}
       >
+        {wdData && (
+          <Source type="geojson" data={wdData}>
+            <Layer {...waterpointdataLayer} />
+          </Source>
+        )}
         {wpData && (
           <Source type="geojson" data={wpData}>
             <Layer {...waterpointsLayer} />
@@ -86,9 +122,9 @@ const Map: StatelessComponent = () => {
             <div style={{ padding: '5px 10px 0 0' }}>
               <dl>
                 <dt>
-                  <strong>Source:</strong>
+                  <strong>{popupFeature.label}:</strong>
                 </dt>
-                <dd>{popupFeature.source}</dd>
+                <dd>{popupFeature.text}</dd>
               </dl>
             </div>
           </Popup>

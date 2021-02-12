@@ -77,6 +77,30 @@ def get_waterpoints_geojson() -> Dict[str, Any]:
     return FeatureCollection(features)
 
 
+def get_waterpointdata_geojson() -> Dict[str, Any]:
+    dataframe = pandas.read_csv(path_to_dataset("sierra-leone/WPDx_SL.csv"))
+    dataframe = dataframe.where(pandas.notnull(dataframe), None)
+    features = []
+    for i in range(0, len(dataframe.index)):
+        item = dataframe.loc[i]
+        longitude = item["#lon_deg"]
+        latitude = item["#lat_deg"]
+        props = {
+            "adm1": item["#adm1"],
+            "adm2": item["#adm2"],
+        }
+        try:
+            feature = Feature(
+                geometry=Point((float(longitude), float(latitude),)),
+                properties=props,
+                id=f"{longitude},{latitude}",
+            )
+            features.append(feature)
+        except ValueError:
+            pass
+    return FeatureCollection(features)
+
+
 def get_water_quality_summary() -> Dict[str, Any]:
     dataframe = pandas.read_csv(path_to_dataset("sierra-leone/SL_subset2.csv"))
     summary = (

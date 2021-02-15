@@ -6,12 +6,12 @@ import fetcher from '../../libs/fetcher'
 import { MapPopupFeature } from '../../libs/types'
 import BaseMap from '../base-map'
 
-const dataSource = `${DATA_ENDPOINT}/households.geojson`
-const sourceConfig = [
-  { type: 'Improved', color: '#67a9cf' },
-  { type: 'Unimproved', color: '#02818a' },
+const waterpointsSource = `${DATA_ENDPOINT}/waterpoints.geojson`
+const householdsSource = `${DATA_ENDPOINT}/households.geojson`
+const householdsConfig = [
+  { type: 'Improved', color: '#a6dba0' },
+  { type: 'Unimproved', color: '#008837' },
 ]
-const sources = sourceConfig.map((c) => c.type)
 const householdsLayer: LayerProps = {
   id: 'households',
   type: 'circle',
@@ -19,51 +19,80 @@ const householdsLayer: LayerProps = {
     'circle-color': [
       'match',
       ['get', 'sdg_improved_source'],
-      ...sourceConfig
+      ...householdsConfig
         .reduce((c, i) => [...c, i.type, i.color], [] as string[])
         .concat(['transparent']),
     ],
-    'circle-radius': 4,
+    'circle-radius': 3,
     'circle-opacity': 0.7,
     'circle-stroke-color': '#fff',
     'circle-stroke-width': 0.2,
     'circle-stroke-opacity': 0.2,
   },
 }
+const waterpointsLayer: LayerProps = {
+  id: 'waterpoints',
+  type: 'circle',
+  paint: {
+    'circle-color': '#2b8cb3',
+    'circle-radius': 3,
+    'circle-opacity': 0.7,
+    'circle-stroke-color': '#fff',
+    'circle-stroke-width': 1,
+    'circle-stroke-opacity': 0.1,
+  },
+}
 
 const Map: StatelessComponent = () => {
   const [popupFeature, setPopupFeature] = useState<MapPopupFeature | null>()
-  const { data, error } = useSWR(dataSource, fetcher)
+  const { data: hhData, error: hhError } = useSWR(householdsSource, fetcher)
+  const { data: wpData, error: wpError } = useSWR(waterpointsSource, fetcher)
   return (
     <div style={{ height: '100%', position: 'relative' }}>
       <BaseMap
         {...DEFAULT_MAP_VIEWPORT}
-        interactiveLayerIds={[householdsLayer.id as string]}
+        interactiveLayerIds={[
+          householdsLayer.id as string,
+          waterpointsLayer.id as string,
+        ]}
         onClick={(e) => {
           setPopupFeature(null)
           if (!e.features.length) {
             return
           }
-          const [feature] = e.features.filter((f) =>
-            sources.includes(f.properties.sdg_improved_source)
-          )
-          const props = feature.properties
+          const layerId = e.features[0].layer.id
+          const props = e.features[0].properties
           const [longitude, latitude] = e.lngLat
-          const source = props.sdg_improved_source
-          const distance = props.sdg_round_trip
+          const data =
+            layerId === 'households'
+              ? [
+                  {
+                    label: 'The main water source is',
+                    text: props.sdg_improved_source,
+                  },
+                  {
+                    label: 'Distance to the main source is',
+                    text: props.sdg_round_trip,
+                  },
+                ]
+              : [{ label: 'Water Point', text: props.water_supply_type }]
           setPopupFeature({
             longitude,
             latitude,
-            source,
-            distance,
+            data,
           })
         }}
-        error={!!error}
-        loading={!data}
+        error={wpError || hhError}
+        loading={!wpData || !hhData}
       >
-        {data && (
-          <Source type="geojson" data={data}>
+        {hhData && (
+          <Source type="geojson" data={hhData}>
             <Layer {...householdsLayer} />
+          </Source>
+        )}
+        {wpData && (
+          <Source type="geojson" data={wpData}>
+            <Layer {...waterpointsLayer} />
           </Source>
         )}
         {popupFeature && (
@@ -73,14 +102,14 @@ const Map: StatelessComponent = () => {
             onClose={() => setPopupFeature(null)}
           >
             <div style={{ padding: '5px 10px 0 0' }}>
-              <div>
-                <strong>The main water source is: </strong>
-                {popupFeature.source}
-              </div>
-              <div>
-                <strong>Distance to the main source is: </strong>
-                {popupFeature.distance}
-              </div>
+              {popupFeature.data.map(
+                ({ label, text }: { label: string; text: string }) => (
+                  <div>
+                    <strong>{label}:</strong>
+                    &nbsp;{text}
+                  </div>
+                )
+              )}
             </div>
           </Popup>
         )}

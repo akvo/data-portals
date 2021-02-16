@@ -2,6 +2,7 @@ import { StatelessComponent } from 'react'
 import { Row } from 'antd'
 import WaterAccessMap from '../components/water-access-map'
 import ReportedWaterSourcesChart from '../components/reported-water-sources-chart'
+import WaterpointDistancesChart from '../components/waterpoint-distances-chart'
 
 const WaterAccess: StatelessComponent = () => {
   return (
@@ -11,6 +12,9 @@ const WaterAccess: StatelessComponent = () => {
       </Row>
       <Row className="dataLight fullHeight">
         <ReportedWaterSourcesChart />
+      </Row>
+      <Row className="dataDark fullHeight">
+        <WaterpointDistancesChart />
       </Row>
     </>
   )

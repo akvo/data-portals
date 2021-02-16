@@ -147,3 +147,16 @@ def get_reported_water_sources_summary() -> List[Dict[str, Any]]:
         sources[key]["value"] = val
 
     return [v for v in sources.values()]
+
+
+def get_waterpoint_distances_summary() -> List[Dict[str, Any]]:
+    sources = OrderedDict(
+        (s, {"distance": s})
+        for s in ["Water on premises", "Less than 30 minutes", "More than 30 minutes"]
+    )
+    dataframe = pandas.read_csv(path_to_dataset("sierra-leone/SL_subset2.csv"))
+    summary = dataframe.groupby(["sdg_round_trip"]).size().to_dict()
+    for key, val in summary.items():
+        sources[key]["value"] = val
+
+    return [v for v in sources.values()]

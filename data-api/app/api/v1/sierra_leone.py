@@ -73,3 +73,13 @@ def get_reported_water_sources_summary() -> Any:
         fresh=True,
     )
     return FileResponse(filename)
+
+
+@router.get("/waterpoint-distances-summary.json")
+def get_waterpoint_distances_summary() -> Any:
+    filename = tmp_file_cache(
+        "sierra-leone-get-waterpoint-distances-summary.json",
+        sierra_leone.get_waterpoint_distances_summary,
+        fresh=True,
+    )
+    return FileResponse(filename)

@@ -35,17 +35,18 @@ const WaterQualitySummary: StatelessComponent = () => {
           ))}
         </tr>
       </thead>
-      {rows.map((row) => (
-        <tr key={row}>
-          <th>{row}</th>
-          {columns.map((column) => (
-            <td key={`${row}:${column}`} style={{ textAlign: 'right' }}>
-              {data[column][row].toFixed(6)}
-            </td>
-          ))}
-        </tr>
-      ))}
-      <tbody></tbody>
+      <tbody>
+        {rows.map((row) => (
+          <tr key={row}>
+            <th>{row}</th>
+            {columns.map((column) => (
+              <td key={`${row}:${column}`} style={{ textAlign: 'right' }}>
+                {data[column][row].toFixed(1)}
+              </td>
+            ))}
+          </tr>
+        ))}
+      </tbody>
     </table>
   )
 }

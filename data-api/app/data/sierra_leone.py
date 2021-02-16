@@ -135,3 +135,15 @@ def get_unimproved_reason_summary() -> List[Dict[str, Any]]:
         result[type] = size
 
     return [result]
+
+
+def get_reported_water_sources_summary() -> List[Dict[str, Any]]:
+    sources = OrderedDict(
+        (s, {"source": s}) for s in ["Improved", "Unimproved", "Surface water"]
+    )
+    dataframe = pandas.read_csv(path_to_dataset("sierra-leone/SL_subset2.csv"))
+    summary = dataframe.groupby(["sdg_improved_source"]).size().to_dict()
+    for key, val in summary.items():
+        sources[key]["value"] = val
+
+    return [v for v in sources.values()]

@@ -2,6 +2,7 @@ import { StatelessComponent } from 'react'
 import { Row } from 'antd'
 import SanitationMap from '../components/sanitation-map'
 import UnimprovedReasonChart from '../components/unimproved-reason-chart'
+import ImprovedReasonChart from '../components/improved-reason-chart'
 import SharedFacilityChart from '../components/shared-facility-chart'
 
 const Sanitation: StatelessComponent = () => {
@@ -14,6 +15,9 @@ const Sanitation: StatelessComponent = () => {
         <UnimprovedReasonChart />
       </Row>
       <Row className="dataDark fullHeight">
+        <ImprovedReasonChart />
+      </Row>
+      <Row className="dataLight fullHeight">
         <SharedFacilityChart />
       </Row>
     </>

@@ -65,6 +65,16 @@ def get_unimproved_reason_summary_json() -> Any:
     return FileResponse(filename)
 
 
+@router.get("/improved-reason-summary.json")
+def get_improved_reason_summary_json() -> Any:
+    filename = tmp_file_cache(
+        "sierra-leone-get-improved-reason-summary.json",
+        sierra_leone.get_improved_reason_summary,
+        fresh=True,
+    )
+    return FileResponse(filename)
+
+
 @router.get("/reported-water-sources-summary.json")
 def get_reported_water_sources_summary() -> Any:
     filename = tmp_file_cache(

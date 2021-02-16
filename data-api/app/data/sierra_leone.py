@@ -137,6 +137,19 @@ def get_unimproved_reason_summary() -> List[Dict[str, Any]]:
     return [result]
 
 
+def get_improved_reason_summary() -> List[Dict[str, Any]]:
+    dataframe = pandas.read_csv(path_to_dataset("sierra-leone/SL_subset2.csv"))
+    unimproved = dataframe[dataframe["sdg_sanitation"] == "Improved"]
+    facility_types = (
+        unimproved.groupby(["toilet_facility_type"]).size().sort_values(ascending=False)
+    )
+    result = {"facility": "Improved"}
+    for type, size in facility_types.items():
+        result[type] = size
+
+    return [result]
+
+
 def get_reported_water_sources_summary() -> List[Dict[str, Any]]:
     sources = OrderedDict(
         (s, {"source": s}) for s in ["Improved", "Unimproved", "Surface water"]

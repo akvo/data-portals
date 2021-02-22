@@ -12,9 +12,7 @@ router = APIRouter()
 @router.get("/households.geojson")
 def get_households_geojson() -> Any:
     filename = tmp_file_cache(
-        "sierra-leone-households.geojson",
-        sierra_leone.get_households_geojson,
-        fresh=True,
+        "sierra-leone-households.geojson", sierra_leone.get_households_geojson
     )
     return FileResponse(filename)
 
@@ -40,7 +38,6 @@ def get_water_quality_summary_json() -> Any:
     filename = tmp_file_cache(
         "sierra-leone-water-quality-summary.json",
         sierra_leone.get_water_quality_summary,
-        fresh=True,
     )
     return FileResponse(filename)
 
@@ -50,7 +47,6 @@ def get_shared_facilities_summary_json() -> Any:
     filename = tmp_file_cache(
         "sierra-leone-get-shared-facility-summary.json",
         sierra_leone.get_shared_facilities_summary,
-        fresh=True,
     )
     return FileResponse(filename)
 
@@ -60,7 +56,6 @@ def get_unimproved_reason_summary_json() -> Any:
     filename = tmp_file_cache(
         "sierra-leone-get-unimproved-reason-summary.json",
         sierra_leone.get_unimproved_reason_summary,
-        fresh=True,
     )
     return FileResponse(filename)
 
@@ -70,7 +65,6 @@ def get_improved_reason_summary_json() -> Any:
     filename = tmp_file_cache(
         "sierra-leone-get-improved-reason-summary.json",
         sierra_leone.get_improved_reason_summary,
-        fresh=True,
     )
     return FileResponse(filename)
 
@@ -80,7 +74,6 @@ def get_reported_water_sources_summary() -> Any:
     filename = tmp_file_cache(
         "sierra-leone-get-reported-water-sources-summary.json",
         sierra_leone.get_reported_water_sources_summary,
-        fresh=True,
     )
     return FileResponse(filename)
 
@@ -90,6 +83,5 @@ def get_waterpoint_distances_summary() -> Any:
     filename = tmp_file_cache(
         "sierra-leone-get-waterpoint-distances-summary.json",
         sierra_leone.get_waterpoint_distances_summary,
-        fresh=True,
     )
     return FileResponse(filename)

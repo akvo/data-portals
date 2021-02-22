@@ -31,9 +31,8 @@ const WaterTreatmentChart: StatelessComponent<Props> = ({ source }) => {
       sliceLabel={function (e) {
         return e.id + ' (' + e.value + ')'
       }}
-      slicesLabelsSkipAngle={10}
-      slicesLabelsTextColor="#f2f2f2"
-      animate={true}
+      sliceLabelsSkipAngle={10}
+      sliceLabelsTextColor="#f2f2f2"
     />
   )
 }

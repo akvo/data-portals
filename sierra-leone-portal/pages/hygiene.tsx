@@ -4,10 +4,7 @@ import HygieneMap from '../components/hygiene-map'
 import useScrollspy from '../libs/use-scrollspy'
 
 const Hygiene: StatelessComponent = () => {
-  const { register, isCurrent } = useScrollspy({
-    defaultSection: 'map01',
-    offset: -50,
-  })
+  const { register, isCurrent } = useScrollspy({ defaultSection: 'map01' })
   return (
     <>
       <nav className="sideNav">

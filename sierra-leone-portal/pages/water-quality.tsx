@@ -5,10 +5,7 @@ import WaterQualitySummary from '../components/water-quality-summary-table'
 import useScrollspy from '../libs/use-scrollspy'
 
 const WaterQuality: StatelessComponent = () => {
-  const { register, isCurrent } = useScrollspy({
-    defaultSection: 'map01',
-    offset: -50,
-  })
+  const { register, isCurrent } = useScrollspy({ defaultSection: 'map01' })
   return (
     <>
       <nav className="sideNav">

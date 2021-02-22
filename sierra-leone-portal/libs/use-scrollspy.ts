@@ -13,7 +13,16 @@ export type ScrollspyObject = {
   isCurrent: TestCurrent
   currentSection: string
 }
-export type ScrollspyHook = (props: ScrollspyProps) => ScrollspyObject
+export type ScrollspyHook = (props?: ScrollspyProps) => ScrollspyObject
+
+const getScrollTop: () => number = () =>
+  document.body.scrollTop || document.documentElement.scrollTop
+
+const getElementOffset: (el: HTMLElement) => number = (el) => {
+  const scrollTop = getScrollTop()
+  const { top } = el.getBoundingClientRect()
+  return Math.floor(top + scrollTop)
+}
 
 export const useScrollspy: ScrollspyHook = ({
   defaultSection = '',
@@ -33,18 +42,19 @@ export const useScrollspy: ScrollspyHook = ({
   const isCurrent: TestCurrent = (section) => currentSection === section
 
   const handle = throttle(() => {
-    let candidateId = currentSection
-    let candidateTop = Number.NEGATIVE_INFINITY
+    let candidate = currentSection
+    let bestOffset = Number.NEGATIVE_INFINITY
     const fields = fieldsRef.current
     Object.keys(fields).forEach((id) => {
       const element = fields[id]
-      const newTop = element.getBoundingClientRect().top
-      if (newTop + offset < 0 && newTop > candidateTop) {
-        candidateId = id
-        candidateTop = newTop
+      const scrollTop = getScrollTop()
+      const elementOffset = getElementOffset(element) + offset
+      if (scrollTop >= elementOffset && elementOffset > bestOffset) {
+        candidate = id
+        bestOffset = elementOffset
       }
     })
-    setCurrentSection(candidateId)
+    setCurrentSection(candidate)
   }, rateLimit)
 
   useEffect(() => {

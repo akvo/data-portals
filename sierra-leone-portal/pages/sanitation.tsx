@@ -7,10 +7,7 @@ import SharedFacilityChart from '../components/shared-facility-chart'
 import useScrollspy from '../libs/use-scrollspy'
 
 const Sanitation: StatelessComponent = () => {
-  const { register, isCurrent } = useScrollspy({
-    defaultSection: 'map01',
-    offset: -50,
-  })
+  const { register, isCurrent } = useScrollspy({ defaultSection: 'map01' })
   return (
     <>
       <nav className="sideNav">

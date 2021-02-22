@@ -69,10 +69,7 @@ const facilitiesSurveyedData = {
 }
 
 const Index: FunctionComponent = () => {
-  const { register, isCurrent } = useScrollspy({
-    defaultSection: 'welcome',
-    offset: -50,
-  })
+  const { register, isCurrent } = useScrollspy({ defaultSection: 'welcome' })
   return (
     <>
       <nav className="sideNav">

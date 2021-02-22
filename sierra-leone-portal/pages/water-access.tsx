@@ -6,10 +6,7 @@ import WaterpointDistancesChart from '../components/waterpoint-distances-chart'
 import useScrollspy from '../libs/use-scrollspy'
 
 const WaterAccess: FunctionComponent = () => {
-  const { register, isCurrent } = useScrollspy({
-    defaultSection: 'map01',
-    offset: -50,
-  })
+  const { register, isCurrent } = useScrollspy({ defaultSection: 'map01' })
   return (
     <>
       <nav className="sideNav">

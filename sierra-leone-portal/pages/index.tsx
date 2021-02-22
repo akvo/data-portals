@@ -3,6 +3,7 @@ import { Row, Col } from 'antd'
 import zipObject from 'lodash.zipobject'
 import DataSamplesMap from '../components/data-samples-map'
 import { Table, ColumnDef } from '../components/simple-table'
+import useScrollspy from '../libs/use-scrollspy'
 
 const getTitle = ({ title }: { title: string }) => title
 
@@ -68,9 +69,40 @@ const facilitiesSurveyedData = {
 }
 
 const Index: FunctionComponent = () => {
+  const { register, isCurrent } = useScrollspy({
+    defaultSection: 'welcome',
+    offset: -50,
+  })
   return (
     <>
-      <Row className="welcome dataLight fullHeight" id="welcome">
+      <nav className="sideNav">
+        <ul>
+          <li className={isCurrent('welcome') ? 'current' : ''}>
+            <a href="#welcome">Welcome</a>
+          </li>
+          <li className={isCurrent('map01') ? 'current' : ''}>
+            <a href="#map01">map 01</a>
+          </li>
+          <li className={isCurrent('table01') ? 'current' : ''}>
+            <a href="#table01">table 01</a>
+          </li>
+          <li className={isCurrent('table02') ? 'current' : ''}>
+            <a href="#table02">table 02</a>
+          </li>
+          <li className={isCurrent('table03') ? 'current' : ''}>
+            <a href="#table03">table 03</a>
+          </li>
+          <li className={isCurrent('table04') ? 'current' : ''}>
+            <a href="#table04">table 04</a>
+          </li>
+          <li>
+            <a href="#map01" className="backUp">
+              Back up
+            </a>
+          </li>
+        </ul>
+      </nav>
+      <Row className="welcome dataLight fullHeight" id="welcome" ref={register}>
         <Col span={8} offset={3}>
           <div className="welcome__text-box">
             <h1 className="heading-primary">
@@ -81,10 +113,10 @@ const Index: FunctionComponent = () => {
           </div>
         </Col>
       </Row>
-      <Row className="map fullHeight" id="map01">
+      <Row className="map fullHeight" id="map01" ref={register}>
         <DataSamplesMap />
       </Row>
-      <Row className="dataSample">
+      <Row className="dataSample" id="table01" ref={register}>
         <Col span={14} offset={5}>
           <h3>Region and Districts of Households Surveyed</h3>
           <Table
@@ -94,7 +126,7 @@ const Index: FunctionComponent = () => {
           />
         </Col>
       </Row>
-      <Row className="dataSample">
+      <Row className="dataSample" id="table02" ref={register}>
         <Col span={14} offset={5}>
           <h3>
             The level of the water source used by the household, according to
@@ -107,7 +139,7 @@ const Index: FunctionComponent = () => {
           />
         </Col>
       </Row>
-      <Row className="dataSample">
+      <Row className="dataSample" id="table03" ref={register}>
         <Col span={14} offset={5}>
           <h3>UNICEF Water Points surveyed</h3>
           <Table
@@ -117,7 +149,7 @@ const Index: FunctionComponent = () => {
           />
         </Col>
       </Row>
-      <Row className="dataSample">
+      <Row className="dataSample" id="table04" ref={register}>
         <Col span={14} offset={5}>
           <h3>Facilities surveyed</h3>
           <Table

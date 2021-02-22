@@ -1,45 +1,28 @@
-import { StatelessComponent, useEffect, useRef, useState } from 'react'
+import { StatelessComponent } from 'react'
 import { Row, Col } from 'antd'
 import { DATA_ENDPOINT } from '../config'
 import WaterTreatmentChart from '../components/water-quality/WaterTreatmentChart'
 import Pollution from '../components/water-quality/PollutionChart'
-import { getBestAnchorGivenScrollLocation } from '../libs/scroll'
 import WaterSafetySection from '../components/water-quality/WaterSafetySection'
 import PercentageOfBrokenWaterPointsChart from '../components/water-quality/PercentageOfBrokenWaterPointsChart'
+import useScrollspy from '../libs/use-scrollspy'
 
 const WaterQuality: StatelessComponent = () => {
-  const sections = useRef<{ [key: string]: any }>()
-  const [currentAnchor, setCurrentAnchor] = useState('')
-  const handleScroll = () => {
-    let anchor: any = getBestAnchorGivenScrollLocation(sections.current, 0)
-    if (anchor === undefined) anchor = 'WPstatus'
-    if (anchor !== currentAnchor) {
-      setCurrentAnchor(anchor)
-    }
-  }
-  useEffect(() => {
-    sections.current = {
-      WPstatus: document.getElementById('WPstatus'),
-      fonctionalite: document.getElementById('fonctionalite'),
-      pumps: document.getElementById('pumps'),
-      pmh: document.getElementById('pmh'),
-    }
-    document.addEventListener('scroll', handleScroll)
-  }, [])
+  const { register, isCurrent } = useScrollspy({ defaultSection: 'WPstatus' })
   return (
     <>
       <nav className="sideNav">
         <ul>
-          <li className={currentAnchor === 'WPstatus' ? 'current' : ''}>
+          <li className={isCurrent('WPstatus') ? 'current' : ''}>
             <a href="#WPstatus">WP status</a>
           </li>
-          <li className={currentAnchor === 'fonctionalite' ? 'current' : ''}>
+          <li className={isCurrent('fonctionalite') ? 'current' : ''}>
             <a href="#fonctionalite">Fonctionalite</a>
           </li>
-          <li className={currentAnchor === 'pumps' ? 'current' : ''}>
+          <li className={isCurrent('pumps') ? 'current' : ''}>
             <a href="#pumps">Pumps</a>
           </li>
-          <li className={currentAnchor === 'pmh' ? 'current' : ''}>
+          <li className={isCurrent('pmh') ? 'current' : ''}>
             <a href="#pmh">PMH</a>
           </li>
           <li>
@@ -49,15 +32,15 @@ const WaterQuality: StatelessComponent = () => {
           </li>
         </ul>
       </nav>
-      <Row className="map fullHeight" id="WPstatus">
+      <Row className="map fullHeight" id="WPstatus" ref={register}>
         <WaterSafetySection />
       </Row>
-      <Row className="dataLight fullHeight" id="fonctionalite">
+      <Row className="dataLight fullHeight" id="fonctionalite" ref={register}>
         <Col span={12} offset={6}>
           <PercentageOfBrokenWaterPointsChart />
         </Col>
       </Row>
-      <Row className="dataDark fullHeight" id="pumps">
+      <Row className="dataDark fullHeight" id="pumps" ref={register}>
         <h2>Pumps</h2>
         <Col span={4} offset={4}>
           <div className="statistic">
@@ -80,7 +63,7 @@ const WaterQuality: StatelessComponent = () => {
           </div>
         </Col>
       </Row>
-      <Row className="dataLight fullHeight" id="pmh">
+      <Row className="dataLight fullHeight" id="pmh" ref={register}>
         <h2>PMH</h2>
         <Col span={4} offset={4}>
           <div className="statistic">

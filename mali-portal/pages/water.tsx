@@ -1,58 +1,39 @@
-import { StatelessComponent, useEffect, useRef, useState } from 'react'
+import { StatelessComponent } from 'react'
 import { Row, Col } from 'antd'
 import { DATA_ENDPOINT } from '../config'
 import DistanceToWaterpointChart from '../components/water/DistanceToWaterpointChart'
 import FrequencyOfPumpTypesChart from '../components/water/FrequencyOfPumpTypesChart'
 import ReasonForAbandonmentChart from '../components/water/ReasonForAbandonmentChart'
 import MechanicVsManualPumpChart from '../components/water/MechanicVsManualPumpChart'
-import { getBestAnchorGivenScrollLocation } from '../libs/scroll'
 import FunctionalWaterPointsPerCercleSection from '../components/water/FunctionalWaterPointsPerCercleSection'
 import AccessToModernWaterPointSection from '../components/water/AccessToModernWaterPointSection'
 import AccessIfBrokerWaterPointsAreRepairedSection from '../components/water/AccessIfBrokenWaterPointsAreRepairedSection'
 import HighestPercentageOfPopulationServedChart from '../components/water/HighestPercentageOfPopulationServedChart'
 import HighestAdditionalPeopleServedChart from '../components/water/HighestAdditionalPeopleServedChart'
+import useScrollspy from '../libs/use-scrollspy'
 
 const Water: StatelessComponent = () => {
-  const sections = useRef<{ [key: string]: any }>()
-  const [currentAnchor, setCurrentAnchor] = useState('')
-  const handleScroll = () => {
-    let anchor: any = getBestAnchorGivenScrollLocation(sections.current, 0)
-    if (anchor === undefined) anchor = 'map01'
-    if (anchor !== currentAnchor) {
-      setCurrentAnchor(anchor)
-    }
-  }
-  useEffect(() => {
-    sections.current = {
-      map01: document.getElementById('map01'),
-      map02: document.getElementById('map02'),
-      map04: document.getElementById('map04'),
-      popService: document.getElementById('popService'),
-      pumpType: document.getElementById('pumpType'),
-      pumpStatus: document.getElementById('pumpStatus'),
-    }
-    document.addEventListener('scroll', handleScroll)
-  }, [])
+  const { register, isCurrent } = useScrollspy({ defaultSection: 'map01' })
   return (
     <>
       <nav className="sideNav">
         <ul>
-          <li className={currentAnchor === 'map01' ? 'current' : ''}>
+          <li className={isCurrent('map01') ? 'current' : ''}>
             <a href="#map01">map 01</a>
           </li>
-          <li className={currentAnchor === 'map02' ? 'current' : ''}>
+          <li className={isCurrent('map02') ? 'current' : ''}>
             <a href="#map02">map 02</a>
           </li>
-          <li className={currentAnchor === 'map04' ? 'current' : ''}>
+          <li className={isCurrent('map04') ? 'current' : ''}>
             <a href="#map04">map 04</a>
           </li>
-          <li className={currentAnchor === 'popService' ? 'current' : ''}>
+          <li className={isCurrent('popService') ? 'current' : ''}>
             <a href="#popService">Population</a>
           </li>
-          <li className={currentAnchor === 'pumpType' ? 'current' : ''}>
+          <li className={isCurrent('pumpType') ? 'current' : ''}>
             <a href="#pumpType">Pump type</a>
           </li>
-          <li className={currentAnchor === 'pumpStatus' ? 'current' : ''}>
+          <li className={isCurrent('pumpStatus') ? 'current' : ''}>
             <a href="#pumpStatus">Pump type</a>
           </li>
           <li>
@@ -62,16 +43,16 @@ const Water: StatelessComponent = () => {
           </li>
         </ul>
       </nav>
-      <Row className="map fullHeight" id="map01">
+      <Row className="map fullHeight" id="map01" ref={register}>
         <FunctionalWaterPointsPerCercleSection />
       </Row>
-      <Row className="map fullHeight" id="map02">
+      <Row className="map fullHeight" id="map02" ref={register}>
         <AccessToModernWaterPointSection />
       </Row>
-      <Row className="map fullHeight" id="map04">
+      <Row className="map fullHeight" id="map04" ref={register}>
         <AccessIfBrokerWaterPointsAreRepairedSection />
       </Row>
-      <Row className="dataLight fullHeight" id="popService">
+      <Row className="dataLight fullHeight" id="popService" ref={register}>
         <Col span={12}>
           <HighestPercentageOfPopulationServedChart />
         </Col>
@@ -79,7 +60,7 @@ const Water: StatelessComponent = () => {
           <HighestAdditionalPeopleServedChart />
         </Col>
       </Row>
-      <Row className="dataDark fullHeight" id="pumpType">
+      <Row className="dataDark fullHeight" id="pumpType" ref={register}>
         <Col span={4}>
           <div className="statistic">
             <div className="statistic-number">81%</div>
@@ -119,7 +100,7 @@ const Water: StatelessComponent = () => {
           </div>
         </Col>
       </Row>
-      <Row className="dataLight fullHeight" id="pumpStatus">
+      <Row className="dataLight fullHeight" id="pumpStatus" ref={register}>
         <Col span={4}>
           <div className="statistic">
             <div className="statistic-number">6%</div>

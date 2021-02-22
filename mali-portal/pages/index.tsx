@@ -1,37 +1,21 @@
-import { StatelessComponent, useEffect, useRef, useState } from 'react'
+import { FunctionComponent } from 'react'
 import { Row, Col } from 'antd'
-import { getBestAnchorGivenScrollLocation } from '../libs/scroll'
 import WaterPointsMapSection from '../components/root/WaterPointsMapSection'
+import useScrollspy from '../libs/use-scrollspy'
 
-const Home: StatelessComponent = () => {
-  const sections = useRef<{ [key: string]: any }>()
-  const [currentAnchor, setCurrentAnchor] = useState('')
-  const handleScroll = () => {
-    let anchor: any = getBestAnchorGivenScrollLocation(sections.current, 0)
-    if (anchor === undefined) anchor = 'welcome'
-    if (anchor !== currentAnchor) {
-      setCurrentAnchor(anchor)
-    }
-  }
-  useEffect(() => {
-    sections.current = {
-      map03: document.getElementById('welcome'),
-      welcome: document.getElementById('map03'),
-      dataTable: document.getElementById('dataTable'),
-    }
-    document.addEventListener('scroll', handleScroll)
-  }, [])
+const Home: FunctionComponent = () => {
+  const { register, isCurrent } = useScrollspy({ defaultSection: 'welcome' })
   return (
     <>
       <nav className="sideNav">
         <ul>
-          <li className={currentAnchor === 'welcome' ? 'current' : ''}>
+          <li className={isCurrent('welcome') ? 'current' : ''}>
             <a href="#welcome">Welcome</a>
           </li>
-          <li className={currentAnchor === 'map03' ? 'current' : ''}>
+          <li className={isCurrent('map03') ? 'current' : ''}>
             <a href="#map03">map 03</a>
           </li>
-          <li className={currentAnchor === 'dataTable' ? 'current' : ''}>
+          <li className={isCurrent('dataTable') ? 'current' : ''}>
             <a href="#dataTable">Data table</a>
           </li>
           <li>
@@ -41,7 +25,7 @@ const Home: StatelessComponent = () => {
           </li>
         </ul>
       </nav>
-      <Row className="welcome dataLight fullHeight" id="welcome">
+      <Row className="welcome dataLight fullHeight" id="welcome" ref={register}>
         <Col span={8} offset={3}>
           <div className="welcome__text-box">
             <h1 className="heading-primary">
@@ -71,10 +55,10 @@ const Home: StatelessComponent = () => {
           </p>
         </Col>
       </Row>
-      <Row className="map fullHeight" id="map03">
+      <Row className="map fullHeight" id="map03" ref={register}>
         <WaterPointsMapSection />
       </Row>
-      <Row className="dataSample" id="dataTable">
+      <Row className="dataSample" id="dataTable" ref={register}>
         <Row className="infoTxt">
           <Col span={20} offset={2}>
             <p>

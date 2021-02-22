@@ -103,8 +103,11 @@ const Map: StatelessComponent = () => {
           >
             <div style={{ padding: '5px 10px 0 0' }}>
               {popupFeature.data.map(
-                ({ label, text }: { label: string; text: string }) => (
-                  <div>
+                (
+                  { label, text }: { label: string; text: string },
+                  index: number
+                ) => (
+                  <div key={index}>
                     <strong>{label}:</strong>
                     &nbsp;{text}
                   </div>

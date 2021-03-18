@@ -19,7 +19,7 @@ const WaterPointsMapSection: StatelessComponent = () => {
   const { data: regionNames } = useSWR(REGIONS_DATA, fetcher)
   return (
     <>
-      <Col span={20}>
+      <Col xs={24} sm={24} md={20} lg={20} xl={20}>
         <div className="map--front">
           <WaterPointsMap
             functionalityConfig={functionalityConfig}
@@ -28,7 +28,7 @@ const WaterPointsMapSection: StatelessComponent = () => {
           />
         </div>
       </Col>
-      <Col span={4}>
+      <Col xs={24} sm={24} md={4} lg={4} xl={4}>
         <div className="map--info">
           <h4>
             Cette carte montre tous les points d'eau ruraux relevés par le

@@ -50,7 +50,7 @@ const WaterQuality: StatelessComponent = () => {
         </Col>
         <Col span={11} offset={1}>
           <div className="card">
-            <h3>Water treatment</h3>
+            <h3>Traitement de l'eau</h3>
             <div className="vis">
               <WaterTreatmentChart
                 source={`${DATA_ENDPOINT}/mali/treatment-type.json`}

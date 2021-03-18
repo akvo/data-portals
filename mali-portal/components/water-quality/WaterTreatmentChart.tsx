@@ -26,7 +26,7 @@ const WaterTreatmentChart: StatelessComponent<Props> = ({ source }) => {
       margin={{ top: 10, right: 20, bottom: 20, left: 20 }}
       startAngle={-180}
       innerRadius={0.45}
-      colors={['#346888', '#9dc6e0']}
+      colors={['#58508d', '#ff6361','#bc5090', '#ffa600','#003f5c' ]}
       enableRadialLabels={false}
       sliceLabel={function (e) {
         return e.id + ' (' + e.value + ')'

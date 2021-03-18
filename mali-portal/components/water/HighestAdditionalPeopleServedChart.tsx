@@ -22,8 +22,7 @@ const HighestAdditionalPeopleServedChart: StatelessComponent = () => {
   return (
     <div className="card">
       <h3>
-        Top 5 districts with highest number of people additionally served when
-        all waterpoints are made operable
+      Top 5 des districts avec le plus grand nombre de personnes desservies lorsque tous les points d'eau sont rendus opérationnels
       </h3>
       <div className="vis">
         <ResponsiveBar
@@ -33,7 +32,7 @@ const HighestAdditionalPeopleServedChart: StatelessComponent = () => {
           layout="vertical"
           margin={{ top: 10, right: 10, bottom: 40, left: 150 }}
           padding={0.3}
-          colors={['#003f5c', '#58508d', '#bc5090', '#ff6361', '#ffa600']}
+          colors={['#ff6361','#58508d', '#bc5090',  '#ffa600']}
           label={(d) => `${d.value}`}
           labelSkipWidth={5}
           labelSkipHeight={2}

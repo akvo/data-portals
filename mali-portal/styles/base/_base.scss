@@ -4,6 +4,8 @@
     margin: 0;
     padding: 0;
     box-sizing: inherit;
+    -webkit-text-size-adjust: none;
+    -webkit-font-size-adjust: none;
 }
 
 html {
@@ -18,7 +20,7 @@ html {
     }
 
     @include respond(big-desktop) {
-        font-size: 75%; //1rem = 12, 12/16
+        font-size: 75%; //1rem = 12, 12/16r
     }
 }
 
@@ -28,6 +30,7 @@ body {
   @include respond(tab-port) {
         padding: 0;
     }
+
 }
 
 ::selection {

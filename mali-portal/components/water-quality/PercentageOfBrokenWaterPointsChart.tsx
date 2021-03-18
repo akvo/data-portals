@@ -30,7 +30,7 @@ const PercentageOfBrokenWaterPointsChart: StatelessComponent = () => {
           layout="vertical"
           margin={{ top: 10, right: 10, bottom: 40, left: 150 }}
           padding={0.3}
-          colors={['#003f5c', '#58508d', '#bc5090', '#ff6361', '#ffa600']}
+          colors={['#bc5090','#58508d', '#ff6361', '#ffa600','#003f5c' ]}
           label={(d) => `${d.value}%`}
           labelSkipWidth={5}
           labelSkipHeight={2}

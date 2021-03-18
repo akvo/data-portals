@@ -27,6 +27,7 @@ const ReasonForAbandonmentChart: StatelessComponent<Props> = ({ source }) => {
       keys={['frequency']}
       layout="horizontal"
       margin={{ top: 0, right: 0, bottom: 40, left: 165 }}
+      colors={['#58508d', '#ff6361','#bc5090', '#ffa600','#003f5c' ]}
       padding={0.3}
       labelSkipWidth={5}
       labelSkipHeight={2}

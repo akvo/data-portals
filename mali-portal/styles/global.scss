@@ -552,8 +552,9 @@ select , input {
   box-shadow: -.2rem -.2rem 0 rgba(white, .4), .3rem .3rem 0 rgba($color-blue-light, .2) ;
 
   h3 {
-    font-size: 2rem;
+    padding: 10px;
   }
+
   .dataLight & {
     background-color: rgba($color-primary-dark, 0.1);
     border: 0.1rem solid white;
@@ -581,7 +582,7 @@ select , input {
   p {
     border-top: 0.1rem solid $color-primary-dark;
     margin-top: 1rem;
-    font-size: 1.6rem;
+    font-size: 1.2rem;
     .dataDark & {
       border-top: 0.1rem solid white;
       color: white;

@@ -36,19 +36,19 @@ const WaterQuality: StatelessComponent = () => {
         <WaterSafetySection />
       </Row>
       <Row className="dataLight fullHeight" id="fonctionalite" ref={register}>
-        <Col span={12} offset={6}>
+        <Col span={18}>
           <PercentageOfBrokenWaterPointsChart />
         </Col>
       </Row>
       <Row className="dataDark fullHeight" id="pumps" ref={register}>
         <h2>Pumps</h2>
-        <Col span={4} offset={4}>
+        <Col span={4}>
           <div className="statistic">
             <div className="statistic-number">15%</div>
             <div className="statistic-desc">des sources sont traitées</div>
           </div>
         </Col>
-        <Col span={11} offset={1}>
+        <Col span={15} offset={1}>
           <div className="card">
             <h3>Traitement de l'eau</h3>
             <div className="vis">
@@ -65,7 +65,7 @@ const WaterQuality: StatelessComponent = () => {
       </Row>
       <Row className="dataLight fullHeight" id="pmh" ref={register}>
         <h2>PMH</h2>
-        <Col span={4} offset={4}>
+        <Col span={4}>
           <div className="statistic">
             <div className="statistic-number">77.7%</div>
             <div className="statistic-desc">
@@ -73,7 +73,7 @@ const WaterQuality: StatelessComponent = () => {
             </div>
           </div>
         </Col>
-        <Col span={11} offset={1}>
+        <Col span={15} offset={1}>
           <div className="card">
             <h3>Pollution</h3>
             <div className="vis">

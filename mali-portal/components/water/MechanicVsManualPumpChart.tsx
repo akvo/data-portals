@@ -26,7 +26,7 @@ const MechanicVsManualPumpChart: StatelessComponent<Props> = ({ source }) => {
       margin={{ top: 10, right: 20, bottom: 10, left: 50 }}
       startAngle={-180}
       innerRadius={0.45}
-      colors={['#bcbddc', '#756bb1']}
+      colors={['#bc5090', '#ffa600','#003f5c' ]}
       enableRadialLabels={false}
       sliceLabel={(e) => `${e.id} (${e.value})`}
       sliceLabelsSkipAngle={10}

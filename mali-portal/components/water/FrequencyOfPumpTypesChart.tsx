@@ -29,7 +29,7 @@ const FrequencyOfPumpTypesChart: StatelessComponent<Props> = ({ source }) => {
       layout="vertical"
       margin={{ top: 10, right: 0, bottom: 40, left: 25 }}
       padding={0.1}
-      colors={['#58508d', '#bc5090','#ff6361', '#ffa600']}
+      colors={['#003f5c','#bc5090','#ff6361', '#ffa600']}
       labelSkipWidth={5}
       labelSkipHeight={2}
       labelTextColor="#f2f2f2"

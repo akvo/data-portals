@@ -120,16 +120,30 @@ select , input {
     .ant-layout-content {
       padding-top: 2rem;
       .layout-content {
+        .sideTrigger {
+          position: fixed;
+          display: block;
+          width: 50px;
+          height: 50px;
+          text-indent: -999px;
+          z-index: 99998;
+          top: 5.3rem;
+          left: 0rem;     
+          background: rgba(#173f5f, .5);
+          border-radius: 0 0rem .8rem 0;
+          background-image: url(../public/burger.svg);
+          box-shadow:  .2rem .2rem .5rem rgba($color-dark-grey, .2);
+        }
         .sideNav {
           position: fixed;
           z-index: 99999;
-          top: 5.8rem;
+          top: 5.3rem;
           left: .1rem;
-          background: rgba(white, .8);
-          border-radius: 0 .8rem .8rem 0;
+          background: rgba(white, 1);
+          border-radius: 0 0rem .8rem 0;
           box-shadow:  .2rem .2rem .5rem rgba($color-dark-grey, .2);
           border: .1rem solid rgba($color-grey, .2);
-          opacity: .8;
+          opacity: 0;
           transition: opacity .2s ease-in;
           &:hover {
             opacity: 1;
@@ -233,7 +247,7 @@ select , input {
             
           h2 {
               position: absolute;
-              top: 30px;
+              top: 20px;
               left: 50%;
               transform: translate(-50%, -50%);
               text-shadow:.3rem .3rem 0 rgba($color-blue-light, .2) ;
@@ -249,7 +263,7 @@ select , input {
             border-left: 1px solid rgba($color-primary-light, 0.74);
               h2 {
                 position: absolute;
-                top: 3rem;
+                top: 20px;
                 left: 50%;
                 transform: translate(-50%, -50%);
                 text-shadow:.3rem .3rem 0 rgba($color-primary-dark, .2) ;
@@ -476,6 +490,12 @@ select , input {
     border-bottom: 0.2rem solid rgba($color-primary-dark, .3);
     border-left: 0.2rem solid rgba(white, .3);
     color: rgba($color-font, 0.8);
+    text-align: left;
+    background-color:rgba(255,255,255, 0.9);
+    padding: 1rem 1.5rem;
+    border-radius: 0 .5rem .5rem 0;
+    height:95%;
+    overflow: auto;
 
     .filters {
       width: 100%;
@@ -491,12 +511,7 @@ select , input {
     span {
       font-weight: 700;
     }
-    text-align: left;
-    background-color:rgba(255,255,255, 0.7);
-    padding: 1rem 1.5rem;
-    border-radius: 0 .5rem .5rem 0;
-    height:95%;
-    overflow: auto;
+
     ul {
       margin-top: 2rem;
       padding: 0 1.5rem;

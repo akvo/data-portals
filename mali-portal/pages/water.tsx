@@ -16,6 +16,7 @@ const Water: StatelessComponent = () => {
   const { register, isCurrent } = useScrollspy({ defaultSection: 'map01' })
   return (
     <>
+      <div className="sideTrigger">Page Navigation</div>
       <nav className="sideNav">
         <ul>
           <li className={isCurrent('map01') ? 'current' : ''}>

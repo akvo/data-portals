@@ -11,6 +11,7 @@ const WaterQuality: StatelessComponent = () => {
   const { register, isCurrent } = useScrollspy({ defaultSection: 'WPstatus' })
   return (
     <>
+      <div className="sideTrigger">Page Navigation</div>
       <nav className="sideNav">
         <ul>
           <li className={isCurrent('WPstatus') ? 'current' : ''}>

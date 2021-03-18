@@ -7,6 +7,7 @@ const Home: FunctionComponent = () => {
   const { register, isCurrent } = useScrollspy({ defaultSection: 'welcome' })
   return (
     <>
+      <div className="sideTrigger">Page Navigation</div>
       <nav className="sideNav">
         <ul>
           <li className={isCurrent('welcome') ? 'current' : ''}>

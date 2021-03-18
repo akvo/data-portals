@@ -92,15 +92,16 @@ const Resources: StatelessComponent<Props> = ({ data }) => {
                 <a>{item.title}</a>
               </Link>
             </h4>
-            <p>{DateTime.fromISO(item.date).toFormat('yyyy')}</p>
-            <p>{formatContent(item.content)}</p>
-            <div>
+            <div className="ressourceMeta">
               {item.types.map((type, i) => (
                 <Tag key={i} color={getTypeColor(type)}>
                   {type}
                 </Tag>
               ))}
+              <p>{DateTime.fromISO(item.date).toFormat('yyyy')}</p>
             </div>
+            <p>{formatContent(item.content)}</p>
+
           </Card>
         ))}
       </Col>

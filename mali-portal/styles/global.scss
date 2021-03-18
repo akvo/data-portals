@@ -593,14 +593,17 @@ select , input {
 }
 .ant-collapse{
   background: rgba(white, 0.4);
-  border: .2rem solid $color-primary-dark;
+  border: .2rem solid $color-primary-light;
   text-align: left;
   .ant-collapse-header {
     font-size: 1.5rem;
     color: $color-primary-dark;
   }
   .ant-collapse-item {
-      border-bottom: .2rem solid $color-primary-dark;
+      border-bottom: .2rem solid $color-primary-light;
+    &:last-child {
+      border-bottom: .2rem solid transparent;
+    }
       span {
         svg {
           color: $color-primary-dark;
@@ -657,6 +660,15 @@ select , input {
     }
 }
 .resourceList {
+  .ressourceMeta {
+    span {
+      display: inline-block;
+    }
+    p {
+      display: inline-block;
+      color: $color-blue-light;
+    }
+  }
   .filterBar {
     background-color:rgba(#3caea3, .2);
     height: 25rem;

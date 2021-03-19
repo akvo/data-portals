@@ -26,7 +26,7 @@ const Home: FunctionComponent = () => {
           </li>
         </ul>
       </nav>
-      <Row className="welcome dataLight fullHeight" id="welcome" ref={register}>
+      <Row className="welcome dataLight fullHeight top" id="welcome" ref={register}>
         <Col span={8} offset={3}>
           <div className="welcome__text-box">
             <h1 className="heading-primary">

@@ -5,7 +5,7 @@ import WaterMap from './WaterMap'
 const AccessToModernWaterPointSection: StatelessComponent = () => {
   return (
     <>
-      <Col span={20}>
+      <Col span={18}>
         <div className="map--front">
           <WaterMap
             title="Percentage of the population with access to water"
@@ -13,7 +13,7 @@ const AccessToModernWaterPointSection: StatelessComponent = () => {
           />
         </div>
       </Col>
-      <Col span={4}>
+      <Col span={6}>
         <div className="map--info">
           <h4>
           Pourcentage de la population pouvant accéder à un point d'eau moderne          

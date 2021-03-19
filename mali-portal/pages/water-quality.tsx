@@ -33,7 +33,7 @@ const WaterQuality: StatelessComponent = () => {
           </li>
         </ul>
       </nav>
-      <Row className="map fullHeight" id="WPstatus" ref={register}>
+      <Row className="map fullHeight top" id="WPstatus" ref={register}>
         <WaterSafetySection />
       </Row>
       <Row className="dataLight fullHeight" id="fonctionalite" ref={register}>

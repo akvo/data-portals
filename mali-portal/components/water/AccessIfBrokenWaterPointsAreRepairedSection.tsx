@@ -5,7 +5,7 @@ import WaterMap from './WaterMap'
 const AccessIfBrokerWaterPointsAreRepairedSection: StatelessComponent = () => {
   return (
     <>
-      <Col span={20}>
+      <Col span={18}>
         <div className="map--front">
           <WaterMap
             title="Population with additional access if broken WP are repaired"
@@ -13,7 +13,7 @@ const AccessIfBrokerWaterPointsAreRepairedSection: StatelessComponent = () => {
           />
         </div>
       </Col>
-      <Col span={4}>
+      <Col span={6}>
         <div className="map--info">
           <h4>
           Population capable d'accéder aux points d'eau modernes en cas de rupture d'eau

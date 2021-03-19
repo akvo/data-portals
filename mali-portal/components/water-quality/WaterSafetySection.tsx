@@ -19,7 +19,7 @@ const WaterSafetySection: StatelessComponent = () => {
 
   return (
     <>
-      <Col span={20}>
+      <Col span={18}>
         <div className="map--front">
           <WaterSafetyMap
             safetyConfig={safetyConfig}
@@ -28,20 +28,20 @@ const WaterSafetySection: StatelessComponent = () => {
           />
         </div>
       </Col>
-      <Col span={4}>
+      <Col span={6}>
         <div className="map--info">
-          <span>
+          <h4>
             La sécurité des points d'eau a été évaluée en posant les questions
             suivantes. Si l'un des éléments est absent ou non fonctionnel, le
             point d'eau est classé comme dangereux.
-          </span>
+          </h4>
           <ul>
-            <li> Le point d'eau a-t-il une dalle? </li>
-            <li> Le point d'eau a-t-il une clôture? </li>
-            <li> Le point d'eau dispose-t-il d'un canal d'évacuation? </li>
-            <li> Le point d'eau a-t-il un puisard? </li>
-            <li> Y a-t-il une buanderie au point d'eau? </li>
-            <li> Le point d'eau a-t-il un auge? </li>
+            <li> <p>Le point d'eau a-t-il une dalle?</p> </li>
+            <li> <p>Le point d'eau a-t-il une clôture?</p> </li>
+            <li> <p>Le point d'eau dispose-t-il d'un canal d'évacuation?</p> </li>
+            <li> <p>Le point d'eau a-t-il un puisard?</p> </li>
+            <li> <p>Y a-t-il une buanderie au point d'eau?</p> </li>
+            <li> <p>Le point d'eau a-t-il un auge?</p> </li>
           </ul>
           <div className="filters">
             <div>

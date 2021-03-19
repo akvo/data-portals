@@ -5,7 +5,7 @@ import WaterMap from './WaterMap'
 const FunctionalWaterPointsPerCercleSection: StatelessComponent = () => {
   return (
     <>
-      <Col span={20}>
+      <Col span={18}>
         <div className="map--front">
           <WaterMap
             title="Percentage of functional waterpoints"
@@ -13,7 +13,7 @@ const FunctionalWaterPointsPerCercleSection: StatelessComponent = () => {
           />
         </div>
       </Col>
-      <Col span={4}>
+      <Col span={6}>
         <div className="map--info">
           <h4>Pourcentage de points d'eau fonctionnels par cercle</h4>
           <p>

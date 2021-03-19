@@ -44,7 +44,7 @@ const Water: StatelessComponent = () => {
           </li>
         </ul>
       </nav>
-      <Row className="map fullHeight" id="map01" ref={register}>
+      <Row className="map fullHeight top" id="map01" ref={register}>
         <FunctionalWaterPointsPerCercleSection />
       </Row>
       <Row className="map fullHeight" id="map02" ref={register}>
@@ -54,10 +54,10 @@ const Water: StatelessComponent = () => {
         <AccessIfBrokerWaterPointsAreRepairedSection />
       </Row>
       <Row className="dataLight fullHeight" id="popService" ref={register}>
-        <Col span={12}>
+        <Col span={11}>
           <HighestPercentageOfPopulationServedChart />
         </Col>
-        <Col span={12}>
+        <Col span={11}   offset={1}>
           <HighestAdditionalPeopleServedChart />
         </Col>
       </Row>
@@ -70,7 +70,7 @@ const Water: StatelessComponent = () => {
             </div>
           </div>
         </Col>
-        <Col span={10}>
+        <Col span={9}>
           <div className="card">
             <h3>Fréquence des types de pompe à eau</h3>
             <div className="vis">
@@ -85,7 +85,7 @@ const Water: StatelessComponent = () => {
             </p>
           </div>
         </Col>
-        <Col span={10}>
+        <Col span={9}  offset={1}>
           <div className="card">
             <h3>Distance au point d'eau</h3>
             <div className="vis">
@@ -110,7 +110,7 @@ const Water: StatelessComponent = () => {
             </div>
           </div>
         </Col>
-        <Col span={10}>
+        <Col span={9}>
           <div className="card">
             <h3>Raison de l'abandon du point d'eau</h3>
             <div className="vis">
@@ -124,7 +124,7 @@ const Water: StatelessComponent = () => {
             </p>
           </div>
         </Col>
-        <Col span={10}>
+        <Col span={9}  offset={1}>
           <div className="card">
             <h3>Pompe mécanique versus pompe manuelle</h3>
             <div className="vis">

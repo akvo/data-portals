@@ -56,7 +56,10 @@ select , input {
 
             .ant-menu-item {
               padding: 0;
-
+              &.ant-menu-item-selected {
+                  a {font-weight: 700;
+                }
+              }
               a {
                 color: white;
                 text-transform: uppercase;
@@ -64,7 +67,7 @@ select , input {
                 transition: all 0.3s ease-in;
                 padding: 1rem 2rem;
                 border: 1px solid transparent;
-
+                
                 &::after {
                   content: "";
                   display: inline-block;
@@ -649,7 +652,7 @@ select , input {
         background-color: rgba(255,255,255,1);
         
         &.ant-card-bordered {
-            border: 1px solid $color-blue-medium;    
+            border: 1px solid transparent;    
           }
           .ant-card-cover {
             border-radius: .21rem;
@@ -699,8 +702,8 @@ select , input {
     height: 25rem;
     padding: 1rem;
     border-radius: .5rem;
-    border:1px solid rgba($color-blue-light,0.3);
-    box-shadow:3px 3px 0 #3caea3;
+    border:1px solid rgba($color-blue-light,0);
+    box-shadow:1px 1px 0 #3caea3;
 
     select {
       width: 100%;
@@ -712,10 +715,10 @@ select , input {
       margin-bottom: 1rem;
       border-radius: .5rem;
       background-color: rgba(255,255,255,0.5);
-      box-shadow:.2rem .2rem 0 rgba($color-blue-medium, .4) ;
+      box-shadow:2px 2px 0 rgba($color-blue-medium, .4) ;
 
       &.ant-card-bordered {
-          border: 1px solid $color-blue-medium;    
+          border: 1px solid transparent;    
         }
         .ant-card-cover {
           border-radius: 1rem;

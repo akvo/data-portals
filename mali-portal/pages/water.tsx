@@ -70,7 +70,7 @@ const Water: StatelessComponent = () => {
             </div>
           </div>
         </Col>
-        <Col span={9}>
+        <Col span={9}  offset={1}>
           <div className="card">
             <h3>Fréquence des types de pompe à eau</h3>
             <div className="vis">
@@ -110,7 +110,7 @@ const Water: StatelessComponent = () => {
             </div>
           </div>
         </Col>
-        <Col span={9}>
+        <Col span={9}  offset={1}>
           <div className="card">
             <h3>Raison de l'abandon du point d'eau</h3>
             <div className="vis">

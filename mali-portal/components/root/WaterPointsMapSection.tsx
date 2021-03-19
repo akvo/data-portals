@@ -36,20 +36,21 @@ const WaterPointsMapSection: StatelessComponent = () => {
           </h4>
           <ul>
             <li>
+              <p>
               <span> Fonctionnel </span> signifie que le puits était fonctionnel
               au moment de l'enquête. (Veuillez consulter l'onglet Eau pour plus
-              d'informations sur la saisonnalité)
+              d'informations sur la saisonnalité)</p>
             </li>
             <li>
-              <span> En panne </span> signifie que le puits n’était pas
+            <p><span> En panne </span> signifie que le puits n’était pas
               utilisable au moment de la enquête, car une partie du puits était
-              cassée.
+              cassée.</p>
             </li>
             <li>
-              <span> Non utilisé </span> signifie que le puits n'est pas utilisé
+            <p><span> Non utilisé </span> signifie que le puits n'est pas utilisé
               pour d'autres raisons, la plupart étant que le puits est sec ou
               qu'il y a un point d'eau fonctionnel situé plus près des
-              riverains.
+              riverains.</p>
             </li>
           </ul>
           <div className="filters">

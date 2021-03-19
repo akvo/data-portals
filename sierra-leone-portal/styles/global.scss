@@ -608,6 +608,12 @@ select , input {
       }
   }
 }
+.mapboxgl-ctrl-group {
+  width: 30px;
+  margin: 10px;
+  position: absolute;
+  bottom: 0;
+}
 /**************** RSR updates ********************/
 .rsrUpdates {
   .ant-list-item {

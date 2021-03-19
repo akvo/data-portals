@@ -1,5 +1,8 @@
 import { StatelessComponent, useState } from 'react'
-import ReactMapGL, { InteractiveMapProps } from 'react-map-gl'
+import ReactMapGL, {
+  InteractiveMapProps,
+  NavigationControl,
+} from 'react-map-gl'
 import { Spin } from 'antd'
 
 const positronStyle =
@@ -40,6 +43,7 @@ const Map: StatelessComponent<MapProps> = ({
           zoom: v.zoom,
         })
       }
+      scrollZoom={false}
       mapStyle={positronStyle}
       {...props}
     >
@@ -61,6 +65,7 @@ const Map: StatelessComponent<MapProps> = ({
         </div>
       )}
       {children}
+      <NavigationControl showCompass={false} />
     </ReactMapGL>
   )
 }
